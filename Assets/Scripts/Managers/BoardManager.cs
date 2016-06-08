@@ -24,6 +24,7 @@ public class BoardManager : MonoBehaviour
 
 	public Count grassCount = new Count (2, 7);
 	public GameObject[] grasstiles;
+	public GameObject[] floortiles;
 	private Transform boardHolder;
 	private List <Vector3> gridPosition = new List<Vector3> ();
 	public static BoardManager m_instance = null;
@@ -50,9 +51,9 @@ public class BoardManager : MonoBehaviour
 		boardHolder = new GameObject ("Board").transform;
 		for (int x = -1; x < columns + 1; x++) {
 			for (int y = -1; y < rows + 1; y++) {
-				GameObject toInstantiate = grasstiles [Random.Range (0, grasstiles.Length)];
-				//GameObject instance = Instantiate (toInstantiate, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
-				//instance.transform.SetParent (boardHolder);
+				GameObject toInstantiate = floortiles [Random.Range (0, floortiles.Length)];
+				GameObject instance = Instantiate (toInstantiate, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+				instance.transform.SetParent (boardHolder);
 			}
 		}
 	}
@@ -94,6 +95,12 @@ public class BoardManager : MonoBehaviour
 		InitialiseList ();
             
 		//Instantiate a random number of wall tiles based on minimum and maximum, at randomized positions.
-		LayoutObjectAtRandom (grasstiles, grassCount.minimum, grassCount.maximum);        
+		LayoutObjectAtRandom (grasstiles, grassCount.minimum, grassCount.maximum);
+	}
+
+	public void GetTileInfo (Vector2 tileInfo)
+	{
+		print (tileInfo);
+
 	}
 }

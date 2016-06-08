@@ -30,5 +30,6 @@ public class GridCalculate : MonoBehaviour
 		playerPosition.x += Mathf.Round (x);
 		playerPosition.y += Mathf.Round (y);
 		tile.transform.position = playerPosition;
+		BoardManager.m_instance.GetTileInfo (new Vector2 (playerPosition.x, playerPosition.y));
 	}
 }

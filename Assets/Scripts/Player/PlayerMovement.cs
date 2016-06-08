@@ -28,12 +28,18 @@ public class PlayerMovement : MonoBehaviour
 		float input_y = CnInputManager.GetAxisRaw ("Vertical");
 		float r_input_x = CnInputManager.GetAxisRaw ("Horizontal_Right");
 		float r_input_y = CnInputManager.GetAxisRaw ("Vertical_Right");
+
 		bool isWalking = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
-		anim.SetBool ("isWalking", isWalking);
+		bool isRightStick = (Mathf.Abs (r_input_x) + Mathf.Abs (r_input_y)) > 0;
 
-		GridCalculate.m_instance.CalculatePlayerGrid (r_input_x, r_input_y);		
+		if (isRightStick) {
+			GridCalculate.m_instance.CalculatePlayerGrid (r_input_x, r_input_y);
 
-		if (isWalking) {			
+		}
+		anim.SetBool ("isWalking", isWalking);		
+		
+		if (isWalking) {	
+			GridCalculate.m_instance.CalculatePlayerGrid (r_input_x, r_input_y);					
 			anim.SetFloat ("x", input_x);
 			anim.SetFloat ("y", input_y);
 			transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * speed;
