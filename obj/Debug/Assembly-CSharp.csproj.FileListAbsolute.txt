@@ -20,3 +20,4 @@ C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReferenc
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp.dll
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp.pdb
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\LitJson.dll

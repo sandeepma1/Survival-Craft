@@ -1,0 +1,6587 @@
+fileFormatVersion: 2
+guid: ae33a404f98c46f45a9e28c490a00bea
+timeCreated: 1465496540
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: spring_farmsheet_0
+    21300002: spring_farmsheet_1
+    21300004: spring_farmsheet_2
+    21300006: spring_farmsheet_3
+    21300008: spring_farmsheet_4
+    21300010: spring_farmsheet_5
+    21300012: spring_farmsheet_6
+    21300014: spring_farmsheet_7
+    21300016: spring_farmsheet_8
+    21300018: spring_farmsheet_9
+    21300020: spring_farmsheet_10
+    21300022: spring_farmsheet_11
+    21300024: spring_farmsheet_12
+    21300026: spring_farmsheet_13
+    21300028: spring_farmsheet_14
+    21300030: spring_farmsheet_15
+    21300032: spring_farmsheet_16
+    21300034: spring_farmsheet_17
+    21300036: spring_farmsheet_18
+    21300038: spring_farmsheet_19
+    21300040: spring_farmsheet_20
+    21300042: spring_farmsheet_21
+    21300044: spring_farmsheet_22
+    21300046: spring_farmsheet_23
+    21300048: spring_farmsheet_24
+    21300050: spring_farmsheet_25
+    21300052: spring_farmsheet_26
+    21300054: spring_farmsheet_27
+    21300056: spring_farmsheet_28
+    21300058: spring_farmsheet_29
+    21300060: spring_farmsheet_30
+    21300062: spring_farmsheet_31
+    21300064: spring_farmsheet_32
+    21300066: spring_farmsheet_33
+    21300068: spring_farmsheet_34
+    21300070: spring_farmsheet_35
+    21300072: spring_farmsheet_36
+    21300074: spring_farmsheet_37
+    21300076: spring_farmsheet_38
+    21300078: spring_farmsheet_39
+    21300080: spring_farmsheet_40
+    21300082: spring_farmsheet_41
+    21300084: spring_farmsheet_42
+    21300086: spring_farmsheet_43
+    21300088: spring_farmsheet_44
+    21300090: spring_farmsheet_45
+    21300092: spring_farmsheet_46
+    21300094: spring_farmsheet_47
+    21300096: spring_farmsheet_48
+    21300098: spring_farmsheet_49
+    21300100: spring_farmsheet_50
+    21300102: spring_farmsheet_51
+    21300104: spring_farmsheet_52
+    21300106: spring_farmsheet_53
+    21300108: spring_farmsheet_54
+    21300110: spring_farmsheet_55
+    21300112: spring_farmsheet_56
+    21300114: spring_farmsheet_57
+    21300116: spring_farmsheet_58
+    21300118: spring_farmsheet_59
+    21300120: spring_farmsheet_60
+    21300122: spring_farmsheet_61
+    21300124: spring_farmsheet_62
+    21300126: spring_farmsheet_63
+    21300128: spring_farmsheet_64
+    21300130: spring_farmsheet_65
+    21300132: spring_farmsheet_66
+    21300134: spring_farmsheet_67
+    21300136: spring_farmsheet_68
+    21300138: spring_farmsheet_69
+    21300140: spring_farmsheet_70
+    21300142: spring_farmsheet_71
+    21300144: spring_farmsheet_72
+    21300146: spring_farmsheet_73
+    21300148: spring_farmsheet_74
+    21300150: spring_farmsheet_75
+    21300152: spring_farmsheet_76
+    21300154: spring_farmsheet_77
+    21300156: spring_farmsheet_78
+    21300158: spring_farmsheet_79
+    21300160: spring_farmsheet_80
+    21300162: spring_farmsheet_81
+    21300164: spring_farmsheet_82
+    21300166: spring_farmsheet_83
+    21300168: spring_farmsheet_84
+    21300170: spring_farmsheet_85
+    21300172: spring_farmsheet_86
+    21300174: spring_farmsheet_87
+    21300176: spring_farmsheet_88
+    21300178: spring_farmsheet_89
+    21300180: spring_farmsheet_90
+    21300182: spring_farmsheet_91
+    21300184: spring_farmsheet_92
+    21300186: spring_farmsheet_93
+    21300188: spring_farmsheet_94
+    21300190: spring_farmsheet_95
+    21300192: spring_farmsheet_96
+    21300194: spring_farmsheet_97
+    21300196: spring_farmsheet_98
+    21300198: spring_farmsheet_99
+    21300200: spring_farmsheet_100
+    21300202: spring_farmsheet_101
+    21300204: spring_farmsheet_102
+    21300206: spring_farmsheet_103
+    21300208: spring_farmsheet_104
+    21300210: spring_farmsheet_105
+    21300212: spring_farmsheet_106
+    21300214: spring_farmsheet_107
+    21300216: spring_farmsheet_108
+    21300218: spring_farmsheet_109
+    21300220: spring_farmsheet_110
+    21300222: spring_farmsheet_111
+    21300224: spring_farmsheet_112
+    21300226: spring_farmsheet_113
+    21300228: spring_farmsheet_114
+    21300230: spring_farmsheet_115
+    21300232: spring_farmsheet_116
+    21300234: spring_farmsheet_117
+    21300236: spring_farmsheet_118
+    21300238: spring_farmsheet_119
+    21300240: spring_farmsheet_120
+    21300242: spring_farmsheet_121
+    21300244: spring_farmsheet_122
+    21300246: spring_farmsheet_123
+    21300248: spring_farmsheet_124
+    21300250: spring_farmsheet_125
+    21300252: spring_farmsheet_126
+    21300254: spring_farmsheet_127
+    21300256: spring_farmsheet_128
+    21300258: spring_farmsheet_129
+    21300260: spring_farmsheet_130
+    21300262: spring_farmsheet_131
+    21300264: spring_farmsheet_132
+    21300266: spring_farmsheet_133
+    21300268: spring_farmsheet_134
+    21300270: spring_farmsheet_135
+    21300272: spring_farmsheet_136
+    21300274: spring_farmsheet_137
+    21300276: spring_farmsheet_138
+    21300278: spring_farmsheet_139
+    21300280: spring_farmsheet_140
+    21300282: spring_farmsheet_141
+    21300284: spring_farmsheet_142
+    21300286: spring_farmsheet_143
+    21300288: spring_farmsheet_144
+    21300290: spring_farmsheet_145
+    21300292: spring_farmsheet_146
+    21300294: spring_farmsheet_147
+    21300296: spring_farmsheet_148
+    21300298: spring_farmsheet_149
+    21300300: spring_farmsheet_150
+    21300302: spring_farmsheet_151
+    21300304: spring_farmsheet_152
+    21300306: spring_farmsheet_153
+    21300308: spring_farmsheet_154
+    21300310: spring_farmsheet_155
+    21300312: spring_farmsheet_156
+    21300314: spring_farmsheet_157
+    21300316: spring_farmsheet_158
+    21300318: spring_farmsheet_159
+    21300320: spring_farmsheet_160
+    21300322: spring_farmsheet_161
+    21300324: spring_farmsheet_162
+    21300326: spring_farmsheet_163
+    21300328: spring_farmsheet_164
+    21300330: spring_farmsheet_165
+    21300332: spring_farmsheet_166
+    21300334: spring_farmsheet_167
+    21300336: spring_farmsheet_168
+    21300338: spring_farmsheet_169
+    21300340: spring_farmsheet_170
+    21300342: spring_farmsheet_171
+    21300344: spring_farmsheet_172
+    21300346: spring_farmsheet_173
+    21300348: spring_farmsheet_174
+    21300350: spring_farmsheet_175
+    21300352: spring_farmsheet_176
+    21300354: spring_farmsheet_177
+    21300356: spring_farmsheet_178
+    21300358: spring_farmsheet_179
+    21300360: spring_farmsheet_180
+    21300362: spring_farmsheet_181
+    21300364: spring_farmsheet_182
+    21300366: spring_farmsheet_183
+    21300368: spring_farmsheet_184
+    21300370: spring_farmsheet_185
+    21300372: spring_farmsheet_186
+    21300374: spring_farmsheet_187
+    21300376: spring_farmsheet_188
+    21300378: spring_farmsheet_189
+    21300380: spring_farmsheet_190
+    21300382: spring_farmsheet_191
+    21300384: spring_farmsheet_192
+    21300386: spring_farmsheet_193
+    21300388: spring_farmsheet_194
+    21300390: spring_farmsheet_195
+    21300392: spring_farmsheet_196
+    21300394: spring_farmsheet_197
+    21300396: spring_farmsheet_198
+    21300398: spring_farmsheet_199
+    21300400: spring_farmsheet_200
+    21300402: spring_farmsheet_201
+    21300404: spring_farmsheet_202
+    21300406: spring_farmsheet_203
+    21300408: spring_farmsheet_204
+    21300410: spring_farmsheet_205
+    21300412: spring_farmsheet_206
+    21300414: spring_farmsheet_207
+    21300416: spring_farmsheet_208
+    21300418: spring_farmsheet_209
+    21300420: spring_farmsheet_210
+    21300422: spring_farmsheet_211
+    21300424: spring_farmsheet_212
+    21300426: spring_farmsheet_213
+    21300428: spring_farmsheet_214
+    21300430: spring_farmsheet_215
+    21300432: spring_farmsheet_216
+    21300434: spring_farmsheet_217
+    21300436: spring_farmsheet_218
+    21300438: spring_farmsheet_219
+    21300440: spring_farmsheet_220
+    21300442: spring_farmsheet_221
+    21300444: spring_farmsheet_222
+    21300446: spring_farmsheet_223
+    21300448: spring_farmsheet_224
+    21300450: spring_farmsheet_225
+    21300452: spring_farmsheet_226
+    21300454: spring_farmsheet_227
+    21300456: spring_farmsheet_228
+    21300458: spring_farmsheet_229
+    21300460: spring_farmsheet_230
+    21300462: spring_farmsheet_231
+    21300464: spring_farmsheet_232
+    21300466: spring_farmsheet_233
+    21300468: spring_farmsheet_234
+    21300470: spring_farmsheet_235
+    21300472: spring_farmsheet_236
+    21300474: spring_farmsheet_237
+    21300476: spring_farmsheet_238
+    21300478: spring_farmsheet_239
+    21300480: spring_farmsheet_240
+    21300482: spring_farmsheet_241
+    21300484: spring_farmsheet_242
+    21300486: spring_farmsheet_243
+    21300488: spring_farmsheet_244
+    21300490: spring_farmsheet_245
+    21300492: spring_farmsheet_246
+    21300494: spring_farmsheet_247
+    21300496: spring_farmsheet_248
+    21300498: spring_farmsheet_249
+    21300500: spring_farmsheet_250
+    21300502: spring_farmsheet_251
+    21300504: spring_farmsheet_252
+    21300506: spring_farmsheet_253
+    21300508: spring_farmsheet_254
+    21300510: spring_farmsheet_255
+    21300512: spring_farmsheet_256
+    21300514: spring_farmsheet_257
+    21300516: spring_farmsheet_258
+    21300518: spring_farmsheet_259
+    21300520: spring_farmsheet_260
+    21300522: spring_farmsheet_261
+    21300524: spring_farmsheet_262
+    21300526: spring_farmsheet_263
+    21300528: spring_farmsheet_264
+    21300530: spring_farmsheet_265
+    21300532: spring_farmsheet_266
+    21300534: spring_farmsheet_267
+    21300536: spring_farmsheet_268
+    21300538: spring_farmsheet_269
+    21300540: spring_farmsheet_270
+    21300542: spring_farmsheet_271
+    21300544: spring_farmsheet_272
+    21300546: spring_farmsheet_273
+    21300548: spring_farmsheet_274
+    21300550: spring_farmsheet_275
+    21300552: spring_farmsheet_276
+    21300554: spring_farmsheet_277
+    21300556: spring_farmsheet_278
+    21300558: spring_farmsheet_279
+    21300560: spring_farmsheet_280
+    21300562: spring_farmsheet_281
+    21300564: spring_farmsheet_282
+    21300566: spring_farmsheet_283
+    21300568: spring_farmsheet_284
+    21300570: spring_farmsheet_285
+    21300572: spring_farmsheet_286
+    21300574: spring_farmsheet_287
+    21300576: spring_farmsheet_288
+    21300578: spring_farmsheet_289
+    21300580: spring_farmsheet_290
+    21300582: spring_farmsheet_291
+    21300584: spring_farmsheet_292
+    21300586: spring_farmsheet_293
+    21300588: spring_farmsheet_294
+    21300590: spring_farmsheet_295
+    21300592: spring_farmsheet_296
+    21300594: spring_farmsheet_297
+    21300596: spring_farmsheet_298
+    21300598: spring_farmsheet_299
+    21300600: spring_farmsheet_300
+    21300602: spring_farmsheet_301
+    21300604: spring_farmsheet_302
+    21300606: spring_farmsheet_303
+    21300608: spring_farmsheet_304
+    21300610: spring_farmsheet_305
+    21300612: spring_farmsheet_306
+    21300614: spring_farmsheet_307
+    21300616: spring_farmsheet_308
+    21300618: spring_farmsheet_309
+    21300620: spring_farmsheet_310
+    21300622: spring_farmsheet_311
+    21300624: spring_farmsheet_312
+    21300626: spring_farmsheet_313
+    21300628: spring_farmsheet_314
+    21300630: spring_farmsheet_315
+    21300632: spring_farmsheet_316
+    21300634: spring_farmsheet_317
+    21300636: spring_farmsheet_318
+    21300638: spring_farmsheet_319
+    21300640: spring_farmsheet_320
+    21300642: spring_farmsheet_321
+    21300644: spring_farmsheet_322
+    21300646: spring_farmsheet_323
+    21300648: spring_farmsheet_324
+    21300650: spring_farmsheet_325
+    21300652: spring_farmsheet_326
+    21300654: spring_farmsheet_327
+    21300656: spring_farmsheet_328
+    21300658: spring_farmsheet_329
+    21300660: spring_farmsheet_330
+    21300662: spring_farmsheet_331
+    21300664: spring_farmsheet_332
+    21300666: spring_farmsheet_333
+    21300668: spring_farmsheet_334
+    21300670: spring_farmsheet_335
+    21300672: spring_farmsheet_336
+    21300674: spring_farmsheet_337
+    21300676: spring_farmsheet_338
+    21300678: spring_farmsheet_339
+    21300680: spring_farmsheet_340
+    21300682: spring_farmsheet_341
+    21300684: spring_farmsheet_342
+    21300686: spring_farmsheet_343
+    21300688: spring_farmsheet_344
+    21300690: spring_farmsheet_345
+    21300692: spring_farmsheet_346
+    21300694: spring_farmsheet_347
+    21300696: spring_farmsheet_348
+    21300698: spring_farmsheet_349
+    21300700: spring_farmsheet_350
+    21300702: spring_farmsheet_351
+    21300704: spring_farmsheet_352
+    21300706: spring_farmsheet_353
+    21300708: spring_farmsheet_354
+    21300710: spring_farmsheet_355
+    21300712: spring_farmsheet_356
+    21300714: spring_farmsheet_357
+    21300716: spring_farmsheet_358
+    21300718: spring_farmsheet_359
+    21300720: spring_farmsheet_360
+    21300722: spring_farmsheet_361
+    21300724: spring_farmsheet_362
+    21300726: spring_farmsheet_363
+    21300728: spring_farmsheet_364
+    21300730: spring_farmsheet_365
+    21300732: spring_farmsheet_366
+    21300734: spring_farmsheet_367
+    21300736: spring_farmsheet_368
+    21300738: spring_farmsheet_369
+    21300740: spring_farmsheet_370
+    21300742: spring_farmsheet_371
+    21300744: spring_farmsheet_372
+    21300746: spring_farmsheet_373
+    21300748: spring_farmsheet_374
+    21300750: spring_farmsheet_375
+    21300752: spring_farmsheet_376
+    21300754: spring_farmsheet_377
+    21300756: spring_farmsheet_378
+    21300758: spring_farmsheet_379
+    21300760: spring_farmsheet_380
+    21300762: spring_farmsheet_381
+    21300764: spring_farmsheet_382
+    21300766: spring_farmsheet_383
+    21300768: spring_farmsheet_384
+    21300770: spring_farmsheet_385
+    21300772: spring_farmsheet_386
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: spring_farmsheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3072
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3072
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3072
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 3072
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 20}
+        - {x: -4, y: 8}
+        - {x: -16, y: -4}
+        - {x: -18, y: -11}
+        - {x: -18, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 20}
+    - name: spring_farmsheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3072
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.75, y: 20}
+        - {x: -20.75, y: 20}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 17}
+        - {x: 15.25, y: 18}
+    - name: spring_farmsheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 3072
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 17}
+        - {x: -21, y: -21}
+        - {x: 18, y: -21}
+        - {x: 18, y: -18}
+        - {x: 12, y: -2}
+        - {x: -9, y: 17}
+      - - {x: 19, y: -20}
+        - {x: 21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: -1}
+        - {x: 19, y: -1}
+    - name: spring_farmsheet_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 3072
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.75, y: 21}
+        - {x: -16.75, y: 19}
+        - {x: -20.75, y: 7}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3008
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3008
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3008
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3008
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 3008
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 21.25}
+        - {x: -21, y: 20.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3008
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 3008
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_15
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 3008
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 7.25}
+        - {x: 10.25, y: 21.25}
+    - name: spring_farmsheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2944
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2944
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2944
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2944
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2944
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2944
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2944
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_23
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2944
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 4}
+        - {x: 9.25, y: 22}
+    - name: spring_farmsheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2880
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2880
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2880
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2880
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2880
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_31
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2880
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2816
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2816
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2816
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_36
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2816
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2816
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2816
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_39
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2816
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2752
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2752
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2752
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2752
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2752
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_45
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2752
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_46
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2752
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_47
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2752
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 20.25}
+        - {x: 14.25, y: 21.25}
+    - name: spring_farmsheet_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_50
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_51
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_52
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_53
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_54
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_55
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: -21}
+        - {x: -17.75, y: 22}
+        - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+      - - {x: 5.25, y: 22}
+        - {x: -11.75, y: 7}
+        - {x: -12.75, y: -13}
+        - {x: -12.75, y: -19}
+        - {x: -10.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2624
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_57
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2624
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_58
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2624
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_59
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2624
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_60
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2624
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_61
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2624
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_62
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2624
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_63
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2624
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: -20.75}
+        - {x: -17.75, y: 22.25}
+        - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+    - name: spring_farmsheet_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_65
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2560
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_66
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2560
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_67
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2560
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2560
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_69
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_70
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2560
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_71
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2560
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: -21}
+        - {x: -17.75, y: 21}
+        - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+    - name: spring_farmsheet_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_74
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_75
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_76
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_77
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_78
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_79
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: -20.75}
+        - {x: -17.75, y: 21.25}
+        - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+    - name: spring_farmsheet_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2432
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_81
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2432
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_82
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2432
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_83
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2432
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_84
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2432
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_85
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2432
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_86
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2432
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_87
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2432
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: -21}
+        - {x: -17.75, y: 22}
+        - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+    - name: spring_farmsheet_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2368
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_89
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2368
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_90
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2368
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_91
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2368
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_92
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2368
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_93
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2368
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_94
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2368
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_95
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2368
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: -19.75}
+        - {x: -17.75, y: 22.25}
+        - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+    - name: spring_farmsheet_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_97
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2304
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_98
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2304
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_99
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2304
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_100
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2304
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_101
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2304
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_102
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2304
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 21}
+        - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 15, y: -21}
+        - {x: 16, y: -20}
+        - {x: 18, y: -12}
+        - {x: 18, y: 16}
+    - name: spring_farmsheet_103
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2304
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.75, y: -19}
+        - {x: -19.75, y: -21}
+        - {x: 13.25, y: -21}
+        - {x: 13.25, y: -19}
+        - {x: 11.25, y: -17}
+        - {x: -17.75, y: -17}
+    - name: spring_farmsheet_104
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: -5.75}
+        - {x: -18, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 20.25}
+        - {x: 8, y: 20.25}
+        - {x: -5, y: 18.25}
+    - name: spring_farmsheet_105
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.75, y: 21.25}
+        - {x: -20.75, y: 20.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 20.25}
+        - {x: 18.25, y: 21.25}
+    - name: spring_farmsheet_106
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 20.25}
+        - {x: -21, y: -20.75}
+        - {x: 18, y: -20.75}
+        - {x: 18, y: -5.75}
+        - {x: 16, y: 6.25}
+        - {x: 4, y: 15.25}
+        - {x: -16, y: 20.25}
+    - name: spring_farmsheet_107
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.25, y: -18.75}
+        - {x: 16.25, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: -16.75}
+        - {x: 18.25, y: -16.75}
+      - - {x: -17.75, y: 21.25}
+        - {x: -19.75, y: -10.75}
+        - {x: -19.75, y: -19.75}
+        - {x: -17.75, y: -20.75}
+        - {x: 9.25, y: -20.75}
+        - {x: 20.25, y: 0.25}
+        - {x: 21.25, y: 8.25}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_108
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: -13.75}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: -5.75}
+        - {x: 3, y: -5.75}
+        - {x: -18, y: -7.75}
+    - name: spring_farmsheet_109
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.75, y: 15.25}
+        - {x: -10.75, y: 14.25}
+        - {x: -20.75, y: 0.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 6.25}
+        - {x: 9.25, y: 15.25}
+    - name: spring_farmsheet_110
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 7.25}
+        - {x: -21, y: 7.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 7.25}
+        - {x: 18, y: 6.25}
+    - name: spring_farmsheet_111
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2240
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 6.25}
+        - {x: 14.25, y: 21.25}
+    - name: spring_farmsheet_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 22}
+        - {x: -21, y: 16}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_113
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_114
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 16}
+        - {x: 18, y: 22}
+    - name: spring_farmsheet_115
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_116
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_117
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_118
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_119
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.75, y: 15}
+        - {x: -8.75, y: 22}
+        - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: -16}
+        - {x: 10.25, y: 1}
+    - name: spring_farmsheet_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_121
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_122
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_123
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_124
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_125
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_126
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_127
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_128
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -7}
+        - {x: -19, y: -9}
+        - {x: -13, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_129
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_130
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: -19}
+        - {x: 22, y: -19}
+        - {x: 22, y: 21}
+        - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: -2, y: -21}
+        - {x: 5, y: -20}
+        - {x: 16, y: -8}
+        - {x: 18, y: -4}
+        - {x: 19, y: -17}
+    - name: spring_farmsheet_131
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -20}
+        - {x: -19.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_132
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_133
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_134
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_135
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_136
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1984
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 21.25}
+        - {x: -21, y: 16.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_137
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1984
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 17.25}
+        - {x: 16.25, y: 21.25}
+    - name: spring_farmsheet_138
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1984
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 21.25}
+        - {x: -21, y: 20.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_139
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1984
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.75, y: 21.25}
+        - {x: -20.75, y: 17.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_140
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1984
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_141
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1984
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_142
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1984
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_143
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1984
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_144
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_145
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_146
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -19}
+        - {x: 21, y: -19}
+        - {x: 22, y: -17}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_147
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -20}
+        - {x: -12.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_148
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_149
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_150
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_151
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 19.25, y: -21}
+        - {x: 21.25, y: -16}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_152
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_153
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_154
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: -20.75}
+        - {x: 8, y: -20.75}
+        - {x: 8, y: -1.75}
+        - {x: 5, y: 22.25}
+        - {x: -12, y: 22.25}
+      - - {x: 15, y: -3.75}
+        - {x: 11, y: -10.75}
+        - {x: 11, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: -3.75}
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: -18, y: -19.75}
+        - {x: -18, y: 21.25}
+        - {x: -19, y: 22.25}
+    - name: spring_farmsheet_155
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: 4.25}
+        - {x: -20.75, y: 0.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: -7.75}
+        - {x: -1.75, y: 4.25}
+    - name: spring_farmsheet_156
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 22.25}
+        - {x: -21, y: 2.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_157
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_158
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 5.25}
+        - {x: -12, y: 22.25}
+    - name: spring_farmsheet_159
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: -0.75}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: -2.75}
+        - {x: -14.75, y: -0.75}
+    - name: spring_farmsheet_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 21}
+        - {x: -21, y: 4}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_161
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1792
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.75, y: 21}
+        - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: -6}
+        - {x: 17.25, y: 6}
+    - name: spring_farmsheet_162
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1792
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: -21}
+        - {x: -18, y: -21}
+        - {x: -18, y: -14}
+        - {x: -20, y: -12}
+        - {x: -21, y: -12}
+      - - {x: -12, y: 21}
+        - {x: -12, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_163
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1792
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.25, y: 21}
+        - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: -15.75, y: -21}
+        - {x: -15.75, y: -9}
+        - {x: -14.75, y: -21}
+        - {x: 21.25, y: -21}
+    - name: spring_farmsheet_164
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_165
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1792
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_166
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1792
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_167
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1792
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_168
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -7.75}
+        - {x: -19, y: -12.75}
+        - {x: -9, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_169
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 9.25, y: -20.75}
+        - {x: 22.25, y: -9.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_170
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 21.25}
+        - {x: -12, y: -14.75}
+        - {x: -9, y: -18.75}
+        - {x: 22, y: -18.75}
+        - {x: 22, y: 21.25}
+      - - {x: -21, y: -0.75}
+        - {x: -18, y: 0.25}
+        - {x: -18, y: 4.25}
+        - {x: -20, y: 6.25}
+        - {x: -21, y: 6.25}
+      - - {x: -18, y: 11.25}
+        - {x: -18, y: 21.25}
+        - {x: -21, y: 21.25}
+        - {x: -21, y: 10.25}
+    - name: spring_farmsheet_171
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_172
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_173
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_174
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_175
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_176
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1664
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 17}
+        - {x: 1, y: 14}
+        - {x: -5, y: -3}
+        - {x: -5, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 17}
+    - name: spring_farmsheet_177
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1664
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.25, y: 22}
+        - {x: -2.75, y: 22}
+        - {x: -20.75, y: 17}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 20}
+        - {x: 15.25, y: 21}
+    - name: spring_farmsheet_178
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1664
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 16}
+        - {x: -17, y: 20}
+        - {x: -21, y: 20}
+        - {x: -21, y: -21}
+        - {x: 3, y: -21}
+        - {x: 3, y: -7}
+      - - {x: 19, y: -17}
+        - {x: 21, y: -19}
+        - {x: 22, y: -19}
+        - {x: 22, y: -7}
+        - {x: 19, y: -8}
+    - name: spring_farmsheet_179
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1664
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.75, y: -19}
+        - {x: -9.75, y: -21}
+        - {x: -2.75, y: -21}
+        - {x: -2.75, y: -19}
+        - {x: -4.75, y: -17}
+        - {x: -7.75, y: -17}
+      - - {x: -1.75, y: 22}
+        - {x: -4.75, y: 19}
+        - {x: -4.75, y: -12}
+        - {x: -3.75, y: -21}
+        - {x: 15.25, y: -21}
+        - {x: 15.25, y: 14}
+        - {x: 8.25, y: 22}
+      - - {x: -20.75, y: -7}
+        - {x: -20.75, y: -19}
+        - {x: -16.75, y: -19}
+        - {x: -12.75, y: -15}
+        - {x: -12.75, y: -10}
+        - {x: -16.75, y: -7}
+    - name: spring_farmsheet_180
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1664
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_181
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1664
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_182
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1664
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_183
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1664
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_184
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 22.25}
+        - {x: -21, y: 16.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_185
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_186
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 18, y: -20.75}
+        - {x: 18, y: 17.25}
+        - {x: 12, y: 22.25}
+      - - {x: 19, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 9.25}
+        - {x: 19, y: 8.25}
+    - name: spring_farmsheet_187
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: -20.75}
+        - {x: 15.25, y: -20.75}
+        - {x: 15.25, y: 22.25}
+        - {x: -12.75, y: 22.25}
+        - {x: -20.75, y: 12.25}
+    - name: spring_farmsheet_188
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_189
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_190
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_191
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_192
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -18}
+        - {x: -18, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_193
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_194
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 21}
+        - {x: 19, y: 3}
+        - {x: 18, y: 21}
+        - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_195
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 10.25, y: -21}
+        - {x: 15.25, y: -14}
+        - {x: 15.25, y: 21}
+      - - {x: 16.25, y: -20}
+        - {x: 16.25, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: -18}
+        - {x: 18.25, y: -18}
+    - name: spring_farmsheet_196
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 21}
+        - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 19}
+        - {x: 18, y: 18}
+    - name: spring_farmsheet_197
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 19}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 19}
+    - name: spring_farmsheet_198
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: -21}
+        - {x: -18, y: -21}
+        - {x: -18, y: 17}
+        - {x: -20, y: 19}
+        - {x: -21, y: 19}
+      - - {x: 16, y: -21}
+        - {x: 16, y: 21}
+        - {x: -15, y: 21}
+        - {x: -15, y: -21}
+      - - {x: 19, y: -20}
+        - {x: 20, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 16}
+        - {x: 19, y: 15}
+    - name: spring_farmsheet_199
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.75, y: 19}
+        - {x: -20.75, y: 17}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 17}
+        - {x: 19.25, y: 19}
+    - name: spring_farmsheet_200
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 21.25}
+        - {x: -13, y: -8.75}
+        - {x: 7, y: -16.75}
+        - {x: 11, y: -16.75}
+        - {x: -21, y: -16.75}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_201
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_202
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_203
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_204
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 19.25}
+        - {x: -18, y: 13.25}
+        - {x: -18, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 19.25}
+    - name: spring_farmsheet_205
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: -20.75}
+        - {x: -17.75, y: -20.75}
+        - {x: -17.75, y: 17.25}
+        - {x: -19.75, y: 19.25}
+        - {x: -20.75, y: 19.25}
+      - - {x: -16.75, y: 21.25}
+        - {x: -16.75, y: -15.75}
+        - {x: -11.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 20.25}
+        - {x: 19.25, y: 21.25}
+    - name: spring_farmsheet_206
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 21.25}
+        - {x: -16, y: 21.25}
+        - {x: -21, y: 19.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 19.25}
+        - {x: 19, y: 18.25}
+    - name: spring_farmsheet_207
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.25, y: -20.75}
+        - {x: 15.25, y: 19.25}
+        - {x: -20.75, y: 19.25}
+        - {x: -20.75, y: -20.75}
+    - name: spring_farmsheet_208
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_209
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_210
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_211
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_212
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 22}
+        - {x: -21, y: 14}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_213
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: -21}
+        - {x: -17.75, y: 22}
+        - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+      - - {x: 18.25, y: 2}
+        - {x: 17.25, y: -11}
+        - {x: 17.25, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 9}
+        - {x: 18.25, y: 8}
+    - name: spring_farmsheet_214
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 22}
+        - {x: -21, y: 11}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_215
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: -17}
+        - {x: -17.75, y: 22}
+    - name: spring_farmsheet_216
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 22.25}
+        - {x: -21, y: -16.75}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_217
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 20.25, y: -20.75}
+        - {x: 22.25, y: -18.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_218
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -19.75}
+        - {x: -12, y: -20.75}
+        - {x: 13, y: -20.75}
+        - {x: 22, y: -16.75}
+        - {x: 22, y: 22.25}
+      - - {x: 19, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: -16.75}
+        - {x: 19, y: -17.75}
+    - name: spring_farmsheet_219
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_220
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_221
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: -16.75}
+        - {x: -17.75, y: 22.25}
+      - - {x: 17.25, y: 22.25}
+        - {x: 17.25, y: -4.75}
+        - {x: 21.25, y: -5.75}
+        - {x: 22.25, y: -5.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_222
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_223
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_224
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_225
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 14.25, y: -21}
+        - {x: 21.25, y: -13}
+        - {x: 21.25, y: 10}
+        - {x: 20.25, y: 21}
+    - name: spring_farmsheet_226
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 21}
+        - {x: -21, y: -18}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_227
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_228
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: 7}
+        - {x: -13, y: -6}
+        - {x: -9, y: -10}
+        - {x: -21, y: -18}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_229
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_230
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_231
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_232
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_233
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.25, y: 21.25}
+        - {x: -16.75, y: -19.75}
+        - {x: -16.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+      - - {x: -20.75, y: -11.75}
+        - {x: -17.75, y: -10.75}
+        - {x: -17.75, y: -0.75}
+        - {x: -19.75, y: 1.25}
+        - {x: -20.75, y: 1.25}
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: 17.25}
+        - {x: -6.75, y: 17.25}
+        - {x: -4.75, y: 19.25}
+        - {x: -4.75, y: 21.25}
+    - name: spring_farmsheet_234
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_235
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_236
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_237
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_238
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_239
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_240
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 13}
+        - {x: 20, y: 22}
+    - name: spring_farmsheet_241
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.75, y: 22}
+        - {x: -20.75, y: 8}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_242
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_243
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_244
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_245
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_246
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_247
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_248
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_249
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -15.75}
+        - {x: -19.75, y: -19.75}
+        - {x: -18.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_250
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_251
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_252
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_253
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_254
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_255
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_256
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 20, y: -21}
+        - {x: 20, y: 11}
+        - {x: 18, y: 21}
+    - name: spring_farmsheet_257
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.75, y: 21}
+        - {x: -17.75, y: 15}
+        - {x: -19.75, y: -14}
+        - {x: -19.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_258
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_259
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: -2.75, y: -21}
+        - {x: 15.25, y: -14}
+        - {x: 21.25, y: 4}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_260
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -17}
+        - {x: -16, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_261
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_262
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 19, y: -21}
+        - {x: 22, y: -20}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_263
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_264
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -19.75}
+        - {x: -17, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_265
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -14.75}
+        - {x: -16.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_266
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_267
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: -17.75}
+        - {x: -17.75, y: 21.25}
+    - name: spring_farmsheet_268
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: -17.75}
+        - {x: -21, y: -17.75}
+    - name: spring_farmsheet_269
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.75, y: -19.75}
+        - {x: -16.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: -17.75}
+        - {x: -14.75, y: -17.75}
+    - name: spring_farmsheet_270
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 2.25}
+        - {x: -12, y: -10.75}
+        - {x: -12, y: -18.75}
+        - {x: -11, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 19.25}
+        - {x: 11, y: 19.25}
+    - name: spring_farmsheet_271
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.75, y: 21.25}
+        - {x: -20.75, y: 20.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_272
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.25, y: 22}
+        - {x: -20.75, y: -18}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_273
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_274
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_275
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_276
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_277
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 1}
+        - {x: -21, y: -21}
+        - {x: -18, y: -21}
+        - {x: -18, y: 0}
+        - {x: -20, y: 1}
+      - - {x: -7, y: 22}
+        - {x: -15, y: 17}
+        - {x: -15, y: -20}
+        - {x: -13, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+      - - {x: -18, y: 18}
+        - {x: -18, y: 22}
+        - {x: -21, y: 22}
+        - {x: -21, y: 17}
+    - name: spring_farmsheet_278
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_279
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 22.25}
+        - {x: -21, y: -16.75}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_280
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_281
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_282
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_283
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_284
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_285
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 22.25}
+        - {x: -16, y: 18.25}
+        - {x: -16, y: -0.75}
+        - {x: -13, y: -5.75}
+        - {x: -6, y: -11.75}
+        - {x: -18, y: -16.75}
+        - {x: -18, y: 22.25}
+        - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_286
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 16.25, y: -20.75}
+        - {x: 21.25, y: -18.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_287
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_288
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_289
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_290
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_291
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_292
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_293
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_294
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 10.25, y: -21}
+        - {x: 10.25, y: -9}
+        - {x: -12.75, y: 21}
+    - name: spring_farmsheet_295
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_296
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_297
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_298
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_299
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_300
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_301
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_302
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 3.25}
+        - {x: 19.25, y: 20.25}
+        - {x: 16.25, y: 21.25}
+    - name: spring_farmsheet_303
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_304
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_305
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_306
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_307
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_308
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_309
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_310
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_311
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 22.25}
+        - {x: 18, y: -19.75}
+        - {x: 19, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_312
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_313
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_314
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_315
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_316
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_317
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_318
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_319
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: -18}
+        - {x: -21, y: -18}
+    - name: spring_farmsheet_320
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.25, y: 21}
+        - {x: -20.75, y: -18}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_321
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_322
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_323
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_324
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_325
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_326
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_327
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_328
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_329
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_330
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_331
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_332
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_333
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_334
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_335
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_336
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_337
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_338
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_339
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_340
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_341
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_342
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_343
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_344
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_345
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_346
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_347
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_348
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_349
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_350
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: -17.75, y: -20.75}
+        - {x: 21.25, y: 19.25}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_351
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_352
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_353
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_354
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 21}
+    - name: spring_farmsheet_355
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_356
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_357
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 21}
+    - name: spring_farmsheet_358
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.75, y: -21}
+        - {x: -17.75, y: 21}
+        - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+    - name: spring_farmsheet_359
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_360
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_361
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 21.25}
+    - name: spring_farmsheet_362
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 21.25, y: -20.75}
+        - {x: 21.25, y: 21.25}
+    - name: spring_farmsheet_363
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 21.25}
+    - name: spring_farmsheet_364
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 21.25}
+    - name: spring_farmsheet_365
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: -20.75}
+        - {x: -18, y: 21.25}
+        - {x: -21, y: 21.25}
+        - {x: -21, y: -20.75}
+      - - {x: -12, y: 1.25}
+        - {x: -12, y: -20.75}
+        - {x: 13, y: -20.75}
+        - {x: 13, y: 1.25}
+        - {x: 9, y: 5.25}
+        - {x: -8, y: 5.25}
+    - name: spring_farmsheet_366
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_367
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_368
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 22, y: -21}
+        - {x: 22, y: 22}
+    - name: spring_farmsheet_369
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 21.25, y: -21}
+        - {x: 21.25, y: 22}
+    - name: spring_farmsheet_370
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 22}
+    - name: spring_farmsheet_371
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 22}
+    - name: spring_farmsheet_372
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: -21}
+        - {x: -18, y: 22}
+        - {x: -21, y: 22}
+        - {x: -21, y: -21}
+      - - {x: 13, y: -21}
+        - {x: 13, y: 22}
+        - {x: -12, y: 22}
+        - {x: -12, y: -21}
+    - name: spring_farmsheet_373
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: -1.75}
+        - {x: -2, y: 13.25}
+        - {x: -19, y: 13.25}
+        - {x: -21, y: 11.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: 19.25}
+        - {x: 21, y: 19.25}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_374
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.25, y: 13.25}
+        - {x: -16.75, y: 13.25}
+        - {x: -20.75, y: 7.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 0.25}
+        - {x: 13.25, y: 12.25}
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: 19.25}
+        - {x: 22.25, y: 19.25}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_375
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 13.25}
+        - {x: -2, y: 9.25}
+        - {x: -21, y: -1.75}
+        - {x: -21, y: -20.75}
+        - {x: 22, y: -20.75}
+        - {x: 22, y: 13.25}
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: 19.25}
+        - {x: 22, y: 19.25}
+        - {x: 22, y: 22.25}
+    - name: spring_farmsheet_376
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: -20.75}
+        - {x: -17.75, y: -20.75}
+        - {x: -17.75, y: 9.25}
+        - {x: -19.75, y: 11.25}
+        - {x: -20.75, y: 11.25}
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: 19.25}
+        - {x: 21.25, y: 19.25}
+        - {x: 21.25, y: 22.25}
+    - name: spring_farmsheet_377
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+        - {x: 21, y: -20.75}
+        - {x: 21, y: 22.25}
+    - name: spring_farmsheet_378
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 22.25}
+        - {x: -20.75, y: -20.75}
+        - {x: 22.25, y: -20.75}
+        - {x: 22.25, y: 22.25}
+    - name: spring_farmsheet_379
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: -20.75}
+        - {x: -18, y: 22.25}
+        - {x: -21, y: 22.25}
+        - {x: -21, y: -20.75}
+      - - {x: 13, y: -20.75}
+        - {x: 13, y: 22.25}
+        - {x: -12, y: 22.25}
+        - {x: -12, y: -20.75}
+    - name: spring_farmsheet_380
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -16}
+        - {x: -19, y: -18}
+        - {x: 4, y: -18}
+        - {x: 21, y: -2}
+        - {x: 21, y: 20}
+        - {x: 18, y: 21}
+      - - {x: 8, y: 21}
+        - {x: 9, y: 18}
+        - {x: 21, y: 18}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_381
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -9}
+        - {x: -17.75, y: -18}
+        - {x: 13.25, y: -18}
+        - {x: 22.25, y: -8}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_382
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 21}
+        - {x: -9, y: 18}
+        - {x: -2, y: 18}
+        - {x: -21, y: 18}
+        - {x: -21, y: -15}
+        - {x: -12, y: -18}
+        - {x: 22, y: -18}
+        - {x: 22, y: 21}
+      - - {x: -21, y: 21}
+        - {x: -21, y: 18}
+        - {x: -12, y: 18}
+        - {x: -10, y: 20}
+        - {x: -10, y: 21}
+    - name: spring_farmsheet_383
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: -15}
+        - {x: -17.75, y: -14}
+        - {x: -17.75, y: 13}
+        - {x: -19.75, y: 15}
+        - {x: -20.75, y: 15}
+    - name: spring_farmsheet_384
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 21}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: 21}
+    - name: spring_farmsheet_385
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.75, y: 21}
+        - {x: -20.75, y: -21}
+        - {x: 22.25, y: -21}
+        - {x: 22.25, y: 21}
+    - name: spring_farmsheet_386
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: -21}
+        - {x: -18, y: 21}
+        - {x: -21, y: 21}
+        - {x: -21, y: -21}
+      - - {x: -12, y: 21}
+        - {x: -12, y: -18}
+        - {x: -8, y: -21}
+        - {x: 10, y: -21}
+        - {x: 13, y: -17}
+        - {x: 13, y: 21}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
