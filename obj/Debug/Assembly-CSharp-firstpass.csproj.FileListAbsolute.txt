@@ -1,5 +1,6 @@
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\LitJson.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.Networking.dll
@@ -19,4 +20,3 @@ C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-firstpass.pdb
-C:\GitRepo\SurvivalCraft\Temp\bin\Debug\LitJson.dll

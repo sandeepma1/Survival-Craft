@@ -104,10 +104,8 @@ public class MapGenerator : MonoBehaviour
 
 	public void GetTileInfo (Vector3 pos)
 	{
-		//sprint (G_layer3 [(int)pos.x, (int)pos.y].name);
 		if (G_layer3 [(int)pos.x, (int)pos.y] != null) {
 			G_layer3 [(int)pos.x, (int)pos.y].SetActive (false);
 		}
-
 	}
 }

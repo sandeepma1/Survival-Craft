@@ -45,15 +45,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Bronz\LocalStorage\Demo\DemoLocalStorage.cs" />
+     <Compile Include="Assets\Bronz\LocalStorage\ILocalStore.cs" />
+     <Compile Include="Assets\Bronz\LocalStorage\LocalStore.cs" />
+     <Compile Include="Assets\Bronz\LocalStorage\Providers\DefaultLocalStore.cs" />
+     <Compile Include="Assets\Bronz\LocalStorage\Providers\JSONLocalStore.cs" />
+     <Compile Include="Assets\Bronz\LocalStorage\Providers\SecuredJSONLocalStore.cs" />
+     <Compile Include="Assets\Bronz\LocalStorage\Providers\XMLLocalStore.cs" />
+     <Compile Include="Assets\Bronz\_Common\DebugLogger.cs" />
+     <Compile Include="Assets\Bronz\_Common\DummyLogger.cs" />
+     <Compile Include="Assets\Bronz\_Common\SimpleJson.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\FirstScript.cs" />
      <Compile Include="Assets\Scripts\Managers\BoardManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Player\GridCalculate.cs" />
      <Compile Include="Assets\Scripts\Player\GridMove.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\UI\IGMMenu.cs" />
      <Compile Include="Assets\Scripts\Utilities\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Warp\ScreenFader.cs" />
      <Compile Include="Assets\Scripts\Warp\Warp.cs" />
+     <None Include="Assets\PlayerPrefsElite\JavaScriptVersion\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

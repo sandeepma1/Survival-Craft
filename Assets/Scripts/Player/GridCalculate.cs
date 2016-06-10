@@ -6,11 +6,11 @@ using System.Collections.Generic;
 public class GridCalculate : MonoBehaviour
 {
 	public Transform playerTransform;
-	public GameObject tile;
+	public GameObject cursorTile;
 	Vector3 cursorPosition;
 
 
-	public  static GridCalculate m_instance = null;
+	public static GridCalculate m_instance = null;
 
 	void Awake ()
 	{
@@ -19,7 +19,7 @@ public class GridCalculate : MonoBehaviour
 
 	public void DisableCursorTile ()
 	{
-		tile.SetActive (false);
+		cursorTile.SetActive (false);
 	}
 
 	/*void FixedUpdate ()
@@ -30,18 +30,32 @@ public class GridCalculate : MonoBehaviour
 */
 	public void CalculatePlayerGrid (float x, float y)
 	{
-		tile.SetActive (true);
+		cursorTile.SetActive (true);
 		cursorPosition = new Vector3 (Mathf.Round (playerTransform.position.x), Mathf.Round (playerTransform.position.y - 0.75f), Mathf.Round (playerTransform.position.z));
 		cursorPosition.x += Mathf.Round (x);
 		cursorPosition.y += Mathf.Round (y);
-		tile.transform.position = cursorPosition;
+		cursorTile.transform.position = cursorPosition;
+		StopCoroutine (StartAction ());
+		StartCoroutine (StartAction ());
+	}
+
+	public void CalculatePlayerFrontTile (float x, float y)
+	{
+		cursorPosition = new Vector3 (Mathf.Round (playerTransform.position.x), Mathf.Round (playerTransform.position.y - 0.75f), Mathf.Round (playerTransform.position.z));
+		cursorPosition.x += Mathf.Round (x);
+		cursorPosition.y += Mathf.Round (y);
+		cursorTile.transform.position = cursorPosition;
+	}
+
+	public void ActionButtonPressed ()
+	{
+		StopCoroutine (StartAction ());
 		StartCoroutine (StartAction ());
 	}
 
 	IEnumerator StartAction ()
 	{
-		yield return new WaitForSeconds (1.5f);
-//		print (cursorPosition);
+		yield return new WaitForSeconds (1.0f);
 		MapGenerator.m_instance.GetTileInfo (cursorPosition);
 	}
 
