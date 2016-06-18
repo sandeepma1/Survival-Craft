@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject cursorTile;
 	Vector3 cursorPosition;
 
-
 	//controllers variables
 	int tempX, tempY = 0;
 	float input_x, input_y, r_input_x, r_input_y = 0f;
@@ -30,37 +29,39 @@ public class PlayerMovement : MonoBehaviour
 
 	void Start ()
 	{
-		anim = GetComponent<Animator> ();
+		anim = GetComponent<Animator> ();	
 	}
 
 	void Update ()
 	{
-		input_x = CnInputManager.GetAxisRaw ("Horizontal");
-		input_y = CnInputManager.GetAxisRaw ("Vertical");
-		r_input_x = CnInputManager.GetAxisRaw ("Horizontal_Right");
-		r_input_y = CnInputManager.GetAxisRaw ("Vertical_Right");
+		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+			input_x = CnInputManager.GetAxisRaw ("Horizontal");
+			input_y = CnInputManager.GetAxisRaw ("Vertical");
+			r_input_x = CnInputManager.GetAxisRaw ("Horizontal_Right");
+			r_input_y = CnInputManager.GetAxisRaw ("Vertical_Right");
 
-		isWalking = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
-		isRightStick = (Mathf.Abs (r_input_x) + Mathf.Abs (r_input_y)) > 0;
+			isWalking = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
+			isRightStick = (Mathf.Abs (r_input_x) + Mathf.Abs (r_input_y)) > 0;
 
-		anim.SetBool ("isWalking", isWalking);
+			anim.SetBool ("isWalking", isWalking);
 
-		if (isRightStick) {
-			DualStickCalculation (Mathf.RoundToInt (r_input_x), Mathf.RoundToInt (r_input_y));
-		}
-		if (!isRightStick && PlayerPrefs.GetString ("Controls") == "d") {
-			isCursorTileEnable (false);
-			StopAllCoroutines ();
-		}
-
-		if (isWalking) {
-			isCursorTileEnable (false);
-			if (PlayerPrefs.GetString ("Controls") == "s") {				
-				SingleButtonCalculation (input_x, input_y);							
+			if (isRightStick) {
+				DualStickCalculation (Mathf.RoundToInt (r_input_x), Mathf.RoundToInt (r_input_y));
 			}
-			anim.SetFloat ("x", input_x);
-			anim.SetFloat ("y", input_y);
-			transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * speed;
+			if (!isRightStick && PlayerPrefs.GetString ("Controls") == "d") {
+				isCursorTileEnable (false);
+				StopAllCoroutines ();
+			}
+
+			if (isWalking) {
+				isCursorTileEnable (false);
+				if (PlayerPrefs.GetString ("Controls") == "s") {				
+					SingleButtonCalculation (input_x, input_y);							
+				}
+				anim.SetFloat ("x", input_x);
+				anim.SetFloat ("y", input_y);
+				transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * speed;
+			}
 		}
 	}
 
@@ -102,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
 	IEnumerator StartAction ()
 	{
-		yield return new WaitForSeconds (1.0f);
+		yield return new WaitForSeconds (0.25f);
 		MapGenerator.m_instance.GetTileInfo (cursorPosition);
 	}
 }

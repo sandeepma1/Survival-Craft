@@ -1,0 +1,1104 @@
+fileFormatVersion: 2
+guid: 356325edc8dc765449df52aa45681ba8
+timeCreated: 1466014582
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: farm_0
+    21300002: farm_1
+    21300004: farm_2
+    21300006: farm_3
+    21300008: farm_4
+    21300010: farm_5
+    21300012: farm_6
+    21300014: farm_7
+    21300016: farm_8
+    21300018: farm_9
+    21300020: farm_10
+    21300022: farm_11
+    21300024: farm_12
+    21300026: farm_13
+    21300028: farm_14
+    21300030: farm_15
+    21300032: farm_16
+    21300034: farm_17
+    21300036: farm_18
+    21300038: farm_19
+    21300040: farm_20
+    21300042: farm_21
+    21300044: farm_22
+    21300046: farm_23
+    21300048: farm_24
+    21300050: farm_25
+    21300052: farm_26
+    21300054: farm_27
+    21300056: farm_28
+    21300058: farm_29
+    21300060: farm_30
+    21300062: farm_31
+    21300064: farm_32
+    21300066: farm_33
+    21300068: farm_34
+    21300070: farm_35
+    21300072: farm_36
+    21300074: farm_37
+    21300076: farm_38
+    21300078: farm_39
+    21300080: farm_40
+    21300082: farm_41
+    21300084: farm_42
+    21300086: farm_43
+    21300088: farm_44
+    21300090: farm_45
+    21300092: farm_46
+    21300094: farm_47
+    21300096: farm_48
+    21300098: farm_49
+    21300100: farm_50
+    21300102: farm_51
+    21300104: farm_52
+    21300106: farm_53
+    21300108: farm_54
+    21300110: farm_55
+    21300112: farm_56
+    21300114: farm_57
+    21300116: farm_58
+    21300118: farm_59
+    21300120: farm_60
+    21300122: farm_61
+    21300124: farm_62
+    21300126: farm_63
+    21300128: farm_64
+    21300130: farm_65
+    21300132: farm_66
+    21300134: farm_67
+    21300136: farm_68
+    21300138: farm_69
+    21300140: farm_70
+    21300142: farm_71
+    21300144: farm_72
+    21300146: farm_73
+    21300148: farm_74
+    21300150: farm_75
+    21300152: farm_76
+    21300154: farm_77
+    21300156: farm_78
+    21300158: farm_79
+    21300160: farm_80
+    21300162: farm_81
+    21300164: farm_82
+    21300166: farm_83
+    21300168: farm_84
+    21300170: farm_85
+    21300172: farm_86
+    21300174: farm_87
+    21300176: farm_88
+    21300178: farm_89
+    21300180: farm_90
+    21300182: farm_91
+    21300184: farm_92
+    21300186: farm_93
+    21300188: farm_94
+    21300190: farm_95
+    21300192: farm_96
+    21300194: farm_97
+    21300196: farm_98
+    21300198: farm_99
+    21300200: farm_100
+    21300202: farm_101
+    21300204: farm_102
+    21300206: farm_103
+    21300208: farm_104
+    21300210: farm_105
+    21300212: farm_106
+    21300214: farm_107
+    21300216: farm_108
+    21300218: farm_109
+    21300220: farm_110
+    21300222: farm_111
+    21300224: farm_112
+    21300226: farm_113
+    21300228: farm_114
+    21300230: farm_115
+    21300232: farm_116
+    21300234: farm_117
+    21300236: farm_118
+    21300238: farm_119
+    21300240: farm_120
+    21300242: farm_121
+    21300244: farm_122
+    21300246: farm_123
+    21300248: farm_124
+    21300250: farm_125
+    21300252: farm_126
+    21300254: farm_127
+    21300256: farm_128
+    21300258: farm_129
+    21300260: farm_130
+    21300262: farm_131
+    21300264: farm_132
+    21300266: farm_133
+    21300268: farm_134
+    21300270: farm_135
+    21300272: farm_136
+    21300274: farm_137
+    21300276: farm_138
+    21300278: farm_139
+    21300280: farm_140
+    21300282: farm_141
+    21300284: farm_142
+    21300286: farm_143
+    21300288: farm_144
+    21300290: farm_145
+    21300292: farm_146
+    21300294: farm_147
+    21300296: farm_148
+    21300298: farm_149
+    21300300: farm_150
+    21300302: farm_151
+    21300304: farm_152
+    21300306: farm_153
+    21300308: farm_154
+    21300310: farm_155
+    21300312: farm_156
+    21300314: farm_157
+    21300316: farm_158
+    21300318: farm_159
+    21300320: farm_160
+    21300322: farm_161
+    21300324: farm_162
+    21300326: farm_163
+    21300328: farm_164
+    21300330: farm_165
+    21300332: farm_166
+    21300334: farm_167
+    21300336: farm_168
+    21300338: farm_169
+    21300340: farm_170
+    21300342: farm_171
+    21300344: farm_172
+    21300346: farm_173
+    21300348: farm_174
+    21300350: farm_175
+    21300352: farm_176
+    21300354: farm_177
+    21300356: farm_178
+    21300358: farm_179
+    21300360: farm_180
+    21300362: farm_181
+    21300364: farm_182
+    21300366: farm_183
+    21300368: farm_184
+    21300370: farm_185
+    21300372: farm_186
+    21300374: farm_187
+    21300376: farm_188
+    21300378: farm_189
+    21300380: farm_190
+    21300382: farm_191
+    21300384: farm_192
+    21300386: farm_193
+    21300388: farm_194
+    21300390: farm_195
+    21300392: farm_196
+    21300394: farm_197
+    21300396: farm_198
+    21300398: farm_199
+    21300400: farm_200
+    21300402: farm_201
+    21300404: farm_202
+    21300406: farm_203
+    21300408: farm_204
+    21300410: farm_205
+    21300412: farm_206
+    21300414: farm_207
+    21300416: farm_208
+    21300418: farm_209
+    21300420: farm_210
+    21300422: farm_211
+    21300424: farm_212
+    21300426: farm_213
+    21300428: farm_214
+    21300430: farm_215
+    21300432: farm_216
+    21300434: farm_217
+    21300436: farm_218
+    21300438: farm_219
+    21300440: farm_220
+    21300442: farm_221
+    21300444: farm_222
+    21300446: farm_223
+    21300448: farm_224
+    21300450: farm_225
+    21300452: farm_226
+    21300454: farm_227
+    21300456: farm_228
+    21300458: farm_229
+    21300460: farm_230
+    21300462: farm_231
+    21300464: farm_232
+    21300466: farm_233
+    21300468: farm_234
+    21300470: farm_235
+    21300472: farm_236
+    21300474: farm_237
+    21300476: farm_238
+    21300478: farm_239
+    21300480: farm_240
+    21300482: farm_241
+    21300484: farm_242
+    21300486: farm_243
+    21300488: farm_244
+    21300490: farm_245
+    21300492: farm_246
+    21300494: farm_247
+    21300496: farm_248
+    21300498: farm_249
+    21300500: farm_250
+    21300502: farm_251
+    21300504: farm_252
+    21300506: farm_253
+    21300508: farm_254
+    21300510: farm_255
+    21300512: farm_256
+    21300514: farm_257
+    21300516: farm_258
+    21300518: farm_259
+    21300520: farm_260
+    21300522: farm_261
+    21300524: farm_262
+    21300526: farm_263
+    21300528: farm_264
+    21300530: farm_265
+    21300532: farm_266
+    21300534: farm_267
+    21300536: farm_268
+    21300538: farm_269
+    21300540: farm_270
+    21300542: farm_271
+    21300544: farm_272
+    21300546: farm_273
+    21300548: farm_274
+    21300550: farm_275
+    21300552: farm_276
+    21300554: farm_277
+    21300556: farm_278
+    21300558: farm_279
+    21300560: farm_280
+    21300562: farm_281
+    21300564: farm_282
+    21300566: farm_283
+    21300568: farm_284
+    21300570: farm_285
+    21300572: farm_286
+    21300574: farm_287
+    21300576: farm_288
+    21300578: farm_289
+    21300580: farm_290
+    21300582: farm_291
+    21300584: farm_292
+    21300586: farm_293
+    21300588: farm_294
+    21300590: farm_295
+    21300592: farm_296
+    21300594: farm_297
+    21300596: farm_298
+    21300598: farm_299
+    21300600: farm_300
+    21300602: farm_301
+    21300604: farm_302
+    21300606: farm_303
+    21300608: farm_304
+    21300610: farm_305
+    21300612: farm_306
+    21300614: farm_307
+    21300616: farm_308
+    21300618: farm_309
+    21300620: farm_310
+    21300622: farm_311
+    21300624: farm_312
+    21300626: farm_313
+    21300628: farm_314
+    21300630: farm_315
+    21300632: farm_316
+    21300634: farm_317
+    21300636: farm_318
+    21300638: farm_319
+    21300640: farm_320
+    21300642: farm_321
+    21300644: farm_322
+    21300646: farm_323
+    21300648: farm_324
+    21300650: farm_325
+    21300652: farm_326
+    21300654: farm_327
+    21300656: farm_328
+    21300658: farm_329
+    21300660: farm_330
+    21300662: farm_331
+    21300664: farm_332
+    21300666: farm_333
+    21300668: farm_334
+    21300670: farm_335
+    21300672: farm_336
+    21300674: farm_337
+    21300676: farm_338
+    21300678: farm_339
+    21300680: farm_340
+    21300682: farm_341
+    21300684: farm_342
+    21300686: farm_343
+    21300688: farm_344
+    21300690: farm_345
+    21300692: farm_346
+    21300694: farm_347
+    21300696: farm_348
+    21300698: farm_349
+    21300700: farm_350
+    21300702: farm_351
+    21300704: farm_352
+    21300706: farm_353
+    21300708: farm_354
+    21300710: farm_355
+    21300712: farm_356
+    21300714: farm_357
+    21300716: farm_358
+    21300718: farm_359
+    21300720: farm_360
+    21300722: farm_361
+    21300724: farm_362
+    21300726: farm_363
+    21300728: farm_364
+    21300730: farm_365
+    21300732: farm_366
+    21300734: farm_367
+    21300736: farm_368
+    21300738: farm_369
+    21300740: farm_370
+    21300742: farm_371
+    21300744: farm_372
+    21300746: farm_373
+    21300748: farm_374
+    21300750: farm_375
+    21300752: farm_376
+    21300754: farm_377
+    21300756: farm_378
+    21300758: farm_379
+    21300760: farm_380
+    21300762: farm_381
+    21300764: farm_382
+    21300766: farm_383
+    21300768: farm_384
+    21300770: farm_385
+    21300772: farm_386
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: farm_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 26}
+        - {x: 14, y: 16}
+        - {x: 14, y: 4}
+        - {x: 16, y: 2}
+        - {x: 14, y: 2}
+        - {x: 14, y: 4}
+        - {x: 12, y: 6}
+        - {x: -5, y: 7}
+        - {x: -18, y: -4}
+        - {x: -26, y: -17}
+        - {x: -26, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 26}
+    - name: farm_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 22}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 22}
+    - name: farm_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 22}
+        - {x: -32, y: -32}
+        - {x: 22, y: -32}
+        - {x: 22, y: -14}
+        - {x: 21, y: -4}
+        - {x: -4, y: 20}
+        - {x: -19, y: 22}
+    - name: farm_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 32}
+        - {x: -30, y: 31}
+        - {x: -30, y: -31}
+        - {x: -28, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_12
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 4}
+        - {x: 20, y: 6}
+        - {x: 18, y: 6}
+        - {x: 18, y: 10}
+        - {x: 19, y: 6}
+        - {x: 22, y: 6}
+        - {x: 22, y: 4}
+        - {x: 24, y: 2}
+        - {x: 30, y: 2}
+        - {x: 30, y: 23}
+        - {x: 29, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 30, y: -32}
+        - {x: 30, y: -13}
+        - {x: 22, y: -4}
+    - name: farm_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: 2}
+        - {x: -21, y: -26}
+        - {x: -12, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_20
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 0, y: -32}
+        - {x: 20, y: -26}
+        - {x: 30, y: -8}
+    - name: farm_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_24
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_26
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_30
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_31
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_33
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_34
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_36
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_37
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_38
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_39
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_40
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: farm_41
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

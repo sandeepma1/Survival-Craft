@@ -42,6 +42,5 @@ public class GridMove : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D coll)
 	{
 		print (coll.gameObject.name);
-
 	}
 }
