@@ -37,3 +37,4 @@ C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.TreeEditor.xml
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-Editor.dll
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.pdb

@@ -45,8 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Bronz\LocalStorage\Editor\LocalStorageViewer\LocalStorageValue.cs" />
-     <Compile Include="Assets\Bronz\LocalStorage\Editor\LocalStorageViewer\LocalStorageViewer.cs" />
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <Compile Include="Assets\Editor\ImageEffects\AntialiasingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
@@ -62,6 +60,79 @@
      <Compile Include="Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\TonemappingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Attributes\Editor\InventoryItemBasePropertyDrawerEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Attributes\Editor\InventoryRequiredAttributeEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Collections\Editor\ItemCollectionBaseEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Currency\Editor\InventoryCurrencyLookupEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Currency\Editor\InventoryCurrencyUIEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Currency\Editor\InventoryCurrencyUIElementEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\PlayMaker\Other\Editor\InventoryItemBasePlaymakerWrapperEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\UFPS\Editor\ConsumableUFPSInventoryItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\UFPS\Editor\EquippableUFPSInventoryItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\UFPS\Editor\UnitTypeUFPSInventoryItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\UMA\Items\Editor\UMAEquippableInventoryItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\plyGame\Diaq\Editor\InventoryDiaQRewardInfo.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\plyGame\ItemTypes\Editor\plyGameConsumableInventoryItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\plyGame\ItemTypes\Editor\plyGameEquippableInventoryItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\plyGame\MainEditors\Editor\plyStatsEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Integration\plyGame\plyBlox\Fields\Editor\InventoryItemBaseFieldData_Handler.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Items\Editor\CurrencyInventoryItem.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Items\Editor\EquippableInventoryItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Items\Editor\InventoryItemAmountRowEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Items\Editor\InventoryItemBaseEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Items\Editor\InventoryItemPropertyReferenceEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Items\Editor\InventoryItemPropertyRequirementLookupEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Items\Editor\ItemPouchInventoryItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\Databases\InventoryItemDatabaseEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\Databases\InventoryLangDatabaseEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\DocumentationLinkEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\IntegrationHelperEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Crafting\CraftingBlueprintEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Crafting\CraftingCategoryEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Crafting\CraftingEmptyEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Crud\IInventorySystemEditorCrud.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Crud\InventorySystemEditorCrudBase.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Currency\CurrencyEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\EmptyEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Equipment\EquipEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Equipment\EquipTypeEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Items\InventoryItemPropertyLookupEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Items\ItemCategoryEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Items\ItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Items\ItemPropertyEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Items\ItemRarityEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Items\Windows\InventoryCreateNewItemEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Items\Windows\InventoryDeleteReplaceWithDialog.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Language\LanguageEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Settings\SettingsEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryMainEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryProGettingStarted.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryProNewsEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Managers\Editor\InventoryProSetupWizard.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\CharacterEquipment\Editor\InventoryEquippableFieldEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Crafting\Editor\CraftingTriggererEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Crafting\Editor\CraftingWindowLayoutUIEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Crafting\Editor\CraftingWindowStandardUIEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\ItemFilters\Editor\InventoryItemFilterEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\ItemFilters\Editor\InventoryItemFiltersEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\ItemGenerators\Editor\InventoryItemContainerGeneratorEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Player\Editor\InventoryPlayerBaseEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Player\Editor\InventoryPlayerEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Player\Editor\InventoryPlayerSpawnerEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Triggerers\Editor\LootableObjectEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Triggerers\Editor\ObjectTriggererEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Modules\Triggerers\Editor\VendorTriggererEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Other\Editor\Helpers\CustomOverrideProperty.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Other\Editor\InventoryEditorBase.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Other\Editor\InventoryEditorStyles.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Other\Editor\ObjectPickers\InventoryItemPicker.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Other\Editor\ObjectPickers\InventoryItemTypePicker.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Other\Editor\ObjectPickers\InventoryObjectPickerBase.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\Other\Editor\Utilities\InventoryEditorUtility.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\UI\UIItemWrappers\Editor\InventoryUIItemWrapperEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\UI\UIWindow\Editor\UIShowStatEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\UI\UIWindow\Editor\UIWindowEditor.cs" />
+     <Compile Include="Assets\InventorySystem\Scripts\UI\UIWindow\Editor\UIWindowInteractiveEditor.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
@@ -89,6 +160,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
+     <None Include="Assets\InventorySystem\README.txt" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
@@ -124,9 +196,11 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\VignettingShader.shader" />
+     <None Include="Assets\InventorySystem\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
+     <None Include="Assets\InventorySystem\Standard Assets\Cameras\CameraGuidelines.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
@@ -138,6 +212,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+     <None Include="Assets\InventorySystem\Demos\Assets\UI\Shaders\SpriteShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -181,6 +256,8 @@
       <Project>{0316DB85-39B1-F319-D8A4-4492DA3CB03B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{D49C58CB-21C3-5922-445A-A56A5823300F}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{95832EAA-1284-6D2F-98A4-C4778BF59FC0}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

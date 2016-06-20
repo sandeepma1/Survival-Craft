@@ -8,9 +8,9 @@ public static class GameEventManager
 	public enum E_STATES
 	{
 		e_game,
-		e_pause,
-		e_inventory,
-	};
+		e_pause}
+
+	;
 
 	static E_STATES m_gameState = E_STATES.e_game;
 

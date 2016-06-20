@@ -106,4 +106,10 @@ public class PlayerMovement : MonoBehaviour
 		yield return new WaitForSeconds (0.25f);
 		MapGenerator.m_instance.GetTileInfo (cursorPosition);
 	}
+
+	public virtual void OnTriggerEnter (Collider col)
+	{
+		print (col + "Trigger");
+		//TryPickup (col.gameObject);
+	}
 }

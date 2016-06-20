@@ -9,23 +9,22 @@ using LitJson;
 
 public class MapGenerator : MonoBehaviour
 {
-	public GameObject floor, water, grass;
+	public GameObject floor, water;
+	public GameObject[] ranObjects;
+	//grass, grass1, grass2, log, stone, stone1;
 	public static MapGenerator m_instance = null;
+	public GameObject grassOutput, stoneOutput, logOutput;
 	JsonData mapJsonObject;
 	int x, y = 0;
 	int mapSize = 0;
-	private Transform MapHolder;
+	private Transform FloorMapHolder, PropsMapHolder;
 	TextAsset map;
 
 	int[,] layer1;
 	int[,] layer2;
-	int[,] layer3;
-	int[,] layer4;
 
-	GameObject[,] G_layer1;
-	GameObject[,] G_layer2;
-	GameObject[,] G_layer3;
-	GameObject[,] G_layer4;
+	GameObject[,] G_layer1_floor;
+	GameObject[,] G_layer2_props;
 
 	void Awake ()
 	{
@@ -34,7 +33,7 @@ public class MapGenerator : MonoBehaviour
 
 	void Start ()
 	{
-		map = (TextAsset)Resources.Load ("JSON/TileTest_128", typeof(TextAsset));
+		map = (TextAsset)Resources.Load ("JSON/TestMap_64", typeof(TextAsset));
 		mapJsonObject = JsonMapper.ToObject (map.text);
 		GetmapSize ();
 		InitializeVariables ();
@@ -50,26 +49,18 @@ public class MapGenerator : MonoBehaviour
 	{
 		layer1 = new int[mapSize, mapSize];
 		layer2 = new int[mapSize, mapSize];
-		layer3 = new int[mapSize, mapSize];
-		layer4 = new int[mapSize, mapSize];
 
-		G_layer1 = new GameObject[mapSize, mapSize];
-		G_layer2 = new GameObject[mapSize, mapSize];
-		G_layer3 = new GameObject[mapSize, mapSize];
-		G_layer4 = new GameObject[mapSize, mapSize];
+		G_layer1_floor = new GameObject[mapSize, mapSize];
+		G_layer2_props = new GameObject[mapSize, mapSize];
 	}
 
 	void LitJSONFunction ()
 	{
 		JSonDataTo2DArray (mapJsonObject ["layers"] [0] ["data"], layer1);
 		JSonDataTo2DArray (mapJsonObject ["layers"] [1] ["data"], layer2);
-		JSonDataTo2DArray (mapJsonObject ["layers"] [2] ["data"], layer3);
-		JSonDataTo2DArray (mapJsonObject ["layers"] [3] ["data"], layer4);
 
 		BuildMap (layer1);
-		//BuildMap (layer2);
-		BuildMap (layer3);
-		//BuildMap (layer4);
+		BuildMap (layer2);
 	}
 
 	void JSonDataTo2DArray (JsonData jLayer, int[,] aLayer)
@@ -93,21 +84,26 @@ public class MapGenerator : MonoBehaviour
 
 	void BuildMap (int[,]layer)
 	{	
-		MapHolder = new GameObject ("Map").transform;
+		FloorMapHolder = new GameObject ("Floor").transform;
+		PropsMapHolder = new GameObject ("Props").transform;
 		int layerWidth = (int)Mathf.Sqrt (layer.Length);
 
 		for (int x = 0; x < layerWidth; x++) {
 			for (int y = 0; y < layerWidth; y++) {
 				switch (layer [x, y]) {
-					case 1:						
-						InstantiatePrefab (floor, x, y);
+					case 74:						
+						InstantiateFloorPrefab (floor, x, y);
 						break;
 					case 284:
-						InstantiatePrefab (water, x, y);
+						InstantiateFloorPrefab (water, x, y);
 						break;
+				//	case 139:
+				//G_layer3 [x, y] = Instantiate (grass, new Vector3 (x, y, 0), Quaternion.identity) as GameObject;
+				//	G_layer3 [x, y].transform.SetParent (MapHolder);
+				//	break;
 					case 139:
-						G_layer3 [x, y] = Instantiate (grass, new Vector3 (x, y, 0), Quaternion.identity) as GameObject;
-						G_layer3 [x, y].transform.SetParent (MapHolder);
+						int r = UnityEngine.Random.Range (0, 6);
+						InstantiatePropPrefab (ranObjects [r], x, y);
 						break;
 					default:
 						break;
@@ -116,16 +112,45 @@ public class MapGenerator : MonoBehaviour
 		}
 	}
 
-	void InstantiatePrefab (GameObject g, int x, int y)
+	void InstantiateFloorPrefab (GameObject g, int x, int y)
 	{
 		GameObject inst = Instantiate (g, new Vector3 (x, y, 0), Quaternion.identity) as GameObject;
-		inst.transform.SetParent (MapHolder);
+		inst.transform.SetParent (FloorMapHolder);
+	}
+
+	void InstantiatePropPrefab (GameObject g, int x, int y)
+	{
+		G_layer2_props [x, y] = Instantiate (g, new Vector3 (x, y, 0), Quaternion.identity) as GameObject;
+		G_layer2_props [x, y].transform.SetParent (PropsMapHolder);
 	}
 
 	public void GetTileInfo (Vector3 pos)
+	{	
+		if (G_layer2_props [(int)pos.x, (int)pos.y] != null) {
+			G_layer2_props [(int)pos.x, (int)pos.y].SetActive (false);
+			DropOutputs (G_layer2_props [(int)pos.x, (int)pos.y].name, pos.x, pos.y);
+			G_layer2_props [(int)pos.x, (int)pos.y] = null;
+		}
+	}
+
+	void DropOutputs (string name, float x, float y)
 	{
-		if (G_layer3 [(int)pos.x, (int)pos.y] != null) {
-			G_layer3 [(int)pos.x, (int)pos.y].SetActive (false);
+		GameObject output = null;
+		switch (name) {
+			case "Grass(Clone)":
+			case "Grass1(Clone)":
+			case "Grass2(Clone)":
+				output = Instantiate (grassOutput, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+				break;
+			case "Stone(Clone)":
+			case "Stone1(Clone)":
+				output = Instantiate (stoneOutput, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+				break;
+			case"Log(Clone)":
+				output = Instantiate (logOutput, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+				break;
+			default:
+				break;
 		}
 	}
 }
