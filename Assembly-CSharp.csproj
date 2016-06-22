@@ -426,9 +426,11 @@
      <Compile Include="Assets\Scripts\Managers\GameEventManager.cs" />
      <Compile Include="Assets\Scripts\Menus\IGMMenu.cs" />
      <Compile Include="Assets\Scripts\Menus\MoreInventoryButton.cs" />
+     <Compile Include="Assets\Scripts\Menus\TabsControl.cs" />
      <Compile Include="Assets\Scripts\Player\GridMove.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Camera\ResizeCamera.cs" />
      <Compile Include="Assets\Scripts\Utilities\CreateMesh.cs" />
      <Compile Include="Assets\Scripts\Utilities\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Utilities\Warp\ScreenFader.cs" />

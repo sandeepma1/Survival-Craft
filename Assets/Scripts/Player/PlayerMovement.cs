@@ -9,7 +9,6 @@ using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour
 {
 	Animator anim;
-	public GameObject mainCanvas;
 	public float speed = 2.0f;
 	public static PlayerMovement m_instance = null;
 	public GameObject cursorTile;
@@ -24,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
 	void Awake ()
 	{		
 		m_instance = this;
-		mainCanvas.SetActive (true);
 	}
 
 	void Start ()

@@ -4,28 +4,49 @@ using UnityEngine.UI;
 
 public class MoreInventoryButton : MonoBehaviour
 {
+	public RectTransform mainUIWindow;
+	public GameObject mainCanvas, inventoryMenu;
+	public GameObject leftStick, rightStick, pauseButton, actionButton, inventoryTab, craftingTab, settingsTab, infoTab;
+	public GameObject craftingMenu;
+	private bool toggleInventory = false, toggleCrafting = false;
+	float heightAdjuster;
+	int tabIndex = 0;
 
-	public RectTransform inventoryMenu;
-	public GameObject leftStick, rightStick, pauseButton, actionButton;
-	private bool toggleInventory = false;
+	void Start ()
+	{
+		tabIndex = inventoryMenu.GetComponent <RectTransform> ().GetSiblingIndex ();
+		heightAdjuster = ((mainCanvas.GetComponent <RectTransform> ().rect.height / 2) + 200) * -1;
+		print (mainCanvas.GetComponent <RectTransform> ().rect);
+		ToggleInventorySize ();
+	}
 
 	public void ToggleInventorySize ()
 	{
 		toggleInventory = !toggleInventory;				
-		isInventoryVisible (!toggleInventory);		
+		leftStick.SetActive (toggleInventory);
+		if (PlayerPrefs.GetString ("Controls") == "d") {
+			rightStick.SetActive (toggleInventory);
+		} else {
+			actionButton.SetActive (toggleInventory);
+		}
+		pauseButton.SetActive (toggleInventory);
+		inventoryTab.SetActive (!toggleInventory);
+		craftingTab.SetActive (!toggleInventory);
+		settingsTab.SetActive (!toggleInventory);
+		infoTab.SetActive (!toggleInventory);
+		if (toggleInventory) {
+			inventoryMenu.GetComponent <RectTransform> ().SetSiblingIndex (tabIndex);
+			GameEventManager.SetState (GameEventManager.E_STATES.e_game);
+			mainUIWindow.anchoredPosition = new Vector3 (mainUIWindow.anchoredPosition.x, heightAdjuster);
+		} else {
+			inventoryMenu.GetComponent <RectTransform> ().SetSiblingIndex (tabIndex); 
+			GameEventManager.SetState (GameEventManager.E_STATES.e_pause);
+			mainUIWindow.anchoredPosition = Vector3.zero;
+		}		
 	}
 
-	void isInventoryVisible (bool flag)
+	public void ToggleCrafting ()
 	{
-		leftStick.SetActive (flag);
-		rightStick.SetActive (flag);
-		pauseButton.SetActive (flag);
-		if (flag) {
-			GameEventManager.SetState (GameEventManager.E_STATES.e_game);
-			inventoryMenu.anchoredPosition = new Vector2 (inventoryMenu.anchoredPosition.x, -50);
-		} else {
-			GameEventManager.SetState (GameEventManager.E_STATES.e_pause);
-			inventoryMenu.localPosition = new Vector2 (inventoryMenu.localPosition.x, 100);
-		}
+		toggleCrafting = !toggleCrafting;
 	}
 }

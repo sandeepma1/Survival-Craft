@@ -24,6 +24,7 @@ C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Unity.CecilTools.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Mono.Cecil.Pdb.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.pdb
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.xml
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.xml
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.Advertisements.xml
@@ -37,4 +38,3 @@ C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.TreeEditor.xml
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-Editor.dll
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-Editor.pdb
-C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.pdb

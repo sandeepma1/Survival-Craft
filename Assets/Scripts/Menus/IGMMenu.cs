@@ -6,24 +6,24 @@ public class IGMMenu : MonoBehaviour
 {
 	public static IGMMenu m_instance = null;
 	public GameObject actionButton, rightAnalogStick;
-	GameObject pauseMenu;
+	//GameObject pauseMenu;
 
 	// Use this for initialization
 	void Awake ()
 	{
 		m_instance = this;
-		pauseMenu = transform.FindChild ("PauseMenu").gameObject;	
+		//pauseMenu = transform.FindChild ("PauseMenu").gameObject;	
 	}
 
 	// Pause Menu
 	public void OpenPauseMenu ()
 	{
-		pauseMenu.SetActive (true);
+		//pauseMenu.SetActive (true);
 	}
 
 	public void ClosePauseMenu ()
 	{
-		pauseMenu.SetActive (false);
+		//pauseMenu.SetActive (false);
 	}
 	//Toggle Controls
 	public void ToggleControls (string index)
