@@ -1,7 +1,8 @@
-C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\ES2.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\LitJson.dll
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\MoodkieSecurity.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.Networking.dll
@@ -19,5 +20,6 @@ C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.xml
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.xml
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.UI.xml
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp.dll
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp.pdb

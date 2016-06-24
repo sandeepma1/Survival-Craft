@@ -13,6 +13,7 @@ public class CameraFollow : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		transform.position = target.transform.position;
 		myCam = GetComponent<Camera> ();
 	}
 

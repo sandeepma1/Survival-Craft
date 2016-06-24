@@ -1,6 +1,9 @@
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-Editor.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\ES2.dll
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\ES2Editor.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\LitJson.dll
+C:\GitRepo\SurvivalCraft\Temp\bin\Debug\MoodkieSecurity.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\nunit.framework.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.Advertisements.dll
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
