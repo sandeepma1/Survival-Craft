@@ -7,16 +7,15 @@ using UnityEngine;
 
 namespace Devdog.InventorySystem.Demo
 {
-    public class CurrentHoveringItem : MonoBehaviour
-    {
+	public class CurrentHoveringItem : MonoBehaviour
+	{
+		public void Update ()
+		{			
+			if (InventoryUIUtility.currentlyHoveringWrapper != null && InventoryUIUtility.currentlyHoveringWrapper.item != null) {
+				print ("hovering");
+				Debug.Log ("Currently hovering: " + InventoryUIUtility.currentlyHoveringWrapper.item.name);
+			}
+		}
 
-        public void Update()
-        {
-            if (InventoryUIUtility.currentlyHoveringWrapper != null && InventoryUIUtility.currentlyHoveringWrapper.item != null)
-            {
-                Debug.Log("Currently hovering: " + InventoryUIUtility.currentlyHoveringWrapper.item.name);
-            }
-        }
-
-    }
+	}
 }
