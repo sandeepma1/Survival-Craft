@@ -10,7 +10,7 @@ using UnityEngine.Assertions;
 
 namespace Devdog.InventorySystem
 {
-	public partial class InventoryUIItemWrapper
+	public partial class InventoryUIItemWrapper // My new partial class 
 	{
 		public UnityEngine.UI.Image border;
 		bool isSelected = false;
@@ -27,8 +27,8 @@ namespace Devdog.InventorySystem
 		{
 			border.gameObject.SetActive (false);
 			MoreInventoryButton.m_instance.RemoveBorder ();
-			print (item);
 			border.gameObject.SetActive (true);
+			ActionManager.m_instance.GetSelectedItemObject (item);
 		}
 	}
 }

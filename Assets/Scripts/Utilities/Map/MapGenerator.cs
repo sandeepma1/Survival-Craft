@@ -133,6 +133,16 @@ public class MapGenerator : MonoBehaviour
 		}
 	}
 
+	public GameObject GetTile (Vector3 pos)
+	{	
+		if (G_layer2_props [(int)pos.x, (int)pos.y] != null) {
+			return G_layer2_props [(int)pos.x, (int)pos.y];
+			//DropOutputs (G_layer2_props [(int)pos.x, (int)pos.y].name, pos.x, pos.y);
+			//G_layer2_props [(int)pos.x, (int)pos.y] = null;
+		}
+		return null;
+	}
+
 	void DropOutputs (string name, float x, float y)
 	{
 		GameObject output = null;
