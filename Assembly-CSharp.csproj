@@ -438,8 +438,10 @@
      <Compile Include="Assets\Scripts\Menus\MoreInventoryButton.cs" />
      <Compile Include="Assets\Scripts\Menus\TabsControl.cs" />
      <Compile Include="Assets\Scripts\Player\ActionManager.cs" />
+     <Compile Include="Assets\Scripts\Player\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\Player\GridMove.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerShooting.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\ResizeCamera.cs" />
      <Compile Include="Assets\Scripts\Utilities\CreateMesh.cs" />

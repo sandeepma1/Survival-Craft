@@ -145,14 +145,13 @@ namespace Devdog.InventorySystem.Demo
 
 		IEnumerator StartAction ()
 		{
-
-			yield return new WaitForSeconds (0.75f);
+			yield return new WaitForSeconds (1f);
 			MapGenerator.m_instance.GetTileInfo (cursorPosition);
 		}
 
 		IEnumerator StartFadingAnimation ()
 		{
-			yield return new WaitForSeconds (0.75f);
+			yield return new WaitForSeconds (1f);
 		}
 
 		public virtual void OnTriggerEnter (Collider col)
@@ -164,7 +163,11 @@ namespace Devdog.InventorySystem.Demo
 		{
 			if (isAttacking) {
 				passingTime += Time.deltaTime;
-				debugText.text = passingTime.ToString ();
+				debugText.text = passingTime.ToString ("F2");
+				if (passingTime >= 1) {
+					passingTime = 0;
+					print ("damagePerSecond");
+				}
 			}
 
 		}
