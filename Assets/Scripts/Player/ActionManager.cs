@@ -4,26 +4,83 @@ using UnityEngine.UI;
 
 public class ActionManager : MonoBehaviour
 {
-
 	public static ActionManager m_instance = null;
 	public GameObject weaponGameObject;
 	SpriteRenderer weaponSprite;
-
-	Devdog.InventorySystem.InventoryItemBase item;
+	float baseTime = 0.0f;
+	public bool isReadyToAttack = false;
+	float timeRequired = 0;
+	public Text debugText;
+	//Devdog.InventorySystem.InventoryItemBase currentWeildedItem;
+	//GameObject currentSelectedTileGO;
+	Devdog.InventorySystem.InventoryItemBase currentWeildedItem, currentSelectedTile;
 
 	void Awake ()
 	{
 		m_instance = this;
-	}
-
-	void Start ()
-	{
 		weaponSprite = weaponGameObject.GetComponent <SpriteRenderer> ();
+		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();
+		currentSelectedTile = new Devdog.InventorySystem.InventoryItemBase ();
 	}
 
-	public void GetSelectedItemObject (Devdog.InventorySystem.InventoryItemBase i)
+	public void ActionButtonPressed ()
 	{
-		item = i;
-		print (item.icon);
+		GetCurrentTile ();
+		CalculateHardness ();
+	}
+
+	void CalculateHardness ()
+	{		
+		if (currentSelectedTile != null && currentSelectedTile.isHandMined) {
+			if (currentWeildedItem != null && currentWeildedItem.rarity.name == currentSelectedTile.rarity.name) { // if tool
+				print ("Using Tools");				
+				baseTime = (GameEventManager.baseStrengthWithTool * currentSelectedTile.properties [0].floatValue) / currentWeildedItem.itemQuality;			
+				isReadyToAttack = true;	 
+			} else { // if not tool
+				print ("Using Bare Hands");
+				baseTime = GameEventManager.baseStrengthWithoutTool * currentSelectedTile.properties [0].floatValue;
+				isReadyToAttack = true;	
+			}
+		} else {
+			print ("No items nearby");
+		} 
+	}
+
+	void Update ()
+	{
+		if (isReadyToAttack) {
+			baseTime -= Time.deltaTime;
+			debugText.text = "breaking " + baseTime;
+			if (baseTime <= 0) {
+				DropBreakedItem ();			
+				isReadyToAttack = false;
+			}
+		}
+	}
+
+	void DropBreakedItem ()
+	{
+		print ("Droped " + currentSelectedTile.name);
+		currentSelectedTile = null;
+
+	}
+
+	void GetCurrentTile ()
+	{
+		if (MapGenerator.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
+			currentSelectedTile = MapGenerator.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).GetComponent <Devdog.InventorySystem.InventoryItemBase> ();
+		} else {
+			currentSelectedTile = null;
+		}
+	}
+
+	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
+	{
+		/*if (i == null) {
+			currentWeildedItem = null;
+			//currentWeildedItem.rarity.name = "none";
+		} else {*/
+		currentWeildedItem = i;
+		//}
 	}
 }

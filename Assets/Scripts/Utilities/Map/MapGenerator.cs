@@ -124,7 +124,7 @@ public class MapGenerator : MonoBehaviour
 		G_layer2_props [x, y].transform.SetParent (PropsMapHolder);
 	}
 
-	public void GetTileInfo (Vector3 pos)
+	public void GetTileInfo (Vector2 pos)
 	{	
 		if (G_layer2_props [(int)pos.x, (int)pos.y] != null) {
 			G_layer2_props [(int)pos.x, (int)pos.y].SetActive (false);
@@ -133,7 +133,7 @@ public class MapGenerator : MonoBehaviour
 		}
 	}
 
-	public GameObject GetTile (Vector3 pos)
+	public GameObject GetTile (Vector2 pos)
 	{	
 		if (G_layer2_props [(int)pos.x, (int)pos.y] != null) {
 			return G_layer2_props [(int)pos.x, (int)pos.y];

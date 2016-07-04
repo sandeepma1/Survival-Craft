@@ -3,6 +3,10 @@ using System.Collections;
 
 public static class GameEventManager
 {
+	public static Vector2 currentSelectedTilePosition = Vector2.zero;
+	public const float baseStrengthWithTool = 1.5f;
+	public static float baseStrengthWithoutTool = 5;
+
 	public delegate void GameEvent ();
 
 	public enum E_STATES

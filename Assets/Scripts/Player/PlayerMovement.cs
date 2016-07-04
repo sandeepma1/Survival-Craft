@@ -15,48 +15,36 @@ namespace Devdog.InventorySystem.Demo
 		public float speed = 2.0f;
 		public static PlayerMovement m_instance = null;
 		public GameObject cursorTile, cursorTile_grid;
-		public Text debugText;
+
 		public float animationPivotAdjuster = 0.75f;
 
 		private Vector3 cursorPosition;
-		//private GameObject UIInfoBox = null;
-		//private Devdog.InventorySystem.InfoBoxUI UIInfoBox = null;
-		//InventoryPlayer p1;
-		//controllers variables
 		private int tempX, tempY = 0;
 		private float input_x, input_y, r_input_a, r_input_b = 0f;
 		private float passingTime = 0;
-
-
 		private bool isWalking, isAttacking, isRightStick, isLeftStick = false;
 		private float attackTime, attackCounter;
 
+		Devdog.InventorySystem.InventoryItemBase currentWeildedItem, currentSelectedTile;
 
 		void Awake ()
 		{		
 			m_instance = this;
-			//p1 = transform.Find ("RangeHelper").GetComponent <InventoryPlayer> ();		
 		}
 
 		void Start ()
 		{
-			anim = GetComponent<Animator> ();	
-			ShowGrid ();
-			//UIInfoBox = GameObject.Find ("InfoBox").GetComponent <Devdog.InventorySystem.InfoBoxUI> ();
-			//UIInfoBox = GameObject.Find ("InfoBox");
-			//'print (UIInfoBox.name);
+			anim = GetComponent<Animator> ();					
 		}
 
 		void Update ()
 		{
-//			debugText.text = (InventoryUIUtility.currentlyHoveringWrapper.item.name);
-			//	Debug.Log ("Currently hovering: " + InventoryUIUtility.currentlyHoveringWrapper.item.name);
 			if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+				ShowGrid ();
 				input_x = CnInputManager.GetAxisRaw ("Horizontal");
 				input_y = CnInputManager.GetAxisRaw ("Vertical");
 				r_input_a = CnInputManager.GetAxisRaw ("Horizontal_Right");
 				r_input_b = CnInputManager.GetAxisRaw ("Vertical_Right");
-
 
 				isWalking = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
 				isRightStick = (Mathf.Abs (r_input_a) + Mathf.Abs (r_input_b)) > 0;
@@ -67,99 +55,59 @@ namespace Devdog.InventorySystem.Demo
 				anim.SetBool ("isAttacking", isAttacking);
 				anim.SetBool ("isAttacking", isAttacking);
 
-				if (isRightStick) {				
-					//print ("aaaaaaaaaaa");	
-					//anim.SetBool ("isAttacking", isAttacking);
-					DualStickCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
-					anim.SetFloat ("a", Mathf.RoundToInt (r_input_a));
-					anim.SetFloat ("b", Mathf.RoundToInt (r_input_b));
-					//isWalking = false;
-					//print (UIInfoBox.GetComponent <>());
-					//print (UIInfoBox.GetComponent<Devdog.InventorySystem.InfoBoxUI> ().uiName.text);
-					//Debug.Log ("Currently hovering: " + InventoryUIUtility.currentlyHoveringWrapper.item.name);
-				}
-				if (!isRightStick) {
+				if (isRightStick) {  //Attacking/working					
+					AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
+				} else {
 					passingTime = 0;
-					debugText.text = passingTime.ToString ();
+					cursorTile.transform.position = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (transform.position.y - animationPivotAdjuster), Mathf.Round (transform.position.z));
+					ActionManager.m_instance.isReadyToAttack = false;
 				}
 
-				if (isWalking) { 
-					anim.SetBool ("isWalking", isWalking);	
-					SingleButtonCalculation (input_x, input_y);		
-					anim.SetFloat ("x", input_x);
-					anim.SetFloat ("y", input_y);
+				if (isWalking) {  // Walking	
+					WalkingCalculation (input_x, input_y);
 					transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * speed;
-					ShowGrid ();
 					return;
 				}
-
 				anim.SetBool ("isWalking", false);
 			}
+			//debugText.text = GameEventManager.currentSelectedTilePosition.ToString ();
 		}
 
-		public void ShowGrid ()
+		public void AttackCalculation (int a, int b)
 		{
-			cursorTile_grid.transform.position = new Vector3 (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y - animationPivotAdjuster), Mathf.RoundToInt (transform.position.z));
-		}
-
-		public void isCursorTileEnable (bool flag)
-		{
-			cursorTile.SetActive (true);
-		}
-
-		public void DualStickCalculation (int x, int y)
-		{		
-			if (x == tempX && y == tempY) {
+			if (a == tempX && b == tempY) {
 				return;
 			}
-			tempX = x;
-			tempY = y;
-			isCursorTileEnable (true);
-			cursorPosition = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (transform.position.y - animationPivotAdjuster), Mathf.Round (transform.position.z));
-			cursorPosition.x += Mathf.Round (x);
-			cursorPosition.y += Mathf.Round (y);
-			cursorTile.transform.position = cursorPosition;
+			tempX = a;
+			tempY = b;
+			ActionManager.m_instance.isReadyToAttack = false;
 
-			ShowGrid ();
-			StopAllCoroutines ();
-			StartCoroutine (StartAction ());
+			SetCursorTilePosition (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
+
+			ActionManager.m_instance.ActionButtonPressed ();
+
+
+			anim.SetFloat ("a", Mathf.RoundToInt (r_input_a));
+			anim.SetFloat ("b", Mathf.RoundToInt (r_input_b));
+
+			//StopAllCoroutines ();
+			//StartCoroutine (StartAction ());
 		}
 
-		public void SingleButtonCalculation (float x, float y)
+		public void WalkingCalculation (float x, float y)
 		{
-			isCursorTileEnable (true);
-			cursorPosition = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (transform.position.y - animationPivotAdjuster), Mathf.Round (transform.position.z));
-			cursorPosition.x += Mathf.Round (x);
-			cursorPosition.y += Mathf.Round (y);
-			cursorTile.transform.position = cursorPosition;
-			cursorTile.transform.position = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (transform.position.y - animationPivotAdjuster), Mathf.Round (transform.position.z));
+			anim.SetFloat ("x", input_x);
+			anim.SetFloat ("y", input_y);
+			anim.SetBool ("isWalking", isWalking);
 		}
 
-		public void ActionButtonPressed ()
-		{
-			//MapGenerator.m_instance.GetTile (cursorPosition);
-			//print ("aaaaaaaaaaa");
-			StopAllCoroutines ();
-			StartCoroutine (StartAction ());
-		}
-
-		IEnumerator StartAction ()
+		/*IEnumerator StartAction ()
 		{
 			yield return new WaitForSeconds (1f);
 			MapGenerator.m_instance.GetTileInfo (cursorPosition);
-		}
+		}*/
 
-		IEnumerator StartFadingAnimation ()
-		{
-			yield return new WaitForSeconds (1f);
-		}
-
-		public virtual void OnTriggerEnter (Collider col)
-		{
-			print (col + "Trigger");
-		}
-
-		void LateUpdate ()
+		/*void LateUpdate ()
 		{
 			if (isAttacking) {
 				passingTime += Time.deltaTime;
@@ -169,7 +117,20 @@ namespace Devdog.InventorySystem.Demo
 					print ("damagePerSecond");
 				}
 			}
+		}*/
 
+		public void ShowGrid ()
+		{
+			cursorTile_grid.transform.position = new Vector3 (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y - animationPivotAdjuster), Mathf.RoundToInt (transform.position.z));
+		}
+
+		public void SetCursorTilePosition (int a, int b)
+		{
+			cursorPosition = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (transform.position.y - animationPivotAdjuster), Mathf.Round (transform.position.z));
+			cursorPosition.x += Mathf.Round (a);
+			cursorPosition.y += Mathf.Round (b);
+			cursorTile.transform.position = cursorPosition;
+			GameEventManager.currentSelectedTilePosition = cursorTile.transform.position;
 		}
 	}
 }

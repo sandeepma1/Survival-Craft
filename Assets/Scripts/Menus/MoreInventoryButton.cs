@@ -13,7 +13,7 @@ public class MoreInventoryButton : MonoBehaviour
 	float heightAdjuster;
 	int tabIndex = 0;
 	public Devdog.InventorySystem.InventoryUIItemWrapper[] items;
-// = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
+	// = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
 
 	void Awake ()
 	{
@@ -32,7 +32,7 @@ public class MoreInventoryButton : MonoBehaviour
 		items = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
 		tabIndex = inventoryMenu.GetComponent <RectTransform> ().GetSiblingIndex ();
 		heightAdjuster = ((mainCanvas.GetComponent <RectTransform> ().rect.height / 2) + 200) * -1;
-		print (mainCanvas.GetComponent <RectTransform> ().rect);
+//		print (mainCanvas.GetComponent <RectTransform> ().rect);
 		ToggleInventorySize ();
 	}
 

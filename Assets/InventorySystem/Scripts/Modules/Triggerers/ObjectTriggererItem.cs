@@ -7,185 +7,171 @@ using Devdog.InventorySystem.UI;
 
 namespace Devdog.InventorySystem
 {
-    using Devdog.InventorySystem.Models;
+	using Devdog.InventorySystem.Models;
 
-    /// <summary>
-    /// Used to trigger item pickup, modify the settings in ObjectTriggererHandler.
-    /// </summary>
-    [AddComponentMenu("InventorySystem/Triggers/Object triggerer item")]
-    [DisallowMultipleComponent]
-    //[RequireComponent(typeof(Rigidbody))]
+	/// <summary>
+	/// Used to trigger item pickup, modify the settings in ObjectTriggererHandler.
+	/// </summary>
+	[AddComponentMenu ("InventorySystem/Triggers/Object triggerer item")]
+	[DisallowMultipleComponent]
+	//[RequireComponent(typeof(Rigidbody))]
     public partial class ObjectTriggererItem : ObjectTriggererBase
-    {
+	{
 
-        public delegate void Pickup(InventoryPlayer player);
-        /// <summary>
-        /// Called when the item is looted / picked up.
-        /// </summary>
-        public event Pickup OnPickup;
+		public delegate void Pickup (InventoryPlayer player);
 
-
-        public override bool triggerMouseClick
-        {
-            get { return InventorySettingsManager.instance.itemTriggerMouseClick; }
-            set { InventorySettingsManager.instance.itemTriggerMouseClick = value; }
-        }
-
-        public override KeyCode triggerKeyCode {
-            get { return InventorySettingsManager.instance.itemTriggererUseKeyCode; }
-            set { InventorySettingsManager.instance.itemTriggererUseKeyCode = value; }
-        }
-
-        public override InventoryCursorIcon cursorIcon
-        {
-            get { return InventorySettingsManager.instance.pickupCursor; }
-            set { InventorySettingsManager.instance.pickupCursor = value; }
-        }
-        public override Sprite uiIcon
-        {
-            get { return InventorySettingsManager.instance.objectTriggererFPSPickupSprite; }
-            set { InventorySettingsManager.instance.objectTriggererFPSPickupSprite = value; }
-        }
+		/// <summary>
+		/// Called when the item is looted / picked up.
+		/// </summary>
+		public event Pickup OnPickup;
 
 
-        public override void NotifyCameInRange(InventoryPlayer player)
-        {
+		public override bool triggerMouseClick {
+			get { return InventorySettingsManager.instance.itemTriggerMouseClick; }
+			set { InventorySettingsManager.instance.itemTriggerMouseClick = value; }
+		}
+
+		public override KeyCode triggerKeyCode {
+			get { return InventorySettingsManager.instance.itemTriggererUseKeyCode; }
+			set { InventorySettingsManager.instance.itemTriggererUseKeyCode = value; }
+		}
+
+		public override InventoryCursorIcon cursorIcon {
+			get { return InventorySettingsManager.instance.pickupCursor; }
+			set { InventorySettingsManager.instance.pickupCursor = value; }
+		}
+
+		public override Sprite uiIcon {
+			get { return InventorySettingsManager.instance.objectTriggererFPSPickupSprite; }
+			set { InventorySettingsManager.instance.objectTriggererFPSPickupSprite = value; }
+		}
 
 
-        }
-
-        public override void NotifyWentOutOfRange(InventoryPlayer player)
-        {
+		public override void NotifyCameInRange (InventoryPlayer player)
+		{
 
 
-        }
+		}
 
-        public override void OnMouseDown()
-        {
-            if (enabled == false)
-                return;
-
-            if (triggerMouseClick && InventoryUIUtility.isHoveringUIElement == false)
-            {
-                Use();
-            }
-        }
+		public override void NotifyWentOutOfRange (InventoryPlayer player)
+		{
 
 
-        public virtual InventoryItemBase GetItem(out bool shouldDestroySource)
-        {
-            var item = gameObject.GetComponent<InventoryItemBase>();
-            if (item != null)
-            {
-                shouldDestroySource = false;
-                return item;
-            }
+		}
 
-            var holder = gameObject.GetComponent<ObjectTriggererItemHolder>();
-            if (holder != null)
-            {
-                shouldDestroySource = true;
-                return holder.item;
-            }
+		public override void OnMouseDown ()
+		{
+			if (enabled == false)
+				return;
 
-            Debug.LogWarning("Trying to pickup item but no suitable handler found!", gameObject);
-            shouldDestroySource = false;
-            return null;
-        }
-
-        public override bool Use(out bool removeSource, bool fireEvents = true)
-        {
-            return Use(InventoryPlayerManager.instance.currentPlayer, out removeSource, fireEvents);
-        }
-
-        public override bool Use(InventoryPlayer player, out bool removeSource, bool fireEvents = true)
-        {
-            if (InventoryUIUtility.CanReceiveInput(gameObject) == false)
-            {
-                removeSource = false;
-                return false;
-            }
+			if (triggerMouseClick && InventoryUIUtility.isHoveringUIElement == false) {
+				Use ();
+			}
+		}
 
 
-            if (inRange)
-            {
-                removeSource = PickupItem(player, fireEvents);
-                if (removeSource)
-                {
-                    InventoryTriggererManager.instance.currentlyHoveringTriggerer = null;
-                }
-            }
-            else
-            {
-                bool shouldDestroySource;
-                var item = GetItem(out shouldDestroySource);
-                if (item != null)
-                    InventoryManager.langDatabase.itemCannotBePickedUpToFarAway.Show(item.name, item.description);
+		public virtual InventoryItemBase GetItem (out bool shouldDestroySource)
+		{
+			var item = gameObject.GetComponent<InventoryItemBase> ();
+			if (item != null) {
+				shouldDestroySource = false;
+				return item;
+			}
 
-                removeSource = false;
-            }
+			var holder = gameObject.GetComponent<ObjectTriggererItemHolder> ();
+			if (holder != null) {
+				shouldDestroySource = true;
+				return holder.item;
+			}
 
-            return removeSource;
-        }
+			Debug.LogWarning ("Trying to pickup item but no suitable handler found!", gameObject);
+			shouldDestroySource = false;
+			return null;
+		}
 
-        public override bool UnUse(bool fireEvents = true)
-        {
-            return UnUse(InventoryPlayerManager.instance.currentPlayer, fireEvents);
-        }
+		public override bool Use (out bool removeSource, bool fireEvents = true)
+		{
+			return Use (InventoryPlayerManager.instance.currentPlayer, out removeSource, fireEvents);
+		}
 
-        public override bool UnUse(InventoryPlayer player, bool fireEvents = true)
-        {
-            // Can't un-use an item.
+		public override bool Use (InventoryPlayer player, out bool removeSource, bool fireEvents = true)
+		{
+			if (InventoryUIUtility.CanReceiveInput (gameObject) == false) {
+				removeSource = false;
+				return false;
+			}
 
-            return false;
-        }
 
-        protected virtual bool PickupItem(InventoryPlayer player, bool fireEvents = true)
-        {
-            bool shouldDestroySource;
-            var item = GetItem(out shouldDestroySource);
+			if (inRange) {
+				removeSource = PickupItem (player, fireEvents);
+				if (removeSource) {
+					InventoryTriggererManager.instance.currentlyHoveringTriggerer = null;
+				}
+			} else {
+				bool shouldDestroySource;
+				var item = GetItem (out shouldDestroySource);
+				if (item != null)
+					InventoryManager.langDatabase.itemCannotBePickedUpToFarAway.Show (item.name, item.description);
 
-            if (item != null)
-            {
-                uint itemID = item.ID;
-                uint itemAmount = item.currentStackSize;
+				removeSource = false;
+			}
 
-                if (shouldDestroySource)
-                {
-                    // Create instance item -> Original get's destroyed.
-                    item = Instantiate<InventoryItemBase>(item);
-                    item.currentStackSize = itemAmount;
-                }
+			return removeSource;
+		}
 
-                bool pickedUp = item.PickupItem();
-                if (pickedUp)
-                {
-                    if (fireEvents)
-                    {
-                        if (OnPickup != null)
-                            OnPickup(player);
+		public override bool UnUse (bool fireEvents = true)
+		{
+			return UnUse (InventoryPlayerManager.instance.currentPlayer, fireEvents);
+		}
 
-                        if (player != null)
-                            player.NotifyPickedUpItem(itemID, itemAmount);
+		public override bool UnUse (InventoryPlayer player, bool fireEvents = true)
+		{
+			// Can't un-use an item.
 
-                        InventoryTriggererManager.instance.NotifyTriggererUsed(this);
-                    }
+			return false;
+		}
 
-                    if (shouldDestroySource)
-                        Destroy(gameObject);
-                }
-                else
-                {
-                    if (shouldDestroySource)
-                    {
-                        Destroy(item.gameObject); // Couldn't pick it up, destroy it again
-                    }
-                }
+		protected virtual bool PickupItem (InventoryPlayer player, bool fireEvents = true)
+		{
+			bool shouldDestroySource;
+			var item = GetItem (out shouldDestroySource);
 
-                return pickedUp;
-            }
+			if (item != null) {
+				uint itemID = item.ID;
+				uint itemAmount = item.currentStackSize;
 
-            return false;
-        }
-    }
+				if (shouldDestroySource) {
+					// Create instance item -> Original get's destroyed.
+					item = Instantiate<InventoryItemBase> (item);
+					item.currentStackSize = itemAmount;
+				}
+
+				bool pickedUp = item.PickupItem ();
+				if (pickedUp) {
+					if (fireEvents) {
+						if (OnPickup != null)
+							OnPickup (player);
+
+						if (player != null)
+							player.NotifyPickedUpItem (itemID, itemAmount);
+
+						InventoryTriggererManager.instance.NotifyTriggererUsed (this);
+					}
+
+					if (shouldDestroySource) {
+						//	print (gameObject.name);
+						Destroy (gameObject);
+					}
+                       
+				} else {
+					if (shouldDestroySource) {
+						//print (item.gameObject.name);
+						Destroy (item.gameObject); // Couldn't pick it up, destroy it again
+					}
+				}
+				return pickedUp;
+			}
+			return false;
+		}
+	}
 }
