@@ -2,22 +2,20 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class ActionManager : MonoBehaviour
+public class ActionManager :MonoBehaviour
 {
-	public static ActionManager m_instance = null;
+	public static ActionManager m_AC_instance = null;
 	public GameObject weaponGameObject;
 	SpriteRenderer weaponSprite;
 	float baseTime = 0.0f;
 	public bool isReadyToAttack = false;
-	float timeRequired = 0;
 	public Text debugText;
-	//Devdog.InventorySystem.InventoryItemBase currentWeildedItem;
-	//GameObject currentSelectedTileGO;
+
 	Devdog.InventorySystem.InventoryItemBase currentWeildedItem, currentSelectedTile;
 
 	void Awake ()
 	{
-		m_instance = this;
+		m_AC_instance = this;
 		weaponSprite = weaponGameObject.GetComponent <SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();
 		currentSelectedTile = new Devdog.InventorySystem.InventoryItemBase ();
@@ -35,7 +33,7 @@ public class ActionManager : MonoBehaviour
 			if (currentWeildedItem != null && currentWeildedItem.rarity.name == currentSelectedTile.rarity.name) { // if tool
 				print ("Using Tools");				
 				baseTime = (GameEventManager.baseStrengthWithTool * currentSelectedTile.properties [0].floatValue) / currentWeildedItem.itemQuality;			
-				isReadyToAttack = true;	 
+				isReadyToAttack = true;
 			} else { // if not tool
 				print ("Using Bare Hands");
 				baseTime = GameEventManager.baseStrengthWithoutTool * currentSelectedTile.properties [0].floatValue;
@@ -49,10 +47,11 @@ public class ActionManager : MonoBehaviour
 	void Update ()
 	{
 		if (isReadyToAttack) {
+			//PlayerMovement.m_instance.SetAttackAnimation ();
 			baseTime -= Time.deltaTime;
 			debugText.text = "breaking " + baseTime;
 			if (baseTime <= 0) {
-				DropBreakedItem ();			
+				DropBreakedItem ();
 				isReadyToAttack = false;
 			}
 		}
@@ -60,9 +59,10 @@ public class ActionManager : MonoBehaviour
 
 	void DropBreakedItem ()
 	{
+		currentSelectedTile.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
+		currentSelectedTile.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().Toggle (true);
 		print ("Droped " + currentSelectedTile.name);
 		currentSelectedTile = null;
-
 	}
 
 	void GetCurrentTile ()
@@ -76,11 +76,7 @@ public class ActionManager : MonoBehaviour
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
-		/*if (i == null) {
-			currentWeildedItem = null;
-			//currentWeildedItem.rarity.name = "none";
-		} else {*/
 		currentWeildedItem = i;
-		//}
 	}
 }
+

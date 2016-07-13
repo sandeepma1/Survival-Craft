@@ -17,19 +17,16 @@ namespace Devdog.InventorySystem
 	
 		bool isSelected = false;
 
-
 		void Start ()
-		{
-//			print (item);
-			/*for (int i = 0; i < item.layoutSize; i++) {
-				item [i].border.gameObject.SetActive (false);	
-			}*/
-	
-			//	ItemClicked ();
-//			print ("start");
+		{			
 			m_instance = this;
 			if (!isSelected) {
 				border.gameObject.SetActive (false);
+			}
+
+			if (PlayerPrefs.GetInt ("ItemSlotIndex") == (int)this.index) {				
+				border.gameObject.SetActive (true);
+				ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
 			}
 		}
 
@@ -38,8 +35,8 @@ namespace Devdog.InventorySystem
 			border.gameObject.SetActive (false);
 			MoreInventoryButton.m_instance.RemoveBorder ();
 			border.gameObject.SetActive (true);
-			ActionManager.m_instance.GetCurrentWeildedTool (item);
-			print (item.index);
+			ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
+			PlayerPrefs.SetInt ("ItemSlotIndex", (int)item.index);
 		}
 	}
 }

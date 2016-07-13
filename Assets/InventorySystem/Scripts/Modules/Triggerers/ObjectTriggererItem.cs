@@ -94,16 +94,16 @@ namespace Devdog.InventorySystem
 			return Use (InventoryPlayerManager.instance.currentPlayer, out removeSource, fireEvents);
 		}
 
-		public override bool Use (InventoryPlayer player, out bool removeSource, bool fireEvents = true)
+		/*public override bool Use (InventoryPlayer player, out bool removeSource, bool fireEvents = true)
 		{
 			if (InventoryUIUtility.CanReceiveInput (gameObject) == false) {
 				removeSource = false;
 				return false;
 			}
 
-
 			if (inRange) {
-				removeSource = PickupItem (player, fireEvents);
+				removeSource = false;
+				//removeSource = PickupItem (player, fireEvents);
 				if (removeSource) {
 					InventoryTriggererManager.instance.currentlyHoveringTriggerer = null;
 				}
@@ -112,13 +112,11 @@ namespace Devdog.InventorySystem
 				var item = GetItem (out shouldDestroySource);
 				if (item != null)
 					InventoryManager.langDatabase.itemCannotBePickedUpToFarAway.Show (item.name, item.description);
-
 				removeSource = false;
 			}
-
 			return removeSource;
 		}
-
+*/
 		public override bool UnUse (bool fireEvents = true)
 		{
 			return UnUse (InventoryPlayerManager.instance.currentPlayer, fireEvents);
@@ -127,12 +125,11 @@ namespace Devdog.InventorySystem
 		public override bool UnUse (InventoryPlayer player, bool fireEvents = true)
 		{
 			// Can't un-use an item.
-
 			return false;
 		}
 
 		protected virtual bool PickupItem (InventoryPlayer player, bool fireEvents = true)
-		{
+		{			
 			bool shouldDestroySource;
 			var item = GetItem (out shouldDestroySource);
 

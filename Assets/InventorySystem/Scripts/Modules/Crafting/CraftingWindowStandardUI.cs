@@ -264,6 +264,10 @@ namespace Devdog.InventorySystem
 //            }
 
 			int lastItemCategory = -1;
+			string lastItemCategoryName = " ";
+			//var uiCategory = categoryPool.Get ();
+					
+
 			foreach (var b in GetBlueprints(category)) {
 				if (b.playerLearnedBlueprint == false)
 					continue;
@@ -273,12 +277,14 @@ namespace Devdog.InventorySystem
 				InventoryUtility.ResetTransform (blueprintObj.transform);
 				blueprintObj.Set (b);
 
+
+
 				if (blueprintCategoryPrefab != null) {
 					Assert.IsTrue (b.resultItems.Length > 0, "No reward items set");
 					var item = b.resultItems.First ().item;
 					Assert.IsNotNull (item, "Empty reward row on blueprint!");
 
-					if (lastItemCategory != item._category) {
+					if (lastItemCategoryName != item.category.name) {
 						lastItemCategory = (int)item._category;
 
 						var uiCategory = categoryPool.Get ();
