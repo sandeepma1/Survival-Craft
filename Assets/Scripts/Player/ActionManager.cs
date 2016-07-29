@@ -67,8 +67,8 @@ public class ActionManager :MonoBehaviour
 
 	void GetCurrentTile ()
 	{
-		if (MapGenerator.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
-			currentSelectedTile = MapGenerator.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).GetComponent <Devdog.InventorySystem.InventoryItemBase> ();
+		if (MapGenerator_old.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
+			currentSelectedTile = MapGenerator_old.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).GetComponent <Devdog.InventorySystem.InventoryItemBase> ();
 		} else {
 			currentSelectedTile = null;
 		}

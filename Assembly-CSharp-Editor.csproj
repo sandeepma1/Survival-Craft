@@ -60,6 +60,7 @@
      <Compile Include="Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\TonemappingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
+     <Compile Include="Assets\Editor\MapGeneratorEditor.cs" />
      <Compile Include="Assets\InventorySystem\Scripts\Attributes\Editor\InventoryItemBasePropertyDrawerEditor.cs" />
      <Compile Include="Assets\InventorySystem\Scripts\Attributes\Editor\InventoryRequiredAttributeEditor.cs" />
      <Compile Include="Assets\InventorySystem\Scripts\Collections\Editor\ItemCollectionBaseEditor.cs" />

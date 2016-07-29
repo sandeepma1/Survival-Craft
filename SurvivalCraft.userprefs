@@ -1,10 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\test.cs">
     <Files>
-      <File FileName="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Crafting\CraftingBlueprintEditor.cs" Line="278" Column="36" />
-      <File FileName="Assets\InventorySystem\Scripts\Managers\Editor\InventoryEditors\Crafting\CraftingCategoryEditor.cs" Line="85" Column="94" />
-      <File FileName="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs" Line="24" Column="1" />
+      <File FileName="Assets\Scripts\test.cs" Line="85" Column="1" />
+      <File FileName="Assets\Scripts\MapGeneration\MapGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Editor\MapGeneratorEditor.cs" Line="9" Column="15" />
+      <File FileName="Assets\Scripts\MapGeneration\FalloffGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FirstScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

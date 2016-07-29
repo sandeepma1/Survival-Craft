@@ -439,6 +439,11 @@
      <Compile Include="Assets\Scripts\InventorySystemMod\ObjectTriggererItem.cs" />
      <Compile Include="Assets\Scripts\Managers\GameEventManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SaveManager.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\FalloffGenerator.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\MapDisplay.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\MapGenerator.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\Noise.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\TextureGenerator.cs" />
      <Compile Include="Assets\Scripts\Menus\IGMMenu.cs" />
      <Compile Include="Assets\Scripts\Menus\MoreInventoryButton.cs" />
      <Compile Include="Assets\Scripts\Menus\TabsControl.cs" />
@@ -450,7 +455,7 @@
      <Compile Include="Assets\Scripts\Utilities\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\ResizeCamera.cs" />
      <Compile Include="Assets\Scripts\Utilities\CreateMesh.cs" />
-     <Compile Include="Assets\Scripts\Utilities\Map\MapGenerator.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Map\MapGenerator_old.cs" />
      <Compile Include="Assets\Scripts\Utilities\SpriteSortingOrderHelper.cs" />
      <Compile Include="Assets\Scripts\Utilities\Warp\ScreenFader.cs" />
      <Compile Include="Assets\Scripts\Utilities\Warp\Warp.cs" />

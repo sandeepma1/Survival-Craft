@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class IGMMenu : MonoBehaviour
 {
 	public static IGMMenu m_instance = null;
-	public GameObject actionButton, rightAnalogStick;
+	public GameObject playerGrid;
 	//GameObject pauseMenu;
 
 	// Use this for initialization
@@ -26,18 +26,11 @@ public class IGMMenu : MonoBehaviour
 		//pauseMenu.SetActive (false);
 	}
 	//Toggle Controls
-	public void ToggleControls (string index)
+	public void ToggleGrid (bool flag)
 	{
-		if (index == "s") {
-			PlayerPrefs.SetString ("Controls", "s");
-			actionButton.SetActive (true);
-			rightAnalogStick.SetActive (false);
-		}
-		if (index == "d") {
-			PlayerPrefs.SetString ("Controls", "d");
-			actionButton.SetActive (false);
-			rightAnalogStick.SetActive (true);
-		}
+		print (flag);
+		playerGrid.GetComponent<SpriteRenderer> ().enabled = flag;
+		
 	}
 
 }
