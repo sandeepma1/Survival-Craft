@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f62e53b1c55d5b04cac36bdca22fa2db
-timeCreated: 1466839521
+timeCreated: 1469952879
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,7 @@ TextureImporter:
     21300012: Menu16_2
     21300014: Menu16_3
     21300016: Menu16_4
+    21300018: MenuIcons16_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -100,7 +101,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Menu16_4
@@ -111,7 +112,18 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: MenuIcons16_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []

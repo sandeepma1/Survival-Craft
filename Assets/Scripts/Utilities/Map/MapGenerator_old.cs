@@ -96,11 +96,7 @@ public class MapGenerator_old : MonoBehaviour
 						break;
 					case 284:
 						InstantiateFloorPrefab (water, x, y);
-						break;
-				//	case 139:
-				//G_layer3 [x, y] = Instantiate (grass, new Vector3 (x, y, 0), Quaternion.identity) as GameObject;
-				//	G_layer3 [x, y].transform.SetParent (MapHolder);
-				//	break;
+						break;				
 					case 139:
 						int r = UnityEngine.Random.Range (0, 6);
 						InstantiatePropPrefab (ranObjects [r], x, y);

@@ -439,13 +439,18 @@
      <Compile Include="Assets\Scripts\InventorySystemMod\ObjectTriggererItem.cs" />
      <Compile Include="Assets\Scripts\Managers\GameEventManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SaveManager.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\CreateNewGame.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\FalloffGenerator.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\LoadMapFromSave.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\MapDisplay.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\Noise.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\PopulateItems.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\TextureGenerator.cs" />
      <Compile Include="Assets\Scripts\Menus\IGMMenu.cs" />
+     <Compile Include="Assets\Scripts\Menus\LoadMainLevel.cs" />
      <Compile Include="Assets\Scripts\Menus\MoreInventoryButton.cs" />
+     <Compile Include="Assets\Scripts\Menus\SaveGame.cs" />
      <Compile Include="Assets\Scripts\Menus\TabsControl.cs" />
      <Compile Include="Assets\Scripts\Player\ActionManager.cs" />
      <Compile Include="Assets\Scripts\Player\EnemyHealth.cs" />
@@ -514,7 +519,6 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
-     <None Include="Assets\link.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />

@@ -47,9 +47,8 @@ public class ActionManager :MonoBehaviour
 	void Update ()
 	{
 		if (isReadyToAttack) {
-			//PlayerMovement.m_instance.SetAttackAnimation ();
 			baseTime -= Time.deltaTime;
-			debugText.text = "breaking " + baseTime;
+			debugText.text = baseTime.ToString ("F");
 			if (baseTime <= 0) {
 				DropBreakedItem ();
 				isReadyToAttack = false;
@@ -61,14 +60,15 @@ public class ActionManager :MonoBehaviour
 	{
 		currentSelectedTile.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
 		currentSelectedTile.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().Toggle (true);
-		print ("Droped " + currentSelectedTile.name);
+		print (currentSelectedTile.transform.position);
+		LoadMapFromSave.m_instance.SaveMapitemData ((int)currentSelectedTile.transform.position.x, (int)currentSelectedTile.transform.position.y);
 		currentSelectedTile = null;
 	}
 
 	void GetCurrentTile ()
 	{
-		if (MapGenerator_old.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
-			currentSelectedTile = MapGenerator_old.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).GetComponent <Devdog.InventorySystem.InventoryItemBase> ();
+		if (LoadMapFromSave.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
+			currentSelectedTile = LoadMapFromSave.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).GetComponent <Devdog.InventorySystem.InventoryItemBase> ();
 		} else {
 			currentSelectedTile = null;
 		}

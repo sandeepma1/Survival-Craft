@@ -1,20 +1,54 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class IGMMenu : MonoBehaviour
 {
 	public static IGMMenu m_instance = null;
 	public GameObject playerGrid;
-	//GameObject pauseMenu;
+	public GameObject loadingScreen, igmMenu;
 
-	// Use this for initialization
 	void Awake ()
 	{
 		m_instance = this;
-		//pauseMenu = transform.FindChild ("PauseMenu").gameObject;	
 	}
 
+	void Update ()
+	{
+		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor) {
+			if (Input.GetKey (KeyCode.Escape)) {
+				if (SceneManager.GetActiveScene ().name == "Menu") {
+					Application.Quit ();
+				} else {
+					ShowIGMMenu ();
+				}
+				return;
+			}
+		}
+	}
+
+	public void ShowIGMMenu ()
+	{
+		igmMenu.SetActive (true);
+	}
+
+	public void HideIGMMenu ()
+	{
+		igmMenu.SetActive (false);
+	}
+
+	public void LoadMainLevel ()
+	{
+		loadingScreen.SetActive (true);
+		SceneManager.LoadScene ("Main");
+	}
+
+	public void LoadMenuLevel ()
+	{
+		loadingScreen.SetActive (true);
+		SceneManager.LoadScene ("Menu");
+	}
 	// Pause Menu
 	public void OpenPauseMenu ()
 	{
@@ -29,8 +63,12 @@ public class IGMMenu : MonoBehaviour
 	public void ToggleGrid (bool flag)
 	{
 		print (flag);
-		playerGrid.GetComponent<SpriteRenderer> ().enabled = flag;
-		
+		playerGrid.GetComponent<SpriteRenderer> ().enabled = flag;		
+	}
+
+	public void QuitGame ()
+	{
+		Application.Quit ();
 	}
 
 }

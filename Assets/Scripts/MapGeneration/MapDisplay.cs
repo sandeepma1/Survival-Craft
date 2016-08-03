@@ -10,8 +10,8 @@ public class MapDisplay : MonoBehaviour
 	{
 		textureRender.sharedMaterial.mainTexture = texture;
 		textureRender.transform.localScale = new Vector3 (texture.width, texture.height, texture.height);
-		SaveTextureToPNG (texture);
-		SaveTextureToFile (texture);
+		//SaveTextureToPNG (texture);
+		//SaveTextureToFile (texture);
 	}
 
 	void SaveTextureToPNG (Texture2D tex)

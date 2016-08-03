@@ -32,7 +32,7 @@ namespace Devdog.InventorySystem
 		private bool _isCurrentlyDropped = false;
 
 		/// <summary>
-		/// Can the item be Hand Mined or picked?
+		/// isDropable
 		/// </summary>
 		public bool isCurrentlyDropped {
 			get {
@@ -47,7 +47,7 @@ namespace Devdog.InventorySystem
 		private float _itemQuality = 1;
 
 		/// <summary>
-		/// Can the item be Hand Mined or picked?
+		/// ItemQuality
 		/// </summary>
 		public float itemQuality {
 			get {

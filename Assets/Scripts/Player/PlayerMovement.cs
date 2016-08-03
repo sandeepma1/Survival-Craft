@@ -95,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
 	public void SetCursorTilePosition (int a, int b)
 	{
 		cursorPosition = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (transform.position.y - animationPivotAdjuster), Mathf.Round (transform.position.z));
+//		print (cursorPosition);
 		cursorPosition.x += Mathf.Round (a);
 		cursorPosition.y += Mathf.Round (b);
 		cursorTile.transform.position = cursorPosition;

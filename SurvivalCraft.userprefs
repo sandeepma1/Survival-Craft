@@ -1,10 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MapGeneration\MapDisplay.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MapGeneration\LoadMapFromSave.cs">
     <Files>
-      <File FileName="Assets\Scripts\MapGeneration\MapGenerator.cs" Line="46" Column="53" />
-      <File FileName="Assets\Scripts\MapGeneration\MapDisplay.cs" Line="34" Column="6" />
-      <File FileName="Assets\Editor\MapGeneratorEditor.cs" Line="20" Column="11" />
+      <File FileName="Assets\Scripts\Utilities\Map\MapGenerator_old.cs" Line="132" Column="23" />
+      <File FileName="Assets\Scripts\MapGeneration\LoadMapFromSave.cs" Line="118" Column="39" />
+      <File FileName="Assets\Scripts\MapGeneration\CreateNewGame.cs" Line="50" Column="43" />
+      <File FileName="Assets\Scripts\MapGeneration\PopulateItems.cs" Line="34" Column="39" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="98" Column="3" />
+      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="64" Column="139" />
+      <File FileName="Assets\Scripts\Managers\GameEventManager.cs" Line="6" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
