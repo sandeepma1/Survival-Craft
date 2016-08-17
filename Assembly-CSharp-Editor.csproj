@@ -45,6 +45,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\Editor\A2X2BrushEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\Editor\AnimBrushEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\Editor\CarpetBrushEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\Editor\RandomBrushEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\Editor\RoadBrushEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\Editor\TilesetBrushEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\BrushTileGridControl.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\ShortcutKeys.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\SortingLayerPropertyDrawer.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\TilePropertiesControl.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\TilePropertiesWindow.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\TileSelectionWindow.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\TilemapEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\TilemapGroupEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\TilesetControl.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\TilesetEditor.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\ToolIcons.cs" />
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <Compile Include="Assets\Editor\ImageEffects\AntialiasingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
@@ -172,6 +189,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
+     <None Include="Assets\CreativeSpore\SuperTilemapEditor\changelog.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />

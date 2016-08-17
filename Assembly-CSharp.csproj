@@ -45,6 +45,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Kenneys - Rogue Like\RogueLikeMapGenerator.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Data\ParameterContainer.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\A2X2Brush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\AnimBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\BrushBehaviour.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\BrushUtil.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\CarpetBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\IBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\RandomBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\RoadBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\TilesetBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\SortingLayerAttribute.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Tilemap.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapGroup.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Tileset.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\EditorUtils.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\GizmosEx.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\HandlesEx.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapDrawingUtils.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapUtils.cs" />
      <Compile Include="Assets\Easy Save 2\ES2Init.cs" />
      <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\ES2UniqueID.cs" />
      <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueGameLogic.cs" />
@@ -460,6 +481,7 @@
      <Compile Include="Assets\Scripts\Utilities\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\ResizeCamera.cs" />
      <Compile Include="Assets\Scripts\Utilities\CreateMesh.cs" />
+     <Compile Include="Assets\Scripts\Utilities\DayNight\DayNight_GameTime.cs" />
      <Compile Include="Assets\Scripts\Utilities\Map\MapGenerator_old.cs" />
      <Compile Include="Assets\Scripts\Utilities\SpriteSortingOrderHelper.cs" />
      <Compile Include="Assets\Scripts\Utilities\Warp\ScreenFader.cs" />
@@ -503,6 +525,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
+     <None Include="Assets\CreativeSpore\SuperTilemapEditor\changelog.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />

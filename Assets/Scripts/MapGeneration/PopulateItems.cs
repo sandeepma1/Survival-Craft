@@ -5,11 +5,12 @@ public partial class CreateNewGame : MonoBehaviour
 {
 	//public GameObject stone, grass, log;
 
-	string[,] mapItems = new string[128, 128];
-	// = new string[mapChunkSize, mapChunkSize];
+	string[,] mapItems;
+	// = new string[128, 128];
 
 	public void PopulateGameitems (Texture2D map)
-	{		
+	{
+		mapItems = new string[GameEventManager.mapChunkSize, GameEventManager.mapChunkSize];
 		for (int x = 0; x < map.height; x++) {
 			for (int y = 0; y < map.width; y++) {						
 				if (map.GetPixel (x, y) == regions [0].colour) {

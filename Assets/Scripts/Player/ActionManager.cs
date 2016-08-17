@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class ActionManager :MonoBehaviour
 {
 	public static ActionManager m_AC_instance = null;
-	public GameObject weaponGameObject;
+	public GameObject weaponGameObject, progressBar, progressBarBG;
 	SpriteRenderer weaponSprite;
-	float baseTime = 0.0f;
+	float baseTime = 0.0f, baseTimeStatic, progressVal = 0;
 	public bool isReadyToAttack = false;
 	public Text debugText;
 
@@ -19,6 +19,7 @@ public class ActionManager :MonoBehaviour
 		weaponSprite = weaponGameObject.GetComponent <SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();
 		currentSelectedTile = new Devdog.InventorySystem.InventoryItemBase ();
+		progressBarBG.SetActive (false);
 	}
 
 	public void ActionButtonPressed ()
@@ -32,11 +33,13 @@ public class ActionManager :MonoBehaviour
 		if (currentSelectedTile != null && currentSelectedTile.isHandMined) {
 			if (currentWeildedItem != null && currentWeildedItem.rarity.name == currentSelectedTile.rarity.name) { // if tool
 				print ("Using Tools");				
-				baseTime = (GameEventManager.baseStrengthWithTool * currentSelectedTile.properties [0].floatValue) / currentWeildedItem.itemQuality;			
+				baseTime = (GameEventManager.baseStrengthWithTool * currentSelectedTile.properties [0].floatValue) / currentWeildedItem.itemQuality;
+				baseTimeStatic = baseTime;		
 				isReadyToAttack = true;
 			} else { // if not tool
 				print ("Using Bare Hands");
 				baseTime = GameEventManager.baseStrengthWithoutTool * currentSelectedTile.properties [0].floatValue;
+				baseTimeStatic = baseTime;
 				isReadyToAttack = true;	
 			}
 		} else {
@@ -48,11 +51,24 @@ public class ActionManager :MonoBehaviour
 	{
 		if (isReadyToAttack) {
 			baseTime -= Time.deltaTime;
-			debugText.text = baseTime.ToString ("F");
+
+			progressVal = baseTime / baseTimeStatic;
+
+			debugText.text = progressVal.ToString ("F");
+
+			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
+			progressBarBG.SetActive (true);
 			if (baseTime <= 0) {
 				DropBreakedItem ();
 				isReadyToAttack = false;
+				debugText.text = "";
+				progressBar.transform.localScale = Vector3.zero;
+				progressBarBG.SetActive (false);
 			}
+		} else {
+			debugText.text = "";
+			progressBar.transform.localScale = Vector3.zero;
+			progressBarBG.SetActive (false);
 		}
 	}
 
