@@ -67,18 +67,18 @@ public class DayNight_GameTime : MonoBehaviour
 			//sun.transform.rotation = Quaternion.Euler (0, 180, ((timer * 0.125f) - 90)); // good one summer 
 			sun.transform.rotation = Quaternion.Euler (0, 180, ((timer * 0.125f) - 90));
 			if (timer > seasons [0].dawn_start * timeMultiplier && timer < seasons [0].day_start * timeMultiplier) {
-				print ("dawn");
+				//print ("dawn");
 			} else if (timer > seasons [0].day_start * timeMultiplier && timer < seasons [0].dusk_start * timeMultiplier) {			
-				print ("day");
+				//print ("day");
 			} else if (timer > seasons [0].dusk_start * timeMultiplier && timer < seasons [0].night_start * timeMultiplier) {			
-				print ("dusk");
+				//print ("dusk");
 			}		
 		} else if (timer > seasons [0].night_start * timeMultiplier && timer < 1440) {	
 			//sun.transform.rotation = Quaternion.Euler (0, 180, (timer / 4));		
-			print ("night");
+			//print ("night");
 		} else if (timer > 0 && timer < seasons [0].dawn_start * timeMultiplier) {	
 			//sun.transform.rotation = Quaternion.Euler (0, 180, (timer / 4));		
-			print ("night");
+			//print ("night");
 		}
 	}
 

@@ -68,6 +68,11 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
+	void LateUpdate ()
+	{
+		this.gameObject.GetComponent <SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10);
+	}
+
 	public void AttackCalculation (int a, int b)
 	{
 		if (a == tempX && b == tempY) {

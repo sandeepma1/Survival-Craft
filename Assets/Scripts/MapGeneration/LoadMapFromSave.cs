@@ -58,8 +58,7 @@ public class LoadMapFromSave : MonoBehaviour
 	}
 
 	void LoadMapItems ()
-	{	
-		
+	{			
 		for (int x = 0; x < mapSize; x++) {
 			for (int y = 0; y < mapSize; y++) {	
 				switch (mapItems [x, y]) {

@@ -478,11 +478,14 @@
      <Compile Include="Assets\Scripts\Player\GridMove.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShooting.cs" />
+     <Compile Include="Assets\Scripts\Test\RetriveGOs.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\ResizeCamera.cs" />
      <Compile Include="Assets\Scripts\Utilities\CreateMesh.cs" />
      <Compile Include="Assets\Scripts\Utilities\DayNight\DayNight_GameTime.cs" />
      <Compile Include="Assets\Scripts\Utilities\Map\MapGenerator_old.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Map\TileSorting.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Map\TileSortingPlayer.cs" />
      <Compile Include="Assets\Scripts\Utilities\SpriteSortingOrderHelper.cs" />
      <Compile Include="Assets\Scripts\Utilities\Warp\ScreenFader.cs" />
      <Compile Include="Assets\Scripts\Utilities\Warp\Warp.cs" />
