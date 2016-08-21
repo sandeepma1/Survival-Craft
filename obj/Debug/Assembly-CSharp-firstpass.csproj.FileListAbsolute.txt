@@ -19,6 +19,6 @@ C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.xml
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEditor.xml
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.UI.xml
 C:\GitRepo\SurvivalCraft\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-firstpass.pdb
-C:\GitRepo\SurvivalCraft\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache

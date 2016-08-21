@@ -54,19 +54,19 @@ public class ActionManager :MonoBehaviour
 
 			progressVal = baseTime / baseTimeStatic;
 
-			debugText.text = progressVal.ToString ("F");
+			//debugText.text = progressVal.ToString ("F");
 
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
 			progressBarBG.SetActive (true);
 			if (baseTime <= 0) {
 				DropBreakedItem ();
 				isReadyToAttack = false;
-				debugText.text = "";
+				//debugText.text = "";
 				progressBar.transform.localScale = Vector3.zero;
 				progressBarBG.SetActive (false);
 			}
 		} else {
-			debugText.text = "";
+//			debugText.text = "";
 			progressBar.transform.localScale = Vector3.zero;
 			progressBarBG.SetActive (false);
 		}

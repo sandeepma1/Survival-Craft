@@ -468,7 +468,10 @@
      <Compile Include="Assets\Scripts\MapGeneration\Noise.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\PopulateItems.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\TextureGenerator.cs" />
+     <Compile Include="Assets\Scripts\MapGenerationV2\MapExpoter.cs" />
+     <Compile Include="Assets\Scripts\MapGenerationV2\MapLoader.cs" />
      <Compile Include="Assets\Scripts\Menus\IGMMenu.cs" />
+     <Compile Include="Assets\Scripts\Menus\LoadLevelByName.cs" />
      <Compile Include="Assets\Scripts\Menus\LoadMainLevel.cs" />
      <Compile Include="Assets\Scripts\Menus\MoreInventoryButton.cs" />
      <Compile Include="Assets\Scripts\Menus\SaveGame.cs" />
@@ -478,7 +481,6 @@
      <Compile Include="Assets\Scripts\Player\GridMove.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShooting.cs" />
-     <Compile Include="Assets\Scripts\Test\RetriveGOs.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\ResizeCamera.cs" />
      <Compile Include="Assets\Scripts\Utilities\CreateMesh.cs" />

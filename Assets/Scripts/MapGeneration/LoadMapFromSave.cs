@@ -6,7 +6,7 @@ public class LoadMapFromSave : MonoBehaviour
 	public static LoadMapFromSave m_instance = null;
 	Transform tilesHolder, mapItemHolder;
 	public MapGenerator mapGenerator;
-	public GameObject stone, log, grass;
+	public GameObject stone, log, grass, tree;
 	Texture2D mapData;
 	string[,] mapItems;
 	GameObject[,] mapItemGO;
@@ -69,6 +69,9 @@ public class LoadMapFromSave : MonoBehaviour
 						InstansiateMapItem (grass, x, y);
 						break;
 					case "log":
+						InstansiateMapItem (log, x, y);
+						break;	
+					case "treePrefab":
 						InstansiateMapItem (log, x, y);
 						break;	
 					default:

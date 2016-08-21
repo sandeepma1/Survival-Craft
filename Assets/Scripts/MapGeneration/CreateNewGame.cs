@@ -49,14 +49,12 @@ public partial class CreateNewGame : MonoBehaviour
 		SaveTextureToFile (TextureGenerator.TextureFromColourMap (mapData.colourMap, mapChunkSize, mapChunkSize));
 	}
 
-
 	void SaveTextureToFile (Texture2D tex) //SaveTexture
 	{
 		ES2.SaveImage (tex, "SaveSlot1.png");			
 		PopulateGameitems (tex);
 		LoadMainLevel.m_instance.LoadMainScene_Landscape ();
 	}
-
 
 
 	//******************Other Stuff*****************************************************************************************************
