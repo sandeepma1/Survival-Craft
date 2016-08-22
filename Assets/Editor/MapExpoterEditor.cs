@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
-public class MapExpoterEditor : MonoBehaviour
+[CustomEditor (typeof(MapExpoter))]
+public class MapExpoterEditor : Editor
 {
-	public static MapExpoterEditor m_instance = null;
-
-	void Awake ()
+	public override void OnInspectorGUI ()
 	{
-		m_instance = this;
-	}
+		MapExpoter mapExp = (MapExpoter)target;
+		if (GUILayout.Button ("SaveMap DeleteChild SavePrefab")) {
+			mapExp.StartProcess ();
+		}
+		/*if (GUILayout.Button ("Delete Children")) {
+			mapExp.DeleteChildren ();
+		}
 
-	public void SavePrefab (GameObject obj, string path)
-	{
-		UnityEditor.PrefabUtility.CreatePrefab (path, obj);
+		if (GUILayout.Button ("Save Prefab")) {
+			mapExp.SaveAsPrefab ();
+		}*/
 	}
 }
