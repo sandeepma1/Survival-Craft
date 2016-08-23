@@ -6,7 +6,7 @@ public class FirstScript : MonoBehaviour
 	public GameObject inventoryMenu, mainCanvas, map;
 	// Use this for initialization
 	void Awake ()
-	{
+	{		
 		map.SetActive (false);
 		mainCanvas.SetActive (true);
 		inventoryMenu.SetActive (true); 

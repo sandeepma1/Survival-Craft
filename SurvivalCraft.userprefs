@@ -1,15 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Utilities\Warp\Warp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Test\ChunkManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\MapGenerationV2\MapLoader.cs" Line="14" Column="5" />
+      <File FileName="Assets\Scripts\MapGenerationV2\MapLoader.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MapGenerationV2\MapExpoter.cs" Line="1" Column="1" />
       <File FileName="Assets\Editor\MapExpoterEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Editor\MapGeneratorEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration\CreateNewGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\InventorySystem\Scripts\Managers\InventoryPlayerManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Utilities\Warp\Warp.cs" Line="14" Column="52" />
-      <File FileName="Assets\Scripts\Utilities\Map\TileSorting.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGeneration\LoadMapFromSave.cs" Line="108" Column="2" />
+      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="86" Column="37" />
+      <File FileName="Assets\Scripts\Test\ChunkManager.cs" Line="16" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
