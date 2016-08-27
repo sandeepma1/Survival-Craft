@@ -31,11 +31,6 @@ public partial class CreateNewGame : MonoBehaviour
 
 	Queue<MapThreadInfo<MapData>> mapDataThreadInfoQueue = new Queue<MapThreadInfo<MapData>> ();
 
-	void Awake ()
-	{
-		GameEventManager.mapChunkSize = mapChunkSize;
-	}
-
 	void Start ()
 	{
 		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);

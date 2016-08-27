@@ -3,11 +3,12 @@ using System.Collections;
 
 public class FirstScript : MonoBehaviour
 {
-	public GameObject inventoryMenu, mainCanvas, map;
+	public GameObject inventoryMenu, mainCanvas, mapReference, mainMap;
 	// Use this for initialization
 	void Awake ()
 	{		
-		map.SetActive (false);
+		mapReference.SetActive (false);
+		mainMap.SetActive (false);
 		mainCanvas.SetActive (true);
 		inventoryMenu.SetActive (true); 
 	}

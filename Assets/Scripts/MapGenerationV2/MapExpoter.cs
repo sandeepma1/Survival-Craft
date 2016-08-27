@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class MapExpoter : MonoBehaviour
 {
@@ -18,6 +21,7 @@ public class MapExpoter : MonoBehaviour
 	public void StartProcess ()
 	{
 		mapChunks = GameObject.FindGameObjectsWithTag ("MapChunks");
+
 		print ("Found " + mapChunks.Length + " Map Chunks");
 		foreach (var maps in mapChunks) {
 			GameObject map = GameObject.Instantiate (maps);
@@ -49,8 +53,7 @@ public class MapExpoter : MonoBehaviour
 				print (parent.transform.GetChild (i).gameObject.name);*/
 			}
 		}
-
-		ES2.Save (mapObjects, map.gameObject.name + ".txt");
+		Serialize (mapObjects, "Assets/Resources/Saves/" + map.gameObject.name + ".txt");
 		print ("Map saved");
 		DeleteChildren (map);
 	}
@@ -92,4 +95,11 @@ public class MapExpoter : MonoBehaviour
 		}
 	}
 
+	public static void Serialize (object t, string path)
+	{
+		using (Stream stream = File.Open (path, FileMode.Create)) {
+			BinaryFormatter bformatter = new BinaryFormatter ();
+			bformatter.Serialize (stream, t);
+		}
+	}
 }

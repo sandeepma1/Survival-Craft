@@ -25,7 +25,7 @@ public class ActionManager :MonoBehaviour
 	public void ActionButtonPressed ()
 	{
 		GetCurrentTile ();
-		CalculateHardness ();
+		//CalculateHardness ();
 	}
 
 	void CalculateHardness ()
@@ -54,8 +54,6 @@ public class ActionManager :MonoBehaviour
 
 			progressVal = baseTime / baseTimeStatic;
 
-			//debugText.text = progressVal.ToString ("F");
-
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
 			progressBarBG.SetActive (true);
 			if (baseTime <= 0) {
@@ -66,7 +64,6 @@ public class ActionManager :MonoBehaviour
 				progressBarBG.SetActive (false);
 			}
 		} else {
-//			debugText.text = "";
 			progressBar.transform.localScale = Vector3.zero;
 			progressBarBG.SetActive (false);
 		}
@@ -83,11 +80,13 @@ public class ActionManager :MonoBehaviour
 
 	void GetCurrentTile ()
 	{
-		if (LoadMapFromSave.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
-			currentSelectedTile = LoadMapFromSave.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).GetComponent <Devdog.InventorySystem.InventoryItemBase> ();
+		print (GameEventManager.currentSelectedTilePosition);
+		MapLoader.m_instance.GetTile ();
+		/*if (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
+			currentSelectedTile = MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).GetComponent <Devdog.InventorySystem.InventoryItemBase> ();
 		} else {
 			currentSelectedTile = null;
-		}
+		}*/
 	}
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
