@@ -25,7 +25,7 @@ public class ActionManager :MonoBehaviour
 	public void ActionButtonPressed ()
 	{
 		GetCurrentTile ();
-		//CalculateHardness ();
+
 	}
 
 	void CalculateHardness ()
@@ -59,7 +59,6 @@ public class ActionManager :MonoBehaviour
 			if (baseTime <= 0) {
 				DropBreakedItem ();
 				isReadyToAttack = false;
-				//debugText.text = "";
 				progressBar.transform.localScale = Vector3.zero;
 				progressBarBG.SetActive (false);
 			}
@@ -72,21 +71,20 @@ public class ActionManager :MonoBehaviour
 	void DropBreakedItem ()
 	{
 		currentSelectedTile.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
-		currentSelectedTile.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().Toggle (true);
-		print (currentSelectedTile.transform.position);
-		LoadMapFromSave.m_instance.SaveMapitemData ((int)currentSelectedTile.transform.position.x, (int)currentSelectedTile.transform.position.y);
+		currentSelectedTile.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().Toggle (true);	
+		MapLoader.m_instance.SaveMapitemData ((int)currentSelectedTile.transform.position.x, (int)currentSelectedTile.transform.position.y);
 		currentSelectedTile = null;
 	}
 
 	void GetCurrentTile ()
 	{
-		print (GameEventManager.currentSelectedTilePosition);
-		MapLoader.m_instance.GetTile ();
-		/*if (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
+		if (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
 			currentSelectedTile = MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).GetComponent <Devdog.InventorySystem.InventoryItemBase> ();
+			CalculateHardness ();
 		} else {
+			print ("No items nearby");
 			currentSelectedTile = null;
-		}*/
+		}
 	}
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)

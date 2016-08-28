@@ -40,9 +40,11 @@ public class MoreInventoryButton : MonoBehaviour
 	{		
 		toggleInventory = !toggleInventory;				
 		leftStick.SetActive (toggleInventory);
-		if (PlayerPrefs.GetString ("Controls") == "d") {
-			rightStick.SetActive (toggleInventory);
-		}/* else {
+		rightStick.SetActive (toggleInventory);
+		//if (PlayerPrefs.GetString ("Controls") == "d") {
+			
+		//}
+		/* else {
 			actionButton.SetActive (toggleInventory);
 		}*/
 		inventoryTab.SetActive (!toggleInventory);

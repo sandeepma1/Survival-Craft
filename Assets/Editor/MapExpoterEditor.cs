@@ -11,6 +11,9 @@ public class MapExpoterEditor : Editor
 		if (GUILayout.Button ("SaveMap DeleteChild SavePrefab")) {
 			mapExp.StartProcess ();
 		}
+		/*if (GUILayout.Button ("SaveMap DeleteChild SavePrefab")) {
+			mapExp.StartProcess ();
+		}*/
 		/*if (GUILayout.Button ("Delete Children")) {
 			mapExp.DeleteChildren ();
 		}

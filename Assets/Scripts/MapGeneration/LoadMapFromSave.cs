@@ -116,7 +116,7 @@ public class LoadMapFromSave : MonoBehaviour
 
 	public void SaveMapitemData (int x, int y)
 	{
-		mapItems [x, y] = "";
-		ES2.Save (mapItems, "mapItems.txt");
+		//mapItems [x, y] = "";
+		//ES2.Save (mapItems, "mapItems.txt");
 	}
 }

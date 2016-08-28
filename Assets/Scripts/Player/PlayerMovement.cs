@@ -12,7 +12,7 @@ using Devdog.InventorySystem.UI;
 public class PlayerMovement : MonoBehaviour
 {
 	public Animator anim;
-	public float speed = 2.0f;
+	public float speed = 2.0f, speedTemp = 0;
 	public static PlayerMovement m_instance = null;
 	public GameObject cursorTile, cursorTile_grid;
 
@@ -30,11 +30,29 @@ public class PlayerMovement : MonoBehaviour
 	void Awake ()
 	{		
 		m_instance = this;
+		GetPlayerPosition ();
 	}
 
 	void Start ()
 	{
-		anim = GetComponent<Animator> ();					
+		anim = GetComponent<Animator> ();	
+		speedTemp = speed;	
+		InvokeRepeating ("SavePlayerPosition", 0, 2);		
+
+		ES2Settings setting = new ES2Settings ();
+		setting.saveLocation = ES2Settings.SaveLocation.PlayerPrefs;
+	}
+
+	public void StopPlayer ()
+	{
+		anim.SetBool ("isWalking", false);
+		GameEventManager.SetState (GameEventManager.E_STATES.e_pause);
+	}
+
+	public void StartPlayer ()
+	{
+		anim.SetBool ("isWalking", true);
+		GameEventManager.SetState (GameEventManager.E_STATES.e_game);
 	}
 
 	void Update ()
@@ -71,6 +89,11 @@ public class PlayerMovement : MonoBehaviour
 	void LateUpdate ()
 	{
 		this.gameObject.GetComponent <SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10);
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			speed = speedTemp * 2;
+		} else {
+			speed = speedTemp;
+		}
 	}
 
 	public void AttackCalculation (int a, int b)
@@ -90,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 		anim.SetFloat ("x", input_x);
 		anim.SetFloat ("y", input_y);
 		anim.SetBool ("isWalking", isLeftStick);
+		//GameEventManager.currentMapChunkPosition = cursorTile.transform.position;
 	}
 
 	public void ShowGrid ()
@@ -100,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
 	public void SetCursorTilePosition (int a, int b)
 	{
 		cursorPosition = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (transform.position.y - animationPivotAdjuster), Mathf.Round (transform.position.z));
-//		print (cursorPosition);
 		cursorPosition.x += Mathf.Round (a);
 		cursorPosition.y += Mathf.Round (b);
 		cursorTile.transform.position = cursorPosition;
@@ -118,6 +141,17 @@ public class PlayerMovement : MonoBehaviour
 		anim.SetFloat ("a", Mathf.RoundToInt (r_input_a));
 		anim.SetFloat ("b", Mathf.RoundToInt (r_input_b));
 		//	}		
+	}
+
+	public void SavePlayerPosition ()
+	{
+		PlayerPrefs.SetFloat ("PlayerPositionX", transform.position.x);
+		PlayerPrefs.SetFloat ("PlayerPositionY", transform.position.y);
+	}
+
+	public void GetPlayerPosition ()
+	{		
+		transform.position = new Vector3 (PlayerPrefs.GetFloat ("PlayerPositionX"), PlayerPrefs.GetFloat ("PlayerPositionY"), 0);
 	}
 }
 //}

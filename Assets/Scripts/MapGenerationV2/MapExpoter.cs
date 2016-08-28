@@ -12,10 +12,18 @@ public class MapExpoter : MonoBehaviour
 	//public string name;
 	GameObject tempMap;
 	string[,] mapObjects;
+	TextAsset[] mapItems;
 
-	void Start ()
+	public void ExportToCurrentMaps ()
 	{
-		//ExportMap ();
+		mapItems = Resources.LoadAll <TextAsset> ("Saves/");		
+		for (int i = 0; i < mapItems.Length; i++) {			
+			string[] array = mapItems [i].text.Split ('\n');
+			if (ES2.Exists (mapItems [i].name + ".txt")) {
+				ES2.Delete (mapItems [i].name + ".txt");
+				ES2.Save (SingleToMulti ((string[])array), mapItems [i].name + ".txt");
+			}
+		}
 	}
 
 	public void StartProcess ()
@@ -30,13 +38,15 @@ public class MapExpoter : MonoBehaviour
 			print (map.name + " processed..");
 			DestroyImmediate (map);
 		}
+
 	}
 
 	public void ExportMap (GameObject map)
-	{		
-		mapObjects = new string[128, 128];
-		for (int x = 0; x < 128; x++) {
-			for (int y = 0; y < 128; y++) {				
+	{
+		int mapSize = (int)map.GetComponent <CreativeSpore.SuperTilemapEditor.Tilemap> ().MapBounds.size.x;
+		mapObjects = new string[mapSize, mapSize];
+		for (int x = 0; x < mapSize; x++) {
+			for (int y = 0; y < mapSize; y++) {				
 				mapObjects [x, y] = "";				
 			}
 		}
@@ -45,15 +55,15 @@ public class MapExpoter : MonoBehaviour
 			if (map.transform.GetChild (i).gameObject.name.StartsWith ("0") || map.transform.GetChild (i).gameObject.name.StartsWith ("1")) {
 			} else {
 				mapObjects [(int)map.transform.GetChild (i).localPosition.x, (int)map.transform.GetChild (i).localPosition.y] = map.transform.GetChild (i).gameObject.name;
-				/*if (parent.transform.childCount != 0) {
-					foreach (Transform child in parent.transform.GetChild (i)) {
-						child.gameObject.GetComponent <SpriteRenderer> ().sortingOrder = (int)(child.transform.position.y * -10); // Sprite renderer sorting for for all grandchildren or transfor with more than 1 cild
-					}
-				}
-				print (parent.transform.GetChild (i).gameObject.name);*/
 			}
 		}
-		Serialize (mapObjects, "Assets/Resources/Saves/" + map.gameObject.name + ".txt");
+		if (File.Exists ("Assets/Resources/Saves/" + map.name + ".txt")) {
+			File.Delete ("Assets/Resources/Saves/" + map.name + ".txt");
+			File.WriteAllLines ("Assets/Resources/Saves/" + map.name + ".txt", MultiToSingle (mapObjects));
+			//ExportToCurrentMaps ();
+		} else {
+			File.WriteAllLines ("Assets/Resources/Saves/" + map.name + ".txt", MultiToSingle (mapObjects));
+		}
 		print ("Map saved");
 		DeleteChildren (map);
 	}
@@ -95,11 +105,32 @@ public class MapExpoter : MonoBehaviour
 		}
 	}
 
-	public static void Serialize (object t, string path)
+	static string[] MultiToSingle (string[,] array)
 	{
-		using (Stream stream = File.Open (path, FileMode.Create)) {
-			BinaryFormatter bformatter = new BinaryFormatter ();
-			bformatter.Serialize (stream, t);
+		int index = 0;
+		int width = array.GetLength (0);
+		int height = array.GetLength (1);
+		string[] single = new string[width * height];
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				single [index] = array [x, y];
+				index++;
+			}
 		}
+		return single;
+	}
+
+	static string[,] SingleToMulti (string[] array)
+	{
+		int index = 0;
+		int sqrt = (int)Mathf.Sqrt (array.Length);
+		string[,] multi = new string[sqrt, sqrt];
+		for (int y = 0; y < sqrt; y++) {
+			for (int x = 0; x < sqrt; x++) {
+				multi [x, y] = array [index];
+				index++;
+			}
+		}
+		return multi;
 	}
 }
