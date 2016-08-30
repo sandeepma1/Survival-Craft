@@ -1,9 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
+using UnityEngine.SceneManagement;
 
 public class NewGameSave : MonoBehaviour
 {
@@ -18,6 +14,7 @@ public class NewGameSave : MonoBehaviour
 			string[] array = mapItems [i].text.Split ('\n');
 			ES2.Save (SingleToMulti ((string[])array), mapItems [i].name + ".txt");
 		}
+		LoadMainLevel.m_instance.LoadMainScene_Landscape ();
 	}
 
 	static string[,] SingleToMulti (string[] array)

@@ -21,6 +21,7 @@ TagManager:
   - Fader
   - MapChunks
   - UICanvas
+  - Chunks
   layers:
   - Default
   - TransparentFX

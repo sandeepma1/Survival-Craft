@@ -28,6 +28,7 @@ public class MapExpoter : MonoBehaviour
 
 	public void StartProcess ()
 	{
+		
 		mapChunks = GameObject.FindGameObjectsWithTag ("MapChunks");
 
 		print ("Found " + mapChunks.Length + " Map Chunks");
@@ -52,7 +53,7 @@ public class MapExpoter : MonoBehaviour
 		}
 
 		for (int i = 0; i < map.transform.childCount; i++) {
-			if (map.transform.GetChild (i).gameObject.name.StartsWith ("0") || map.transform.GetChild (i).gameObject.name.StartsWith ("1")) {
+			if (map.transform.GetChild (i).gameObject.tag == "Chunks") {
 			} else {
 				mapObjects [(int)map.transform.GetChild (i).localPosition.x, (int)map.transform.GetChild (i).localPosition.y] = map.transform.GetChild (i).gameObject.name;
 			}
@@ -75,7 +76,7 @@ public class MapExpoter : MonoBehaviour
 
 		int childCount = tempMap.transform.childCount;
 		for (int i = childCount - 1; i > 0; i--) {			
-			if (tempMap.transform.GetChild (i).gameObject.name.StartsWith ("0") || tempMap.transform.GetChild (i).gameObject.name.StartsWith ("1")) {
+			if (tempMap.transform.GetChild (i).gameObject.tag == "Chunks") {
 				//Nothing
 			} else {
 				DestroyImmediate (tempMap.transform.GetChild (i).gameObject);

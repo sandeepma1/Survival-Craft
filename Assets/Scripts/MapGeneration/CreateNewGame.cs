@@ -71,6 +71,7 @@ public partial class CreateNewGame : MonoBehaviour
 
 	MapData GenerateMapData (Vector2 centre)
 	{
+		
 		seed = (int)System.DateTime.Now.Ticks;
 		float[,] noiseMap = Noise.GenerateNoiseMap (mapChunkSize + 2, mapChunkSize + 2, seed, noiseScale, octaves, persistance, lacunarity, centre + offset, normalizeMode);
 

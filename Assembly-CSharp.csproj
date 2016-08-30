@@ -454,6 +454,8 @@
      <Compile Include="Assets\InventorySystem\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs" />
      <Compile Include="Assets\InventorySystem\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonUserControl.cs" />
      <Compile Include="Assets\Scripts\FirstScript.cs" />
+     <Compile Include="Assets\Scripts\GameItems\Item.cs" />
+     <Compile Include="Assets\Scripts\GameItems\ItemDatabase.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryCraftingBlueprint.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryCraftingBlueprintUI.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryItemBase.cs" />
