@@ -13,9 +13,9 @@ public class MapLoader : MonoBehaviour
 	GameObject[][,] mapItemGO;
 	GameObject[] mapChunks;
 	int mapSize = 0;
-	float time = 0.0f;
+	/*float time = 0.0f;
 	bool startDrop = false;
-	float dropTime = 0.0f;
+	float dropTime = 0.0f;*/
 
 	void Awake ()
 	{
@@ -23,6 +23,16 @@ public class MapLoader : MonoBehaviour
 		LoadMapChunks ();
 		LoadMapData ();
 		DisableUnusedMapChunks ();
+		Test ();
+	}
+
+	void Test ()
+	{
+		string test = "12,age,1";
+		string[] t = test.Split (',');
+		foreach (var a in t) {
+			print (a);
+		}
 	}
 
 	void LoadMapChunks ()
@@ -83,7 +93,6 @@ public class MapLoader : MonoBehaviour
 		mapItemGO [i] [(int)pos.x, (int)pos.y].name = go.name;
 		mapItemGO [i] [(int)pos.x, (int)pos.y].transform.parent = parent;
 		mapItemGO [i] [(int)pos.x, (int)pos.y].transform.localPosition = new Vector3 (pos.x, pos.y, 0);
-
 		//mapItemGO [i] [(int)pos.x, (int)pos.y].GetComponent <SpriteRenderer> ().sortingOrder = (int)(transform.localPosition.y * -10);
 	}
 
@@ -112,7 +121,7 @@ public class MapLoader : MonoBehaviour
 		return null;
 	}
 
-	public void InstansiatePickableGameObject (int id, int dropValue)
+	public void InstansiateDropGameObject (int id, int dropValue)
 	{		
 		for (int i = 0; i < dropValue; i++) {
 			Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle;
@@ -125,23 +134,12 @@ public class MapLoader : MonoBehaviour
 			drop.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().Toggle (true);*/
 		}
 	}
-	/*void Update ()
-	{
-		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
-			if (startDrop) {
-				time += Time.deltaTime;
-				if (time >= dropTime) {
-					//drop()
-					print ("droped");
-					startDrop = false;
-					dropTime = 0;
-				}
-			}
-		}
-	}*/
+
 
 	public void DestoryTile (Vector2 pos)
 	{
+		Vector3 presentPosition = (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position); 
+		pos = new Vector2 (pos.x - presentPosition.x, pos.y - presentPosition.y);
 		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] != null) {
 			Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]);
 		}
@@ -155,3 +153,17 @@ public class MapLoader : MonoBehaviour
 		ES2.Save (mapItems [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + ".txt");
 	}
 }
+/*void Update ()
+	{
+		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+			if (startDrop) {
+				time += Time.deltaTime;
+				if (time >= dropTime) {
+					//drop()
+					print ("droped");
+					startDrop = false;
+					dropTime = 0;
+				}
+			}
+		}
+	}*/

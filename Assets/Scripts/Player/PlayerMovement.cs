@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 			isRightStick = (Mathf.Abs (r_input_a) + Mathf.Abs (r_input_b)) > 0;
 			anim.SetBool ("isAttacking", isRightStick);
 
+
 			if (isRightStick) {  //Attacking/working							
 				AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
 				IsCursorEnable (true);
@@ -82,6 +83,11 @@ public class PlayerMovement : MonoBehaviour
 				transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * speed;
 				return;
 			}
+
+			/*if (isLeftStick && isRightStick) {
+				DebugTextHandler.m_instance.DisplayDebugText ("yes");
+				transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * (speed / 10);
+			}*/
 			anim.SetBool ("isWalking", false);
 		}
 	}

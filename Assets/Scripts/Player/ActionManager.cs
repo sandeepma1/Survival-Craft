@@ -17,9 +17,6 @@ public class ActionManager :MonoBehaviour
 
 	void Awake ()
 	{
-		for (int i = 0; i < 10; i++) {
-			print (Random.Range (0, 2));
-		}
 		m_AC_instance = this;
 		weaponSprite = weaponGameObject.GetComponent <SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();
@@ -87,11 +84,9 @@ public class ActionManager :MonoBehaviour
 
 	void DropBreakedItem ()
 	{
-		//currentSelectedTileId.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
-		//currentSelectedTileId.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().Toggle (true);
 		int ran = Random.Range (ItemDatabase.m_instance.items [int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name)].dropRateMin, 
 			          ItemDatabase.m_instance.items [int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name)].dropRateMax);
-		MapLoader.m_instance.InstansiatePickableGameObject (ItemDatabase.m_instance.items [int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name)].drops, ran);
+		MapLoader.m_instance.InstansiateDropGameObject (ItemDatabase.m_instance.items [int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name)].drops, ran);
 		RemoveAndSaveItem ();
 	}
 

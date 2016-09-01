@@ -4,9 +4,11 @@ using System.Collections;
 public class Item
 {
 	public int id;
+	public string name;
+	public int maxAge;
 	public ItemType type;
 	public ItemTool tool;
-	public string name;
+
 	public float hardness;
 	public bool isHandMined;
 	public float experience;
@@ -22,18 +24,24 @@ public class Item
 	//public int itemQuality;
 
 
-	public Item (int itemId, string itemName, ItemType itemType, ItemTool itemTool, float itemHardness, bool isItemHandMined, float itemExperience, int itemDrops, int itemDropRateMin, int itemDropRateMax)
+	public Item (int itemId, string itemName, int itemMaxAge, ItemType itemType, ItemTool itemTool, float itemHardness, bool isItemHandMined, float itemExperience, int itemDrops, int itemDropRateMin, int itemDropRateMax)
 	{
 		id = itemId;
+		name = itemName;
+		maxAge = itemMaxAge;
 		type = itemType;
 		tool = itemTool;
-		name = itemName;
 		hardness = itemHardness;
 		isHandMined = isItemHandMined;
 		experience = itemExperience;
 		drops = itemDrops;
 		dropRateMin = itemDropRateMin;
 		dropRateMax = itemDropRateMax;
+	}
+
+	public int  ReturnItemID (string name)
+	{
+		return id;
 	}
 
 	public Item ()
