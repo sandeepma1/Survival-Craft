@@ -19,6 +19,7 @@ public class ActionManager :MonoBehaviour
 		m_AC_instance = this;
 		weaponSprite = weaponGameObject.GetComponent <SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();
+		//	print (Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.OnPointerUp ());
 		progressBarBG.SetActive (false);
 	}
 
@@ -70,7 +71,6 @@ public class ActionManager :MonoBehaviour
 	{
 		if (isReadyToAttack) {
 			baseTime -= Time.deltaTime;
-
 			progressVal = baseTime / baseTimeStatic;
 
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
@@ -83,7 +83,7 @@ public class ActionManager :MonoBehaviour
 				progressBar.transform.localScale = Vector3.zero;
 				progressBarBG.SetActive (false);
 			}
-		} else {
+		} else {			
 			progressBar.transform.localScale = Vector3.zero;
 			progressBarBG.SetActive (false);
 		}
@@ -92,14 +92,31 @@ public class ActionManager :MonoBehaviour
 	void DropBreakedItem ()
 	{
 		PlayerMovement.m_instance.SetAttackAnimation (false);
-
 		int ran = 0;
-		if (currentSelectedItem.age < ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
-			ran = 1;
-		} else {
-			ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
-		}
 
+		switch (currentSelectedItem.id) {
+			case 11:
+				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
+					ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
+				} else {
+					ran = 1;
+				}
+				break;
+			case 16:
+				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
+					ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
+				} else {
+					ran = 0;
+				}
+				break;
+			default:
+				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
+					ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
+				} else {
+					ran = 1;
+				}
+				break;
+		}
 		InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops, ran); // drop item upon break
 
 		UpdateItemandSave ();  //update Gameobject and save in file
@@ -124,22 +141,26 @@ public class ActionManager :MonoBehaviour
 				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {
 					currentSelectedItem.age = 0;
 					currentSelectedItem.GO.transform.GetChild (0).gameObject.SetActive (false);
-					SaveMapItemData (false);
-				} else {
-					SaveMapItemData (true); //Replace stump with nothing
+					MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToZero);
+				} else { //Replace Stump with nothing
+					MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
+				}
+				break;
+			case 16: //Berry Bush
+				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {
+					currentSelectedItem.age = 3;
+					MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Renewable);
+				} else { //Replace Stump with nothing
+					MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
 				}
 				break;
 			default:
 				Destroy (currentSelectedItem.GO);
-				SaveMapItemData (true);
+				MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);			
 				break;
 		}
 	}
 
-	public void SaveMapItemData (bool isremoveItem)
-	{		
-		MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, isremoveItem);
-	}
 
 }
 

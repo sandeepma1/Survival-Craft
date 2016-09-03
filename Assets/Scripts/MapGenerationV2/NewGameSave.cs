@@ -34,6 +34,7 @@ public class NewGameSave : MonoBehaviour
 	void ResetAllValues ()
 	{
 		PlayerPrefs.DeleteAll ();
+		ES2.DeleteDefaultFolder ();
 	}
 
 	void InitializeFirstVariables ()
@@ -43,7 +44,7 @@ public class NewGameSave : MonoBehaviour
 			PlayerPrefs.SetFloat ("PlayerPositionX", 25);
 			PlayerPrefs.SetFloat ("PlayerPositionY", 60);
 			PlayerPrefs.SetInt ("mapChunkPosition", 0);
-
+			ES2.DeleteDefaultFolder ();
 			PlayerPrefs.SetInt ("IniPlayerPos", 1);
 		}
 	}

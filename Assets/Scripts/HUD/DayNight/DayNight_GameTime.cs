@@ -14,6 +14,7 @@ public class DayNight_GameTime : MonoBehaviour
 	float timer = 0;
 	int minutes = 0;
 	int seconds = 0;
+	int day = 0;
 
 	float moveDistance = 10f;
 	Vector3 startPos = new Vector3 (10, 0, 0);
@@ -21,10 +22,10 @@ public class DayNight_GameTime : MonoBehaviour
 
 	private float nextActionTime = 0.0f;
 
-
 	void Awake ()
 	{
 		timer = PlayerPrefs.GetFloat ("gameTime");
+		day = PlayerPrefs.GetInt ("gameDay");
 	}
 
 	protected void Start ()
@@ -46,6 +47,11 @@ public class DayNight_GameTime : MonoBehaviour
 					CalculateDayPhases ();
 				} else {
 					timer = 0; //day over new day 12am
+					day++;
+					SaveGameDay ();
+					day = PlayerPrefs.GetInt ("gameDay");
+					MapLoader.m_instance.RepaintMapItems ();
+					print ("new day");
 				}
 			}
 			return;
@@ -54,10 +60,11 @@ public class DayNight_GameTime : MonoBehaviour
 
 	void FormatTime ()
 	{
-		//timeText.text = timer.ToString ("mm-ddd");
+		//	day = PlayerPrefs.GetInt ("gameDay");
+		timeText.text = timer.ToString ("mm-ddd");
 		minutes = Mathf.FloorToInt (timer / 60F);
 		seconds = Mathf.FloorToInt (timer - minutes * 60);
-		//timeText.text = string.Format ((timer) + " {0:0}:{1:00}", minutes, seconds);
+		timeText.text = string.Format ((timer).ToString ("F0") + " {0:0}:{1:00}", minutes, seconds + " Day:" + day);
 	}
 
 	void CalculateDayPhases ()
@@ -87,9 +94,19 @@ public class DayNight_GameTime : MonoBehaviour
 		SaveManager.m_instance.SaveGameTime (timer);
 	}
 
+	void SaveGameDay ()
+	{
+		SaveManager.m_instance.SaveGameTime (day);
+	}
+
 	public void ModifyGameSpeed (float speed)
 	{
 		Time.timeScale = speed;
+	}
+
+	public void NextDay ()
+	{
+		timer = 1439;
 	}
 
 	public void ResetTime ()

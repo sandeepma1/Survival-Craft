@@ -8,7 +8,6 @@ public class Item
 	public int maxAge;
 	public ItemType type;
 	public ItemTool tool;
-
 	public float hardness;
 	public bool isHandMined;
 	public float experience;
@@ -22,8 +21,6 @@ public class Item
 	//public bool isDegradeable;
 	//public bool isCurrentlyDropped;
 	//public int itemQuality;
-
-
 	public Item (int itemId, string itemName, int itemMaxAge, ItemType itemType, ItemTool itemTool, float itemHardness, bool isItemHandMined, float itemExperience, int itemDrops, int itemDropRateMin, int itemDropRateMax)
 	{
 		id = itemId;
@@ -37,11 +34,6 @@ public class Item
 		drops = itemDrops;
 		dropRateMin = itemDropRateMin;
 		dropRateMax = itemDropRateMax;
-	}
-
-	public Item ()
-	{
-
 	}
 
 	public enum ItemType

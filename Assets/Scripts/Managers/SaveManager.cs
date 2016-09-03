@@ -26,4 +26,9 @@ public class SaveManager : MonoBehaviour
 	{
 		PlayerPrefs.SetFloat ("gameTime", time);
 	}
+
+	public void SaveGameTime (int day)
+	{
+		PlayerPrefs.SetInt ("gameDay", day);
+	}
 }

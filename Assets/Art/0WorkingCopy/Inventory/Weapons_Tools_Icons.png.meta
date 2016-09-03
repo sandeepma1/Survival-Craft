@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 26008e1d60cfb794090c751484d8a646
-timeCreated: 1467050848
+timeCreated: 1472899347
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -248,8 +248,8 @@ TextureImporter:
         y: 240
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.109745026, y: 0.12368202}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Weapons_Tools_Icons_11

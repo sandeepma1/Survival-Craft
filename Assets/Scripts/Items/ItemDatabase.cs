@@ -17,18 +17,29 @@ public class ItemDatabase : MonoBehaviour
 	// Update is called once per frame
 	void Initialize ()
 	{
-		items = new Item[12];
+		items = new Item[17];
+		//stones
 		items [0] = new Item (-1, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 2, true, 0, 1, 1, 1);
-		items [1] = new Item (1, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 1, true, 0, 1, 1, 1);
-		items [2] = new Item (2, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 1, true, 0, 1, 1, 1);
-		items [3] = new Item (3, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 5, true, 0, 1, 1, 1);
-		items [4] = new Item (4, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 5, true, 0, 1, 1, 1);
+		items [1] = new Item (1, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 2, true, 0, 1, 1, 1);
+		items [2] = new Item (2, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 2, true, 0, 1, 1, 1);
+		items [3] = new Item (3, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 2, true, 0, 1, 1, 1);
+		items [4] = new Item (4, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 2, true, 0, 1, 1, 1);
+		//Grass
 		items [5] = new Item (5, "Grass", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 0.5f, true, 0, 5, 1, 1);
-		items [6] = new Item (6, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 5, true, 0, 1, 1, 1);
-		items [7] = new Item (7, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 5, true, 0, 1, 1, 1);
-		items [8] = new Item (8, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 5, true, 0, 1, 1, 1);
-		items [9] = new Item (9, "Stone", -1, Item.ItemType.RawMaterial, Item.ItemTool.Pickaxe, 5, true, 0, 1, 1, 1);
+		items [6] = new Item (6, "Grass", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 0.5f, true, 0, 1, 1, 1);
+		items [7] = new Item (7, "Grass", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 0.5f, true, 0, 1, 1, 1);
+		items [8] = new Item (8, "Grass", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 0.5f, true, 0, 1, 1, 1);
+		items [9] = new Item (9, "Grass", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 0.5f, true, 0, 1, 1, 1);
+		//Wood
 		items [10] = new Item (10, "Wood", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 1, true, 0, 10, 1, 1);
-		items [11] = new Item (11, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 1, true, 0, 10, 4, 6);
+		//Trees
+		items [11] = new Item (11, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, true, 0, 10, 4, 6);
+		items [12] = new Item (12, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, true, 0, 10, 4, 6);
+		items [13] = new Item (13, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, true, 0, 10, 4, 6);
+		items [14] = new Item (14, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, true, 0, 10, 4, 6);
+		//Berries
+		items [15] = new Item (15, "Tree", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 0.1f, true, 0, 15, 1, 1);
+		//Berry Bushes
+		items [16] = new Item (16, "Berry Bush", 7, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 0.1f, true, 0, 15, 1, 3);
 	}
 }

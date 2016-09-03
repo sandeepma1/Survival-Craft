@@ -17,7 +17,6 @@ public class SpriteTest : MonoBehaviour
 	IEnumerator GrowTree ()
 	{
 		yield return new WaitForSeconds (1);
-
 		src.sprite = sprite [count];
 
 		count++;

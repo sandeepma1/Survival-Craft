@@ -18,7 +18,7 @@ namespace Devdog.InventorySystem
 		bool isSelected = false;
 
 		void Start ()
-		{			
+		{
 			m_instance = this;
 			if (!isSelected) {
 				border.gameObject.SetActive (false);
@@ -28,10 +28,12 @@ namespace Devdog.InventorySystem
 				border.gameObject.SetActive (true);
 				ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
 			}
+			//print ();
 		}
 
-		void ItemClicked ()
+		public void ItemClicked ()
 		{
+			print ("clicked");
 			border.gameObject.SetActive (false);
 			MoreInventoryButton.m_instance.RemoveBorder ();
 			border.gameObject.SetActive (true);
