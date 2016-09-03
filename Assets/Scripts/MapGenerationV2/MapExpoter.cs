@@ -27,8 +27,7 @@ public class MapExpoter : MonoBehaviour
 	}
 
 	public void StartProcess ()
-	{
-		
+	{		
 		mapChunks = GameObject.FindGameObjectsWithTag ("MapChunks");
 
 		print ("Found " + mapChunks.Length + " Map Chunks");

@@ -8,22 +8,23 @@ public class MapLoader : MonoBehaviour
 	public GameObject[] items;
 	public GameObject[] inventoryItems;
 	// tree, stone, stone1, grass, log;
-
+	Vector3 currentLocalPlayerPosition;
 	string[][,] mapItems;
-	GameObject[][,] mapItemGO;
+	item[][,] mapItemGO;
 	GameObject[] mapChunks;
 	int mapSize = 0;
 	/*float time = 0.0f;
 	bool startDrop = false;
 	float dropTime = 0.0f;*/
 
-	void Awake ()
+	void Start ()
 	{
 		m_instance = this;
+		Test ();
 		LoadMapChunks ();
 		LoadMapData ();
 		DisableUnusedMapChunks ();
-		Test ();
+
 	}
 
 	void Test ()
@@ -48,35 +49,39 @@ public class MapLoader : MonoBehaviour
 	public void LoadMapData ()
 	{
 		mapItems = new string[mapChunks.Length][,];
-		mapItemGO = new GameObject[mapChunks.Length] [,];
+		mapItemGO = new item[mapChunks.Length] [,];
 		for (int i = 0; i < mapChunks.Length; i++) {
 			mapItems [i] = ES2.Load2DArray<string> (mapChunks [i].name + ".txt");
 		}
 		mapSize = (int)Mathf.Sqrt (mapItems [0].Length);
 
 		for (int i = 0; i < mapChunks.Length; i++) {
-			mapItemGO [i] = new GameObject[mapSize, mapSize];
+			mapItemGO [i] = new item[mapSize, mapSize];
 		}		
 
 		for (int i = 0; i < mapChunks.Length; i++) {
 			for (int x = 0; x < mapSize; x++) {
 				for (int y = 0; y < mapSize; y++) {
-					if (mapItems [i] [x, y] != "\r") {
-						switch (mapItems [i] [x, y]) {
-							case "11\r":					
-								InstantiateObject (items [11], new Vector3 (x, y, 0), mapChunks [i].transform, i);
+					if (mapItems [i] [x, y].Length > 2) {
+						mapItems [i] [x, y] = mapItems [i] [x, y].TrimEnd (new char[] { '\r', '\n' });
+						string[] itemss = mapItems [i] [x, y].Split (',');
+						mapItemGO [i] [x, y].id = int.Parse (itemss [0]);
+						mapItemGO [i] [x, y].age = int.Parse (itemss [1]);
+						switch (itemss [0]) { // item index
+							case "11":
+								InstantiateObject (items [11], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].age);
 								break;
-							case "0\r":
-								InstantiateObject (items [0], new Vector3 (x, y, 0), mapChunks [i].transform, i);
+							case "0":
+								InstantiateObject (items [0], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].age);
 								break;
-							case "1\r":
-								InstantiateObject (items [1], new Vector3 (x, y, 0), mapChunks [i].transform, i);
+							case "1":
+								InstantiateObject (items [1], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].age);
 								break;
-							case "5\r":
-								InstantiateObject (items [5], new Vector3 (x, y, 0), mapChunks [i].transform, i);
+							case "5":
+								InstantiateObject (items [5], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].age);
 								break;
-							case "10\r":
-								InstantiateObject (items [10], new Vector3 (x, y, 0), mapChunks [i].transform, i);
+							case "10":
+								InstantiateObject (items [10], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].age);
 								break;
 							default:
 								break;
@@ -87,12 +92,23 @@ public class MapLoader : MonoBehaviour
 		}
 	}
 
-	public void InstantiateObject (GameObject go, Vector3 pos, Transform parent, int i)
+	public void InstantiateObject (GameObject go, Vector3 pos, Transform parent, int i, int age)
 	{
-		mapItemGO [i] [(int)pos.x, (int)pos.y] = Instantiate (go);
-		mapItemGO [i] [(int)pos.x, (int)pos.y].name = go.name;
-		mapItemGO [i] [(int)pos.x, (int)pos.y].transform.parent = parent;
-		mapItemGO [i] [(int)pos.x, (int)pos.y].transform.localPosition = new Vector3 (pos.x, pos.y, 0);
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO = Instantiate (go);
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.name = go.name;
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.parent = parent;
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
+
+		if (age > 0 && age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
+			string spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent <SpriteRenderer> ().sprite.name;
+			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [age];
+		}
+		if (age == ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
+			string spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent <SpriteRenderer> ().sprite.name;
+			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
+		}
 		//mapItemGO [i] [(int)pos.x, (int)pos.y].GetComponent <SpriteRenderer> ().sortingOrder = (int)(transform.localPosition.y * -10);
 	}
 
@@ -111,14 +127,13 @@ public class MapLoader : MonoBehaviour
 		}
 	}
 
-	public GameObject GetTile (Vector2 pos)
+	public int GetTile (Vector2 pos)
 	{
-		Vector3 presentPosition = (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position);
-		pos = new Vector2 (pos.x - presentPosition.x, pos.y - presentPosition.y);
-		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] != null) {
-			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
+		pos = GetPlayersLocalPosition (pos);
+		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
+			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id;
 		}
-		return null;
+		return -1;
 	}
 
 	public void InstansiateDropGameObject (int id, int dropValue)
@@ -135,23 +150,43 @@ public class MapLoader : MonoBehaviour
 		}
 	}
 
-
-	public void DestoryTile (Vector2 pos)
+	public void UpdateItemandSave (Vector2 pos)
 	{
-		Vector3 presentPosition = (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position); 
-		pos = new Vector2 (pos.x - presentPosition.x, pos.y - presentPosition.y);
-		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] != null) {
-			Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]);
+		pos = GetPlayersLocalPosition (pos);
+		//if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] != null) {
+		//Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]);
+		switch (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id) {
+			case 11: //Replace Tree with stump
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
+				break;
+			default:
+				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
+				break;
 		}
+		//}
+		SaveMapItemData (pos);
 	}
 
-	public void SaveMapitemData (Vector2 pos)
+	public void SaveMapItemData (Vector2 pos)
 	{
-		Vector3 presentPosition = (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position);
-		pos = pos - new Vector2 (presentPosition.x, presentPosition.y);
-		mapItems [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
+		string s = mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id + "," + mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age;
+		mapItems [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = s;
 		ES2.Save (mapItems [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + ".txt");
 	}
+
+	public Vector2 GetPlayersLocalPosition (Vector2 curentPos)
+	{
+		Vector2 pos = curentPos - new Vector2 (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.y);
+		return pos;
+	}
+}
+
+[SerializeField]
+public struct item
+{
+	public int id;
+	public int age;
+	public GameObject GO;
 }
 /*void Update ()
 	{

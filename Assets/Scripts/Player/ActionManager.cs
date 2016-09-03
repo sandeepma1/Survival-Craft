@@ -24,9 +24,29 @@ public class ActionManager :MonoBehaviour
 		progressBarBG.SetActive (false);
 	}
 
+	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
+	{
+		currentWeildedItem = i;
+	}
+
 	public void ActionButtonPressed ()
 	{
 		GetCurrentTile ();
+	}
+
+	void GetCurrentTile ()
+	{
+		if (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) > 0) {		
+			currentSelectedTileId = MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition);
+			PlayerMovement.m_instance.AttackCalculation ();
+			PlayerMovement.m_instance.SetAttackAnimation (true);
+			CalculateHardness ();
+		} else {
+			PlayerMovement.m_instance.AttackCalculation ();
+			PlayerMovement.m_instance.SetAttackAnimation (false);
+			print ("No items nearby");
+			currentSelectedTileId = 0;
+		}
 	}
 
 	void CalculateHardness ()
@@ -58,7 +78,7 @@ public class ActionManager :MonoBehaviour
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
 			progressBarBG.SetActive (true);
 			if (baseTime <= 0) {
-				if (ItemDatabase.m_instance.items [int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name)].isHandMined) { // if object ishandmined then drop items
+				if (ItemDatabase.m_instance.items [MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition)].isHandMined) { // if object ishandmined then drop items
 					DropBreakedItem ();
 				}
 				isReadyToAttack = false;
@@ -71,35 +91,18 @@ public class ActionManager :MonoBehaviour
 		}
 	}
 
-	void GetCurrentTile ()
-	{
-		if (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition) != null) {		
-			currentSelectedTileId = int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name);
-			CalculateHardness ();
-		} else {
-			print ("No items nearby");
-			currentSelectedTileId = -1;
-		}
-	}
-
 	void DropBreakedItem ()
 	{
-		int ran = Random.Range (ItemDatabase.m_instance.items [int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name)].dropRateMin, 
-			          ItemDatabase.m_instance.items [int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name)].dropRateMax);
-		MapLoader.m_instance.InstansiateDropGameObject (ItemDatabase.m_instance.items [int.Parse (MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).name)].drops, ran);
-		RemoveAndSaveItem ();
+		PlayerMovement.m_instance.SetAttackAnimation (false);
+		int ran = Random.Range (ItemDatabase.m_instance.items [MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition)].dropRateMin, 
+			          ItemDatabase.m_instance.items [MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition)].dropRateMax);           // calculate random drop rate with min and max drop rate
+
+		MapLoader.m_instance.InstansiateDropGameObject (ItemDatabase.m_instance.items [MapLoader.m_instance.GetTile (GameEventManager.currentSelectedTilePosition)].drops, ran); // drop item upon break
+
+		MapLoader.m_instance.UpdateItemandSave (GameEventManager.currentSelectedTilePosition);  //update Gameobject and save in file
+
+		currentSelectedTileId = -1; // set current tile position to -1 i.e. invalid
 	}
 
-	void RemoveAndSaveItem ()
-	{
-		MapLoader.m_instance.DestoryTile (GameEventManager.currentSelectedTilePosition);
-		MapLoader.m_instance.SaveMapitemData (GameEventManager.currentSelectedTilePosition);
-		currentSelectedTileId = -1;
-	}
-
-	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
-	{
-		currentWeildedItem = i;
-	}
 }
 

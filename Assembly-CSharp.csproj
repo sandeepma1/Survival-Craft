@@ -498,6 +498,7 @@
      <Compile Include="Assets\Scripts\Test\MB_Test.cs" />
      <Compile Include="Assets\Scripts\Test\ScoreTextHandler.cs" />
      <Compile Include="Assets\Scripts\Test\SpriteTest.cs" />
+     <Compile Include="Assets\Scripts\Test\Struct2dArray.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\ResizeCamera.cs" />
      <Compile Include="Assets\Scripts\Utilities\CreateMesh.cs" />

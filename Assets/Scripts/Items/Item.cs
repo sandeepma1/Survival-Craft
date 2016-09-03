@@ -39,11 +39,6 @@ public class Item
 		dropRateMax = itemDropRateMax;
 	}
 
-	public int  ReturnItemID (string name)
-	{
-		return id;
-	}
-
 	public Item ()
 	{
 

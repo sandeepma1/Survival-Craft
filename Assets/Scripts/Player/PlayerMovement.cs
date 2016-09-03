@@ -66,49 +66,42 @@ public class PlayerMovement : MonoBehaviour
 
 			isLeftStick = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
 			isRightStick = (Mathf.Abs (r_input_a) + Mathf.Abs (r_input_b)) > 0;
-			anim.SetBool ("isAttacking", isRightStick);
 
+			DebugTextHandler.m_instance.DisplayDebugText ("Left: " + isLeftStick + "Right: " + isRightStick);
+
+			if (isRightStick && isLeftStick) {  // if both Right and Left stick are pressed
+				isLeftStick = false;
+			}
 
 			if (isRightStick) {  //Attacking/working							
 				AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
 				IsCursorEnable (true);
-				SetAttackAnimation ();
 			} else {				
 				ActionManager.m_AC_instance.isReadyToAttack = false;
 				IsCursorEnable (false);
+				SetAttackAnimation (false);
 			}
 
 			if (isLeftStick) {  // Walking	
 				WalkingCalculation (input_x, input_y);
-				transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * speed;
 				return;
 			}
 
-			/*if (isLeftStick && isRightStick) {
-				DebugTextHandler.m_instance.DisplayDebugText ("yes");
-				transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * (speed / 10);
-			}*/
 			anim.SetBool ("isWalking", false);
 		}
 	}
 
-	void LateUpdate ()
-	{
-		this.gameObject.GetComponent <SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10);
-		if (Input.GetKey (KeyCode.LeftShift)) {
-			speed = speedTemp * 2;
-		} else {
-			speed = speedTemp;
-		}
-	}
-
 	public void AttackCalculation (int a, int b)
-	{
+	{		
 		if (a == tempX && b == tempY) {
 			return;
 		}
 		tempX = a;
 		tempY = b;
+
+		anim.SetFloat ("x", a);
+		anim.SetFloat ("y", b);
+
 		ActionManager.m_AC_instance.isReadyToAttack = false;
 		SetCursorTilePosition (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
 		ActionManager.m_AC_instance.ActionButtonPressed ();
@@ -119,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
 		anim.SetFloat ("x", input_x);
 		anim.SetFloat ("y", input_y);
 		anim.SetBool ("isWalking", isLeftStick);
-		//GameEventManager.currentMapChunkPosition = cursorTile.transform.position;
+		transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * speed;
 	}
 
 	public void ShowGrid ()
@@ -141,12 +134,15 @@ public class PlayerMovement : MonoBehaviour
 		cursorTile.GetComponent <SpriteRenderer> ().enabled = flag;
 	}
 
-	public void SetAttackAnimation ()
+	public void AttackCalculation ()
 	{
-		//if (Mathf.RoundToInt (r_input_a) != 0 && Mathf.RoundToInt (r_input_b) != 0) {				
 		anim.SetFloat ("a", Mathf.RoundToInt (r_input_a));
 		anim.SetFloat ("b", Mathf.RoundToInt (r_input_b));
-		//	}		
+	}
+
+	public void SetAttackAnimation (bool flag)
+	{
+		anim.SetBool ("isAttacking", flag);
 	}
 
 	public void SavePlayerPosition ()
@@ -158,6 +154,16 @@ public class PlayerMovement : MonoBehaviour
 	public void GetPlayerPosition ()
 	{		
 		transform.position = new Vector3 (PlayerPrefs.GetFloat ("PlayerPositionX"), PlayerPrefs.GetFloat ("PlayerPositionY"), 0);
+	}
+
+	void LateUpdate () // Set player storing order to front and Player Run toggle
+	{
+		this.gameObject.GetComponent <SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10);
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			speed = speedTemp * 2;
+		} else {
+			speed = speedTemp;
+		}
 	}
 }
 //}
