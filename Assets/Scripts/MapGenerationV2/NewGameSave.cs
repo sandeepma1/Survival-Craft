@@ -38,10 +38,12 @@ public class NewGameSave : MonoBehaviour
 
 	void InitializeFirstVariables ()
 	{		
-		if (PlayerPrefs.GetInt ("IniPlayerPos") == 0) {			
+		if (PlayerPrefs.GetInt ("IniPlayerPos") == 0) {	
+				
 			PlayerPrefs.SetFloat ("PlayerPositionX", 25);
 			PlayerPrefs.SetFloat ("PlayerPositionY", 60);
 			PlayerPrefs.SetInt ("mapChunkPosition", 0);
+
 			PlayerPrefs.SetInt ("IniPlayerPos", 1);
 		}
 	}

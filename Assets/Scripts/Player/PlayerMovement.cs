@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 			isLeftStick = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
 			isRightStick = (Mathf.Abs (r_input_a) + Mathf.Abs (r_input_b)) > 0;
 
-			DebugTextHandler.m_instance.DisplayDebugText ("Left: " + isLeftStick + "Right: " + isRightStick);
+			//DebugTextHandler.m_instance.DisplayDebugText ("Left: " + isLeftStick + "Right: " + isRightStick);
 
 			if (isRightStick && isLeftStick) {  // if both Right and Left stick are pressed
 				isLeftStick = false;

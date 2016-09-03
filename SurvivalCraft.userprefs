@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MapGenerationV2\MapLoader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\InventorySystem\Scripts\Collections\Editor\ItemCollectionBaseEditor.cs">
     <Files>
-      <File FileName="Assets\Scripts\MapGenerationV2\MapLoader.cs" Line="130" Column="12" />
-      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="82" Column="10" />
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="107" Column="46" />
-      <File FileName="Assets\Scripts\Items\ItemDatabase.cs" Line="17" Column="30" />
+      <File FileName="Assets\Scripts\MapGenerationV2\MapLoader.cs" Line="142" Column="94" />
+      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="129" Column="58" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="94" Column="46" />
+      <File FileName="Assets\Scripts\Items\ItemDatabase.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Items\Item.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGenerationV2\MapExpoter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGenerationV2\NewGameSave.cs" Line="46" Column="4" />
+      <File FileName="Assets\InventorySystem\Scripts\Collections\Editor\ItemCollectionBaseEditor.cs" Line="5" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

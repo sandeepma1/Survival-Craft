@@ -84,10 +84,8 @@ public class Health : MonoBehaviour
 					heart.GetComponent<Image> ().overrideSprite = heartImages [imageIndex];
 					restAreEmpty = true;
 				}
-			}
-			
+			}			
 		}
-		print (currentHealth);
 	}
 
 
