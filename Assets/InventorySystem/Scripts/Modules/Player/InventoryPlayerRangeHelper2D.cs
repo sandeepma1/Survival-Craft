@@ -44,7 +44,6 @@ namespace Devdog.InventorySystem
 				c.NotifyCameInRange (player);
 				triggerersInRange.Add (c);
 			}
-
 		}
 
 		public void OnTriggerExit2D (Collider2D col)

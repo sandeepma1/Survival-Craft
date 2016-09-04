@@ -13,6 +13,7 @@ public class MapLoader : MonoBehaviour
 	item[][,] mapItemGO;
 	GameObject[] mapChunks;
 	int mapSize = 0;
+	string spriteName = "";
 	/*float time = 0.0f;
 	bool startDrop = false;
 	float dropTime = 0.0f;*/
@@ -79,12 +80,13 @@ public class MapLoader : MonoBehaviour
 				for (int y = 0; y < mapSize; y++) {
 					if (mapItemsFromSave [i] [x, y].Length > 2) {
 						switch (mapItemGO [i] [x, y].id) {
-							case 11:
-							case 16:
+							case 11://trees
+							case 16://berries
+							case 21://berries
 								if (mapItemGO [i] [x, y].age != ItemDatabase.m_instance.items [mapItemGO [i] [x, y].id].maxAge) {
 									mapItemGO [i] [x, y].age = (sbyte)(mapItemGO [i] [x, y].age + 1);
 									mapItemsFromSave [i] [x, y] = mapItemGO [i] [x, y].id + "," + mapItemGO [i] [x, y].age;
-								}
+								}							
 								break;
 							default:
 								break;
@@ -108,6 +110,9 @@ public class MapLoader : MonoBehaviour
 							break;
 						case 16:
 							InstantiateObject (items [16], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
+							break;
+						case 21:
+							InstantiateObject (items [21], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
 							break;
 						case 1:
 							InstantiateObject (items [1], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
@@ -137,37 +142,28 @@ public class MapLoader : MonoBehaviour
 		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
 
 		switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
-			case 11:
-				if (age >= 0 && age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+			case 11: // Trees
+				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent <SpriteRenderer> ().sprite.name;
+				if (age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
-					string spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent <SpriteRenderer> ().sprite.name;
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll <Sprite> ("Textures/Map/Items/Trees/" + spriteName) [age];
 				}
 				if (age == ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
-					string spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent <SpriteRenderer> ().sprite.name;
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll <Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
 				}
 				break;
-/*			case 16:
-				if (age >= 0 && age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {					
-					string spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> ().sprite.name;
-					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll <Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
-				}
-				if (age == ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {					
-					string spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> ().sprite.name;
-					Sprite[] sprites = Resources.LoadAll <Sprite> ("Textures/Map/Items/Bushes/" + spriteName);
-					for (int q = 0; q < sprites.Length; q++) {
-						print (q + " " + sprites [q].name);
-					}
-					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent <SpriteRenderer> ().sprite = sprites [0];
-				}
-				break;*/
+			case 16:  //Berries
+				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> ().sprite.name;
+				mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll <Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];		
+				break;
+			case 21:  //Carrots
+				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> ().sprite.name;
+				mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll <Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];		
+				break;
 			default:
 				break;
-		}
-
-		
+		}		
 	}
 
 	public void DisableUnusedMapChunks ()
@@ -216,10 +212,7 @@ public class MapLoader : MonoBehaviour
 				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
 				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
 				string spriteName = mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> ().sprite.name;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll <Sprite> ("Textures/Map/Items/Trees/" + spriteName) [age];
-				/*string spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent <SpriteRenderer> ().sprite.name;
-					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll <Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
-					mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer>().sprite = */
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> ().sprite = Resources.LoadAll <Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
 				break;
 			default:
 				break;

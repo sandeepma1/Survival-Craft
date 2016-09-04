@@ -456,8 +456,10 @@
      <Compile Include="Assets\Scripts\DebugTextHandler.cs" />
      <Compile Include="Assets\Scripts\FirstScript.cs" />
      <Compile Include="Assets\Scripts\HUD\DayNight\DayNight_GameTime.cs" />
+     <Compile Include="Assets\Scripts\HUD\Food\Food.cs" />
      <Compile Include="Assets\Scripts\HUD\Health\Health.cs" />
      <Compile Include="Assets\Scripts\HUD\Health\TestGUI.cs" />
+     <Compile Include="Assets\Scripts\HUD\WalkRun.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryCraftingBlueprint.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryCraftingBlueprintUI.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryItemBase.cs" />

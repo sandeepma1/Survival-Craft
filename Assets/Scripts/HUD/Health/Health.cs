@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-	
+	public static Health m_instance = null;
 	public int startHealth;
 	public int healthPerHeart;
 	
@@ -21,7 +21,11 @@ public class Health : MonoBehaviour
 	public float spacingX;
 	public float spacingY;
 
-	
+	void Awake ()
+	{
+		m_instance = this;
+	}
+
 	void Start ()
 	{
 		spacingX = heartGUI.GetComponent <RectTransform> ().rect.width;
@@ -44,7 +48,6 @@ public class Health : MonoBehaviour
 			int x = (int)(hearts.Count - y * maxHeartsOnRow);
 
 			newHeart.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (x * spacingX, y * spacingY);
-			//print (newHeart.GetComponent<RectTransform> ().localScale);
 			newHeart.GetComponent<RectTransform> ().localScale = Vector3.one; //TODO: (QuickFix)converting to vector.one; newHeart is scaling to 1.5,1.5,1
 			newHeart.GetComponent<Image> ().overrideSprite = heartImages [0];
 			hearts.Add (newHeart);

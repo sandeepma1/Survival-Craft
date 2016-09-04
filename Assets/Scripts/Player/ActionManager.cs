@@ -19,7 +19,6 @@ public class ActionManager :MonoBehaviour
 		m_AC_instance = this;
 		weaponSprite = weaponGameObject.GetComponent <SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();
-		//	print (Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.OnPointerUp ());
 		progressBarBG.SetActive (false);
 	}
 
@@ -93,7 +92,6 @@ public class ActionManager :MonoBehaviour
 	{
 		PlayerMovement.m_instance.SetAttackAnimation (false);
 		int ran = 0;
-
 		switch (currentSelectedItem.id) {
 			case 11:
 				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
@@ -103,18 +101,19 @@ public class ActionManager :MonoBehaviour
 				}
 				break;
 			case 16:
-				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
+			case 21:
+				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 0
 					ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
 				} else {
 					ran = 0;
 				}
-				break;
+				break;			
 			default:
-				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
-					ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
-				} else {
-					ran = 1;
-				}
+				//if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
+				ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
+				//} else {
+					//ran = 1;
+				//}
 				break;
 		}
 		InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops, ran); // drop item upon break
@@ -127,11 +126,25 @@ public class ActionManager :MonoBehaviour
 	public void InstansiateDropGameObject (int id, int dropValue)
 	{		
 		for (int i = 0; i < dropValue; i++) {
+			GameObject parent = new GameObject ();
+			parent.name = "parent";
 			Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle;
+			parent.transform.position = new Vector3 (ran.x, ran.y, 0);
 			GameObject drop = GameObject.Instantiate (inventoryItems [id], new Vector3 (ran.x, ran.y, 0), Quaternion.identity) as GameObject;
-			drop.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
 			drop.transform.localScale = new Vector3 (0.75f, 0.75f, 0.75f);
+			drop.transform.parent = parent.transform;
+			drop.GetComponent <Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
+			drop.GetComponent <Animator> ().Play ("itemDrop");
+			StartCoroutine (DropItemsLiveAfterSeconds (parent.gameObject));
 		}
+	}
+
+	IEnumerator DropItemsLiveAfterSeconds (GameObject go)
+	{
+		yield return new WaitForSeconds (0.5f);
+		go.transform.GetChild (0).GetComponent <BoxCollider2D> ().enabled = true;
+		go.transform.DetachChildren ();
+		Destroy (go);
 	}
 
 	public void UpdateItemandSave ()
@@ -142,6 +155,7 @@ public class ActionManager :MonoBehaviour
 					currentSelectedItem.age = 0;
 					currentSelectedItem.GO.transform.GetChild (0).gameObject.SetActive (false);
 					MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToZero);
+					currentSelectedItem.GO.transform.GetChild (1).GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f); // Fixed issue when stup remains transperent if tree chopped from south facing
 				} else { //Replace Stump with nothing
 					MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
 				}
@@ -154,13 +168,15 @@ public class ActionManager :MonoBehaviour
 					MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
 				}
 				break;
+		//case 21: //Carrot
+		//MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
+			
+		//break;
 			default:
 				Destroy (currentSelectedItem.GO);
 				MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);			
 				break;
 		}
 	}
-
-
 }
 

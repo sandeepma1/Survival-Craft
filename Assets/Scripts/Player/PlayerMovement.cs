@@ -12,15 +12,17 @@ using Devdog.InventorySystem.UI;
 public class PlayerMovement : MonoBehaviour
 {
 	public Animator anim;
-	public float speed = 2.0f, speedTemp = 0;
+	public float speed = 1.5f, speedTemp = 0;
 	public static PlayerMovement m_instance = null;
 	public GameObject cursorTile, cursorTile_grid;
 
 	public float animationPivotAdjuster = 0.75f;
+	public float input_x, input_y, r_input_a, r_input_b = 0f;
 
+	public bool isRunning;
 	private Vector3 cursorPosition;
 	private int tempX, tempY = 0;
-	public float input_x, input_y, r_input_a, r_input_b = 0f;
+
 
 	private bool isRightStick, isLeftStick = false;
 	private float attackTime, attackCounter;
@@ -159,10 +161,26 @@ public class PlayerMovement : MonoBehaviour
 	void LateUpdate () // Set player storing order to front and Player Run toggle
 	{
 		this.gameObject.GetComponent <SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10);
-		if (Input.GetKey (KeyCode.LeftShift)) {
-			speed = speedTemp * 2;
+		if (Input.GetKey (KeyCode.LeftShift) || isRunning) {
+			speed = speedTemp * 1.5f;
 		} else {
 			speed = speedTemp;
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.tag == "Disappear") { // Trees FadeIn if enters trigger
+			other.GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.5f);
+			other.transform.parent.transform.GetChild (1).GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.5f);
+		}
+	}
+
+	void OnTriggerExit2D (Collider2D other)
+	{
+		if (other.tag == "Disappear") {// Trees FadeOut if leaves trigger
+			other.GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
+			other.transform.parent.transform.GetChild (1).GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 96ce669faeb60a5438935fb13a2a9efa
-timeCreated: 1472939827
+timeCreated: 1472977451
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -66,153 +66,120 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Trees1_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 176
-        width: 48
-        height: 80
-      alignment: 9
-      pivot: {x: 0.48398805, y: -0.105127715}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 10.768574, y: 88.41022}
-        - {x: -8.231426, y: 88.41022}
-        - {x: -15.231426, y: 85.41022}
-        - {x: -23.231426, y: 62.410217}
-        - {x: -23.231426, y: 29.410217}
-        - {x: -6.2314262, y: 8.410217}
-        - {x: 10.768574, y: 8.410217}
-        - {x: 24.768574, y: 25.410217}
-        - {x: 24.768574, y: 72.41022}
-        - {x: 23.768574, y: 77.41022}
     - name: Trees1_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
-        width: 16
-        height: 32
+        x: 3
+        y: 49
+        width: 23
+        height: 47
       alignment: 9
-      pivot: {x: 0.4941309, y: 0.29457903}
+      pivot: {x: 0.53755206, y: 0.14472012}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Trees1_12
       rect:
         serializedVersion: 2
-        x: 16
-        y: 144
-        width: 16
-        height: 32
+        x: 29
+        y: 49
+        width: 23
+        height: 47
       alignment: 9
-      pivot: {x: 0.47652328, y: 0.31512117}
+      pivot: {x: 0.5438108, y: 0.13859461}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Trees1_11
       rect:
         serializedVersion: 2
-        x: 32
-        y: 144
-        width: 16
-        height: 32
+        x: 55
+        y: 49
+        width: 23
+        height: 47
       alignment: 9
-      pivot: {x: 0.4882617, y: 0.28577566}
+      pivot: {x: 0.5312938, y: 0.13553181}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Trees1_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 48
+        height: 80
+      alignment: 9
+      pivot: {x: 0.50599796, y: -0.15856972}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.712097, y: 92.68558}
+        - {x: -9.287903, y: 92.68558}
+        - {x: -16.287903, y: 89.68558}
+        - {x: -24.287903, y: 66.68558}
+        - {x: -24.287903, y: 33.685577}
+        - {x: -7.287903, y: 12.685577}
+        - {x: 9.712097, y: 12.685577}
+        - {x: 23.712097, y: 29.685577}
+        - {x: 23.712097, y: 76.68558}
+        - {x: 22.712097, y: 81.68558}
+    - name: Trees1_
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 19
+      alignment: 9
+      pivot: {x: 0.50899684, y: 0.3863553}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Trees1_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 64
+        y: 16
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 30
+      alignment: 9
+      pivot: {x: 0.54498434, y: 0.23129381}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Trees1_9
       rect:
         serializedVersion: 2
-        x: 16
-        y: 128
+        x: 80
+        y: 16
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5359874, y: 0.23609212}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Trees1_8
       rect:
         serializedVersion: 2
-        x: 32
-        y: 128
+        x: 96
+        y: 16
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 30
+      alignment: 9
+      pivot: {x: 0.53598785, y: 0.22169717}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Trees1_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
+        x: 112
+        y: 16
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5269904, y: 0.23129381}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Trees1_6
+    - name: Trees1_0
       rect:
         serializedVersion: 2
         x: 16
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: Trees1_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: Trees1_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: Trees1_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: Trees1_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -222,30 +189,63 @@ TextureImporter:
     - name: Trees1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: Trees1_0
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: Trees1_
-      rect:
-        serializedVersion: 2
         x: 32
-        y: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Trees1_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Trees1_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Trees1_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Trees1_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Trees1_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
         width: 16
         height: 16
       alignment: 0
