@@ -7,7 +7,7 @@ public class MoreInventoryButton : MonoBehaviour
 	public static MoreInventoryButton m_instance = null;
 	public RectTransform mainUIWindow;
 	public GameObject mainCanvas, inventoryMenu;
-	public GameObject leftStick, rightStick, inventoryTab, craftingTab, settingsTab, infoTab;
+	public GameObject leftStick, rightStick, inventoryTab, craftingTab, settingsTab, infoTab, sortButton;
 	public GameObject craftingMenu;
 	private bool toggleInventory = false, toggleCrafting = false;
 	float heightAdjuster;
@@ -48,6 +48,7 @@ public class MoreInventoryButton : MonoBehaviour
 			actionButton.SetActive (toggleInventory);
 		}*/
 		inventoryTab.SetActive (!toggleInventory);
+		sortButton.SetActive (!toggleInventory);
 		craftingTab.SetActive (!toggleInventory);
 		settingsTab.SetActive (!toggleInventory);
 		infoTab.SetActive (!toggleInventory);

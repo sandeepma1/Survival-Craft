@@ -492,6 +492,7 @@
      <Compile Include="Assets\Scripts\MessageBus\MessageSubscriber.cs" />
      <Compile Include="Assets\Scripts\MessageBus\MessageSubscriberController.cs" />
      <Compile Include="Assets\Scripts\Player\ActionManager.cs" />
+     <Compile Include="Assets\Scripts\Player\DontGoThroughThings.cs" />
      <Compile Include="Assets\Scripts\Player\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\Player\GridMove.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />

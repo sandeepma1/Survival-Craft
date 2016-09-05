@@ -1,14 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs">
     <Files>
-      <File FileName="Assets\Scripts\Items\ItemDatabase.cs" Line="48" Column="107" />
-      <File FileName="Assets\Scripts\MapGenerationV2\MapLoader.cs" Line="85" Column="15" />
-      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="115" Column="8" />
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="165" Column="28" />
-      <File FileName="Assets\Scripts\HUD\Health\Health.cs" Line="7" Column="41" />
-      <File FileName="Assets\Scripts\HUD\Food\Food.cs" Line="76" Column="29" />
-      <File FileName="Assets\Scripts\HUD\WalkRun.cs" Line="30" Column="36" />
+      <File FileName="Assets\InventorySystem\Scripts\Modules\Crafting\UIModels\InventoryCraftingCategoryUI.cs" Line="20" Column="3" />
+      <File FileName="Assets\Scripts\Menus\MoreInventoryButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Items\ItemDatabase.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGenerationV2\MapLoader.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs" Line="24" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

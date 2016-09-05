@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class Food : MonoBehaviour
 {
 	public static Food m_instance = null;
-	public int startHunger;
-	public int hungerPerBurger;
+	public float startHunger;
+	public float hungerPerBurger;
 	
-	private int maxHunger;
-	private int currentHunger;
+	private float maxHunger;
+	public float currentHunger;
 	
 	public Sprite[] burgerImages;
 	public Image burgerGUI;
@@ -29,9 +29,17 @@ public class Food : MonoBehaviour
 	void Start ()
 	{
 		spacingX = burgerGUI.GetComponent <RectTransform> ().rect.width;
-		spacingY = -burgerGUI.GetComponent <RectTransform> ().rect.height;
-	
-		AddBurgers (startHunger / hungerPerBurger);
+		spacingY = -burgerGUI.GetComponent <RectTransform> ().rect.height;	
+		AddBurgers ((int)(startHunger / hungerPerBurger));
+		InvokeRepeating ("DecreaseHungerPerSecond", 1, 1);
+	}
+
+	void DecreaseHungerPerSecond ()
+	{
+		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+			//print ("decreased");
+			modifyHunger (-0.035f);
+		}
 	}
 
 	public void AddBurgers (int n)
@@ -53,7 +61,7 @@ public class Food : MonoBehaviour
 		UpdateBurgers ();
 	}
 
-	public void modifyHunger (int amount)
+	public void modifyHunger (float amount)
 	{
 		currentHunger += amount;
 		currentHunger = Mathf.Clamp (currentHunger, 0, maxHunger);
@@ -74,7 +82,7 @@ public class Food : MonoBehaviour
 					burger.GetComponent<Image> ().overrideSprite = burgerImages [burgerImages.Length - 1]; // health of current heart is full
 				} else {
 					int currentBurgerHunger = (int)(hungerPerBurger - (hungerPerBurger * i - currentHunger));
-					int hungerPerImage = hungerPerBurger / burgerImages.Length; // how much health is there per image
+					int hungerPerImage = (int)(hungerPerBurger / burgerImages.Length); // how much health is there per image
 					int imageIndex = currentBurgerHunger / hungerPerImage;					
 					if (imageIndex == 0 && currentBurgerHunger > 0) {
 						imageIndex = 1;
