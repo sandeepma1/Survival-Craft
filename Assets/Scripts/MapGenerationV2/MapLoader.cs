@@ -103,36 +103,20 @@ public class MapLoader : MonoBehaviour
 	{
 		for (int i = 0; i < mapChunks.Length; i++) {
 			for (int x = 0; x < mapSize; x++) {
-				for (int y = 0; y < mapSize; y++) {					
-					switch (mapItemGO [i] [x, y].id) { // item index
-						case 11:
-							InstantiateObject (items [11], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
-							break;
-						case 16:
-							InstantiateObject (items [16], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
-							break;
-						case 21:
-							InstantiateObject (items [21], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
-							break;
-						case 1:
-							InstantiateObject (items [1], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
-							break;
-						case 5:
-							InstantiateObject (items [5], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
-							break;
-						case 10:
-							InstantiateObject (items [10], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
-							break;
-						default:
-							break;
-					}
+				for (int y = 0; y < mapSize; y++) {										
+					InstantiateObject (items [mapItemGO [i] [x, y].id], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);				
+					
 				}
 			}
-		}		
+		}
 	}
 
 	public void InstantiateObject (GameObject go, Vector3 pos, Transform parent, int i, int id, int age)
 	{
+
+		if (id <= 0) {
+			return;
+		}
 		if (mapItemGO [i] [(int)pos.x, (int)pos.y].GO != null) {
 			Destroy (mapItemGO [i] [(int)pos.x, (int)pos.y].GO);
 		}

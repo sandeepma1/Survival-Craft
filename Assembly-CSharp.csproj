@@ -477,6 +477,7 @@
      <Compile Include="Assets\Scripts\MapGeneration\Noise.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\PopulateItems.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\TextureGenerator.cs" />
+     <Compile Include="Assets\Scripts\MapGenerationV2\GrassRandomness.cs" />
      <Compile Include="Assets\Scripts\MapGenerationV2\MapExpoter.cs" />
      <Compile Include="Assets\Scripts\MapGenerationV2\MapLoader.cs" />
      <Compile Include="Assets\Scripts\MapGenerationV2\NewGameSave.cs" />

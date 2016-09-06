@@ -20,7 +20,7 @@ public class FPSDisplay : MonoBehaviour
 			fps = 1.0f / deltaTime;
 			//text = string.Format ("{0:0.0} ms ({1:0.} fps)", msec, fps);
 			//fpsText.text = text;
-			fpsText.text = fps.ToString ("F0") + " fps";
+			fpsText.text = fps.ToString ("F0");
 		}
 	}
 }

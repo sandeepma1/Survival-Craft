@@ -39,7 +39,10 @@ public class ActionManager :MonoBehaviour
 			PlayerMovement.m_instance.AttackCalculation ();
 			PlayerMovement.m_instance.SetAttackAnimation (true);
 			CalculateHardness ();
-		} else {
+			/*if (currentSelectedItem.id == 11 && PlayerMovement.m_instance.isRightStick) {
+				currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().SetBool ("isTreeCutting", true);
+			}*/
+		} else {			
 			PlayerMovement.m_instance.AttackCalculation ();
 			PlayerMovement.m_instance.SetAttackAnimation (false);
 			print ("No items nearby");
@@ -51,7 +54,7 @@ public class ActionManager :MonoBehaviour
 	{		
 		if (currentSelectedItem.id > 0 && ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {
 			if (currentWeildedItem != null && currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool
-				print ("Using Tools");				
+				print ("Using Tools");			
 				baseTime = (GameEventManager.baseStrengthWithTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness) / currentWeildedItem.itemQuality;
 				baseTimeStatic = baseTime;		
 				isReadyToAttack = true;
@@ -68,15 +71,24 @@ public class ActionManager :MonoBehaviour
 
 	void Update ()
 	{
+		
 		if (isReadyToAttack) {
+			if (currentSelectedItem.id == 11) {
+				currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().SetTrigger ("isTreeCutting");
+			}
 			baseTime -= Time.deltaTime;
 			progressVal = baseTime / baseTimeStatic;
 
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
 			progressBarBG.SetActive (true);
+
 			if (baseTime <= 0) {
 				if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) { // if object ishandmined then drop items
+					if (currentSelectedItem.id == 11) {
+						currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().SetBool ("TreeChopped", true);
+					}
 					DropBreakedItem ();
+
 				}
 				isReadyToAttack = false;
 				progressBar.transform.localScale = Vector3.zero;
@@ -153,7 +165,7 @@ public class ActionManager :MonoBehaviour
 			case 11: //Replace Tree with stump and stump with nothing
 				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {
 					currentSelectedItem.age = 0;
-					currentSelectedItem.GO.transform.GetChild (0).gameObject.SetActive (false);
+					//currentSelectedItem.GO.transform.GetChild (0).gameObject.SetActive (false);
 					MapLoader.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToZero);
 					currentSelectedItem.GO.transform.GetChild (1).GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f); // Fixed issue when stup remains transperent if tree chopped from south facing
 				} else { //Replace Stump with nothing

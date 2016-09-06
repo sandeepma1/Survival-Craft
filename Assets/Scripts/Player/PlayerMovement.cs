@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 	private int tempX, tempY = 0;
 
 
-	private bool isRightStick, isLeftStick = false;
+	public bool isRightStick, isLeftStick = false;
 	private float attackTime, attackCounter;
 
 	Devdog.InventorySystem.InventoryItemBase currentWeildedItem, currentSelectedTile;
@@ -170,17 +170,32 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.tag == "Disappear") { // Trees FadeIn if enters trigger
-			other.GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.5f);
-			other.transform.parent.transform.GetChild (1).GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.5f);
+		switch (other.tag) {
+			case  "Disappear":
+				other.GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.35f);
+				other.transform.parent.transform.GetChild (1).GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.35f);
+				break;
+			case "Grass":
+				other.GetComponent <Animator> ().enabled = true;
+				other.GetComponent <Animator> ().SetTrigger ("shouldMove");
+				break;
+			default:
+				break;
 		}
 	}
 
 	void OnTriggerExit2D (Collider2D other)
 	{
-		if (other.tag == "Disappear") {// Trees FadeOut if leaves trigger
-			other.GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
-			other.transform.parent.transform.GetChild (1).GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
+		switch (other.tag) {
+			case  "Disappear":
+				other.GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
+				other.transform.parent.transform.GetChild (1).GetComponent <SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
+				break;		
+			case "Grass":
+				other.GetComponent <Animator> ().enabled = false;
+				break;
+			default:
+				break;
 		}
 	}
 }
