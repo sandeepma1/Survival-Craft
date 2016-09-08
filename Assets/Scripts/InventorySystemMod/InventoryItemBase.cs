@@ -57,5 +57,51 @@ namespace Devdog.InventorySystem
 				_itemQuality = 1;
 			}
 		}
+
+		[SerializeField]
+		private bool _isPlaceable = false;
+
+		/// <summary>
+		/// Is Item Placable
+		/// </summary>
+		public bool isPlaceable {
+			get {
+				return _isPlaceable;
+			}
+			set {
+				_isPlaceable = false;
+			}
+		}
+
+		[SerializeField]
+		private string _itemID = "";
+
+		/// <summary>
+		/// Is Item Placable
+		/// </summary>
+		public string itemID {
+			get {
+				return _itemID;
+			}
+			set {
+				_itemID = "";
+			}
+		}
+
+		public  int RemovePlacedItem ()
+		{
+			int used = Use ();
+			if (used < 0)
+				return used;
+
+			// Do something with item
+			currentStackSize--; // Remove 1
+            
+			NotifyItemUsed (1, true);
+			// InventoryAudioManager.AudioPlayOneShot(audioClipWhenUsed);
+
+			return 1; // 1 item used
+		}
+
 	}
 }
