@@ -41,13 +41,6 @@ public class ActionManager : MonoBehaviour {
 		}
 	}
 
-	void PlaceItem() {
-		string[] itemss = currentWeildedItem.itemID.Split(',');
-		MapLoader ml = MapLoader.m_instance;
-		ml.InstantiatePlacedObject(ml.items[sbyte.Parse(itemss[0])], GameEventManager.currentSelectedTilePosition, ml.mapChunks[PlayerPrefs.GetInt("mapChunkPosition")].transform,
-			PlayerPrefs.GetInt("mapChunkPosition"), sbyte.Parse(itemss[0]), sbyte.Parse(itemss[1]));
-	}
-
 	void CalculateHardness() {
 		if (currentSelectedItem.id > 0 && !currentWeildedItem.isPlaceable) {//ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {
 			if (currentWeildedItem != null && currentWeildedItem.rarity.name == ItemDatabase.m_instance.items[currentSelectedItem.id].tool.ToString()) { // if tool
@@ -68,6 +61,13 @@ public class ActionManager : MonoBehaviour {
 			PlayerMovement.m_instance.SetAttackAnimation(false);
 			print("No items nearby");
 		}
+	}
+
+	void PlaceItem() {
+		string[] itemss = currentWeildedItem.itemID.Split(',');
+		MapLoader ml = MapLoader.m_instance;
+		ml.InstantiatePlacedObject(ml.items[sbyte.Parse(itemss[0])], GameEventManager.currentSelectedTilePosition, ml.mapChunks[PlayerPrefs.GetInt("mapChunkPosition")].transform,
+			PlayerPrefs.GetInt("mapChunkPosition"), sbyte.Parse(itemss[0]), sbyte.Parse(itemss[1]));
 	}
 
 	void Update() {
@@ -122,9 +122,6 @@ public class ActionManager : MonoBehaviour {
 			default:
 			//if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
 			ran = Random.Range(ItemDatabase.m_instance.items[currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items[currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
-																																									  //} else {
-																																									  //ran = 1;
-																																									  //}
 			break;
 		}
 		InstansiateDropGameObject(ItemDatabase.m_instance.items[currentSelectedItem.id].drops, ran); // drop item upon break

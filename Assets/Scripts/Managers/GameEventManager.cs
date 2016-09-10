@@ -6,7 +6,6 @@ public static class GameEventManager
 	public static Vector2 currentSelectedTilePosition = Vector2.zero;
 	public const float baseStrengthWithTool = 1f;
 	public static float baseStrengthWithoutTool = 2.5f;
-	public static int mapChunkSize = 128;
 
 	public delegate void GameEvent ();
 
@@ -47,4 +46,23 @@ public static class GameEventManager
 	{
 		return m_menuState;
 	}
+}
+
+[SerializeField]
+public struct item
+{
+	public sbyte id;
+	public sbyte age;
+	public GameObject GO;
+}
+
+[SerializeField]
+public enum onHarvest
+{
+	//Carrots
+	Destory,
+	// Trees
+	RegrowToZero,
+	// Berries
+	Renewable
 }

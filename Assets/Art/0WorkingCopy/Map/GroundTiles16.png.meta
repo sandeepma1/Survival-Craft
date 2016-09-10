@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 63baa73abb21c784eb63132aef12aea5
-timeCreated: 1472928558
+timeCreated: 1473488643
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -24,6 +24,12 @@ TextureImporter:
     21300034: GroundTiles16_17
     21300036: GroundTiles16_18
     21300038: GroundTiles16_19
+    21300040: GroundTiles16_20
+    21300042: GroundTiles16_21
+    21300044: GroundTiles16_22
+    21300046: GroundTiles16_23
+    21300048: GroundTiles16_24
+    21300050: GroundTiles16_25
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -286,6 +292,72 @@ TextureImporter:
         y: 464
         width: 16
         height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GroundTiles16_20
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 347
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GroundTiles16_21
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 347
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GroundTiles16_22
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 347
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GroundTiles16_23
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 347
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GroundTiles16_24
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 347
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GroundTiles16_25
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 347
+        width: 25
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
