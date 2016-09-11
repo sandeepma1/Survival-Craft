@@ -10,6 +10,7 @@ public static class TextureGenerator
 		texture.filterMode = FilterMode.Point;
 		texture.wrapMode = TextureWrapMode.Clamp;
 		texture.SetPixels (colourMap);
+		//texture.SetPixels32 (colourMap);
 		texture.Apply ();
 		return texture;
 	}

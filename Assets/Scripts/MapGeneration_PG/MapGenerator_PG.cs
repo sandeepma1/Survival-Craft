@@ -55,8 +55,6 @@ public class MapGenerator_PG : MonoBehaviour
 
 	public void DrawMapInEditor ()
 	{
-		
-
 		MapData_Editor mapData = GenerateMapData_Editor (Vector2.zero);
 		MapDisplay display = FindObjectOfType<MapDisplay> ();
 		if (drawMode == DrawMode.NoiseMap) {
@@ -65,36 +63,39 @@ public class MapGenerator_PG : MonoBehaviour
 			display.DrawTexture (TextureGenerator.TextureFromHeightMap (FalloffGenerator.GenerateFalloffMap (mapChunkSize)));
 		} else if (drawMode == DrawMode.ColourMap) {
 			SaveTextureToFile (TextureGenerator.TextureFromColourMap (mapData.colourMap, mapChunkSize, mapChunkSize));
-
-			display.DrawTexture (LoadTextureFromFile ((Texture2D)ES2.LoadImage ("SaveSlot1.png")));
+			display.DrawTexture (LoadTextureFromFile ((Texture2D)ES2.LoadImage ("EditorTest.png")));
 			if (GenerateTerrian) {
-				GenerateMap (LoadTextureFromFile ((Texture2D)ES2.LoadImage ("SaveSlot1.png")));
+				GenerateMap (TextureGenerator.TextureFromColourMap (mapData.colourMap, mapChunkSize, mapChunkSize));
 			}
 		}
 	}
 
 	void GenerateMap (Texture2D tex)
 	{
+		Color color;
 		TilesHolder = new GameObject ("TilesHolder").transform;
 		TilesHolder.transform.position = new Vector3 (mapChunkSize / 2, mapChunkSize / 2);
 		for (int i = 0; i < tex.width; i++) {
-			for (int j = 0; j < tex.height; j++) {				
-				if (tex.GetPixel (i, j) == regions [0].colour) {
+			for (int j = 0; j < tex.height; j++) {
+				color = tex.GetPixel (i, j);
+				if (color == regions [0].colour) {
 					InstansiateTiles (regions [0].tile, i, j);
-				} else if (tex.GetPixel (i, j) == regions [1].colour) {					
+				} else if (color == regions [1].colour) {					
 					InstansiateTiles (regions [1].tile, i, j);
-				} else if (tex.GetPixel (i, j) == regions [2].colour) {
+				} else if (color == regions [2].colour) {
 					InstansiateTiles (regions [2].tile, i, j);
-				} else if (tex.GetPixel (i, j) == regions [3].colour) {
+				} else if (color == regions [3].colour) {
 					InstansiateTiles (regions [3].tile, i, j);				
-				} else if (tex.GetPixel (i, j) == regions [4].colour) {
+				} else if (color == regions [4].colour) {
 					InstansiateTiles (regions [4].tile, i, j);
-				} else if (tex.GetPixel (i, j) == regions [5].colour) {
+				} else if (color == regions [5].colour) {
 					InstansiateTiles (regions [5].tile, i, j);
-				} else if (tex.GetPixel (i, j) == regions [6].colour) {
+				} else if (color == regions [6].colour) {
 					InstansiateTiles (regions [6].tile, i, j);
-				} else if (tex.GetPixel (i, j) == regions [7].colour) {
+				} else if (color == regions [7].colour) {
 					InstansiateTiles (regions [7].tile, i, j);
+				} else {
+					InstansiateTiles (regions [0].tile, i, j);
 				}
 			}
 		}
@@ -109,7 +110,7 @@ public class MapGenerator_PG : MonoBehaviour
 
 	void SaveTextureToFile (Texture2D tex) //SaveTexture
 	{
-		ES2.SaveImage (tex, "SaveSlot1.png");
+		ES2.SaveImage (tex, "EditorTest.png");
 	}
 
 	Texture2D LoadTextureFromFile (Texture2D tex) //LoadTexture

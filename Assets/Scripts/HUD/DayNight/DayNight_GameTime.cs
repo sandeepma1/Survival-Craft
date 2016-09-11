@@ -50,7 +50,7 @@ public class DayNight_GameTime : MonoBehaviour
 					day++;
 					SaveGameDay ();
 					day = PlayerPrefs.GetInt ("gameDay");
-					MapLoader.m_instance.RepaintMapItems ();
+					LoadMapFromSave_PG.m_instance.RepaintMapItems ();
 					print ("new day");
 				}
 			}

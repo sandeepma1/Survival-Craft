@@ -14,7 +14,7 @@ public class Warp : MonoBehaviour
 
 			PlayerPrefs.SetInt ("mapChunkPosition", int.Parse (warpTarget.name.Substring (0, 1)));
 
-			MapLoader.m_instance.DisableUnusedMapChunks ();
+			LoadMapFromSave_PG.m_instance.DisableUnusedMapChunks ();
 
 			other.gameObject.transform.position = warpTarget.position;
 

@@ -29,31 +29,42 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	float[,] falloffMap;
 	Transform TilesHolder;
 	string[,] mapItems;
+	sbyte[,] mapTiles;
+	int countFileName = 0;
 
-	Queue<MapThreadInfo<MapData>> mapDataThreadInfoQueue = new Queue<MapThreadInfo<MapData>> ();
-
-	void Start ()
-	{
-		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);
-	}
+	//Queue<MapThreadInfo<MapData>> mapDataThreadInfoQueue = new Queue<MapThreadInfo<MapData>> ();
 
 	public void CreateNewSave ()
 	{
-		MapData mapData = GenerateMapData (Vector2.zero);
-		MapDisplay display = FindObjectOfType<MapDisplay> ();
+		mapChunkSize = 256;
+		CreateMaps (256);
+		countFileName++;
 
-		SaveTextureToFile (TextureGenerator.TextureFromColourMap (mapData.colourMap, mapChunkSize, mapChunkSize));
+		mapChunkSize = 128;
+		CreateMaps (128);
+		countFileName++;
+
+		mapChunkSize = 64;
+		CreateMaps (64);
+		countFileName = 0;
 	}
 
-	void SaveTextureToFile (Texture2D tex) //SaveTexture
+	void CreateMaps (int size)
 	{
-		ES2.SaveImage (tex, "SaveSlot1.png");
+		falloffMap = FalloffGenerator.GenerateFalloffMap (size);
+		MapData mapData = GenerateMapData (Vector2.zero);
+		MapDisplay display = FindObjectOfType<MapDisplay> ();
+		SaveTextFile (TextureGenerator.TextureFromColourMap (mapData.colourMap, size, size));
+	}
+
+	void SaveTextFile (Texture2D tex) //SaveTexture
+	{
 		PopulateGameitems (tex);
 		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();
 	}
 
 	//******************Other Stuff*****************************************************************************************************
-	public void RequestMapData (Vector2 centre, Action<MapData> callback)
+	/*public void RequestMapData (Vector2 centre, Action<MapData> callback)
 	{
 		ThreadStart threadStart = delegate {
 			MapDataThread (centre, callback);
@@ -67,11 +78,10 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		lock (mapDataThreadInfoQueue) {
 			mapDataThreadInfoQueue.Enqueue (new MapThreadInfo<MapData> (callback, mapData));
 		}
-	}
+	}*/
 
 	MapData GenerateMapData (Vector2 centre)
 	{
-
 		seed = (int)System.DateTime.Now.Ticks;
 		float[,] noiseMap = Noise.GenerateNoiseMap (mapChunkSize + 2, mapChunkSize + 2, seed, noiseScale, octaves, persistance, lacunarity, centre + offset, normalizeMode);
 
@@ -105,7 +115,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);
 	}
 
-	struct MapThreadInfo<T>
+	/*struct MapThreadInfo<T>
 	{
 		public readonly Action<T> callback;
 		public readonly T parameter;
@@ -115,33 +125,46 @@ public partial class CreateNewGame_PG : MonoBehaviour
 			this.callback = callback;
 			this.parameter = parameter;
 		}
-	}
+	}*/
 
 	public void PopulateGameitems (Texture2D map)
 	{
 		mapItems = new string[mapChunkSize, mapChunkSize];
+		mapTiles = new sbyte[mapChunkSize, mapChunkSize];
 		for (int x = 0; x < map.height; x++) {
 			for (int y = 0; y < map.width; y++) {
-				if (map.GetPixel (x, y) == regions [0].colour) {
+				if (map.GetPixel (x, y) == regions [0].colour) {//Deep Water
+					FillTileInfo (0, x, y);
 					FillArrayBlank (x, y);
-				} else if (map.GetPixel (x, y) == regions [1].colour) {
+				} else if (map.GetPixel (x, y) == regions [1].colour) { //Shallow water
+					FillTileInfo (1, x, y);
 					FillArrayBlank (x, y);
-				} else if (map.GetPixel (x, y) == regions [2].colour) {
+				} else if (map.GetPixel (x, y) == regions [2].colour) { //Sand
+					FillTileInfo (2, x, y);
+					Fill2DArray ("10,-1", x, y, 0.05f); //log
+				} else if (map.GetPixel (x, y) == regions [3].colour) { //Land
+					FillTileInfo (3, x, y);
+					Fill2DArray ("5,-1", x, y, 0.05f);
+				} else if (map.GetPixel (x, y) == regions [4].colour) { // Trees
+					FillTileInfo (4, x, y);
+					Fill2DArray ("11,14", x, y, 0.05f);
+				} else if (map.GetPixel (x, y) == regions [5].colour) { //Stones
+					FillTileInfo (5, x, y);
+					Fill2DArray ("2,-1", x, y, 0.25f);
+				} else if (map.GetPixel (x, y) == regions [6].colour) { //Hills
+					FillTileInfo (6, x, y);
 					FillArrayBlank (x, y);
-				} else if (map.GetPixel (x, y) == regions [3].colour) {
-					Fill2DArray ("grass", x, y, 0.15f);
-				} else if (map.GetPixel (x, y) == regions [4].colour) {
-					Fill2DArray ("treePrefab", x, y, 0.05f);
-				} else if (map.GetPixel (x, y) == regions [5].colour) {
-					Fill2DArray ("stone", x, y, 0.5f);
-				} else if (map.GetPixel (x, y) == regions [6].colour) {
-					Fill2DArray ("log", x, y, 0.1f);
-				} else if (map.GetPixel (x, y) == regions [7].colour) {
+				} else if (map.GetPixel (x, y) == regions [7].colour) {//Big Stones
+					FillTileInfo (7, x, y);
+					FillArrayBlank (x, y);
+				} else {
+					FillTileInfo (0, x, y);
 					FillArrayBlank (x, y);
 				}
 			}
 		}
-		ES2.Save (mapItems, "mapItems.txt");
+		ES2.Save (mapItems, countFileName + "i.txt");
+		ES2.Save (mapTiles, countFileName + "t.txt");
 	}
 
 	void Fill2DArray (string itemName, int x, int y, float probability)
@@ -158,6 +181,10 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		mapItems [x, y] = "";
 	}
 
+	void FillTileInfo (sbyte tileid, int x, int y)
+	{
+		mapTiles [x, y] = tileid;
+	}
 }
 
 [System.Serializable]

@@ -478,7 +478,7 @@
      <Compile Include="Assets\Scripts\MapGeneration_PG\TextureGenerator.cs" />
      <Compile Include="Assets\Scripts\MapGeneration_SB\GrassRandomness.cs" />
      <Compile Include="Assets\Scripts\MapGeneration_SB\MapExpoter.cs" />
-     <Compile Include="Assets\Scripts\MapGeneration_SB\MapLoader.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration_SB\MapLoader_SB.cs" />
      <Compile Include="Assets\Scripts\MapGeneration_SB\NewGameSave_SB.cs" />
      <Compile Include="Assets\Scripts\Menus\IGMMenu.cs" />
      <Compile Include="Assets\Scripts\Menus\LoadLevelByName.cs" />

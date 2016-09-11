@@ -8,14 +8,16 @@ public class FirstScript : MonoBehaviour
 	void Awake ()
 	{		
 		mapReference.SetActive (false);
-		mainMap.SetActive (false);
 		mainCanvas.SetActive (true);
 		inventoryMenu.SetActive (true); 
 	}
 
 	void Start ()
-	{		
-		SetupCamera ();
+	{
+		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name == "Main_SB") {
+			SetupCamera ();
+			mainMap.SetActive (false);
+		}
 	}
 
 	void SetupCamera ()

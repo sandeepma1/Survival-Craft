@@ -4,119 +4,266 @@ using System.Collections;
 public class LoadMapFromSave_PG : MonoBehaviour
 {
 	public static LoadMapFromSave_PG m_instance = null;
-	Transform tilesHolder, mapItemHolder;
-	public MapGenerator_PG mapGenerator;
-	public GameObject stone, log, grass, tree;
-	Texture2D mapDataTexture;
-	string[,] mapItems;
-	GameObject[,] mapItemGO;
-	int mapSize = 0;
+	//public MapGenerator_PG mapGenerator;
+	//Texture2D mapDataTexture;
 
-	void Awake ()
-	{
-		m_instance = this;
-	}
+	//Transform tilesHolder, mapItemHolder;
+	//*************************************************
+
+	public GameObject[] items;
+	public GameObject[] tiles;
+	public GameObject[] mapChunks;
+
+	string[][,] mapItemsFromSave;
+	sbyte[][,] mapTilesFromSave;
+	item[][,] mapItemGO;
+
+	int mapSize = 0;
+	int[] chunkMapSize;
+	string spriteName = "";
+	//Transform[] tilesHolder, itemsHolder;
 
 	void Start ()
 	{
-		mapDataTexture = LoadTextureFromFile ((Texture2D)ES2.LoadImage ("SaveSlot1.png"));
-		mapItems = ES2.Load2DArray<string> ("mapItems.txt");
-		mapSize = (int)Mathf.Sqrt (mapItems.Length);
-		mapItemGO = new GameObject[mapSize, mapSize];
-		GenerateMap (mapDataTexture);
+		PlayerPrefs.SetInt ("mapChunkPosition", 0);
+		m_instance = this;
+		LoadMapChunks ();
+		LoadMapData ();
+		SpwanObjects ();
+		DisableUnusedMapChunks ();
 	}
 
-	void GenerateMap (Texture2D tex)
+	void LoadMapChunks ()
 	{
-		tilesHolder = new GameObject ("TilesHolder").transform;
-		mapItemHolder = new GameObject ("MapItemHolder").transform;
+		mapTilesFromSave = new sbyte[3][,]; //**
+		mapChunks = new GameObject[3];
+		chunkMapSize = new int[3];
+		for (int i = 0; i < 3; i++) {	//**
+			mapTilesFromSave [i] = ES2.Load2DArray<sbyte> (i + "t.txt");
+			mapChunks [i] = new GameObject (i.ToString ()).gameObject;
+			mapChunks [i].transform.position = Vector3.zero;
+			chunkMapSize [i] = (int)Mathf.Sqrt (mapTilesFromSave [i].Length);
+		}
 
-		tilesHolder.transform.position = new Vector3 (mapGenerator.mapChunkSize / 2, mapGenerator.mapChunkSize / 2);
-		mapItemHolder.transform.position = new Vector3 (mapGenerator.mapChunkSize / 2, mapGenerator.mapChunkSize / 2);
-		for (int i = 0; i < tex.width; i++) {
-			for (int j = 0; j < tex.height; j++) {
-				if (tex.GetPixel (i, j) == mapGenerator.regions [0].colour) {
-					InstansiateTiles (mapGenerator.regions [0].tile, i, j);
-				} else if (tex.GetPixel (i, j) == mapGenerator.regions [1].colour) {
-					InstansiateTiles (mapGenerator.regions [1].tile, i, j);
-				} else if (tex.GetPixel (i, j) == mapGenerator.regions [2].colour) {
-					InstansiateTiles (mapGenerator.regions [2].tile, i, j);
-				} else if (tex.GetPixel (i, j) == mapGenerator.regions [3].colour) {
-					InstansiateTiles (mapGenerator.regions [3].tile, i, j);
-				} else if (tex.GetPixel (i, j) == mapGenerator.regions [4].colour) {
-					InstansiateTiles (mapGenerator.regions [4].tile, i, j);
-				} else if (tex.GetPixel (i, j) == mapGenerator.regions [5].colour) {
-					InstansiateTiles (mapGenerator.regions [5].tile, i, j);
-				} else if (tex.GetPixel (i, j) == mapGenerator.regions [6].colour) {
-					InstansiateTiles (mapGenerator.regions [6].tile, i, j);
-				} else if (tex.GetPixel (i, j) == mapGenerator.regions [7].colour) {
-					InstansiateTiles (mapGenerator.regions [7].tile, i, j);
+		for (int i = 0; i < mapTilesFromSave.Length; i++) {			
+			for (int x = 0; x < chunkMapSize [i]; x++) {//**
+				for (int y = 0; y < chunkMapSize [i]; y++) {//**
+					if (mapTilesFromSave [i] [x, y] > 0) {
+						GameObject go = (GameObject)Instantiate (tiles [mapTilesFromSave [i] [x, y]], new Vector3 (x, y), Quaternion.identity);
+						go.name = mapTilesFromSave [i] [x, y].ToString ();
+						go.transform.SetParent (mapChunks [i].transform);
+					}
+				}
+			}
+
+		}
+		mapChunks [1].transform.position = new Vector3 (-200, 0);
+		mapChunks [2].transform.position = new Vector3 (-100, 200);
+	}
+
+	public void LoadMapData ()
+	{
+		mapItemsFromSave = new string[mapChunks.Length][,];
+		mapItemGO = new item[mapChunks.Length][,];
+		for (int i = 0; i < mapChunks.Length; i++) {
+			mapItemsFromSave [i] = ES2.Load2DArray<string> (mapChunks [i].name + "i.txt");
+		}
+		mapSize = (int)Mathf.Sqrt (mapItemsFromSave [0].Length);
+
+		for (int i = 0; i < mapChunks.Length; i++) {
+			mapItemGO [i] = new item[mapSize, mapSize];
+		}
+
+		for (int i = 0; i < mapChunks.Length; i++) {
+			for (int x = 0; x < chunkMapSize [i]; x++) {
+				for (int y = 0; y < chunkMapSize [i]; y++) {
+					if (mapItemsFromSave [i] [x, y].Length > 2) {
+						mapItemsFromSave [i] [x, y] = mapItemsFromSave [i] [x, y].TrimEnd (new char[] { '\r', '\n' });
+						string[] itemss = mapItemsFromSave [i] [x, y].Split (',');
+						mapItemGO [i] [x, y].id = sbyte.Parse (itemss [0]);
+						mapItemGO [i] [x, y].age = sbyte.Parse (itemss [1]);
+					}
 				}
 			}
 		}
-		LoadMapItems ();
 	}
 
-	void LoadMapItems ()
-	{
-		for (int x = 0; x < mapSize; x++) {
-			for (int y = 0; y < mapSize; y++) {
-				switch (mapItems [x, y]) {
-					case "stone":
-						InstansiateMapItem (stone, x, y);
-						break;
-					case "grass":
-						InstansiateMapItem (grass, x, y);
-						break;
-					case "log":
-						InstansiateMapItem (log, x, y);
-						break;
-					case "treePrefab":
-						InstansiateMapItem (tree, x, y);
-						break;
-					default:
-						break;
+	public void RepaintMapItems ()
+	{               // Next day repaint all game items like trees bushes etc
+		for (int i = 0; i < mapChunks.Length; i++) {
+			for (int x = 0; x < mapSize; x++) {
+				for (int y = 0; y < mapSize; y++) {
+					if (mapItemsFromSave [i] [x, y].Length > 2) {
+						switch (mapItemGO [i] [x, y].id) {
+							case 11://trees
+							case 16://berries
+							case 21://berries
+								if (mapItemGO [i] [x, y].age != ItemDatabase.m_instance.items [mapItemGO [i] [x, y].id].maxAge) {
+									mapItemGO [i] [x, y].age = (sbyte)(mapItemGO [i] [x, y].age + 1);
+									mapItemsFromSave [i] [x, y] = mapItemGO [i] [x, y].id + "," + mapItemGO [i] [x, y].age;
+								}
+								break;
+							default:
+								break;
+						}
+					}
 				}
 			}
 		}
-		//tilesHolder.transform.position = Vector3.zero;
-		//mapItemHolder.transform.position = Vector3.zero;
+		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + ".txt");
+		SpwanObjects ();
 	}
 
-	void InstansiateTiles (GameObject tile, int x, int y)
+	public void SpwanObjects ()
 	{
-		GameObject inst = Instantiate (tile, new Vector3 (x, y, 0), Quaternion.identity) as GameObject;
-		inst.transform.SetParent (tilesHolder);
-	}
-
-	void InstansiateMapItem (GameObject item, int x, int y)
-	{
-		mapItemGO [x, y] = Instantiate (item, new Vector3 (x, y, 0), Quaternion.identity) as GameObject;
-		mapItemGO [x, y].transform.SetParent (mapItemHolder);
-	}
-
-	Texture2D LoadTextureFromFile (Texture2D tex) //LoadTexture
-	{
-		Texture2D texture = new Texture2D (tex.width, tex.height);
-		texture.filterMode = FilterMode.Point;
-		texture.wrapMode = TextureWrapMode.Clamp;
-		texture.SetPixels (tex.GetPixels ());
-		texture.Apply ();
-		return texture;
-	}
-
-	public GameObject GetTile (Vector2 pos)
-	{
-		if (mapItemGO [(int)pos.x, (int)pos.y] != null) {
-			//			print (mapItemGO [(int)pos.x, (int)pos.y].name);
-			return mapItemGO [(int)pos.x, (int)pos.y];
+		for (int i = 0; i < mapChunks.Length; i++) {
+			for (int x = 0; x < mapSize; x++) {
+				for (int y = 0; y < mapSize; y++) {
+					InstantiateObject (items [mapItemGO [i] [x, y].id], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
+				}
+			}
 		}
-		return null;
 	}
 
-	public void SaveMapitemData (int x, int y)
+	public void InstantiateObject (GameObject go, Vector3 pos, Transform parent, int i, int id, int age)
 	{
-		//mapItems [x, y] = "";
-		//ES2.Save (mapItems, "mapItems.txt");
+		if (id <= 0) {
+			return;
+		}
+		if (mapItemGO [i] [(int)pos.x, (int)pos.y].GO != null) {
+			Destroy (mapItemGO [i] [(int)pos.x, (int)pos.y].GO);
+		}
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO = Instantiate (go);
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.parent = parent;
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
+
+		switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
+			case 11: // Trees
+				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
+				if (age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
+					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [age];
+				}
+				if (age == ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
+					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
+				}
+				break;
+			case 16:  //Berries
+				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+				mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+				break;
+			case 21:  //Carrots
+				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+				mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+				break;
+			default:
+				break;
+		}
+	}
+
+	public void InstantiatePlacedObject (GameObject go, Vector3 pos, Transform parent, int i, int id, int age)
+	{
+		if (id > 0 && mapItemGO [i] [(int)pos.x, (int)pos.y].GO == null) {
+			mapItemGO [i] [(int)pos.x, (int)pos.y].GO = Instantiate (go);
+			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
+			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.parent = parent;
+			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
+			mapItemGO [i] [(int)pos.x, (int)pos.y].id = (sbyte)id;
+			mapItemGO [i] [(int)pos.x, (int)pos.y].age = (sbyte)age;
+
+			switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
+				case 11: // Trees
+					spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
+					if (age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
+						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [age];
+					}
+					if (age == ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
+						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
+					}
+					break;
+				case 16:  //Berries
+					spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+					break;
+				case 21:  //Carrots
+					spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+					break;
+				default:
+					break;
+			}
+
+			//ActionManager.m_AC_instance.currentWeildedItem.ID
+			if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
+				Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
+			}
+
+			mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
+			ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + ".txt");
+		}
+	}
+
+	public void DisableUnusedMapChunks ()
+	{
+		int currentMapChunkPosition = PlayerPrefs.GetInt ("mapChunkPosition");
+		for (int i = 0; i < mapChunks.Length; i++) {
+			mapChunks [i].SetActive (true);
+		}
+		for (int i = 0; i < mapChunks.Length; i++) {
+			if (i == currentMapChunkPosition) {
+
+			} else {
+				mapChunks [i].SetActive (false);
+			}
+		}
+	}
+
+	public item GetTile (Vector2 pos)
+	{
+		pos = GetPlayersLocalPosition (pos);
+		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
+			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
+		}
+		return new item ();
+	}
+
+	public void SaveMapItemData (sbyte id, sbyte age, Vector2 pos, onHarvest harvestType)
+	{
+		pos = GetPlayersLocalPosition (pos);
+		switch (harvestType) {
+			case onHarvest.Destory:  //Carrots
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
+				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO = null;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 0;
+				break;
+			case onHarvest.RegrowToZero:  // Trees
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = id;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
+				break;
+			case onHarvest.Renewable:  //Berries
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = id;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
+				string spriteName = mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+				break;
+			default:
+				break;
+		}
+		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + ".txt");
+	}
+
+	public Vector2 GetPlayersLocalPosition (Vector2 currentPos)
+	{
+		Vector2 pos = currentPos - new Vector2 (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.y);
+		return pos;
 	}
 }

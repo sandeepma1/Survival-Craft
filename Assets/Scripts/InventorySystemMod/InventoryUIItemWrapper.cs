@@ -33,7 +33,6 @@ namespace Devdog.InventorySystem
 
 		public void ItemClicked ()
 		{
-			print ("clicked");
 			border.gameObject.SetActive (false);
 			MoreInventoryButton.m_instance.RemoveBorder ();
 			border.gameObject.SetActive (true);
