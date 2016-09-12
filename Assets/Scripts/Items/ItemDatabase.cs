@@ -33,10 +33,10 @@ public class ItemDatabase : MonoBehaviour
 		//Wood
 		items [10] = new Item (10, "Wood", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 1, true, 0, 10, 1, 1);
 		//Trees
-		items [11] = new Item (11, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, true, 0, 10, 4, 6);
-		items [12] = new Item (12, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, true, 0, 10, 4, 6);
-		items [13] = new Item (13, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, true, 0, 10, 4, 6);
-		items [14] = new Item (14, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, true, 0, 10, 4, 6);
+		items [11] = new Item (11, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, false, 0, 10, 4, 6);
+		items [12] = new Item (12, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, false, 0, 10, 4, 6);
+		items [13] = new Item (13, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, false, 0, 10, 4, 6);
+		items [14] = new Item (14, "Tree", 14, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 5, false, 0, 10, 4, 6);
 		//Berries
 		items [15] = new Item (15, "Berries", -1, Item.ItemType.RawMaterial, Item.ItemTool.Axe, 0.1f, true, 0, 15, 1, 1);
 		//Berry Bushes

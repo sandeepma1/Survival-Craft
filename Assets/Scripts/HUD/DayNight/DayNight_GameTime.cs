@@ -64,7 +64,7 @@ public class DayNight_GameTime : MonoBehaviour
 		timeText.text = timer.ToString ("mm-ddd");
 		minutes = Mathf.FloorToInt (timer / 60F);
 		seconds = Mathf.FloorToInt (timer - minutes * 60);
-		timeText.text = string.Format ((timer).ToString ("F0") + " {0:0}:{1:00}", minutes, seconds + " Day:" + day);
+		timeText.text = string.Format ("{0:0}:{1:00}", minutes, seconds + " Day:" + day);
 	}
 
 	void CalculateDayPhases ()

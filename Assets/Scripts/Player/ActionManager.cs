@@ -59,20 +59,30 @@ public class ActionManager : MonoBehaviour
 
 	void CalculateHardness ()
 	{
-		if (currentSelectedItem.id > 0 && !currentWeildedItem.isPlaceable) {//ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {
+		/**/
+		if (currentSelectedItem.id > 0 && !currentWeildedItem.isPlaceable) {				
 			if (currentWeildedItem != null && currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool
 				print ("Using Tools");
 				baseTime = (GameEventManager.baseStrengthWithTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness) / currentWeildedItem.itemQuality;
 				baseTimeStatic = baseTime;
 				isReadyToAttack = true;
+				PlayerMovement.m_instance.AttackCalculation ();
+				PlayerMovement.m_instance.SetAttackAnimation (true);
 			} else { // if not tool
-				print ("Using Bare Hands");
-				baseTime = GameEventManager.baseStrengthWithoutTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness;
-				baseTimeStatic = baseTime;
-				isReadyToAttack = true;
+				if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {		
+					print ("Using Bare Hands");
+					baseTime = 0.25f;
+					baseTimeStatic = baseTime;
+					isReadyToAttack = true;
+					PlayerMovement.m_instance.AttackCalculation ();
+					PlayerMovement.m_instance.SetPickUpAnimation ();
+				} else {
+					isReadyToAttack = false;
+					print ("cannot harvest");
+					PlayerMovement.m_instance.AttackCalculation ();
+					PlayerMovement.m_instance.SetAttackAnimation (false);
+				}
 			}
-			PlayerMovement.m_instance.AttackCalculation ();
-			PlayerMovement.m_instance.SetAttackAnimation (true);
 		} else {
 			PlayerMovement.m_instance.AttackCalculation ();
 			PlayerMovement.m_instance.SetAttackAnimation (false);
@@ -101,13 +111,12 @@ public class ActionManager : MonoBehaviour
 			progressBarBG.SetActive (true);
 
 			if (baseTime <= 0) {
-				if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) { // if object ishandmined then drop items
-					if (currentSelectedItem.id == 11) {
-						currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true);
-					}
-					DropBreakedItem ();
-
+				//if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) { // if object ishandmined then drop items
+				if (currentSelectedItem.id == 11) {
+					currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true);
 				}
+				DropBreakedItem ();
+				//}
 				isReadyToAttack = false;
 				progressBar.transform.localScale = Vector3.zero;
 				progressBarBG.SetActive (false);

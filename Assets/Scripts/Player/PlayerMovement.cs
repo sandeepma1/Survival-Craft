@@ -155,6 +155,11 @@ public class PlayerMovement : MonoBehaviour
 		anim.SetBool ("isAttacking", flag);
 	}
 
+	public void SetPickUpAnimation ()
+	{
+		anim.SetTrigger ("isPickingUp");
+	}
+
 	public void SavePlayerPosition ()
 	{
 		PlayerPrefs.SetFloat ("PlayerPositionX", transform.position.x);

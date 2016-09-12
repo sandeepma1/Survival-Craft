@@ -36,6 +36,8 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 	public void CreateNewSave ()
 	{
+		ResetAllValues ();
+		InitializeFirstVariables ();
 		mapChunkSize = 256;
 		CreateMaps (256);
 		countFileName++;
@@ -44,8 +46,8 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		CreateMaps (128);
 		countFileName++;
 
-		mapChunkSize = 64;
-		CreateMaps (64);
+		mapChunkSize = 128;
+		CreateMaps (128);
 		countFileName = 0;
 	}
 
@@ -60,25 +62,59 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	void SaveTextFile (Texture2D tex) //SaveTexture
 	{
 		PopulateGameitems (tex);
+		//TileBeautifier ();
+		SaveAllInFiles ();
 		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();
 	}
 
-	//******************Other Stuff*****************************************************************************************************
-	/*public void RequestMapData (Vector2 centre, Action<MapData> callback)
+	void TileBeautifier ()
 	{
-		ThreadStart threadStart = delegate {
-			MapDataThread (centre, callback);
-		};
-		new Thread (threadStart).Start ();
+		//for (int i = 0; i < regions.Length; i++) {		
+		for (int x = 0; x < mapTiles.Length; x++) {
+			for (int y = 0; y < mapTiles.Length; y++) {					
+				if (mapTiles [x, y] == 1) {
+					if (x + 1 >= mapTiles.Length || y + 1 >= mapTiles.Length || x - 1 <= 0 || y - 1 <= 0) {						
+					} else {		
+						bool above = false, below = false, left = false, right = false;			
+						if (mapTiles [x, y + 1] == 0) { //above
+							above = true;
+						}
+						if (mapTiles [x + 1, y] == 0) { //right
+							right = true;
+						}
+						if (mapTiles [x - 1, y] == 0) { //left
+							left = true;
+						}
+						if (mapTiles [x, y - 1] == 0) { //below
+							below = true;
+						}
+						mapTiles [x, y] = (sbyte)calculateTileIndex (above, below, left, right);
+					}
+				}
+			}
+		}
+		//}
 	}
 
-	void MapDataThread (Vector2 centre, Action<MapData> callback)
+	int calculateTileIndex (bool above, bool below, bool left, bool right)
 	{
-		MapData mapData = GenerateMapData (centre);
-		lock (mapDataThreadInfoQueue) {
-			mapDataThreadInfoQueue.Enqueue (new MapThreadInfo<MapData> (callback, mapData));
-		}
-	}*/
+		var sum = 0;
+		if (above)
+			sum += 1;
+		if (left)
+			sum += 2;
+		if (below)
+			sum += 4;
+		if (right)
+			sum += 8;
+		return sum;
+	}
+
+	void SaveAllInFiles ()
+	{
+		ES2.Save (mapItems, countFileName + "i.txt");
+		ES2.Save (mapTiles, countFileName + "t.txt");
+	}
 
 	MapData GenerateMapData (Vector2 centre)
 	{
@@ -114,18 +150,6 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		}
 		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);
 	}
-
-	/*struct MapThreadInfo<T>
-	{
-		public readonly Action<T> callback;
-		public readonly T parameter;
-
-		public MapThreadInfo (Action<T> callback, T parameter)
-		{
-			this.callback = callback;
-			this.parameter = parameter;
-		}
-	}*/
 
 	public void PopulateGameitems (Texture2D map)
 	{
@@ -163,8 +187,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 				}
 			}
 		}
-		ES2.Save (mapItems, countFileName + "i.txt");
-		ES2.Save (mapTiles, countFileName + "t.txt");
+
 	}
 
 	void Fill2DArray (string itemName, int x, int y, float probability)
@@ -184,6 +207,24 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	void FillTileInfo (sbyte tileid, int x, int y)
 	{
 		mapTiles [x, y] = tileid;
+	}
+
+	void ResetAllValues ()
+	{
+		PlayerPrefs.DeleteAll ();
+		ES2.DeleteDefaultFolder ();
+	}
+
+	void InitializeFirstVariables ()
+	{
+		if (PlayerPrefs.GetInt ("IniPlayerPos") == 0) {
+
+			PlayerPrefs.SetFloat ("PlayerPositionX", 64);
+			PlayerPrefs.SetFloat ("PlayerPositionY", 64);
+			PlayerPrefs.SetInt ("mapChunkPosition", 0);
+			ES2.DeleteDefaultFolder ();
+			PlayerPrefs.SetInt ("IniPlayerPos", 1);
+		}
 	}
 }
 

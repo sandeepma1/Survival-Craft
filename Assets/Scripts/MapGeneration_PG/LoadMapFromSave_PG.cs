@@ -91,8 +91,8 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	public void RepaintMapItems ()
 	{               // Next day repaint all game items like trees bushes etc
 		for (int i = 0; i < mapChunks.Length; i++) {
-			for (int x = 0; x < mapSize; x++) {
-				for (int y = 0; y < mapSize; y++) {
+			for (int x = 0; x < chunkMapSize [i]; x++) {
+				for (int y = 0; y < chunkMapSize [i]; y++) {
 					if (mapItemsFromSave [i] [x, y].Length > 2) {
 						switch (mapItemGO [i] [x, y].id) {
 							case 11://trees
@@ -110,7 +110,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				}
 			}
 		}
-		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + ".txt");
+		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 		SpwanObjects ();
 	}
 
@@ -203,7 +203,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			}
 
 			mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
-			ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + ".txt");
+			ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 		}
 	}
 
@@ -258,7 +258,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			default:
 				break;
 		}
-		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + ".txt");
+		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 	}
 
 	public Vector2 GetPlayersLocalPosition (Vector2 currentPos)
