@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 63baa73abb21c784eb63132aef12aea5
-timeCreated: 1473488643
+timeCreated: 1473706309
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -30,6 +30,7 @@ TextureImporter:
     21300046: GroundTiles16_23
     21300048: GroundTiles16_24
     21300050: GroundTiles16_25
+    21300052: GroundTiles16_26
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -358,6 +359,17 @@ TextureImporter:
         y: 347
         width: 25
         height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GroundTiles16_26
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

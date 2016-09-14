@@ -48,11 +48,11 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		for (int i = 0; i < mapTilesFromSave.Length; i++) {			
 			for (int x = 0; x < chunkMapSize [i]; x++) {//**
 				for (int y = 0; y < chunkMapSize [i]; y++) {//**
-					if (mapTilesFromSave [i] [x, y] > 0) {
-						GameObject go = (GameObject)Instantiate (tiles [mapTilesFromSave [i] [x, y]], new Vector3 (x, y), Quaternion.identity);
-						go.name = mapTilesFromSave [i] [x, y].ToString ();
-						go.transform.SetParent (mapChunks [i].transform);
-					}
+					//if (mapTilesFromSave [i] [x, y] >= 0) {
+					GameObject go = (GameObject)Instantiate (tiles [mapTilesFromSave [i] [x, y]], new Vector3 (x, y), Quaternion.identity);
+					go.name = mapTilesFromSave [i] [x, y].ToString ();
+					go.transform.SetParent (mapChunks [i].transform);
+					//}
 				}
 			}
 

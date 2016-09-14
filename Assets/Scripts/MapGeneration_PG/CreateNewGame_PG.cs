@@ -38,16 +38,16 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	{
 		ResetAllValues ();
 		InitializeFirstVariables ();
-		mapChunkSize = 256;
-		CreateMaps (256);
-		countFileName++;
-
 		mapChunkSize = 128;
 		CreateMaps (128);
 		countFileName++;
 
-		mapChunkSize = 128;
-		CreateMaps (128);
+		mapChunkSize = 64;
+		CreateMaps (64);
+		countFileName++;
+
+		mapChunkSize = 64;
+		CreateMaps (64);
 		countFileName = 0;
 	}
 
@@ -62,18 +62,30 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	void SaveTextFile (Texture2D tex) //SaveTexture
 	{
 		PopulateGameitems (tex);
-		//TileBeautifier ();
+		TileBeautifier ();
 		SaveAllInFiles ();
 		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();
 	}
 
 	void TileBeautifier ()
 	{
-		//for (int i = 0; i < regions.Length; i++) {		
-		for (int x = 0; x < mapTiles.Length; x++) {
-			for (int y = 0; y < mapTiles.Length; y++) {					
-				if (mapTiles [x, y] == 1) {
-					if (x + 1 >= mapTiles.Length || y + 1 >= mapTiles.Length || x - 1 <= 0 || y - 1 <= 0) {						
+		int mapTilesSize = (int)Mathf.Sqrt (mapTiles.Length);
+		for (int x = 0; x < mapTilesSize; x++) {
+			for (int y = 0; y < mapTilesSize; y++) {					
+				if (mapTiles [x, y] == -1) {					
+					if (mapTiles [x - 1, y + 1] == 0) {
+						mapTiles [x, y] = 25;
+					}
+					if (mapTiles [x - 1, y - 1] == 0) {
+						mapTiles [x, y] = 26;
+					}
+					if (mapTiles [x + 1, y - 1] == 0) {
+						mapTiles [x, y] = 28;
+					}
+					if (mapTiles [x + 1, y + 1] == 0) {
+						mapTiles [x, y] = 27;
+					}		
+					if (x + 1 >= mapTilesSize || y + 1 >= mapTilesSize || x - 1 <= 0 || y - 1 <= 0) {						
 					} else {		
 						bool above = false, below = false, left = false, right = false;			
 						if (mapTiles [x, y + 1] == 0) { //above
@@ -88,17 +100,21 @@ public partial class CreateNewGame_PG : MonoBehaviour
 						if (mapTiles [x, y - 1] == 0) { //below
 							below = true;
 						}
-						mapTiles [x, y] = (sbyte)calculateTileIndex (above, below, left, right);
+						if ((sbyte)calculateTileIndex (above, below, left, right) > 0) {
+							mapTiles [x, y] = calculateTileIndex (above, below, left, right);
+						}
+						if (mapTiles [x, y] == -1) {
+							mapTiles [x, y] = 16;
+						}
 					}
 				}
 			}
 		}
-		//}
 	}
 
-	int calculateTileIndex (bool above, bool below, bool left, bool right)
+	sbyte calculateTileIndex (bool above, bool below, bool left, bool right)
 	{
-		var sum = 0;
+		sbyte sum = 0;
 		if (above)
 			sum += 1;
 		if (left)
@@ -110,6 +126,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		return sum;
 	}
 
+	//********************************************************************************************************************************
 	void SaveAllInFiles ()
 	{
 		ES2.Save (mapItems, countFileName + "i.txt");
@@ -161,25 +178,25 @@ public partial class CreateNewGame_PG : MonoBehaviour
 					FillTileInfo (0, x, y);
 					FillArrayBlank (x, y);
 				} else if (map.GetPixel (x, y) == regions [1].colour) { //Shallow water
-					FillTileInfo (1, x, y);
+					FillTileInfo (-1, x, y);
 					FillArrayBlank (x, y);
 				} else if (map.GetPixel (x, y) == regions [2].colour) { //Sand
-					FillTileInfo (2, x, y);
+					FillTileInfo (18, x, y);
 					Fill2DArray ("10,-1", x, y, 0.05f); //log
 				} else if (map.GetPixel (x, y) == regions [3].colour) { //Land
-					FillTileInfo (3, x, y);
+					FillTileInfo (19, x, y);
 					Fill2DArray ("5,-1", x, y, 0.05f);
 				} else if (map.GetPixel (x, y) == regions [4].colour) { // Trees
-					FillTileInfo (4, x, y);
+					FillTileInfo (20, x, y);
 					Fill2DArray ("11,14", x, y, 0.05f);
 				} else if (map.GetPixel (x, y) == regions [5].colour) { //Stones
-					FillTileInfo (5, x, y);
+					FillTileInfo (21, x, y);
 					Fill2DArray ("2,-1", x, y, 0.25f);
 				} else if (map.GetPixel (x, y) == regions [6].colour) { //Hills
-					FillTileInfo (6, x, y);
+					FillTileInfo (22, x, y);
 					FillArrayBlank (x, y);
 				} else if (map.GetPixel (x, y) == regions [7].colour) {//Big Stones
-					FillTileInfo (7, x, y);
+					FillTileInfo (23, x, y);
 					FillArrayBlank (x, y);
 				} else {
 					FillTileInfo (0, x, y);
