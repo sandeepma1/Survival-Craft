@@ -5,7 +5,9 @@
       <File FileName="Assets\Scripts\Managers\GameEventManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="78" Column="3" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="209" Column="40" />
+      <File FileName="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\CarpetBrush.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

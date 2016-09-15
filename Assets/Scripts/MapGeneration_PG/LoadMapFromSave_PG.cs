@@ -45,7 +45,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			chunkMapSize [i] = (int)Mathf.Sqrt (mapTilesFromSave [i].Length);
 		}
 
-		for (int i = 0; i < mapTilesFromSave.Length; i++) {			
+		for (int i = 0; i < mapTilesFromSave.Length; i++) {	 // load map tiles		
 			for (int x = 0; x < chunkMapSize [i]; x++) {//**
 				for (int y = 0; y < chunkMapSize [i]; y++) {//**
 					//if (mapTilesFromSave [i] [x, y] >= 0) {
@@ -55,7 +55,6 @@ public class LoadMapFromSave_PG : MonoBehaviour
 					//}
 				}
 			}
-
 		}
 		mapChunks [1].transform.position = new Vector3 (-200, 0);
 		mapChunks [2].transform.position = new Vector3 (-100, 200);

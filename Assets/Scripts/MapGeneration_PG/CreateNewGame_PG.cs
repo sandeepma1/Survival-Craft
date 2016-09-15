@@ -42,12 +42,12 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		CreateMaps (128);
 		countFileName++;
 
-		mapChunkSize = 64;
-		CreateMaps (64);
+		mapChunkSize = 128;
+		CreateMaps (128);
 		countFileName++;
 
-		mapChunkSize = 64;
-		CreateMaps (64);
+		mapChunkSize = 128;
+		CreateMaps (128);
 		countFileName = 0;
 	}
 
@@ -73,18 +73,21 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		for (int x = 0; x < mapTilesSize; x++) {
 			for (int y = 0; y < mapTilesSize; y++) {					
 				if (mapTiles [x, y] == -1) {					
-					if (mapTiles [x - 1, y + 1] == 0) {
-						mapTiles [x, y] = 25;
+					if (x + 1 >= mapTilesSize || y + 1 >= mapTilesSize || x - 1 <= 0 || y - 1 <= 0) {						
+					} else {
+						if (mapTiles [x - 1, y + 1] == 0) {
+							mapTiles [x, y] = 25;
+						}
+						if (mapTiles [x - 1, y - 1] == 0) {
+							mapTiles [x, y] = 26;
+						}
+						if (mapTiles [x + 1, y - 1] == 0) {
+							mapTiles [x, y] = 28;
+						}
+						if (mapTiles [x + 1, y + 1] == 0) {
+							mapTiles [x, y] = 27;
+						}
 					}
-					if (mapTiles [x - 1, y - 1] == 0) {
-						mapTiles [x, y] = 26;
-					}
-					if (mapTiles [x + 1, y - 1] == 0) {
-						mapTiles [x, y] = 28;
-					}
-					if (mapTiles [x + 1, y + 1] == 0) {
-						mapTiles [x, y] = 27;
-					}		
 					if (x + 1 >= mapTilesSize || y + 1 >= mapTilesSize || x - 1 <= 0 || y - 1 <= 0) {						
 					} else {		
 						bool above = false, below = false, left = false, right = false;			
@@ -179,11 +182,40 @@ public partial class CreateNewGame_PG : MonoBehaviour
 					FillArrayBlank (x, y);
 				} else if (map.GetPixel (x, y) == regions [1].colour) { //Shallow water
 					FillTileInfo (-1, x, y);
-					FillArrayBlank (x, y);
+					Fill2DArray ("10,-1", x, y, 0.01f); //trees
 				} else if (map.GetPixel (x, y) == regions [2].colour) { //Sand
 					FillTileInfo (18, x, y);
-					Fill2DArray ("10,-1", x, y, 0.05f); //log
-				} else if (map.GetPixel (x, y) == regions [3].colour) { //Land
+					int ran = UnityEngine.Random.Range (0, 7);
+					switch (ran) {
+						case 0:
+							Fill2DArray ("5,-1", x, y, 0.05f); //grass
+							break;
+						case 1:
+							Fill2DArray ("1,-1", x, y, 0.05f); // logs
+							break;
+						case 2:
+							Fill2DArray ("6,-1", x, y, 0.35f); //trees
+							break;
+						case 3:
+							Fill2DArray ("10,-1", x, y, 0.05f); //trees
+							break;
+						case 4:
+							Fill2DArray ("11,14", x, y, 0.15f); //trees
+							break;
+						case 5:
+							Fill2DArray ("16,8", x, y, 0.025f); //trees
+							break;
+						case 6:
+							Fill2DArray ("21,5", x, y, 0.025f); //trees
+							break;
+						case 7:
+							Fill2DArray ("2,-1", x, y, 0.05f); //trees
+							break;
+						default:
+							break;
+					}
+
+				} /*else if (map.GetPixel (x, y) == regions [3].colour) { //Land
 					FillTileInfo (19, x, y);
 					Fill2DArray ("5,-1", x, y, 0.05f);
 				} else if (map.GetPixel (x, y) == regions [4].colour) { // Trees
@@ -198,7 +230,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 				} else if (map.GetPixel (x, y) == regions [7].colour) {//Big Stones
 					FillTileInfo (23, x, y);
 					FillArrayBlank (x, y);
-				} else {
+				} */else {
 					FillTileInfo (0, x, y);
 					FillArrayBlank (x, y);
 				}
