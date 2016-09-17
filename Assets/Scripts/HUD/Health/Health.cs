@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
 	public int healthPerHeart;
 	
 	private int maxHealth;
-	private int currentHealth;
+	public int currentHealth;
 	
 	public Sprite[] heartImages;
 	public Image heartGUI;
@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
 	void Awake ()
 	{
 		m_instance = this;
+
 	}
 
 	void Start ()
@@ -32,6 +33,8 @@ public class Health : MonoBehaviour
 		spacingY = -heartGUI.GetComponent <RectTransform> ().rect.height;
 	
 		AddHearts (startHealth / healthPerHeart);
+		currentHealth = (int)PlayerPrefs.GetFloat ("PlayerHealth");
+		UpdateHearts ();
 	}
 
 	public void AddHearts (int n)
@@ -63,6 +66,7 @@ public class Health : MonoBehaviour
 		currentHealth += amount;
 		currentHealth = Mathf.Clamp (currentHealth, 0, maxHealth);
 		UpdateHearts ();
+		PlayerPrefs.SetFloat ("PlayerHealth", currentHealth);
 	}
 
 	void UpdateHearts ()
@@ -90,6 +94,4 @@ public class Health : MonoBehaviour
 			}			
 		}
 	}
-
-
 }

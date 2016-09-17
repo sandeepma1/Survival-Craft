@@ -1,20 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\GameEventManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="209" Column="40" />
-      <File FileName="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\CarpetBrush.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HUD\Health\Health.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HUD\Food\Food.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="204" Column="85" />
+      <File FileName="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs" Line="24" Column="1" />
+      <File FileName="Assets\InventorySystem\Scripts\Modules\Player\InventoryPlayerRangeHelper.cs" Line="188" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\InventorySystemMod\InventoryItemBase.cs" line="91" column="27" />
-      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\MapGeneration\PopulateItems.cs" line="33" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

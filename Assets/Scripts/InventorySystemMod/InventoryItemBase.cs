@@ -12,7 +12,13 @@ namespace Devdog.InventorySystem
 {
 	public partial class InventoryItemBase  // My new partial class 
 	{
-		
+		public static InventoryItemBase m_instance = null;
+
+		void Awake ()
+		{
+			m_instance = this;
+		}
+
 		[SerializeField]
 		private bool _isHandMined = true;
 
@@ -74,6 +80,21 @@ namespace Devdog.InventorySystem
 		}
 
 		[SerializeField]
+		private bool _isConsumable = false;
+
+		/// <summary>
+		/// Is Item Placable
+		/// </summary>
+		public bool isConsumable {
+			get {
+				return _isConsumable;
+			}
+			set {
+				_isConsumable = false;
+			}
+		}
+
+		[SerializeField]
 		private string _itemID = "";
 
 		/// <summary>
@@ -88,7 +109,7 @@ namespace Devdog.InventorySystem
 			}
 		}
 
-		public  int RemovePlacedItem ()
+		public int RemovePlacedItem ()
 		{
 			int used = Use ();
 			if (used < 0)

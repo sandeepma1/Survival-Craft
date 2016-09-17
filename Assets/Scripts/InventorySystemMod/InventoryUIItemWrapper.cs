@@ -23,12 +23,18 @@ namespace Devdog.InventorySystem
 			if (!isSelected) {
 				border.gameObject.SetActive (false);
 			}
-
+//			print (PlayerPrefs.GetInt ("ItemSlotIndex"));
 			if (PlayerPrefs.GetInt ("ItemSlotIndex") == (int)this.index) {				
 				border.gameObject.SetActive (true);
 				ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
 			}
-			//print ();
+			StartCoroutine ("SetItem");
+		}
+
+		IEnumerator SetItem ()
+		{
+			yield return new WaitForSeconds (0.5f);
+			ActionManager.m_AC_instance.GetCurrentWeildedTool (itemCollection [PlayerPrefs.GetInt ("ItemSlotIndex")].item);
 		}
 
 		public void ItemClicked ()
@@ -37,7 +43,8 @@ namespace Devdog.InventorySystem
 			MoreInventoryButton.m_instance.RemoveBorder ();
 			border.gameObject.SetActive (true);
 			ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
-			PlayerPrefs.SetInt ("ItemSlotIndex", (int)item.index);
+			PlayerPrefs.SetInt ("ItemSlotIndex", (int)this.index);
+			//print (PlayerPrefs.GetInt ("ItemSlotIndex"));
 		}
 	}
 }

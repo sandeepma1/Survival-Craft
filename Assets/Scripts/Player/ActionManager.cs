@@ -9,6 +9,7 @@ public class ActionManager : MonoBehaviour
 	public GameObject weaponGameObject, progressBar, progressBarBG;
 	public bool isReadyToAttack = false;
 	public GameObject[] inventoryItems;
+	public GameObject consumeButtonInUI;
 
 	SpriteRenderer weaponSprite;
 	float baseTime = 0.0f, baseTimeStatic, progressVal = 0;
@@ -19,15 +20,27 @@ public class ActionManager : MonoBehaviour
 	void Awake ()
 	{
 		m_AC_instance = this;
-		weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
-		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();
-		progressBarBG.SetActive (false);
 		currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene ();
+	}
+
+	void Start ()
+	{
+		weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
+		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
+		progressBarBG.SetActive (false);
 	}
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
 		currentWeildedItem = i;
+		if (currentWeildedItem != null && currentWeildedItem.isConsumable) {
+			consumeButtonInUI.SetActive (true);
+		} else {
+			consumeButtonInUI.SetActive (false);
+		}
+		/*if (currentWeildedItem != null) {
+			PlayerPrefs.SetInt ("ItemSlotIndex", (int)currentWeildedItem.index);	
+		}*/
 	}
 
 	public void ActionButtonPressed ()
@@ -110,13 +123,8 @@ public class ActionManager : MonoBehaviour
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
 			progressBarBG.SetActive (true);
 
-			if (baseTime <= 0) {
-				//if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) { // if object ishandmined then drop items
-				if (currentSelectedItem.id == 11) {
-					currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true);
-				}
+			if (baseTime <= 0) {				
 				DropBreakedItem ();
-				//}
 				isReadyToAttack = false;
 				progressBar.transform.localScale = Vector3.zero;
 				progressBarBG.SetActive (false);
@@ -127,12 +135,41 @@ public class ActionManager : MonoBehaviour
 		}
 	}
 
+	public void EatConsumableItem ()
+	{
+		if (currentWeildedItem.isConsumable) {
+			for (int i = 0; i < currentWeildedItem.properties.Length; i++) {
+				switch (currentWeildedItem.properties [i].property.name) {
+					case "RestoreHealth":
+						Health.m_instance.modifyHealth (currentWeildedItem.properties [0].intValue);
+						break;
+					case "RestoreHunger":
+						Food.m_instance.modifyHunger (currentWeildedItem.properties [0].intValue);
+						break;
+					default:
+						break;
+				}
+			}
+			currentWeildedItem.Use ();
+		}
+	}
+
+	public void DestoryItem ()
+	{		
+		//currentWeildedItem.Use ();		
+		if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
+			Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
+		}
+	}
+
 	void DropBreakedItem ()
 	{
 		PlayerMovement.m_instance.SetAttackAnimation (false);
 		int ran = 0;
 		switch (currentSelectedItem.id) {
 			case 11:
+				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
+				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
 				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
 					ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
 				} else {

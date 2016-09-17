@@ -29,16 +29,19 @@ public class Food : MonoBehaviour
 	void Start ()
 	{
 		spacingX = burgerGUI.GetComponent <RectTransform> ().rect.width;
-		spacingY = -burgerGUI.GetComponent <RectTransform> ().rect.height;	
+		spacingY = -burgerGUI.GetComponent <RectTransform> ().rect.height;
 		AddBurgers ((int)(startHunger / hungerPerBurger));
+
+		currentHunger =	PlayerPrefs.GetFloat ("PlayerHunger");
+		UpdateBurgers ();
 		InvokeRepeating ("DecreaseHungerPerSecond", 1, 1);
 	}
 
 	void DecreaseHungerPerSecond ()
 	{
-		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
-			//print ("decreased");
-			modifyHunger (-0.035f);
+		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {			
+			modifyHunger (-0.1f);
+			PlayerPrefs.SetFloat ("PlayerHunger", currentHunger);
 		}
 	}
 
@@ -65,6 +68,9 @@ public class Food : MonoBehaviour
 	{
 		currentHunger += amount;
 		currentHunger = Mathf.Clamp (currentHunger, 0, maxHunger);
+		if (currentHunger <= 0) {
+			Health.m_instance.modifyHealth (-1);
+		}
 		UpdateBurgers ();
 	}
 

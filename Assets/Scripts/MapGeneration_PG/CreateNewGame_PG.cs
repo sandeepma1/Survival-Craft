@@ -8,47 +8,36 @@ using System.IO;
 public partial class CreateNewGame_PG : MonoBehaviour
 {
 	public Noise.NormalizeMode normalizeMode;
-
 	public int mapChunkSize = 128;
 	public float noiseScale;
-
 	public int octaves;
 	[Range (0, 1)]
 	public float persistance;
 	public float lacunarity;
-
 	public int seed;
 	public Vector2 offset;
-
 	public bool useFalloff;
-
 	public bool autoUpdate;
-
 	public TerrainType[] regions;
+	//public GameObject[] tempTiles;
+
+	public Vector2 islandsGridSize = new Vector2 (3, 3);
+	public int chunkSpacing = 300;
 
 	float[,] falloffMap;
 	Transform TilesHolder;
 	string[,] mapItems;
 	sbyte[,] mapTiles;
 	int countFileName = 0;
-
-	//Queue<MapThreadInfo<MapData>> mapDataThreadInfoQueue = new Queue<MapThreadInfo<MapData>> ();
+	bool isPlayerPosSET = false;
+	List<Vector2> islandsLocations = new List<Vector2> ();
 
 	public void CreateNewSave ()
-	{
+	{		
 		ResetAllValues ();
 		InitializeFirstVariables ();
-		mapChunkSize = 128;
-		CreateMaps (128);
-		countFileName++;
 
-		mapChunkSize = 128;
-		CreateMaps (128);
-		countFileName++;
-
-		mapChunkSize = 128;
-		CreateMaps (128);
-		countFileName = 0;
+		CreateRandomGrid ();
 	}
 
 	void CreateMaps (int size)
@@ -59,12 +48,34 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		SaveTextFile (TextureGenerator.TextureFromColourMap (mapData.colourMap, size, size));
 	}
 
+	void CreateRandomGrid ()
+	{		
+		Vector2[] gridRect = new Vector2[(int)islandsGridSize.x * (int)islandsGridSize.y];
+		int ctr = 0;
+		for (int i = 0; i < islandsGridSize.x; i++) {
+			for (int j = 0; j < islandsGridSize.y; j++) {
+				gridRect [ctr] = new Vector2 ((i + 1) * chunkSpacing, (j + 1) * chunkSpacing);
+				ctr++;
+			}
+		}
+
+		for (int i = 0; i < gridRect.Length; i++) {
+			Vector2 temp = gridRect [i] + (UnityEngine.Random.insideUnitCircle * (chunkSpacing / 3));
+			islandsLocations.Add (new Vector2 (Mathf.Round (temp.x), Mathf.Round (temp.y)));
+			mapChunkSize = 128;
+			CreateMaps (128);
+			countFileName++;
+		}
+
+		ES2.Save (islandsLocations, "islandLocations");
+	}
+
 	void SaveTextFile (Texture2D tex) //SaveTexture
 	{
 		PopulateGameitems (tex);
 		TileBeautifier ();
 		SaveAllInFiles ();
-		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();
+		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();  //Load level afer calculations
 	}
 
 	void TileBeautifier ()
@@ -115,20 +126,6 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		}
 	}
 
-	sbyte calculateTileIndex (bool above, bool below, bool left, bool right)
-	{
-		sbyte sum = 0;
-		if (above)
-			sum += 1;
-		if (left)
-			sum += 2;
-		if (below)
-			sum += 4;
-		if (right)
-			sum += 8;
-		return sum;
-	}
-
 	//********************************************************************************************************************************
 	void SaveAllInFiles ()
 	{
@@ -160,17 +157,6 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		return new MapData (noiseMap, colourMap);
 	}
 
-	void OnValidate ()
-	{
-		if (lacunarity < 1) {
-			lacunarity = 1;
-		}
-		if (octaves < 0) {
-			octaves = 0;
-		}
-		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);
-	}
-
 	public void PopulateGameitems (Texture2D map)
 	{
 		mapItems = new string[mapChunkSize, mapChunkSize];
@@ -194,19 +180,24 @@ public partial class CreateNewGame_PG : MonoBehaviour
 							Fill2DArray ("1,-1", x, y, 0.05f); // logs
 							break;
 						case 2:
-							Fill2DArray ("6,-1", x, y, 0.35f); //trees
+							Fill2DArray ("6,-1", x, y, 0.35f); //grass
+							if (!isPlayerPosSET) {
+								PlayerPrefs.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
+								PlayerPrefs.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
+								isPlayerPosSET = true;
+							}
 							break;
 						case 3:
-							Fill2DArray ("10,-1", x, y, 0.05f); //trees
+							Fill2DArray ("10,-1", x, y, 0.05f); //log
 							break;
 						case 4:
 							Fill2DArray ("11,14", x, y, 0.15f); //trees
 							break;
 						case 5:
-							Fill2DArray ("16,8", x, y, 0.025f); //trees
+							Fill2DArray ("16,8", x, y, 0.025f); //berry
 							break;
 						case 6:
-							Fill2DArray ("21,5", x, y, 0.025f); //trees
+							Fill2DArray ("21,5", x, y, 0.025f); //radish
 							break;
 						case 7:
 							Fill2DArray ("2,-1", x, y, 0.05f); //trees
@@ -215,28 +206,12 @@ public partial class CreateNewGame_PG : MonoBehaviour
 							break;
 					}
 
-				} /*else if (map.GetPixel (x, y) == regions [3].colour) { //Land
-					FillTileInfo (19, x, y);
-					Fill2DArray ("5,-1", x, y, 0.05f);
-				} else if (map.GetPixel (x, y) == regions [4].colour) { // Trees
-					FillTileInfo (20, x, y);
-					Fill2DArray ("11,14", x, y, 0.05f);
-				} else if (map.GetPixel (x, y) == regions [5].colour) { //Stones
-					FillTileInfo (21, x, y);
-					Fill2DArray ("2,-1", x, y, 0.25f);
-				} else if (map.GetPixel (x, y) == regions [6].colour) { //Hills
-					FillTileInfo (22, x, y);
-					FillArrayBlank (x, y);
-				} else if (map.GetPixel (x, y) == regions [7].colour) {//Big Stones
-					FillTileInfo (23, x, y);
-					FillArrayBlank (x, y);
-				} */else {
+				} else {
 					FillTileInfo (0, x, y);
 					FillArrayBlank (x, y);
 				}
 			}
 		}
-
 	}
 
 	void Fill2DArray (string itemName, int x, int y, float probability)
@@ -266,14 +241,40 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 	void InitializeFirstVariables ()
 	{
-		if (PlayerPrefs.GetInt ("IniPlayerPos") == 0) {
+		PlayerPrefs.DeleteAll ();
+		if (PlayerPrefs.GetInt ("IniPlayerPos") == 0) {			
+			PlayerPrefs.SetFloat ("PlayerHunger", 100);
+			PlayerPrefs.SetFloat ("PlayerHealth", 100);
 
-			PlayerPrefs.SetFloat ("PlayerPositionX", 64);
-			PlayerPrefs.SetFloat ("PlayerPositionY", 64);
 			PlayerPrefs.SetInt ("mapChunkPosition", 0);
 			ES2.DeleteDefaultFolder ();
 			PlayerPrefs.SetInt ("IniPlayerPos", 1);
 		}
+	}
+
+	void OnValidate ()
+	{
+		if (lacunarity < 1) {
+			lacunarity = 1;
+		}
+		if (octaves < 0) {
+			octaves = 0;
+		}
+		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);
+	}
+
+	sbyte calculateTileIndex (bool above, bool below, bool left, bool right)
+	{
+		sbyte sum = 0;
+		if (above)
+			sum += 1;
+		if (left)
+			sum += 2;
+		if (below)
+			sum += 4;
+		if (right)
+			sum += 8;
+		return sum;
 	}
 }
 

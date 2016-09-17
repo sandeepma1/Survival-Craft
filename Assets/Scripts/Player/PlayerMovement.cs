@@ -183,10 +183,11 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
+		print (other.name);
 		switch (other.tag) {
 			case "Disappear":
-				other.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.35f);
-				other.transform.parent.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.35f);
+				other.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.45f);
+				other.transform.parent.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.45f);
 				break;
 			case "Grass":
 				other.GetComponent<Animator> ().enabled = true;
@@ -206,7 +207,6 @@ public class PlayerMovement : MonoBehaviour
 				break;
 			case "Grass":
 				StartCoroutine (DisableItemsAfterTime (other));
-			//other.GetComponent<Animator>().enabled = false;
 				break;
 			default:
 				break;

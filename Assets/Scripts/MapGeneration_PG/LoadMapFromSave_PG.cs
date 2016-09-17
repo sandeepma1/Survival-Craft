@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LoadMapFromSave_PG : MonoBehaviour
 {
 	public static LoadMapFromSave_PG m_instance = null;
-	//public MapGenerator_PG mapGenerator;
-	//Texture2D mapDataTexture;
-
-	//Transform tilesHolder, mapItemHolder;
-	//*************************************************
-
 	public GameObject[] items;
 	public GameObject[] tiles;
+	public GameObject[] ranTiles;
 	public GameObject[] mapChunks;
 
 	string[][,] mapItemsFromSave;
@@ -21,7 +17,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	int mapSize = 0;
 	int[] chunkMapSize;
 	string spriteName = "";
-	//Transform[] tilesHolder, itemsHolder;
+
 
 	void Start ()
 	{
@@ -34,30 +30,36 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	}
 
 	void LoadMapChunks ()
-	{
-		mapTilesFromSave = new sbyte[3][,]; //**
-		mapChunks = new GameObject[3];
-		chunkMapSize = new int[3];
-		for (int i = 0; i < 3; i++) {	//**
+	{	
+		List<Vector2> islandLocations = new List<Vector2> ();
+		islandLocations = ES2.LoadList<Vector2> ("islandLocations");
+
+		mapTilesFromSave = new sbyte[islandLocations.Count][,]; //**
+		mapChunks = new GameObject[islandLocations.Count];
+		chunkMapSize = new int[islandLocations.Count];
+		for (int i = 0; i < islandLocations.Count; i++) {	//**
 			mapTilesFromSave [i] = ES2.Load2DArray<sbyte> (i + "t.txt");
 			mapChunks [i] = new GameObject (i.ToString ()).gameObject;
-			mapChunks [i].transform.position = Vector3.zero;
+			mapChunks [i].transform.position = islandLocations [i];
 			chunkMapSize [i] = (int)Mathf.Sqrt (mapTilesFromSave [i].Length);
 		}
 
 		for (int i = 0; i < mapTilesFromSave.Length; i++) {	 // load map tiles		
-			for (int x = 0; x < chunkMapSize [i]; x++) {//**
-				for (int y = 0; y < chunkMapSize [i]; y++) {//**
-					//if (mapTilesFromSave [i] [x, y] >= 0) {
-					GameObject go = (GameObject)Instantiate (tiles [mapTilesFromSave [i] [x, y]], new Vector3 (x, y), Quaternion.identity);
-					go.name = mapTilesFromSave [i] [x, y].ToString ();
+			for (int x = 0; x < chunkMapSize [i]; x++) {
+				for (int y = 0; y < chunkMapSize [i]; y++) {
+					GameObject go;
+					if (mapTilesFromSave [i] [x, y] == 16) {
+						go = Instantiate (ranTiles [Random.Range (0, ranTiles.Length)]);
+					} else {
+						go = Instantiate (tiles [mapTilesFromSave [i] [x, y]]);
+					}				
 					go.transform.SetParent (mapChunks [i].transform);
-					//}
+					go.name = mapTilesFromSave [i] [x, y].ToString ();
+
+					go.transform.localPosition = new Vector3 (x, y);
 				}
 			}
 		}
-		mapChunks [1].transform.position = new Vector3 (-200, 0);
-		mapChunks [2].transform.position = new Vector3 (-100, 200);
 	}
 
 	public void LoadMapData ()
@@ -137,6 +139,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.parent = parent;
 		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
 
+
 		switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
 			case 11: // Trees
 				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
@@ -164,6 +167,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public void InstantiatePlacedObject (GameObject go, Vector3 pos, Transform parent, int i, int id, int age)
 	{
+		pos = GetPlayersLocalPosition (pos);
 		if (id > 0 && mapItemGO [i] [(int)pos.x, (int)pos.y].GO == null) {
 			mapItemGO [i] [(int)pos.x, (int)pos.y].GO = Instantiate (go);
 			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
