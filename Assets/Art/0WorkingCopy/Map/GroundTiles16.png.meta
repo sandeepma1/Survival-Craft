@@ -1,22 +1,22 @@
 fileFormatVersion: 2
 guid: 63baa73abb21c784eb63132aef12aea5
-timeCreated: 1473706309
+timeCreated: 1474310315
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: GroundTiles16_0
-    21300002: GroundTiles16_1
-    21300004: GroundTiles16_2
-    21300006: GroundTiles16_3
-    21300008: GroundTiles16_4
-    21300010: GroundTiles16_5
-    21300012: GroundTiles16_6
-    21300014: GroundTiles16_7
-    21300016: GroundTiles16_8
+    21300000: Stone1
+    21300002: Stone2
+    21300004: Log2
+    21300006: Grass1
+    21300008: Grass2
+    21300010: Grass3
+    21300012: RandomSeeds
+    21300014: RedBerry
+    21300016: Radish1
     21300018: GroundTiles16_9
     21300020: GroundTiles16_10
     21300022: GroundTiles16_11
-    21300024: GroundTiles16_12
+    21300024: Coconut
     21300026: GroundTiles16_13
     21300028: GroundTiles16_14
     21300030: GroundTiles16_15
@@ -31,6 +31,11 @@ TextureImporter:
     21300048: GroundTiles16_24
     21300050: GroundTiles16_25
     21300052: GroundTiles16_26
+    21300054: Stick1
+    21300056: Flint1
+    21300058: Log1
+    21300060: StarFish1
+    21300062: StarFish2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -77,7 +82,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: GroundTiles16_0
+    - name: Stone1
       rect:
         serializedVersion: 2
         x: 0
@@ -88,7 +93,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_1
+    - name: Stone2
       rect:
         serializedVersion: 2
         x: 16
@@ -99,7 +104,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_2
+    - name: Log2
       rect:
         serializedVersion: 2
         x: 0
@@ -110,7 +115,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_3
+    - name: Grass1
       rect:
         serializedVersion: 2
         x: 0
@@ -121,7 +126,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_4
+    - name: Grass2
       rect:
         serializedVersion: 2
         x: 16
@@ -132,7 +137,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_6
+    - name: RandomSeeds
       rect:
         serializedVersion: 2
         x: 0
@@ -143,7 +148,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_7
+    - name: RedBerry
       rect:
         serializedVersion: 2
         x: 16
@@ -154,7 +159,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_8
+    - name: Radish1
       rect:
         serializedVersion: 2
         x: 32
@@ -165,40 +170,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_9
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: GroundTiles16_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: GroundTiles16_11
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: GroundTiles16_12
+    - name: Coconut
       rect:
         serializedVersion: 2
         x: 0
@@ -286,7 +258,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_5
+    - name: Grass3
       rect:
         serializedVersion: 2
         x: 32
@@ -368,6 +340,61 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Stick1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 480
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Flint1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 496
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Log1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 480
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: StarFish1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 496
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: StarFish2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 496
         width: 16
         height: 16
       alignment: 0

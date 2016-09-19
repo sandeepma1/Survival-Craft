@@ -183,7 +183,6 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		print (other.name);
 		switch (other.tag) {
 			case "Disappear":
 				other.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.45f);

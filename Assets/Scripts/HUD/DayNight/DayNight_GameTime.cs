@@ -42,7 +42,7 @@ public class DayNight_GameTime : MonoBehaviour
 
 			if (Time.time > nextActionTime) { //upadate every n seconds
 				nextActionTime += updatePeriod;
-				if (timer < 1440) {					
+				if (timer < 480) {					
 					FormatTime ();
 					CalculateDayPhases ();
 				} else {
@@ -61,7 +61,7 @@ public class DayNight_GameTime : MonoBehaviour
 	void FormatTime ()
 	{
 		//	day = PlayerPrefs.GetInt ("gameDay");
-		timeText.text = timer.ToString ("mm-ddd");
+		//timeText.text = timer.ToString ("mm-ddd");
 		minutes = Mathf.FloorToInt (timer / 60F);
 		seconds = Mathf.FloorToInt (timer - minutes * 60);
 		timeText.text = string.Format ("{0:0}:{1:00}", minutes, seconds + " Day:" + day);

@@ -168,19 +168,19 @@ public partial class CreateNewGame_PG : MonoBehaviour
 					FillArrayBlank (x, y);
 				} else if (map.GetPixel (x, y) == regions [1].colour) { //Shallow water
 					FillTileInfo (-1, x, y);
-					Fill2DArray ("10,-1", x, y, 0.01f); //trees
+					Fill2DArray ("22,-1", x, y, 0.01f); //trees
 				} else if (map.GetPixel (x, y) == regions [2].colour) { //Sand
 					FillTileInfo (18, x, y);
-					int ran = UnityEngine.Random.Range (0, 7);
+					int ran = UnityEngine.Random.Range (0, 8);
 					switch (ran) {
 						case 0:
 							Fill2DArray ("5,-1", x, y, 0.05f); //grass
 							break;
 						case 1:
-							Fill2DArray ("1,-1", x, y, 0.05f); // logs
+							Fill2DArray ("1,-1", x, y, 0.05f); // flint
 							break;
 						case 2:
-							Fill2DArray ("6,-1", x, y, 0.35f); //grass
+							Fill2DArray ("6,-1", x, y, 0.09f); //grass1
 							if (!isPlayerPosSET) {
 								PlayerPrefs.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
 								PlayerPrefs.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
@@ -188,16 +188,16 @@ public partial class CreateNewGame_PG : MonoBehaviour
 							}
 							break;
 						case 3:
-							Fill2DArray ("10,-1", x, y, 0.05f); //log
+							Fill2DArray ("9,-1", x, y, 0.05f); //Stick
 							break;
 						case 4:
-							Fill2DArray ("11,14", x, y, 0.15f); //trees
+							Fill2DArray ("11,14", x, y, 0.11f); //trees
 							break;
 						case 5:
-							Fill2DArray ("16,8", x, y, 0.025f); //berry
+							Fill2DArray ("16,8", x, y, 0.025f); //berrybush
 							break;
 						case 6:
-							Fill2DArray ("21,5", x, y, 0.025f); //radish
+							Fill2DArray ("21,5", x, y, 0.025f); //radishPlant
 							break;
 						case 7:
 							Fill2DArray ("2,-1", x, y, 0.05f); //trees

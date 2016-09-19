@@ -38,9 +38,12 @@ public class Item
 
 	public enum ItemType
 	{
+		Food,
+		Plant,
+		Tree,
 		RawMaterial,
 		Ore,
-		Miniral
+		Mineral
 		/*Consumable,
 		Quest,
 		Survival,
@@ -56,6 +59,7 @@ public class Item
 
 	public enum ItemTool
 	{
+		Hand,
 		Axe,
 		Pickaxe,
 		Hoe,
