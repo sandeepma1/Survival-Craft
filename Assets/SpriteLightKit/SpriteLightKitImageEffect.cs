@@ -9,17 +9,14 @@ namespace Prime31
 	{
 		public Shader shader;
 		public RenderTexture spriteLightRT;
-		[Range(0.0f, 2.0f)] public float intensity = 1.0f;
+		[Range (0.0f, 10.0f)] public float intensity = 1.0f;
 		Material _material;
 
 
-		protected Material material
-		{
-			get
-			{
-				if( _material == null )
-				{
-					_material = new Material( shader );
+		protected Material material {
+			get {
+				if (_material == null) {
+					_material = new Material (shader);
 					_material.hideFlags = HideFlags.HideAndDontSave;
 				}
 
@@ -28,25 +25,24 @@ namespace Prime31
 		}
 
 
-		public void OnDisable()
+		public void OnDisable ()
 		{
-			if( _material )
-			{
-				DestroyImmediate( _material );
+			if (_material) {
+				DestroyImmediate (_material);
 				_material = null;
 			}
 		}
 
 
-		void OnRenderImage( RenderTexture source, RenderTexture destination )
+		void OnRenderImage (RenderTexture source, RenderTexture destination)
 		{
 			// if SpriteLightKit is disabled this RT will no longer be valid
-			if( spriteLightRT == null )
+			if (spriteLightRT == null)
 				return;
 		
-			material.SetTexture( "_LightsTex", spriteLightRT );
-			material.SetFloat( "_MultiplicativeFactor", intensity );
-			Graphics.Blit( source, destination, material );
+			material.SetTexture ("_LightsTex", spriteLightRT);
+			material.SetFloat ("_MultiplicativeFactor", intensity);
+			Graphics.Blit (source, destination, material);
 		}
 	}
 }

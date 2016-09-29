@@ -30,6 +30,8 @@ public class ActionManager : MonoBehaviour
 		progressBarBG.SetActive (false);
 	}
 
+
+
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
 		currentWeildedItem = i;
@@ -61,6 +63,7 @@ public class ActionManager : MonoBehaviour
 		if (LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).id > 0) {
 			currentSelectedItem = LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition);
 			CalculateHardness ();
+
 		} else {
 			print ("No items nearby");
 			currentSelectedItem = new item ();

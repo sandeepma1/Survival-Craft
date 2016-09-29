@@ -245,8 +245,11 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		if (PlayerPrefs.GetInt ("IniPlayerPos") == 0) {			
 			PlayerPrefs.SetFloat ("PlayerHunger", 100);
 			PlayerPrefs.SetFloat ("PlayerHealth", 100);
-
 			PlayerPrefs.SetInt ("mapChunkPosition", 0);
+			PlayerPrefs.SetFloat ("gameTime", 0);
+			PlayerPrefs.SetFloat ("gameDay", 1);
+
+
 			ES2.DeleteDefaultFolder ();
 			PlayerPrefs.SetInt ("IniPlayerPos", 1);
 		}

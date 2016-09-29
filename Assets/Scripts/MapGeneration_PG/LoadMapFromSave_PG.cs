@@ -18,15 +18,44 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	int[] chunkMapSize;
 	string spriteName = "";
 
+	item[] playerSurroundings = new item[8];
+
 
 	void Start ()
 	{
 		PlayerPrefs.SetInt ("mapChunkPosition", 0);
 		m_instance = this;
+		SetSortingNamesForItems ();
 		LoadMapChunks ();
 		LoadMapData ();
 		SpwanObjects ();
 		DisableUnusedMapChunks ();
+	}
+
+	void SetSortingNamesForItems ()
+	{
+		for (int i = 0; i < items.Length; i++) {								
+			foreach (Transform child in items [i].transform) {
+				if (child.tag == "ItemName") {
+					child.GetComponent <MeshRenderer> ().sortingLayerName = "Names";		
+				}
+			}
+		}
+	}
+
+	public item[] GetPlayerSurroundingTilesInfo (Vector3 playerPos)
+	{
+		playerPos = GetPlayersLocalPosition (playerPos);
+
+		playerSurroundings [0] = mapItemGO [0] [(int)playerPos.x, (int)playerPos.y + 1]; //above
+		playerSurroundings [1] = mapItemGO [0] [(int)playerPos.x + 1, (int)playerPos.y];
+		playerSurroundings [2] = mapItemGO [0] [(int)playerPos.x - 1, (int)playerPos.y];
+		playerSurroundings [3] = mapItemGO [0] [(int)playerPos.x, (int)playerPos.y - 1];
+		playerSurroundings [4] = mapItemGO [0] [(int)playerPos.x + 1, (int)playerPos.y + 1];
+		playerSurroundings [5] = mapItemGO [0] [(int)playerPos.x - 1, (int)playerPos.y - 1];
+		playerSurroundings [6] = mapItemGO [0] [(int)playerPos.x + 1, (int)playerPos.y - 1];
+		playerSurroundings [7] = mapItemGO [0] [(int)playerPos.x - 1, (int)playerPos.y - 1];
+		return  playerSurroundings;// [0] [(int)playerPos.x + 1, (int)playerPos.y];
 	}
 
 	void LoadMapChunks ()
@@ -228,6 +257,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	public item GetTile (Vector2 pos)
 	{
 		pos = GetPlayersLocalPosition (pos);
+		//print (pos);
 		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
 			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
 		}
@@ -270,3 +300,18 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		return pos;
 	}
 }
+
+
+
+/*mapTiles [x, y + 1] == 0) { //above
+							above = true;
+						}
+						if (mapTiles [x + 1, y] == 0) { //right
+							right = true;
+						}
+						if (mapTiles [x - 1, y] == 0) { //left
+							left = true;
+						}
+						if (mapTiles [x, y - 1] == 0) { //below
+							below = true;
+						}*/
