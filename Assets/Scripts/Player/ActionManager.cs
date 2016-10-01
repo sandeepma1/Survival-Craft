@@ -13,7 +13,7 @@ public class ActionManager : MonoBehaviour
 
 	SpriteRenderer weaponSprite;
 	float baseTime = 0.0f, baseTimeStatic, progressVal = 0;
-	public Devdog.InventorySystem.InventoryItemBase currentWeildedItem;
+	public Devdog.InventorySystem.InventoryItemBase currentWeildedItem, tempItem;
 	item currentSelectedItem = new item ();
 	Scene currentScene;
 
@@ -28,17 +28,21 @@ public class ActionManager : MonoBehaviour
 		weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
+		GetCurrentTile ();
 	}
-
-
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
-		currentWeildedItem = i;
-		if (currentWeildedItem != null && currentWeildedItem.isConsumable) {
-			consumeButtonInUI.SetActive (true);
-		} else {
-			consumeButtonInUI.SetActive (false);
+		if (i == null) {
+			currentWeildedItem = tempItem;
+		} else {			
+			currentWeildedItem = i;
+			if (currentWeildedItem != null && currentWeildedItem.isConsumable) {
+				consumeButtonInUI.SetActive (true);
+			} else {
+				consumeButtonInUI.SetActive (false);
+			}
+			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
 		}
 		/*if (currentWeildedItem != null) {
 			PlayerPrefs.SetInt ("ItemSlotIndex", (int)currentWeildedItem.index);	
@@ -53,12 +57,13 @@ public class ActionManager : MonoBehaviour
 	void GetCurrentTile ()
 	{
 		if (currentWeildedItem == null) {
-			currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();
-			currentWeildedItem.ID = 0;
+			print ("once");
+			currentWeildedItem = tempItem;
+			/*currentWeildedItem.ID = 0;
 			currentWeildedItem.isPlaceable = false;
 			currentWeildedItem.rarity.name = "Hand";
 			currentWeildedItem.itemQuality = 1;
-			currentWeildedItem.itemID = "0,-1";			
+			currentWeildedItem.itemID = "0,-1";*/			
 		} 
 		if (LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).id > 0) {
 			currentSelectedItem = LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition);
@@ -193,6 +198,7 @@ public class ActionManager : MonoBehaviour
 				break;
 		}
 		InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops, ran); // drop item upon break
+		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);
 
 		UpdateItemandSave ();  //update Gameobject and save in file
 

@@ -12,7 +12,7 @@ using Devdog.InventorySystem.UI;
 public class PlayerMovement : MonoBehaviour
 {
 	public Animator anim;
-	public float speed = 1.5f, speedTemp = 0;
+	public float speed = 1.5f, runSpeedMultiplier = 1.5f;
 	public static PlayerMovement m_instance = null;
 	public GameObject cursorTile, cursorTile_grid;
 
@@ -22,17 +22,20 @@ public class PlayerMovement : MonoBehaviour
 
 	public bool isRunning;
 	public bool SavePlayerLocation = true;
-	private Vector3 cursorPosition;
-	private int tempX, tempY = 0;
-	item[] playerSurroundings = new item[8];
-
+	public float autoPickupItemRadius = 3;
 	public bool isRightStick, isLeftStick = false;
-	private float attackTime, attackCounter;
 
+	private Vector3 cursorPosition;
+	private int attackTempA = 0, attackTempB = 0, autoPickupTempA = 0, autoPickupTempB = 0, calculateNearestTempA = 0, calculateNearestTempB = 0;
+	item[] playerSurroundings = new item[8];
+	private float attackTime, attackCounter;
 	Vector3 nearestItemPosition = Vector3.zero;
 	bool walkTowards = false;
 	bool actionButtonPressed = false;
-	Devdog.InventorySystem.InventoryItemBase currentWeildedItem, currentSelectedTile;
+	float speedTemp = 0;
+	GameObject closestItemGO;
+	//	List<Collider2D> cols = new List<Collider2D> ();
+	//Devdog.InventorySystem.InventoryItemBase currentWeildedItem, currentSelectedTile;
 
 	void Awake ()
 	{
@@ -49,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 		ES2Settings setting = new ES2Settings ();
 		setting.saveLocation = ES2Settings.SaveLocation.PlayerPrefs;
-		CalculateNearestItem ();
+		CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), false);
 	}
 
 	public void StopPlayer ()
@@ -76,15 +79,12 @@ public class PlayerMovement : MonoBehaviour
 			isLeftStick = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
 			isRightStick = (Mathf.Abs (r_input_a) + Mathf.Abs (r_input_b)) > 0;
 
-			//DebugTextHandler.m_instance.DisplayDebugText ("loc: " + GameEventManager.currentSelectedTilePosition);
-
 			if (isRightStick && isLeftStick) {  // if both Right and Left stick are pressed
 				isLeftStick = false;
 			}
 
 			if (isRightStick) {  //Attacking/working							
 				AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
-				print (Mathf.RoundToInt (r_input_a) + " " + Mathf.RoundToInt (r_input_b));
 				IsCursorEnable (true);
 			} else {
 				AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
@@ -97,55 +97,79 @@ public class PlayerMovement : MonoBehaviour
 			}
 
 			if (isLeftStick) {  // Walking	
-				CalculateNearestItem ();
+				CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), true);
 				WalkingCalculation (input_x, input_y);
 				return;
 			}
 			anim.SetBool ("isWalking", false);
-		}
 
-		if (walkTowards && actionButtonPressed) {
-
-			anim.SetBool ("isWalking", true);
-			if (Vector3.Distance (transform.position, nearestItemPosition) <= 1) {   //stop walking towards objects if less than 1 distance					
-				Vector3 dir = (nearestItemPosition - transform.position).normalized.normalized;
-				walkTowards = false;
-				print (dir);
-				SetAttackAnimation (true);
-				anim.SetFloat ("a", Mathf.RoundToInt (dir.x));
-				anim.SetFloat ("b", Mathf.RoundToInt (dir.y));
-				AttackCalculation (Mathf.RoundToInt (dir.x), Mathf.RoundToInt (dir.y));
-				IsCursorEnable (true);
-				return;
+			if (walkTowards && actionButtonPressed) {
+				if (nearestItemPosition != Vector3.zero) {
+					AutoPickUpCalculation ();
+				}			
 			}
-			//transform.position = Vector3.Lerp (transform.position, nearestItemPosition, (speed / 1.25F) * Time.deltaTime);
-			Vector3 playerDir = (nearestItemPosition - transform.position).normalized;
-			transform.position += new Vector3 (playerDir.x, playerDir.y, 0).normalized * Time.deltaTime * speed;
-			SetAttackAnimation (false);
-
-			//anim.SetBool ("isWalking", true);
-			anim.SetFloat ("x", Mathf.RoundToInt (playerDir.x));
-			anim.SetFloat ("y", Mathf.RoundToInt (playerDir.y));
-
 		}
 	}
 
-	void CalculateNearestItem ()
+	void LateUpdate () // Set player storing order to front and Player Run toggle
 	{
-		Collider2D[] colliders = Physics2D.OverlapCircleAll (transform.position, 3, 1 << LayerMask.NameToLayer ("Default"));
-		//	DebugTextHandler.m_instance.DisplayDebugText (colliders.Length.ToString ());
-		if (colliders.Length > 0) {			
-			nearestItemPosition = GetClosestItem_c (colliders).transform.position;
+		this.gameObject.GetComponent<SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10); // can optimized
+		if (Input.GetKey (KeyCode.LeftShift) || isRunning) {
+			speed = speedTemp * runSpeedMultiplier;
+		} else {
+			speed = speedTemp;
+		}
+	}
+
+	public void CalculateNearestItem (int a, int b, bool isOptimize)
+	{
+		if (isOptimize) {
+			if (a == calculateNearestTempA && b == calculateNearestTempB && isOptimize) {
+				return;
+			}
+			calculateNearestTempA = a;
+			calculateNearestTempB = b;
+		}
+		Collider2D[] colliders = Physics2D.OverlapCircleAll (transform.position, autoPickupItemRadius, 1 << LayerMask.NameToLayer ("Default"));
+		List<Collider2D> sortedColliders = new List<Collider2D> ();
+
+		if (colliders.Length > 0) {
+			foreach (var cols in colliders) {
+				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (false);
+				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = new Color (0.75f, 0.75f, 0.75f, 1);
+				if (ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == ActionManager.m_AC_instance.currentWeildedItem.rarity.name || ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == "Hand") {
+					sortedColliders.Add (cols);
+				}
+			}
+		} else {
+			sortedColliders.Clear ();
+			nearestItemPosition = Vector3.zero;
+			closestItemGO = null;
+			return;
+		}
+
+		if (sortedColliders.Count > 0) {
+			closestItemGO = GetClosestItem_List (sortedColliders).gameObject;
+			closestItemGO.transform.GetChild (closestItemGO.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = Color.white;
+			nearestItemPosition = closestItemGO.transform.position;
+			foreach (var cols in sortedColliders) {
+				print (ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString ());
+				if (ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == ActionManager.m_AC_instance.currentWeildedItem.rarity.name || ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == "Hand") {
+					cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (true);
+				}
+			}
 		} else {
 			nearestItemPosition = Vector3.zero;
+			closestItemGO = null;
 		}
 	}
 
 	public void ActionButtonDown ()
-	{
+	{		
 		actionButtonPressed = true;
-		if (nearestItemPosition != Vector3.zero) {
-			CalculateNearestItem ();
+		CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), false);
+
+		if (nearestItemPosition != Vector3.zero) { //&& cols.Count > 0			
 			walkTowards = true;
 			GameEventManager.currentSelectedTilePosition = nearestItemPosition;
 		}
@@ -156,21 +180,38 @@ public class PlayerMovement : MonoBehaviour
 		actionButtonPressed = false;
 		ActionManager.m_AC_instance.isReadyToAttack = false;
 		SetAttackAnimation (false);
-		//	walkTowards = false;
-		//AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
-		/*ActionManager.m_AC_instance.isReadyToAttack = false;
-		IsCursorEnable (false);
-		SetAttackAnimation (false);*/
 	}
 
-	
-	public void AttackCalculation (int a, int b)
-	{		
-		if (a == tempX && b == tempY) {
+	public void AutoPickUpCalculation ()
+	{
+		anim.SetBool ("isWalking", true);
+		if (Vector3.Distance (transform.position, nearestItemPosition) <= 1) {   //stop walking towards objects if less than 1 distance					
+			Vector3 dir = (nearestItemPosition - transform.position).normalized;
+			walkTowards = false;
+			SetAttackAnimation (true);
+			anim.SetFloat ("a", Mathf.RoundToInt (dir.x));
+			anim.SetFloat ("b", Mathf.RoundToInt (dir.y));
+			AttackCalculation (Mathf.RoundToInt (dir.x), Mathf.RoundToInt (dir.y));
+			IsCursorEnable (true);
 			return;
 		}
-		tempX = a;
-		tempY = b;
+		Vector3 playerDir = (nearestItemPosition - transform.position).normalized;
+		transform.position += new Vector3 (playerDir.x, playerDir.y, 0).normalized * Time.deltaTime * speed;
+		SetAttackAnimation (false);
+
+		//anim.SetBool ("isWalking", true);
+		anim.SetFloat ("x", Mathf.RoundToInt (playerDir.x));
+		anim.SetFloat ("y", Mathf.RoundToInt (playerDir.y));
+
+	}
+
+	public void AttackCalculation (int a, int b)
+	{		
+		if (a == attackTempA && b == attackTempB) {
+			return;
+		}
+		attackTempA = a;
+		attackTempB = b;
 
 		anim.SetFloat ("x", a);
 		anim.SetFloat ("y", b);
@@ -236,48 +277,44 @@ public class PlayerMovement : MonoBehaviour
 		transform.position = new Vector3 (PlayerPrefs.GetFloat ("PlayerPositionX"), PlayerPrefs.GetFloat ("PlayerPositionY"), 0);
 	}
 
-	void LateUpdate () // Set player storing order to front and Player Run toggle
-	{
-		this.gameObject.GetComponent<SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10);
-		if (Input.GetKey (KeyCode.LeftShift) || isRunning) {
-			speed = speedTemp * 1.5f;
-		} else {
-			speed = speedTemp;
-		}
-	}
+
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		switch (other.tag) {
-		/*case "Disappear":
+		/*switch (other.tag) {
+		case "Disappear":
 				other.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.45f);
 				other.transform.parent.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.45f);
-				break;*/
+				break;
 			case "Grass":
 				other.GetComponent<Animator> ().enabled = true;
 				other.GetComponent<Animator> ().SetTrigger ("shouldMove");
 				break;
 			default:
 				break;
-		}
-		if (other.gameObject.transform.childCount > 0) {
+		}*/
+
+		/*if (other.gameObject.transform.childCount > 0) {	
+			print (ItemDatabase.m_instance.items [GetItemID (other.gameObject.name)].tool.ToString () + "==" + ActionManager.m_AC_instance.currentWeildedItem.rarity.name);	
+			if (ItemDatabase.m_instance.items [GetItemID (other.gameObject.name)].tool.ToString () == ActionManager.m_AC_instance.currentWeildedItem.rarity.name) {
 			other.gameObject.transform.GetChild (other.gameObject.transform.childCount - 1).gameObject.SetActive (true);
-		}
+			}
+		}*/
 	}
 
 	void OnTriggerExit2D (Collider2D other)
 	{
-		switch (other.tag) {
-		/*case "Disappear":
+		/*switch (other.tag) {
+		case "Disappear":
 				other.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
 				other.transform.parent.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
-				break;*/
+				break;
 			case "Grass":
 				StartCoroutine (DisableItemsAfterTime (other));
 				break;
 			default:
 				break;
-		}
+		}*/
 		if (other.gameObject.transform.childCount > 0) {
 			other.gameObject.transform.GetChild (other.gameObject.transform.childCount - 1).gameObject.SetActive (false);
 		}
@@ -289,7 +326,7 @@ public class PlayerMovement : MonoBehaviour
 		other.GetComponent<Animator> ().enabled = false;
 	}
 
-	Transform GetClosestItem_c (Collider2D[] colliders)
+	Transform GetClosestItem_Cols (Collider2D[] colliders)
 	{
 		Transform tMin = null;		
 		float minDist = Mathf.Infinity;
@@ -297,7 +334,6 @@ public class PlayerMovement : MonoBehaviour
 			return colliders [0].transform;
 		}
 		foreach (Collider2D t in colliders) {
-			//if (t.gameObject.tag != "Player") {
 			float dist = Vector3.Distance (t.transform.position, transform.position);
 			if (dist < minDist) {
 				tMin = t.transform;
@@ -306,5 +342,48 @@ public class PlayerMovement : MonoBehaviour
 		}
 		return tMin;
 	}
+
+	Transform GetClosestItem_List (List<Collider2D> colliders)
+	{
+		Transform tMin = null;		
+		float minDist = Mathf.Infinity;
+		if (colliders.Count == 1 && colliders [0] != null) {
+			return colliders [0].transform;
+		}
+		foreach (Collider2D t in colliders) {
+			if (t != null) {
+				float dist = Vector3.Distance (t.transform.position, transform.position);
+				if (dist < minDist) {
+					tMin = t.transform;
+					minDist = dist;
+				}
+			}
+		}
+		return tMin;
+	}
+
+	Transform GetClosestItem_Go (GameObject[] gos)
+	{
+		Transform tMin = null;		
+		float minDist = Mathf.Infinity;
+		if (gos.Length == 1 && gos [0] != null) {
+			return gos [0].transform;
+		}
+		foreach (var t in gos) {
+			if (t != null) {
+				float dist = Vector3.Distance (t.transform.position, transform.position);
+				if (dist < minDist) {
+					tMin = t.transform;
+					minDist = dist;
+				}
+			}
+		}
+		return tMin;
+	}
+
+	int GetItemID (string s)
+	{
+		string[] sArray = s.Split (',');
+		return int.Parse (sArray [0]);
+	}
 }
-//}

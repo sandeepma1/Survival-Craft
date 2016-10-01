@@ -3,13 +3,14 @@ guid: a220d2bcabcb3cc4c80c15603c4c9c71
 timeCreated: 1466318251
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 3
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  fontNames: []
+  fontNames:
+  - Mini Pixel-7
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 2

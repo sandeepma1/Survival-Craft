@@ -9,7 +9,6 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	public GameObject[] tiles;
 	public GameObject[] ranTiles;
 	public GameObject[] mapChunks;
-
 	string[][,] mapItemsFromSave;
 	sbyte[][,] mapTilesFromSave;
 	item[][,] mapItemGO;
@@ -37,13 +36,13 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		for (int i = 0; i < items.Length; i++) {								
 			foreach (Transform child in items [i].transform) {
 				if (child.tag == "ItemName") {
-					child.GetComponent <MeshRenderer> ().sortingLayerName = "Names";		
+					child.GetComponent <MeshRenderer> ().sortingLayerName = "Names";
 				}
 			}
 		}
 	}
 
-	public item[] GetPlayerSurroundingTilesInfo (Vector3 playerPos)
+	public item[] GetPlayerSurroundingTilesInfo_Item (Vector3 playerPos)
 	{
 		playerPos = GetPlayersLocalPosition (playerPos);
 
@@ -55,6 +54,22 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		playerSurroundings [5] = mapItemGO [0] [(int)playerPos.x - 1, (int)playerPos.y - 1];
 		playerSurroundings [6] = mapItemGO [0] [(int)playerPos.x + 1, (int)playerPos.y - 1];
 		playerSurroundings [7] = mapItemGO [0] [(int)playerPos.x - 1, (int)playerPos.y - 1];
+		return  playerSurroundings;// [0] [(int)playerPos.x + 1, (int)playerPos.y];
+	}
+
+	public GameObject[] GetPlayerSurroundingTilesInfo_GO (Vector3 playerPos)
+	{
+		playerPos = GetPlayersLocalPosition (playerPos);
+		GameObject[] playerSurroundings = new GameObject[8];
+
+		playerSurroundings [0] = mapItemGO [0] [(int)playerPos.x, (int)playerPos.y + 1].GO; //above
+		playerSurroundings [1] = mapItemGO [0] [(int)playerPos.x + 1, (int)playerPos.y].GO;
+		playerSurroundings [2] = mapItemGO [0] [(int)playerPos.x - 1, (int)playerPos.y].GO;
+		playerSurroundings [3] = mapItemGO [0] [(int)playerPos.x, (int)playerPos.y - 1].GO;
+		playerSurroundings [4] = mapItemGO [0] [(int)playerPos.x + 1, (int)playerPos.y + 1].GO;
+		playerSurroundings [5] = mapItemGO [0] [(int)playerPos.x - 1, (int)playerPos.y - 1].GO;
+		playerSurroundings [6] = mapItemGO [0] [(int)playerPos.x + 1, (int)playerPos.y - 1].GO;
+		playerSurroundings [7] = mapItemGO [0] [(int)playerPos.x - 1, (int)playerPos.y - 1].GO;
 		return  playerSurroundings;// [0] [(int)playerPos.x + 1, (int)playerPos.y];
 	}
 

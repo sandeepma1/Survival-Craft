@@ -41,10 +41,10 @@ public class ItemDatabase : MonoBehaviour
 		//Berries
 		items [15] = new Item (15, "Berries", -1, Item.ItemType.Food, Item.ItemTool.Hand, 0.1f, true, 0, 15, 1, 1);
 		//Berry Bushes
-		items [16] = new Item (16, "Berry Bush", 8, Item.ItemType.Plant, Item.ItemTool.Shovel, 0.1f, true, 0, 15, 1, 2);
-		items [17] = new Item (17, "Berry Bush", 8, Item.ItemType.Plant, Item.ItemTool.Shovel, 0.1f, true, 0, 15, 1, 2);
-		items [18] = new Item (18, "Berry Bush", 8, Item.ItemType.Plant, Item.ItemTool.Shovel, 0.1f, true, 0, 15, 1, 2);
-		items [19] = new Item (19, "Berry Bush", 8, Item.ItemType.Plant, Item.ItemTool.Shovel, 0.1f, true, 0, 15, 1, 2);
+		items [16] = new Item (16, "Berry Bush", 8, Item.ItemType.Plant, Item.ItemTool.Hand, 0.1f, true, 0, 15, 1, 2);
+		items [17] = new Item (17, "Berry Bush", 8, Item.ItemType.Plant, Item.ItemTool.Hand, 0.1f, true, 0, 15, 1, 2);
+		items [18] = new Item (18, "Berry Bush", 8, Item.ItemType.Plant, Item.ItemTool.Hand, 0.1f, true, 0, 15, 1, 2);
+		items [19] = new Item (19, "Berry Bush", 8, Item.ItemType.Plant, Item.ItemTool.Hand, 0.1f, true, 0, 15, 1, 2);
 		//Radish
 		items [20] = new Item (20, "Radish", -1, Item.ItemType.Food, Item.ItemTool.Hand, 0.1f, true, 0, 20, 1, 3);
 		//Radish Plant
