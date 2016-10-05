@@ -14,7 +14,7 @@ public class SaveManager : MonoBehaviour
 
 	void Start ()
 	{
-		InvokeRepeating ("SaveInventory", 0, 2);		
+		InvokeRepeating ("SaveInventory", 0, 2);
 	}
 
 	void SaveInventory ()
@@ -22,13 +22,19 @@ public class SaveManager : MonoBehaviour
 		inventorySave.GetComponent <Devdog.InventorySystem.CollectionSaverLoaderBase> ().Save ();
 	}
 
-	public void SaveGameTime (float time)
+	public void SaveGameTime (int time)
 	{
-		PlayerPrefs.SetFloat ("gameTime", time);
+		PlayerPrefs.SetInt ("gameTime", time);
 	}
 
-	public void SaveGameTime (int day)
-	{
+	public void SaveGameDays (int day)
+	{		
 		PlayerPrefs.SetInt ("gameDay", day);
 	}
+
+	public void SaveGameCurrentPhase (int phase)
+	{		
+		PlayerPrefs.SetInt ("currentPhase", phase);
+	}
+
 }

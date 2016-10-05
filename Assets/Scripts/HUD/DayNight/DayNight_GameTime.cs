@@ -7,8 +7,9 @@ public class DayNight_GameTime : MonoBehaviour
 	public int maxTime = 480;
 	public bool useTimeText;
 	public Text timeText;
-	public GameObject sun, background;
+	public GameObject sun, moon, background;
 	public float updatePeriod = 1.0f;
+	public Camera spriteLightKitCamera;
 	public SeasonTypes[] seasons;
 
 	private float timeMultiplier = 60f;
@@ -16,118 +17,142 @@ public class DayNight_GameTime : MonoBehaviour
 	int minutes = 0;
 	int seconds = 0;
 	int day = 0;
-	float dayTime = 0;
+	float dayTime, nightTime = 0;
 	float sunRotationTotalAngle = 120;
-	float degreesTick = 0;
-	float sunRotationZ = 0;
-
-	//float moveDistance = 10f;
-	//Vector3 startPos = new Vector3 (10, 0, 0);
-	//Vector3 endPos = new Vector3 (20, 0, 0);
-
+	float degreesTickSun = 0, degreesTickMoon = 0;
+	float sunRotationZ = 0, moonRotationZ = 0;
 	private float nextActionTime = 0.0f;
 
-	protected void Start ()
-	{
-		timer = PlayerPrefs.GetFloat ("gameTime");
-		day = PlayerPrefs.GetInt ("gameDay");
-		//startPos = transform.position;
-		//endPos = transform.position + transform.up * moveDistance;
-		InvokeRepeating ("SaveGameTime", 1, 2);
+	//color lerper
+	bool changeColor = false;
+	public float colorTransitionDuration = 8;
+	float colorTransitionTimer = 0;
+	DayPhases currentPhase, tempCurrentPhase;
 
-		dayTime = (seasons [0].night_start - seasons [0].dawn_start) * timeMultiplier;
-		degreesTick = sunRotationTotalAngle / dayTime;
+	protected void Start ()
+	{		
+		timer = PlayerPrefs.GetInt ("gameTime");
+		day = PlayerPrefs.GetInt ("gameDay");
+		currentPhase = (DayPhases)PlayerPrefs.GetInt ("currentPhase");
+		sunRotationZ = PlayerPrefs.GetFloat ("sunRotationZ");
+		moonRotationZ = PlayerPrefs.GetFloat ("moonRotationZ");
+		background.transform.position = new Vector3 (PlayerPrefs.GetInt ("backgroundPositionX"), 0);
+
+		tempCurrentPhase = currentPhase;
+
+		switch (currentPhase) {					
+			case DayPhases.Day:
+				spriteLightKitCamera.backgroundColor = seasons [0].dayColor;
+				break;
+			case DayPhases.Dusk:
+				spriteLightKitCamera.backgroundColor = seasons [0].duskColor;
+				break;
+			case DayPhases.Night:
+				spriteLightKitCamera.backgroundColor = seasons [0].nightColor;
+				break;
+			default:
+				break;
+		}
+
+		dayTime = (seasons [0].duskStart - seasons [0].dayStart) * timeMultiplier;
+		degreesTickSun = sunRotationTotalAngle / dayTime;
+
+		nightTime = ((maxTime / timeMultiplier) - seasons [0].duskStart) * timeMultiplier;
+		degreesTickMoon = sunRotationTotalAngle / nightTime;
+		colorTransitionTimer = colorTransitionDuration;
 	}
 
 	void Update ()
 	{
 		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+			if (changeColor) {
+				colorTransitionTimer -= Time.deltaTime;
+				switch (currentPhase) {					
+					case DayPhases.Day:
+						spriteLightKitCamera.backgroundColor = Color.Lerp (spriteLightKitCamera.backgroundColor, seasons [0].dayColor, Time.deltaTime / colorTransitionTimer);
+						break;
+					case DayPhases.Dusk:
+						spriteLightKitCamera.backgroundColor = Color.Lerp (spriteLightKitCamera.backgroundColor, seasons [0].duskColor, Time.deltaTime / colorTransitionTimer);
+						break;
+					case DayPhases.Night:
+						spriteLightKitCamera.backgroundColor = Color.Lerp (spriteLightKitCamera.backgroundColor, seasons [0].nightColor, Time.deltaTime / colorTransitionTimer);
+						break;
+					default:
+						break;
+				}
+				if (colorTransitionTimer <= 0) {
+					changeColor = false;
+					colorTransitionTimer = colorTransitionDuration;
+					/*if (DayPhases == DayPhases.Day) {
+						
+					}*/
+				}
+			}
 			timer += Time.deltaTime;
 			if (Time.time > nextActionTime) { //upadate every n seconds
+				SaveManager.m_instance.SaveGameTime ((int)timer);
+
 				nextActionTime += updatePeriod;
 				if (timer <= maxTime) {
 					background.transform.localPosition = new Vector3 (timer * -1, 0, 0);
 					FormatDisplayTime ();
-					//CalculateDayPhases ();
-					CalculateDayPhases1 ();
+					CalculateDayPhases ();
 				} else {
 					timer = 0; //day over new day 12am
+					sunRotationZ = 0;
+					moonRotationZ = 0;
 					day++;
-					SaveGameDay ();
-					//day = PlayerPrefs.GetInt ("gameDay");
+					SaveManager.m_instance.SaveGameDays (day);
 					LoadMapFromSave_PG.m_instance.RepaintMapItems ();
 					print ("new day");
-
 					sun.transform.rotation = Quaternion.Euler (0, 180, -60);
-					background.transform.position = new Vector3 (400, 0, 0);
+					background.transform.position = new Vector3 (0, 0, 0);
 				}
 			}
 			return;
 		}
 	}
 
-	void  CalculateDayPhases1 ()
+	void  CalculateDayPhases ()
 	{
-		if (timer > seasons [0].dawn_start * timeMultiplier && timer < seasons [0].night_start * timeMultiplier) { // day		
-			sunRotationZ += degreesTick;		
+		if (timer > seasons [0].dayStart * timeMultiplier && timer < seasons [0].nightStart * timeMultiplier) { // day		
+			sunRotationZ += degreesTickSun;
 			sun.transform.rotation = Quaternion.Euler (0, 180, -60 + sunRotationZ);
-			if (timer > seasons [0].dawn_start * timeMultiplier && timer < seasons [0].day_start * timeMultiplier) {
-				//print ("dawn");
-			} else if (timer > seasons [0].day_start * timeMultiplier && timer < seasons [0].dusk_start * timeMultiplier) {			
-				//print ("day");
-			} else if (timer > seasons [0].dusk_start * timeMultiplier && timer < seasons [0].night_start * timeMultiplier) {			
-				//print ("dusk");
+			if (timer > seasons [0].dayStart * timeMultiplier && timer < seasons [0].duskStart * timeMultiplier) {//day
+				currentPhase = DayPhases.Day;			
+				changeColor = true;
+			} else if (timer > seasons [0].duskStart * timeMultiplier && timer < seasons [0].nightStart * timeMultiplier) {//dusk		
+				currentPhase = DayPhases.Dusk;
+				moon.transform.rotation = Quaternion.Euler (0, 180, -60 + moonRotationZ);
+				changeColor = true;
+				moonRotationZ += degreesTickMoon;
 			}		
-		} else if (timer > seasons [0].night_start * timeMultiplier && timer < maxTime) {	// night
-			//sun.transform.rotation = Quaternion.Euler (0, 180, (timer / 4));		
-			//print ("night");
-		} /*else if (timer > 0 && timer < seasons [0].dawn_start * timeMultiplier) {	// one day end
-			//sun.transform.rotation = Quaternion.Euler (0, 180, (timer / 4));		
-			//print ("night");
-		}*/
-	}
+		} else if (timer > seasons [0].nightStart * timeMultiplier && timer < maxTime) {// night
+			moonRotationZ += degreesTickMoon;
+			moon.transform.rotation = Quaternion.Euler (0, 180, -60 + moonRotationZ);
+			currentPhase = DayPhases.Night;		
+			changeColor = true;
+		}
 
+		if (currentPhase != tempCurrentPhase) { // Avoide saving playerprefs every second
+			tempCurrentPhase = currentPhase;
+			SaveManager.m_instance.SaveGameCurrentPhase ((int)currentPhase);
+		}
+
+		PlayerPrefs.SetFloat ("sunRotationZ", sunRotationZ);
+		PlayerPrefs.SetFloat ("moonRotationZ", moonRotationZ);
+
+		PlayerPrefs.SetInt ("backgroundPositionX", (int)background.transform.position.x);	
+	}
 
 	void FormatDisplayTime ()
 	{
-		//day = PlayerPrefs.GetInt ("gameDay");
-		//timeText.text = timer.ToString ("mm-ddd");
 		minutes = Mathf.FloorToInt (timer / 60F);
 		seconds = Mathf.FloorToInt (timer - minutes * 60);
-		timeText.text = string.Format ("{0:0}:{1:00}", minutes, seconds + " Day:" + day);
+		timeText.text = string.Format ("{0:0}:{1:00}", minutes, seconds + " Day:" + day + " " + currentPhase);
 	}
 
-	void CalculateDayPhases ()
-	{
-		if (timer > seasons [0].dawn_start * timeMultiplier && timer < seasons [0].night_start * timeMultiplier) {			// day
-			//sun.transform.rotation = Quaternion.Euler (0, 180, (((timer / 4) + 180) * 1.25f) * 0.12f);
-			//sun.transform.rotation = Quaternion.Euler (0, 180, ((timer * 0.125f) - 90)); // good one summer 
-			sun.transform.rotation = Quaternion.Euler (0, 180, ((timer * 0.125f) - 90));
-			if (timer > seasons [0].dawn_start * timeMultiplier && timer < seasons [0].day_start * timeMultiplier) {
-				//print ("dawn");
-			} else if (timer > seasons [0].day_start * timeMultiplier && timer < seasons [0].dusk_start * timeMultiplier) {			
-				//print ("day");
-			} else if (timer > seasons [0].dusk_start * timeMultiplier && timer < seasons [0].night_start * timeMultiplier) {			
-				//print ("dusk");
-			}		
-		} else if (timer > seasons [0].night_start * timeMultiplier && timer < maxTime) {	
-			//sun.transform.rotation = Quaternion.Euler (0, 180, (timer / 4));		
-			//print ("night");
-		} else if (timer > 0 && timer < seasons [0].dawn_start * timeMultiplier) {	
-			//sun.transform.rotation = Quaternion.Euler (0, 180, (timer / 4));		
-			//print ("night");
-		}
-	}
-
-	void SaveGameTime ()
-	{
-		SaveManager.m_instance.SaveGameTime (timer);
-	}
-
-	void SaveGameDay ()
-	{
-		SaveManager.m_instance.SaveGameTime (day);
-	}
+	#region DEBUG_FUNCTIONS
 
 	public void ModifyGameSpeed (float speed)
 	{
@@ -143,32 +168,27 @@ public class DayNight_GameTime : MonoBehaviour
 	{
 		timer = 0;
 	}
+
+	#endregion
+
+}
+
+[System.Serializable]
+public enum DayPhases
+{
+	Day,
+	Dusk,
+	Night
 }
 
 [System.Serializable]
 public struct SeasonTypes
 {
 	public string name;
-	public float dawn_start;
-	public float day_start;
-	public float dusk_start;
-	public float night_start;
+	public float dayStart;
+	public Color dayColor;
+	public float duskStart;
+	public Color duskColor;
+	public float nightStart;
+	public Color nightColor;
 }
- 
-/*if (timer > seasons [0].dawn_start * timeMultiplier && timer < seasons [0].day_start * timeMultiplier) {			
-			//sun.transform.rotation = Quaternion.Euler (0, 0, (-timer));
-			print ("dawn");
-		} else if (timer > seasons [0].day_start * timeMultiplier && timer < seasons [0].dusk_start * timeMultiplier) {			
-			//sun.transform.rotation = Quaternion.Euler (0, 0, (-timer));
-			print ("day");
-		} else if (timer > seasons [0].dusk_start * timeMultiplier && timer < seasons [0].night_start * timeMultiplier) {			
-			//sun.transform.rotation = Quaternion.Euler (0, 0, (-timer));
-			print ("dusk");
-		} else if (timer > seasons [0].night_start * timeMultiplier && timer < 1440) {			
-			//sun.transform.rotation = Quaternion.Euler (0, 0, (-timer));
-			print ("night");
-		} else if (timer > 0 && timer < seasons [0].dawn_start * timeMultiplier) {			
-			//sun.transform.rotation = Quaternion.Euler (0, 0, (-timer));
-			print ("night");
-		}*/
- 

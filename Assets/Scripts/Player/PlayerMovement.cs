@@ -11,6 +11,7 @@ using Devdog.InventorySystem.UI;
 //{
 public class PlayerMovement : MonoBehaviour
 {
+	public GameObject camp;
 	public Animator anim;
 	public float speed = 1.5f, runSpeedMultiplier = 1.5f;
 	public static PlayerMovement m_instance = null;
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool isRightStick, isLeftStick = false;
 
 	private Vector3 cursorPosition;
-	private int attackTempA = 0, attackTempB = 0, autoPickupTempA = 0, autoPickupTempB = 0, calculateNearestTempA = 0, calculateNearestTempB = 0;
+	private int attackTempA = 0, attackTempB = 0, calculateNearestTempA = 0, calculateNearestTempB = 0;
 	item[] playerSurroundings = new item[8];
 	private float attackTime, attackCounter;
 	Vector3 nearestItemPosition = Vector3.zero;
@@ -141,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
 					sortedColliders.Add (cols);
 				}
 			}
+			//print (sortedColliders [0].name);
 		} else {
 			sortedColliders.Clear ();
 			nearestItemPosition = Vector3.zero;
@@ -153,7 +155,6 @@ public class PlayerMovement : MonoBehaviour
 			closestItemGO.transform.GetChild (closestItemGO.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = Color.white;
 			nearestItemPosition = closestItemGO.transform.position;
 			foreach (var cols in sortedColliders) {
-				print (ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString ());
 				if (ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == ActionManager.m_AC_instance.currentWeildedItem.rarity.name || ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == "Hand") {
 					cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (true);
 				}
@@ -184,25 +185,40 @@ public class PlayerMovement : MonoBehaviour
 
 	public void AutoPickUpCalculation ()
 	{
+		print ("picking");
 		anim.SetBool ("isWalking", true);
 		if (Vector3.Distance (transform.position, nearestItemPosition) <= 1) {   //stop walking towards objects if less than 1 distance					
 			Vector3 dir = (nearestItemPosition - transform.position).normalized;
 			walkTowards = false;
-			SetAttackAnimation (true);
-			anim.SetFloat ("a", Mathf.RoundToInt (dir.x));
-			anim.SetFloat ("b", Mathf.RoundToInt (dir.y));
-			AttackCalculation (Mathf.RoundToInt (dir.x), Mathf.RoundToInt (dir.y));
+			SetPickUpAnimation ();
+			//anim.SetFloat ("PickUpX", Mathf.RoundToInt (dir.x));
+			//anim.SetFloat ("PickUpY", Mathf.RoundToInt (dir.y));
+			ActionManager.m_AC_instance.ActionButtonPressed ();
+			//AttackCalculation (Mathf.RoundToInt (dir.x), Mathf.RoundToInt (dir.y));
 			IsCursorEnable (true);
 			return;
 		}
 		Vector3 playerDir = (nearestItemPosition - transform.position).normalized;
-		transform.position += new Vector3 (playerDir.x, playerDir.y, 0).normalized * Time.deltaTime * speed;
+		WalkingCalculation (playerDir.x, playerDir.y);
 		SetAttackAnimation (false);
+	}
 
-		//anim.SetBool ("isWalking", true);
-		anim.SetFloat ("x", Mathf.RoundToInt (playerDir.x));
-		anim.SetFloat ("y", Mathf.RoundToInt (playerDir.y));
+	public void PickUpCalculation (int a, int b)
+	{	
+		anim.SetFloat ("AttackingX", a);
+		anim.SetFloat ("AttackingY", b);
 
+		ActionManager.m_AC_instance.isReadyToAttack = false;
+		SetCursorTilePosition (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
+		ActionManager.m_AC_instance.ActionButtonPressed ();
+	}
+
+	public void WalkingCalculation (float x, float y)
+	{
+		anim.SetFloat ("WalkingX", x);
+		anim.SetFloat ("WalkingY", y);
+		anim.SetBool ("isWalking", true);
+		transform.position += new Vector3 (x, y, 0).normalized * Time.deltaTime * speed;
 	}
 
 	public void AttackCalculation (int a, int b)
@@ -213,20 +229,18 @@ public class PlayerMovement : MonoBehaviour
 		attackTempA = a;
 		attackTempB = b;
 
-		anim.SetFloat ("x", a);
-		anim.SetFloat ("y", b);
+		anim.SetFloat ("AttackingX", a);
+		anim.SetFloat ("AttackingY", b);
 
 		ActionManager.m_AC_instance.isReadyToAttack = false;
 		SetCursorTilePosition (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
 		ActionManager.m_AC_instance.ActionButtonPressed ();
 	}
 
-	public void WalkingCalculation (float x, float y)
+	public void AttackCalculation ()
 	{
-		anim.SetFloat ("x", input_x);
-		anim.SetFloat ("y", input_y);
-		anim.SetBool ("isWalking", isLeftStick);
-		transform.position += new Vector3 (input_x, input_y, 0).normalized * Time.deltaTime * speed;
+		anim.SetFloat ("AttackingX", Mathf.RoundToInt (r_input_a));
+		anim.SetFloat ("AttackingY", Mathf.RoundToInt (r_input_b));
 	}
 
 	public void SetCursorTilePosition (int a, int b)
@@ -250,12 +264,6 @@ public class PlayerMovement : MonoBehaviour
 		cursorTile_grid.transform.position = new Vector3 (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y - animationPivotAdjuster), Mathf.RoundToInt (transform.position.z));
 	}
 
-	public void AttackCalculation ()
-	{
-		anim.SetFloat ("a", Mathf.RoundToInt (r_input_a));
-		anim.SetFloat ("b", Mathf.RoundToInt (r_input_b));
-	}
-
 	public void SetAttackAnimation (bool flag)
 	{
 		anim.SetBool ("isAttacking", flag);
@@ -277,15 +285,9 @@ public class PlayerMovement : MonoBehaviour
 		transform.position = new Vector3 (PlayerPrefs.GetFloat ("PlayerPositionX"), PlayerPrefs.GetFloat ("PlayerPositionY"), 0);
 	}
 
-
-
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		/*switch (other.tag) {
-		case "Disappear":
-				other.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.45f);
-				other.transform.parent.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.45f);
-				break;
+		/*switch (other.tag) {			
 			case "Grass":
 				other.GetComponent<Animator> ().enabled = true;
 				other.GetComponent<Animator> ().SetTrigger ("shouldMove");
@@ -304,17 +306,15 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnTriggerExit2D (Collider2D other)
 	{
-		/*switch (other.tag) {
-		case "Disappear":
-				other.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
-				other.transform.parent.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
-				break;
+		/*switch (other.tag) {			
 			case "Grass":
 				StartCoroutine (DisableItemsAfterTime (other));
 				break;
 			default:
 				break;
 		}*/
+
+		// Disable item names
 		if (other.gameObject.transform.childCount > 0) {
 			other.gameObject.transform.GetChild (other.gameObject.transform.childCount - 1).gameObject.SetActive (false);
 		}
@@ -386,4 +386,6 @@ public class PlayerMovement : MonoBehaviour
 		string[] sArray = s.Split (',');
 		return int.Parse (sArray [0]);
 	}
+
+
 }

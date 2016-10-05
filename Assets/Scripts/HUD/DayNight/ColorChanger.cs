@@ -4,20 +4,31 @@ using UnityEngine.UI;
 
 public class ColorChanger : MonoBehaviour
 {
-	public Color[] color;
-	// Use this for initialization
-	public Color lerpedColor;
-	public float duration = 5;
+	public float transitionDuration = 1;
+	public Color targetColor;
+	public Camera cam;
+	public bool startTransition = false;
 	float time = 0;
+
+	void Start ()
+	{
+		time = transitionDuration;
+	}
 
 	void Update ()
 	{
 		if (Input.GetKeyDown (KeyCode.C)) {
-			time = 0;
+			startTransition = true;
 		}
-		transform.GetComponent <Image> ().color = Color.Lerp (color [0], color [1], time);
-		if (time < 1) {
-			time += Time.deltaTime / duration;
+
+		if (startTransition) {
+			time -= Time.deltaTime;
+			cam.backgroundColor = Color.Lerp (cam.backgroundColor, targetColor, Time.deltaTime / time);
+			print (time);
+			if (time <= 0) {
+				startTransition = false;
+				time = transitionDuration;
+			}
 		}
 	}
 }

@@ -1,15 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\ActionManager.cs">
     <Files>
       <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="276" Column="1" />
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="168" Column="3" />
-      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="201" Column="62" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="215" Column="125" />
+      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="262" Column="99" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="390" Column="2" />
       <File FileName="Assets\Scripts\Items\ItemDatabase.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Items\Item.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\HUD\DayNight\DayNight_GameTime.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\GameEventManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\CNControls\Scripts\Controllers\InputHelpers\JoystickInputHelper.cs" Line="72" Column="1" />
+      <File FileName="Assets\InventorySystem\Scripts\Collections\ItemCollectionBase.cs" Line="251" Column="26" />
+      <File FileName="Assets\InventorySystem\Scripts\UI\UIItemWrappers\InventoryUIItemWrapper.cs" Line="162" Column="28" />
+      <File FileName="c:\GitRepo\SurvivalCraft\Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Editor\BrushTileGridControl.cs" Line="305" Column="105" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

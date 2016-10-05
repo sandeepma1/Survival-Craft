@@ -18,7 +18,7 @@ public class CloudsSpawner : MonoBehaviour
 	{	
 		int ranNo = Random.Range (0, cloudsPrefab.Length);
 
-		if (ranNo != cloudInUse && !cloudsPrefab [ranNo].activeSelf) {
+		if (ranNo != cloudInUse && !cloudsPrefab [ranNo].activeSelf && GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
 			cloudsPrefab [ranNo].gameObject.SetActive (true);
 			cloudInUse = ranNo;
 			cloudsPrefab [ranNo].transform.localPosition = new Vector3 (this.transform.localPosition.x, Random.Range (30, -35), 0);

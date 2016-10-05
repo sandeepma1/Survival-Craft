@@ -63,7 +63,7 @@ public enum onHarvest
 	//Carrots
 	Destory,
 	// Trees
-	RegrowToZero,
+	RegrowToStump,
 	// Berries
 	Renewable
 }

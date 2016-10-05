@@ -6,6 +6,7 @@ public class Item
 	public int id;
 	public string name;
 	public int maxAge;
+	public int nextStage;
 	public ItemType type;
 	public ItemTool tool;
 	public float hardness;
@@ -21,11 +22,12 @@ public class Item
 	//public bool isDegradeable;
 	//public bool isCurrentlyDropped;
 	//public int itemQuality;
-	public Item (int itemId, string itemName, int itemMaxAge, ItemType itemType, ItemTool itemTool, float itemHardness, bool isItemHandMined, float itemExperience, int itemDrops, int itemDropRateMin, int itemDropRateMax)
+	public Item (int itemId, string itemName, int itemMaxAge, int itemNextStage, ItemType itemType, ItemTool itemTool, float itemHardness, bool isItemHandMined, float itemExperience, int itemDrops, int itemDropRateMin, int itemDropRateMax)
 	{
 		id = itemId;
 		name = itemName;
 		maxAge = itemMaxAge;
+		nextStage = itemNextStage;
 		type = itemType;
 		tool = itemTool;
 		hardness = itemHardness;
@@ -43,8 +45,8 @@ public class Item
 		Tree,
 		RawMaterial,
 		Ore,
-		Mineral
-		/*Consumable,
+		Mineral,
+		Consumable,
 		Quest,
 		Survival,
 		Build,
@@ -54,14 +56,16 @@ public class Item
 		Chest,
 		Trousers,
 		Necklace,
-		Rings*/
+		Rings
 	}
 
 	public enum ItemTool
 	{
+		None,
 		Hand,
 		Axe,
 		Pickaxe,
+		Hammer,
 		Hoe,
 		Shovel,
 		FishingRod,

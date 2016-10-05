@@ -9,6 +9,10 @@ Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-C
 EndProject
 Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-CSharp-Editor.csproj", "{DEDCA11F-5F8A-B461-B29D-7F678F47EE13}"
 EndProject
+Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-UnityScript.unityproj", "{7E2E2688-B73C-15AC-4F07-EB5B15513354}"
+EndProject
+Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-UnityScript-Editor.unityproj", "{F399C7CA-8F15-E1EF-47BB-8231C33A6D7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{DEDCA11F-5F8A-B461-B29D-7F678F47EE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEDCA11F-5F8A-B461-B29D-7F678F47EE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEDCA11F-5F8A-B461-B29D-7F678F47EE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E2E2688-B73C-15AC-4F07-EB5B15513354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E2E2688-B73C-15AC-4F07-EB5B15513354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E2E2688-B73C-15AC-4F07-EB5B15513354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E2E2688-B73C-15AC-4F07-EB5B15513354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F399C7CA-8F15-E1EF-47BB-8231C33A6D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F399C7CA-8F15-E1EF-47BB-8231C33A6D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F399C7CA-8F15-E1EF-47BB-8231C33A6D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F399C7CA-8F15-E1EF-47BB-8231C33A6D7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

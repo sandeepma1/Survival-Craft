@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 26008e1d60cfb794090c751484d8a646
-timeCreated: 1472899347
+timeCreated: 1475341079
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -85,6 +85,7 @@ TextureImporter:
     21300156: Weapons_Tools_Icons_78
     21300158: Weapons_Tools_Icons_79
     21300160: Weapons_Tools_Icons_80
+    21300162: Shovel
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -127,11 +128,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 16
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Weapons_Tools_Icons_0
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,7 +146,9 @@ TextureImporter:
       pivot: {x: -0.0038237395, y: -0.003824234}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_1
       rect:
         serializedVersion: 2
         x: 16
@@ -153,7 +159,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_2
       rect:
         serializedVersion: 2
         x: 32
@@ -164,7 +172,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_3
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_3
       rect:
         serializedVersion: 2
         x: 48
@@ -175,7 +185,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_4
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_4
       rect:
         serializedVersion: 2
         x: 64
@@ -186,7 +198,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_5
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_5
       rect:
         serializedVersion: 2
         x: 80
@@ -197,7 +211,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_6
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_6
       rect:
         serializedVersion: 2
         x: 96
@@ -208,7 +224,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_7
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_7
       rect:
         serializedVersion: 2
         x: 112
@@ -219,7 +237,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_8
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_8
       rect:
         serializedVersion: 2
         x: 128
@@ -230,7 +250,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_9
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_9
       rect:
         serializedVersion: 2
         x: 144
@@ -241,7 +263,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_10
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_10
       rect:
         serializedVersion: 2
         x: 160
@@ -252,7 +276,9 @@ TextureImporter:
       pivot: {x: 0.109745026, y: 0.12368202}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_11
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_11
       rect:
         serializedVersion: 2
         x: 176
@@ -263,7 +289,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_12
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_12
       rect:
         serializedVersion: 2
         x: 192
@@ -274,7 +302,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_13
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_13
       rect:
         serializedVersion: 2
         x: 208
@@ -285,7 +315,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_14
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_14
       rect:
         serializedVersion: 2
         x: 224
@@ -296,7 +328,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_15
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_15
       rect:
         serializedVersion: 2
         x: 48
@@ -307,7 +341,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_16
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_16
       rect:
         serializedVersion: 2
         x: 64
@@ -318,7 +354,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_17
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_17
       rect:
         serializedVersion: 2
         x: 80
@@ -329,7 +367,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_18
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_18
       rect:
         serializedVersion: 2
         x: 96
@@ -340,7 +380,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_19
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_19
       rect:
         serializedVersion: 2
         x: 112
@@ -351,7 +393,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_20
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_20
       rect:
         serializedVersion: 2
         x: 128
@@ -362,7 +406,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_21
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_21
       rect:
         serializedVersion: 2
         x: 144
@@ -373,7 +419,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_22
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_22
       rect:
         serializedVersion: 2
         x: 160
@@ -384,7 +432,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_23
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_23
       rect:
         serializedVersion: 2
         x: 176
@@ -395,7 +445,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_24
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_24
       rect:
         serializedVersion: 2
         x: 192
@@ -406,7 +458,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_25
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_25
       rect:
         serializedVersion: 2
         x: 208
@@ -417,7 +471,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_26
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_26
       rect:
         serializedVersion: 2
         x: 224
@@ -428,7 +484,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_27
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_27
       rect:
         serializedVersion: 2
         x: 240
@@ -439,7 +497,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_28
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_28
       rect:
         serializedVersion: 2
         x: 0
@@ -450,7 +510,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_29
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_29
       rect:
         serializedVersion: 2
         x: 16
@@ -461,7 +523,9 @@ TextureImporter:
       pivot: {x: 0.08354902, y: 0.08704853}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_30
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_30
       rect:
         serializedVersion: 2
         x: 32
@@ -472,7 +536,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_31
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_31
       rect:
         serializedVersion: 2
         x: 48
@@ -483,7 +549,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_32
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_32
       rect:
         serializedVersion: 2
         x: 64
@@ -494,7 +562,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_33
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_33
       rect:
         serializedVersion: 2
         x: 80
@@ -505,7 +575,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_34
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_34
       rect:
         serializedVersion: 2
         x: 96
@@ -516,7 +588,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_35
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_35
       rect:
         serializedVersion: 2
         x: 112
@@ -527,7 +601,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_36
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_36
       rect:
         serializedVersion: 2
         x: 128
@@ -538,7 +614,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_37
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_37
       rect:
         serializedVersion: 2
         x: 144
@@ -549,7 +627,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_38
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_38
       rect:
         serializedVersion: 2
         x: 160
@@ -560,7 +640,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_39
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_39
       rect:
         serializedVersion: 2
         x: 176
@@ -571,7 +653,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_40
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_40
       rect:
         serializedVersion: 2
         x: 192
@@ -582,7 +666,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_41
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_41
       rect:
         serializedVersion: 2
         x: 208
@@ -593,7 +679,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_42
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_42
       rect:
         serializedVersion: 2
         x: 224
@@ -604,7 +692,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_43
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_43
       rect:
         serializedVersion: 2
         x: 240
@@ -615,7 +705,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_44
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_44
       rect:
         serializedVersion: 2
         x: 0
@@ -626,7 +718,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_45
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_45
       rect:
         serializedVersion: 2
         x: 16
@@ -637,7 +731,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_46
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_46
       rect:
         serializedVersion: 2
         x: 32
@@ -648,7 +744,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_47
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_47
       rect:
         serializedVersion: 2
         x: 48
@@ -659,7 +757,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_48
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_48
       rect:
         serializedVersion: 2
         x: 64
@@ -670,7 +770,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_49
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_49
       rect:
         serializedVersion: 2
         x: 80
@@ -681,7 +783,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_50
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_50
       rect:
         serializedVersion: 2
         x: 96
@@ -692,7 +796,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_51
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_51
       rect:
         serializedVersion: 2
         x: 112
@@ -703,7 +809,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_52
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_52
       rect:
         serializedVersion: 2
         x: 128
@@ -714,7 +822,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_53
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_53
       rect:
         serializedVersion: 2
         x: 144
@@ -725,7 +835,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_54
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_54
       rect:
         serializedVersion: 2
         x: 160
@@ -736,7 +848,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_55
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_55
       rect:
         serializedVersion: 2
         x: 176
@@ -747,7 +861,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_56
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_56
       rect:
         serializedVersion: 2
         x: 192
@@ -758,7 +874,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_57
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_57
       rect:
         serializedVersion: 2
         x: 208
@@ -769,7 +887,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_58
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_58
       rect:
         serializedVersion: 2
         x: 224
@@ -780,7 +900,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_59
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_59
       rect:
         serializedVersion: 2
         x: 240
@@ -791,7 +913,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_60
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_60
       rect:
         serializedVersion: 2
         x: 0
@@ -802,7 +926,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_61
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_61
       rect:
         serializedVersion: 2
         x: 16
@@ -813,7 +939,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_62
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_62
       rect:
         serializedVersion: 2
         x: 32
@@ -824,7 +952,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_63
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_63
       rect:
         serializedVersion: 2
         x: 48
@@ -835,7 +965,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_64
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_64
       rect:
         serializedVersion: 2
         x: 64
@@ -846,7 +978,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_65
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_65
       rect:
         serializedVersion: 2
         x: 80
@@ -857,7 +991,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_66
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_66
       rect:
         serializedVersion: 2
         x: 96
@@ -868,7 +1004,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_67
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_67
       rect:
         serializedVersion: 2
         x: 112
@@ -879,7 +1017,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_68
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_68
       rect:
         serializedVersion: 2
         x: 128
@@ -890,7 +1030,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_69
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_69
       rect:
         serializedVersion: 2
         x: 144
@@ -901,7 +1043,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_70
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_70
       rect:
         serializedVersion: 2
         x: 160
@@ -912,7 +1056,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_71
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_71
       rect:
         serializedVersion: 2
         x: 176
@@ -923,7 +1069,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_72
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_72
       rect:
         serializedVersion: 2
         x: 192
@@ -934,7 +1082,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_73
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_73
       rect:
         serializedVersion: 2
         x: 208
@@ -945,7 +1095,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_74
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_74
       rect:
         serializedVersion: 2
         x: 224
@@ -956,7 +1108,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_75
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_75
       rect:
         serializedVersion: 2
         x: 240
@@ -967,7 +1121,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_76
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_76
       rect:
         serializedVersion: 2
         x: 0
@@ -978,7 +1134,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_77
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_77
       rect:
         serializedVersion: 2
         x: 16
@@ -989,7 +1147,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_78
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_78
       rect:
         serializedVersion: 2
         x: 32
@@ -1000,7 +1160,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_79
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_79
       rect:
         serializedVersion: 2
         x: 48
@@ -1011,7 +1173,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Weapons_Tools_Icons_80
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Weapons_Tools_Icons_80
       rect:
         serializedVersion: 2
         x: 64
@@ -1022,6 +1186,20 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Shovel
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

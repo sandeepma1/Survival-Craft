@@ -140,13 +140,18 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				for (int y = 0; y < chunkMapSize [i]; y++) {
 					if (mapItemsFromSave [i] [x, y].Length > 2) {
 						switch (mapItemGO [i] [x, y].id) {
-							case 11://trees
+							case 12://trees
+							case 13://trees
+							case 14://trees
 							case 16://berries
-							case 21://berries
+							case 22://carrots
 								if (mapItemGO [i] [x, y].age != ItemDatabase.m_instance.items [mapItemGO [i] [x, y].id].maxAge) {
 									mapItemGO [i] [x, y].age = (sbyte)(mapItemGO [i] [x, y].age + 1);
-									mapItemsFromSave [i] [x, y] = mapItemGO [i] [x, y].id + "," + mapItemGO [i] [x, y].age;
+								} else {
+									mapItemGO [i] [x, y].id = (sbyte)ItemDatabase.m_instance.items [mapItemGO [i] [x, y].id].nextStage;
+									mapItemGO [i] [x, y].age = 1;
 								}
+								mapItemsFromSave [i] [x, y] = mapItemGO [i] [x, y].id + "," + mapItemGO [i] [x, y].age;
 								break;
 							default:
 								break;
@@ -164,7 +169,9 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		for (int i = 0; i < mapChunks.Length; i++) {
 			for (int x = 0; x < mapSize; x++) {
 				for (int y = 0; y < mapSize; y++) {
-					InstantiateObject (items [mapItemGO [i] [x, y].id], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);
+					if (mapItemGO [i] [x, y].id > 0) {
+						InstantiateObject (items [mapItemGO [i] [x, y].id], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);	
+					}				
 				}
 			}
 		}
@@ -172,9 +179,6 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public void InstantiateObject (GameObject go, Vector3 pos, Transform parent, int i, int id, int age)
 	{
-		if (id <= 0) {
-			return;
-		}
 		if (mapItemGO [i] [(int)pos.x, (int)pos.y].GO != null) {
 			Destroy (mapItemGO [i] [(int)pos.x, (int)pos.y].GO);
 		}
@@ -183,9 +187,8 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.parent = parent;
 		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
 
-
 		switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
-			case 11: // Trees
+		/*	case 11: // Trees
 				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
 				if (age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
@@ -195,7 +198,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
 				}
-				break;
+				break;*/
 			case 16:  //Berries
 				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
 				mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
@@ -209,36 +212,36 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		}
 	}
 
-	public void InstantiatePlacedObject (GameObject go, Vector3 pos, Transform parent, int i, int id, int age)
+	public void InstantiatePlacedObject (GameObject go, Vector3 pos, Transform parent, int islandIndex, int itemID, int itemAge)
 	{
 		pos = GetPlayersLocalPosition (pos);
-		if (id > 0 && mapItemGO [i] [(int)pos.x, (int)pos.y].GO == null) {
-			mapItemGO [i] [(int)pos.x, (int)pos.y].GO = Instantiate (go);
-			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
-			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.parent = parent;
-			mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
-			mapItemGO [i] [(int)pos.x, (int)pos.y].id = (sbyte)id;
-			mapItemGO [i] [(int)pos.x, (int)pos.y].age = (sbyte)age;
+		if (itemID > 0 && mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO == null) {
+			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO = Instantiate (go);
+			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.name = itemID + "," + itemAge;
+			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.parent = parent;
+			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
+			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id = (sbyte)itemID;
+			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].age = (sbyte)itemAge;
 
-			switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
+			switch (mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id) {
 				case 11: // Trees
-					spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
-					if (age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
-						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
-						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [age];
+					spriteName = mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
+					if (itemAge < ItemDatabase.m_instance.items [mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id].maxAge) {
+						mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
+						mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [itemAge];
 					}
-					if (age == ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
-						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
-						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
+					if (itemAge == ItemDatabase.m_instance.items [mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id].maxAge) {
+						mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
+						mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
 					}
 					break;
 				case 16:  //Berries
-					spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
-					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+					spriteName = mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+					mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [itemAge];
 					break;
 				case 21:  //Carrots
-					spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
-					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+					spriteName = mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+					mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [itemAge];
 					break;
 				default:
 					break;
@@ -249,7 +252,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
 			}
 
-			mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
+			mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = itemID + "," + itemAge;
 			ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 		}
 	}
@@ -283,17 +286,19 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	{
 		pos = GetPlayersLocalPosition (pos);
 		switch (harvestType) {
-			case onHarvest.Destory:  //Carrots
-				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
+			case onHarvest.Destory:  //Carrots				
 				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
 				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO = null;
 				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 0;
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
 				break;
-			case onHarvest.RegrowToZero:  // Trees
-				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = id;
+			case onHarvest.RegrowToStump:  // Trees				
+				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
+				InstantiateObject (items [11], pos, mapChunks [0].transform, 0, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age);	
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 11;
 				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = 11 + "," + age;
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = 11 + "," + age;
 				break;
 			case onHarvest.Renewable:  //Berries
 				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
@@ -315,18 +320,3 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		return pos;
 	}
 }
-
-
-
-/*mapTiles [x, y + 1] == 0) { //above
-							above = true;
-						}
-						if (mapTiles [x + 1, y] == 0) { //right
-							right = true;
-						}
-						if (mapTiles [x - 1, y] == 0) { //left
-							left = true;
-						}
-						if (mapTiles [x, y - 1] == 0) { //below
-							below = true;
-						}*/

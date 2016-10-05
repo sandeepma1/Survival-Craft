@@ -28,7 +28,7 @@ public class ActionManager : MonoBehaviour
 		weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
-		GetCurrentTile ();
+		//GetCurrentTile ();
 	}
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
@@ -44,9 +44,6 @@ public class ActionManager : MonoBehaviour
 			}
 			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
 		}
-		/*if (currentWeildedItem != null) {
-			PlayerPrefs.SetInt ("ItemSlotIndex", (int)currentWeildedItem.index);	
-		}*/
 	}
 
 	public void ActionButtonPressed ()
@@ -114,15 +111,23 @@ public class ActionManager : MonoBehaviour
 	void PlaceItem ()
 	{
 		string[] itemss = currentWeildedItem.itemID.Split (',');
-
 		LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [sbyte.Parse (itemss [0])], GameEventManager.currentSelectedTilePosition, LoadMapFromSave_PG.m_instance.mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform,
+			PlayerPrefs.GetInt ("mapChunkPosition"), sbyte.Parse (itemss [0]), sbyte.Parse (itemss [1]));
+	}
+
+	public void PlaceItemByButton ()
+	{
+		string[] itemss = currentWeildedItem.itemID.Split (',');
+
+		LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [sbyte.Parse (itemss [0])], 
+			GameEventManager.currentSelectedTilePosition, LoadMapFromSave_PG.m_instance.mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform,
 			PlayerPrefs.GetInt ("mapChunkPosition"), sbyte.Parse (itemss [0]), sbyte.Parse (itemss [1]));
 	}
 
 	void Update ()
 	{
 		if (isReadyToAttack) {
-			if (currentSelectedItem.id == 11) {
+			if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetTrigger ("isTreeCutting");
 			}
 			baseTime -= Time.deltaTime;
@@ -162,8 +167,8 @@ public class ActionManager : MonoBehaviour
 		}
 	}
 
-	public void DestoryItem ()
-	{		
+	public void DestoryInventoryItem ()
+	{
 		//currentWeildedItem.Use ();		
 		if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
 			Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
@@ -175,14 +180,11 @@ public class ActionManager : MonoBehaviour
 		PlayerMovement.m_instance.SetAttackAnimation (false);
 		int ran = 0;
 		switch (currentSelectedItem.id) {
-			case 11:
+			case 14:
+			case 15:
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
-				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
-				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
-					ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
-				} else {
-					ran = 1;
-				}
+				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);// Fixed issue when stup remains transperent if tree chopped from south facing
+				ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate			
 				break;
 			case 16:
 			case 21:
@@ -193,20 +195,39 @@ public class ActionManager : MonoBehaviour
 				}
 				break;
 			default:
-			//if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 1
 				ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
 				break;
 		}
 		InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops, ran); // drop item upon break
-		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);
-
-		UpdateItemandSave ();  //update Gameobject and save in file
-
+		UpdateItemAndSaveToFile ();  //update Gameobject and save in file
 		currentSelectedItem = new item ();// set current tile position to -1 i.e. invalid
+		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);
+	}
+
+	public void UpdateItemAndSaveToFile ()
+	{
+		switch (currentSelectedItem.id) {
+			case 14: //Replace Tree with stump
+			case 15: //Replace Tree with stump
+				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToStump);
+				break;
+			case 16: //Berry Bush
+				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {
+					currentSelectedItem.age = 3;
+					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Renewable);
+				} else { //Replace Stump with nothing
+					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
+				}
+				break;
+			default:
+				Destroy (currentSelectedItem.GO);
+				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
+				break;
+		}
 	}
 
 	public void InstansiateDropGameObject (int id, int dropValue)
-	{
+	{		
 		for (int i = 0; i < dropValue; i++) {
 			GameObject parent = new GameObject ();
 			parent.name = "parent";
@@ -229,31 +250,16 @@ public class ActionManager : MonoBehaviour
 		Destroy (go);
 	}
 
-	public void UpdateItemandSave ()
+	int GetItemIDByIndex (string s, int index)
 	{
-		switch (currentSelectedItem.id) {
-			case 11: //Replace Tree with stump and stump with nothing
-				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {
-					currentSelectedItem.age = 0;
-					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToZero);
-					currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f); // Fixed issue when stup remains transperent if tree chopped from south facing
-				} else { //Replace Stump with nothing
-					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
-				}
-				break;
-			case 16: //Berry Bush
-				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {
-					currentSelectedItem.age = 3;
-					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Renewable);
-				} else { //Replace Stump with nothing
-					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
-				}
-				break;
-			default:
-				Destroy (currentSelectedItem.GO);
-				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
-				break;
-		}
+		string[] sArray = s.Split (',');
+		return int.Parse (sArray [index]);
+	}
+
+	void OnMouseDrag ()
+	{		
+		camp.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 0));
+		camp.transform.position = new Vector3 (camp.transform.position.x, camp.transform.position.y, 0);
 	}
 }
 

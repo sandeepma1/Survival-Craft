@@ -168,7 +168,8 @@ public partial class CreateNewGame_PG : MonoBehaviour
 					FillArrayBlank (x, y);
 				} else if (map.GetPixel (x, y) == regions [1].colour) { //Shallow water
 					FillTileInfo (-1, x, y);
-					Fill2DArray ("22,-1", x, y, 0.01f); //trees
+					Fill2DArray ("23,-1", x, y, 0.01f); //star fish
+
 				} else if (map.GetPixel (x, y) == regions [2].colour) { //Sand
 					FillTileInfo (18, x, y);
 					int ran = UnityEngine.Random.Range (0, 8);
@@ -191,13 +192,14 @@ public partial class CreateNewGame_PG : MonoBehaviour
 							Fill2DArray ("9,-1", x, y, 0.05f); //Stick
 							break;
 						case 4:
-							Fill2DArray ("11,14", x, y, 0.11f); //trees
+							int ranTree = UnityEngine.Random.Range (0, 4);
+							Fill2DArray (ranTree + 12 + ",1", x, y, 0.11f); //trees
 							break;
 						case 5:
-							Fill2DArray ("16,8", x, y, 0.025f); //berrybush
+							Fill2DArray ("17,8", x, y, 0.025f); //berrybush
 							break;
 						case 6:
-							Fill2DArray ("21,5", x, y, 0.025f); //radishPlant
+							Fill2DArray ("22,5", x, y, 0.025f); //radishPlant
 							break;
 						case 7:
 							Fill2DArray ("2,-1", x, y, 0.05f); //trees
@@ -242,16 +244,20 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	void InitializeFirstVariables ()
 	{
 		PlayerPrefs.DeleteAll ();
-		if (PlayerPrefs.GetInt ("IniPlayerPos") == 0) {			
+		if (PlayerPrefs.GetInt ("InitGamePrefs") == 0) {			
 			PlayerPrefs.SetFloat ("PlayerHunger", 100);
 			PlayerPrefs.SetFloat ("PlayerHealth", 100);
 			PlayerPrefs.SetInt ("mapChunkPosition", 0);
-			PlayerPrefs.SetFloat ("gameTime", 0);
-			PlayerPrefs.SetFloat ("gameDay", 1);
+			PlayerPrefs.SetInt ("gameTime", 0);
+			PlayerPrefs.SetInt ("gameDay", 1);
+			PlayerPrefs.SetInt ("currentPhase", 0);
 
+			PlayerPrefs.SetFloat ("sunRotationZ", 0);
+			PlayerPrefs.SetFloat ("moonRotationZ", 0);
+			PlayerPrefs.SetInt ("backgroundPositionX", 0);	
 
 			ES2.DeleteDefaultFolder ();
-			PlayerPrefs.SetInt ("IniPlayerPos", 1);
+			PlayerPrefs.SetInt ("InitGamePrefs", 1);
 		}
 	}
 

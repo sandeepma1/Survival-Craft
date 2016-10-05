@@ -46,6 +46,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ArrayPrefs\PlayerPrefsX.cs" />
+     <Compile Include="Assets\Art\PixelWeatherFX\Scripts\FadeLight.cs" />
+     <Compile Include="Assets\Art\PixelWeatherFX\Scripts\ParticleManager.cs" />
+     <Compile Include="Assets\Art\PixelWeatherFX\Scripts\RotateObject.cs" />
+     <Compile Include="Assets\Art\PixelWeatherFX\Scripts\TranslateObject.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Kenneys - Rogue Like\RogueLikeMapGenerator.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Data\ParameterContainer.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\A2X2Brush.cs" />
@@ -461,6 +465,7 @@
      <Compile Include="Assets\Scripts\HUD\DayNight\CloudsSpawner.cs" />
      <Compile Include="Assets\Scripts\HUD\DayNight\ColorChanger.cs" />
      <Compile Include="Assets\Scripts\HUD\DayNight\DayNight_GameTime.cs" />
+     <Compile Include="Assets\Scripts\HUD\DayNight\HSBColor.cs" />
      <Compile Include="Assets\Scripts\HUD\Food\Food.cs" />
      <Compile Include="Assets\Scripts\HUD\Health\Health.cs" />
      <Compile Include="Assets\Scripts\HUD\Health\TestGUI.cs" />
@@ -502,6 +507,7 @@
      <Compile Include="Assets\Scripts\Player\GridMove.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShooting.cs" />
+     <Compile Include="Assets\Scripts\Player\TreesDisappear.cs" />
      <Compile Include="Assets\Scripts\Test\ChunkManager.cs" />
      <Compile Include="Assets\Scripts\Test\MB_Test.cs" />
      <Compile Include="Assets\Scripts\Test\ScoreTextHandler.cs" />
