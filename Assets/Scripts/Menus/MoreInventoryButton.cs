@@ -7,13 +7,22 @@ public class MoreInventoryButton : MonoBehaviour
 	public static MoreInventoryButton m_instance = null;
 	public RectTransform mainUIWindow;
 	public GameObject mainCanvas, inventoryMenu;
-	public GameObject leftStick, rightStick, inventoryTab, craftingTab, settingsTab, infoTab, sortButton;
+	public GameObject leftStick, rightStick, inventoryTab, craftingTab, settingsTab, infoTab, sortButton, runWalkButton, actionButton;
 	public GameObject craftingMenu;
-	private bool toggleInventory = false, toggleCrafting = false;
+	private bool toggleInventory = false, toggleCrafting = false, isInventoryHidden = false;
 	float heightAdjuster;
 	int tabIndex = 0;
 	public Devdog.InventorySystem.InventoryUIItemWrapper[] items;
 	// = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
+
+	void Start ()
+	{
+		items = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
+		tabIndex = inventoryMenu.GetComponent <RectTransform> ().GetSiblingIndex ();
+		heightAdjuster = ((mainCanvas.GetComponent <RectTransform> ().rect.height / 2) + 200) * -1;
+		ToggleInventorySize (true);
+	}
+
 
 	void Awake ()
 	{
@@ -27,32 +36,21 @@ public class MoreInventoryButton : MonoBehaviour
 		}
 	}
 
-	void Start ()
-	{
-		items = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
-		tabIndex = inventoryMenu.GetComponent <RectTransform> ().GetSiblingIndex ();
-		heightAdjuster = ((mainCanvas.GetComponent <RectTransform> ().rect.height / 2) + 200) * -1;
-//		print (mainCanvas.GetComponent <RectTransform> ().rect);
-		ToggleInventorySize ();
-	}
-
-	public void ToggleInventorySize ()
+	public void ToggleInventorySize (bool isInventoryDown)
 	{		
-		toggleInventory = !toggleInventory;				
-		leftStick.SetActive (toggleInventory);
-		rightStick.SetActive (toggleInventory);
-		//if (PlayerPrefs.GetString ("Controls") == "d") {
-			
-		//}
-		/* else {
-			actionButton.SetActive (toggleInventory);
-		}*/
-		inventoryTab.SetActive (!toggleInventory);
-		sortButton.SetActive (!toggleInventory);
-		craftingTab.SetActive (!toggleInventory);
-		settingsTab.SetActive (!toggleInventory);
-		infoTab.SetActive (!toggleInventory);
-		if (toggleInventory) {
+		//toggleInventory = !toggleInventory;				
+		leftStick.SetActive (isInventoryDown);
+		rightStick.SetActive (isInventoryDown);
+
+		inventoryTab.SetActive (!isInventoryDown);
+		sortButton.SetActive (!isInventoryDown);
+		craftingTab.SetActive (!isInventoryDown);
+		settingsTab.SetActive (!isInventoryDown);
+		infoTab.SetActive (!isInventoryDown);
+		runWalkButton.SetActive (isInventoryDown);
+		actionButton.SetActive (isInventoryDown);
+
+		if (isInventoryDown) {
 			inventoryMenu.GetComponent <RectTransform> ().SetSiblingIndex (tabIndex);
 			GameEventManager.SetState (GameEventManager.E_STATES.e_game);
 			mainUIWindow.anchoredPosition = new Vector3 (mainUIWindow.anchoredPosition.x, heightAdjuster);

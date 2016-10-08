@@ -17,6 +17,8 @@ public class ActionManager : MonoBehaviour
 	item currentSelectedItem = new item ();
 	Scene currentScene;
 
+
+
 	void Awake ()
 	{
 		m_AC_instance = this;
@@ -110,22 +112,59 @@ public class ActionManager : MonoBehaviour
 
 	void PlaceItem ()
 	{
-		string[] itemss = currentWeildedItem.itemID.Split (',');
-		LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [sbyte.Parse (itemss [0])], GameEventManager.currentSelectedTilePosition, LoadMapFromSave_PG.m_instance.mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform,
-			PlayerPrefs.GetInt ("mapChunkPosition"), sbyte.Parse (itemss [0]), sbyte.Parse (itemss [1]));
+		//string[] itemss = currentWeildedItem.itemID.Split (',');
+		//LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [sbyte.Parse (itemss [0])], GameEventManager.currentSelectedTilePosition, LoadMapFromSave_PG.m_instance.mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform,
+		//PlayerPrefs.GetInt ("mapChunkPosition"), sbyte.Parse (itemss [0]), sbyte.Parse (itemss [1]));
 	}
 
 	public void PlaceItemByButton ()
 	{
-		string[] itemss = currentWeildedItem.itemID.Split (',');
-
-		LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [sbyte.Parse (itemss [0])], 
+		/*string[] itemss = currentWeildedItem.itemID.Split (',');
+		ItemPlacer.m_instance.itemPlacer.transform.position = new Vector3 (PlayerMovement.m_instance.gameObject.transform.position.x, PlayerMovement.m_instance.gameObject.transform.position.y - 1, 0);
+		MoreInventoryButton.m_instance.ToggleInventorySize ();
+*/
+		/*LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [sbyte.Parse (itemss [0])], 
 			GameEventManager.currentSelectedTilePosition, LoadMapFromSave_PG.m_instance.mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform,
-			PlayerPrefs.GetInt ("mapChunkPosition"), sbyte.Parse (itemss [0]), sbyte.Parse (itemss [1]));
+			PlayerPrefs.GetInt ("mapChunkPosition"), sbyte.Parse (itemss [0]), sbyte.Parse (itemss [1]));*/
 	}
+
+
+			
+	/*void OnMouseDown ()
+	{
+		screenPoint = Camera.main.WorldToScreenPoint (itemPlacer.transform.position);
+		offset = itemPlacer.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		itemPlacer.transform.position = screenPoint;
+	}
+
+	void OnMouseDrag ()
+	{
+		Vector3 cursorPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (cursorPoint) + offset;
+		itemPlacer.transform.position = cursorPosition;
+	
+	}
+
+	GameObject ClickSelect ()
+	{
+		//Converting Mouse Pos to 2D (vector2) World Pos
+		Vector2 rayPos = new Vector2 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
+		RaycastHit2D hit = Physics2D.Raycast (rayPos, Vector2.zero, 0f);
+         
+		if (hit) {
+			Debug.Log (hit.transform.name);
+			return hit.transform.gameObject;
+		} else
+			return null;
+	}*/
 
 	void Update ()
 	{
+
+		/*	if (Input.GetMouseButtonDown (0) && ClickSelect () != null) {
+			print (ClickSelect ().name);
+		}*/
+
 		if (isReadyToAttack) {
 			if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetTrigger ("isTreeCutting");
@@ -256,10 +295,6 @@ public class ActionManager : MonoBehaviour
 		return int.Parse (sArray [index]);
 	}
 
-	void OnMouseDrag ()
-	{		
-		camp.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 0));
-		camp.transform.position = new Vector3 (camp.transform.position.x, camp.transform.position.y, 0);
-	}
+
 }
 

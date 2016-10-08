@@ -95,17 +95,17 @@ namespace Devdog.InventorySystem
 		}
 
 		[SerializeField]
-		private string _itemID = "";
+		private int _itemID = 0;
 
 		/// <summary>
 		/// Is Item Placable
 		/// </summary>
-		public string itemID {
+		public int itemID {
 			get {
 				return _itemID;
 			}
 			set {
-				_itemID = "";
+				_itemID = 0;
 			}
 		}
 

@@ -11,7 +11,7 @@ using Devdog.InventorySystem.UI;
 //{
 public class PlayerMovement : MonoBehaviour
 {
-	public GameObject camp;
+	public GameObject camp, touchCameraGO;
 	public Animator anim;
 	public float speed = 1.5f, runSpeedMultiplier = 1.5f;
 	public static PlayerMovement m_instance = null;
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool SavePlayerLocation = true;
 	public float autoPickupItemRadius = 3;
 	public bool isRightStick, isLeftStick = false;
+	public bool isPlayerNearFire = false;
 
 	private Vector3 cursorPosition;
 	private int attackTempA = 0, attackTempB = 0, calculateNearestTempA = 0, calculateNearestTempB = 0;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 	bool actionButtonPressed = false;
 	float speedTemp = 0;
 	GameObject closestItemGO;
+
 	//	List<Collider2D> cols = new List<Collider2D> ();
 	//Devdog.InventorySystem.InventoryItemBase currentWeildedItem, currentSelectedTile;
 
@@ -54,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
 		ES2Settings setting = new ES2Settings ();
 		setting.saveLocation = ES2Settings.SaveLocation.PlayerPrefs;
 		CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), false);
+
+		CircleCollider2D[] cols = GetComponents <CircleCollider2D> ();
+
 	}
 
 	public void StopPlayer ()
@@ -66,6 +71,11 @@ public class PlayerMovement : MonoBehaviour
 	{
 		anim.SetBool ("isWalking", true);
 		GameEventManager.SetState (GameEventManager.E_STATES.e_game);
+	}
+
+	void DisablemultiTouchZoomInPan (bool flag)
+	{
+		//touchCameraGO.GetComponent <TouchCamera> ().enabled = flag;
 	}
 
 	void Update ()
@@ -82,9 +92,13 @@ public class PlayerMovement : MonoBehaviour
 
 			if (isRightStick && isLeftStick) {  // if both Right and Left stick are pressed
 				isLeftStick = false;
+				DisablemultiTouchZoomInPan (true);			
 			}
 
-			if (isRightStick) {  //Attacking/working							
+			if (isRightStick) {  //Attacking/working	
+				
+				DisablemultiTouchZoomInPan (false);			
+
 				AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
 				IsCursorEnable (true);
 			} else {
@@ -97,7 +111,8 @@ public class PlayerMovement : MonoBehaviour
 				//SetAttackAnimation (false);
 			}
 
-			if (isLeftStick) {  // Walking	
+			if (isLeftStick) {  // Walking					
+				DisablemultiTouchZoomInPan (false);			
 				CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), true);
 				WalkingCalculation (input_x, input_y);
 				return;
@@ -110,10 +125,12 @@ public class PlayerMovement : MonoBehaviour
 				}			
 			}
 		}
+		DisablemultiTouchZoomInPan (true);			
 	}
 
 	void LateUpdate () // Set player storing order to front and Player Run toggle
 	{
+		DebugTextHandler.m_instance.DisplayDebugText (isPlayerNearFire.ToString ());
 		this.gameObject.GetComponent<SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10); // can optimized
 		if (Input.GetKey (KeyCode.LeftShift) || isRunning) {
 			speed = speedTemp * runSpeedMultiplier;
@@ -135,14 +152,14 @@ public class PlayerMovement : MonoBehaviour
 		List<Collider2D> sortedColliders = new List<Collider2D> ();
 
 		if (colliders.Length > 0) {
-			foreach (var cols in colliders) {
-				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (false);
-				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = new Color (0.75f, 0.75f, 0.75f, 1);
-				if (ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == ActionManager.m_AC_instance.currentWeildedItem.rarity.name || ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == "Hand") {
-					sortedColliders.Add (cols);
+			foreach (var cols in colliders) {				
+				if (cols.tag == "Item") {
+					if (ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == ActionManager.m_AC_instance.currentWeildedItem.rarity.name
+					    || ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == "Hand") {
+						sortedColliders.Add (cols);
+					}
 				}
 			}
-			//print (sortedColliders [0].name);
 		} else {
 			sortedColliders.Clear ();
 			nearestItemPosition = Vector3.zero;
@@ -155,9 +172,8 @@ public class PlayerMovement : MonoBehaviour
 			closestItemGO.transform.GetChild (closestItemGO.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = Color.white;
 			nearestItemPosition = closestItemGO.transform.position;
 			foreach (var cols in sortedColliders) {
-				if (ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == ActionManager.m_AC_instance.currentWeildedItem.rarity.name || ItemDatabase.m_instance.items [GetItemID (cols.gameObject.name)].tool.ToString () == "Hand") {
-					cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (true);
-				}
+				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = new Color (0.75f, 0.75f, 0.75f, 1);
+				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (true);
 			}
 		} else {
 			nearestItemPosition = Vector3.zero;
@@ -185,7 +201,6 @@ public class PlayerMovement : MonoBehaviour
 
 	public void AutoPickUpCalculation ()
 	{
-		print ("picking");
 		anim.SetBool ("isWalking", true);
 		if (Vector3.Distance (transform.position, nearestItemPosition) <= 1) {   //stop walking towards objects if less than 1 distance					
 			Vector3 dir = (nearestItemPosition - transform.position).normalized;
@@ -383,7 +398,9 @@ public class PlayerMovement : MonoBehaviour
 
 	int GetItemID (string s)
 	{
+		print (s);
 		string[] sArray = s.Split (',');
+
 		return int.Parse (sArray [0]);
 	}
 

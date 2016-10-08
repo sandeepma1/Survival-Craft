@@ -469,12 +469,14 @@
      <Compile Include="Assets\Scripts\HUD\Food\Food.cs" />
      <Compile Include="Assets\Scripts\HUD\Health\Health.cs" />
      <Compile Include="Assets\Scripts\HUD\Health\TestGUI.cs" />
+     <Compile Include="Assets\Scripts\HUD\ItemPlacer.cs" />
      <Compile Include="Assets\Scripts\HUD\WalkRun.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryCraftingBlueprint.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryCraftingBlueprintUI.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryItemBase.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\ObjectTriggererItem.cs" />
+     <Compile Include="Assets\Scripts\Items\CampfireControl.cs" />
      <Compile Include="Assets\Scripts\Items\Item.cs" />
      <Compile Include="Assets\Scripts\Items\ItemDatabase.cs" />
      <Compile Include="Assets\Scripts\Managers\GameEventManager.cs" />

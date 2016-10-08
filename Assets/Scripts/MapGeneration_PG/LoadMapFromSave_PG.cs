@@ -44,7 +44,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public item[] GetPlayerSurroundingTilesInfo_Item (Vector3 playerPos)
 	{
-		playerPos = GetPlayersLocalPosition (playerPos);
+		playerPos = GetLocalIslandPosition (playerPos);
 
 		playerSurroundings [0] = mapItemGO [0] [(int)playerPos.x, (int)playerPos.y + 1]; //above
 		playerSurroundings [1] = mapItemGO [0] [(int)playerPos.x + 1, (int)playerPos.y];
@@ -59,7 +59,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public GameObject[] GetPlayerSurroundingTilesInfo_GO (Vector3 playerPos)
 	{
-		playerPos = GetPlayersLocalPosition (playerPos);
+		playerPos = GetLocalIslandPosition (playerPos);
 		GameObject[] playerSurroundings = new GameObject[8];
 
 		playerSurroundings [0] = mapItemGO [0] [(int)playerPos.x, (int)playerPos.y + 1].GO; //above
@@ -214,7 +214,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public void InstantiatePlacedObject (GameObject go, Vector3 pos, Transform parent, int islandIndex, int itemID, int itemAge)
 	{
-		pos = GetPlayersLocalPosition (pos);
+		pos = GetLocalIslandPosition (pos);
 		if (itemID > 0 && mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO == null) {
 			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO = Instantiate (go);
 			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.name = itemID + "," + itemAge;
@@ -274,7 +274,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public item GetTile (Vector2 pos)
 	{
-		pos = GetPlayersLocalPosition (pos);
+		pos = GetLocalIslandPosition (pos);
 		//print (pos);
 		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
 			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
@@ -284,7 +284,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public void SaveMapItemData (sbyte id, sbyte age, Vector2 pos, onHarvest harvestType)
 	{
-		pos = GetPlayersLocalPosition (pos);
+		pos = GetLocalIslandPosition (pos);
 		switch (harvestType) {
 			case onHarvest.Destory:  //Carrots				
 				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
@@ -314,9 +314,20 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 	}
 
-	public Vector2 GetPlayersLocalPosition (Vector2 currentPos)
+	public Vector2 GetLocalIslandPosition (Vector2 currentPos)
 	{
 		Vector2 pos = currentPos - new Vector2 (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.y);
 		return pos;
+	}
+
+	public bool CheckForItemPlacement (Vector3 pos)
+	{
+		pos = GetLocalIslandPosition (pos);
+		if (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] > 1//ugly logic works only if mapTilesFromSave[0] is Water tile
+		    && mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO == null) {			
+			return true;			
+		} else {
+			return false;
+		}
 	}
 }
