@@ -24,7 +24,7 @@ public class ItemPlacer : MonoBehaviour
 
 	public void PlaceItemByButton ()
 	{
-		print (ActionManager.m_AC_instance.currentWeildedItem.itemID);
+		//print (ActionManager.m_AC_instance.currentWeildedItem.itemID);
 		MoreInventoryButton.m_instance.ToggleInventorySize (false);
 		itemPlacer.GetComponent <SpriteRenderer> ().sprite = 
 		LoadMapFromSave_PG.m_instance.items [ActionManager.m_AC_instance.currentWeildedItem.itemID].gameObject.GetComponent <SpriteRenderer> ().sprite;

@@ -330,4 +330,14 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			return false;
 		}
 	}
+
+	public bool isPlayerWlakable (Vector3 pos)
+	{
+		pos = GetLocalIslandPosition (pos);
+		if (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] > 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

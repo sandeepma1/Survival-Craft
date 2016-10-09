@@ -95,10 +95,8 @@ public class PlayerMovement : MonoBehaviour
 				DisablemultiTouchZoomInPan (true);			
 			}
 
-			if (isRightStick) {  //Attacking/working	
-				
-				DisablemultiTouchZoomInPan (false);			
-
+			if (isRightStick) {  //Attacking/working					
+				DisablemultiTouchZoomInPan (false);
 				AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
 				IsCursorEnable (true);
 			} else {
@@ -112,7 +110,10 @@ public class PlayerMovement : MonoBehaviour
 			}
 
 			if (isLeftStick) {  // Walking					
-				DisablemultiTouchZoomInPan (false);			
+				//DisablemultiTouchZoomInPan (false);	
+				/*if (!LoadMapFromSave_PG.m_instance.isPlayerWlakable (transform.position)) {
+					return;
+				}*/	
 				CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), true);
 				WalkingCalculation (input_x, input_y);
 				return;
@@ -130,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void LateUpdate () // Set player storing order to front and Player Run toggle
 	{
-		DebugTextHandler.m_instance.DisplayDebugText (isPlayerNearFire.ToString ());
+		//DebugTextHandler.m_instance.DisplayDebugText (isPlayerNearFire.ToString ());
 		this.gameObject.GetComponent<SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10); // can optimized
 		if (Input.GetKey (KeyCode.LeftShift) || isRunning) {
 			speed = speedTemp * runSpeedMultiplier;
@@ -202,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
 	public void AutoPickUpCalculation ()
 	{
 		anim.SetBool ("isWalking", true);
-		if (Vector3.Distance (transform.position, nearestItemPosition) <= 1) {   //stop walking towards objects if less than 1 distance					
+		if (Vector3.Distance (transform.position, nearestItemPosition) <= 1.25f) {   //stop walking towards objects if less than 1 distance					
 			Vector3 dir = (nearestItemPosition - transform.position).normalized;
 			walkTowards = false;
 			SetPickUpAnimation ();
@@ -398,7 +399,7 @@ public class PlayerMovement : MonoBehaviour
 
 	int GetItemID (string s)
 	{
-		print (s);
+		//print (s);
 		string[] sArray = s.Split (',');
 
 		return int.Parse (sArray [0]);
