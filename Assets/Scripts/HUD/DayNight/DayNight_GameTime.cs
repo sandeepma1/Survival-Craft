@@ -23,11 +23,19 @@ public class DayNight_GameTime : MonoBehaviour
 	float sunRotationZ = 0, moonRotationZ = 0;
 	private float nextActionTime = 0.0f;
 
-	//color lerper
+	//*****************************color lerper******************************************
 	bool changeColor = false;
 	public float colorTransitionDuration = 8;
 	float colorTransitionTimer = 0;
 	DayPhases currentPhase, tempCurrentPhase;
+	//*****************************CloudsSpawner*****************************************
+	public float timeBetweenSpawns = 10;
+	public GameObject[] cloudsPrefab;
+	int cloudInUse = 0;
+	float timeSinceLastSpawn;
+	//*****************************CloudsMoving*****************************************
+	public Transform target;
+	//***********************************************************************************
 
 	protected void Start ()
 	{		
@@ -83,15 +91,12 @@ public class DayNight_GameTime : MonoBehaviour
 				if (colorTransitionTimer <= 0) {
 					changeColor = false;
 					colorTransitionTimer = colorTransitionDuration;
-					/*if (DayPhases == DayPhases.Day) {
-						
-					}*/
 				}
 			}
-			timer += Time.deltaTime;
+
+			timer += Time.deltaTime;		
 			if (Time.time > nextActionTime) { //upadate every n seconds
 				SaveManager.m_instance.SaveGameTime ((int)timer);
-
 				nextActionTime += updatePeriod;
 				if (timer <= maxTime) {
 					background.transform.localPosition = new Vector3 (timer * -1, 0, 0);
@@ -108,9 +113,32 @@ public class DayNight_GameTime : MonoBehaviour
 					sun.transform.rotation = Quaternion.Euler (0, 180, -60);
 					background.transform.position = new Vector3 (0, 0, 0);
 				}
+				//************************Cloud Mover**********************
+				foreach (GameObject cloud in cloudsPrefab) {								
+					cloud.transform.position = Vector3.MoveTowards (cloud.transform.position, target.position, 5);
+					if (cloud.transform.localPosition.x >= 400) {
+						Destory (cloud);
+					}
+				}//*************************************************************
 			}
-			return;
+
+			//************************Cloud Spwaner**********************
+			if (Time.time > timeBetweenSpawns) { //upadate every 10 seconds Clouds Spwaner				
+				timeBetweenSpawns += updatePeriod;
+				int ranNo = Random.Range (0, cloudsPrefab.Length);
+				if (ranNo != cloudInUse && !cloudsPrefab [ranNo].activeSelf && GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+					cloudsPrefab [ranNo].gameObject.SetActive (true);
+					cloudInUse = ranNo;
+					cloudsPrefab [ranNo].transform.localPosition = new Vector3 (this.transform.localPosition.x, Random.Range (30, -35), 0);
+				}
+			}//*************************************************************
 		}
+	}
+
+	void Destory (GameObject cloud)
+	{
+		cloud.transform.localPosition = new Vector3 (0, cloud.transform.localPosition.y);
+		cloud.SetActive (false);
 	}
 
 	void  CalculateDayPhases ()
