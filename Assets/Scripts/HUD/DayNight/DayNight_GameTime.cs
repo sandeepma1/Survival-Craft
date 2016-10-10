@@ -68,11 +68,16 @@ public class DayNight_GameTime : MonoBehaviour
 		nightTime = ((maxTime / timeMultiplier) - seasons [0].duskStart) * timeMultiplier;
 		degreesTickMoon = sunRotationTotalAngle / nightTime;
 		colorTransitionTimer = colorTransitionDuration;
+
+		InvokeRepeating ("CalculateDayNightCycle", 1, 1);
+		InvokeRepeating ("MoveCloudEveryXTime", 1, 1);
+		InvokeRepeating ("SpwanNewCloudsEveryXTime", 1, 10);
 	}
 
 	void Update ()
 	{
 		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+			timer += Time.deltaTime;
 			if (changeColor) {
 				colorTransitionTimer -= Time.deltaTime;
 				switch (currentPhase) {					
@@ -93,47 +98,55 @@ public class DayNight_GameTime : MonoBehaviour
 					colorTransitionTimer = colorTransitionDuration;
 				}
 			}
-
-			timer += Time.deltaTime;		
-			if (Time.time > nextActionTime) { //upadate every n seconds
-				SaveManager.m_instance.SaveGameTime ((int)timer);
-				nextActionTime += updatePeriod;
-				if (timer <= maxTime) {
-					background.transform.localPosition = new Vector3 (timer * -1, 0, 0);
-					FormatDisplayTime ();
-					CalculateDayPhases ();
-				} else {
-					timer = 0; //day over new day 12am
-					sunRotationZ = 0;
-					moonRotationZ = 0;
-					day++;
-					SaveManager.m_instance.SaveGameDays (day);
-					LoadMapFromSave_PG.m_instance.RepaintMapItems ();
-					print ("new day");
-					sun.transform.rotation = Quaternion.Euler (0, 180, -60);
-					background.transform.position = new Vector3 (0, 0, 0);
-				}
-				//************************Cloud Mover**********************
-				foreach (GameObject cloud in cloudsPrefab) {								
-					cloud.transform.position = Vector3.MoveTowards (cloud.transform.position, target.position, 5);
-					if (cloud.transform.localPosition.x >= 400) {
-						Destory (cloud);
-					}
-				}//*************************************************************
-			}
-
-			//************************Cloud Spwaner**********************
-			if (Time.time > timeBetweenSpawns) { //upadate every 10 seconds Clouds Spwaner				
-				timeBetweenSpawns += updatePeriod;
-				int ranNo = Random.Range (0, cloudsPrefab.Length);
-				if (ranNo != cloudInUse && !cloudsPrefab [ranNo].activeSelf && GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
-					cloudsPrefab [ranNo].gameObject.SetActive (true);
-					cloudInUse = ranNo;
-					cloudsPrefab [ranNo].transform.localPosition = new Vector3 (this.transform.localPosition.x, Random.Range (30, -35), 0);
-				}
-			}//*************************************************************
 		}
 	}
+
+	void CalculateDayNightCycle ()
+	{
+		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+			SaveManager.m_instance.SaveGameTime ((int)timer);
+			if (timer <= maxTime) {
+				background.transform.localPosition = new Vector3 (timer * -1, 0, 0);
+				FormatDisplayTime ();
+				CalculateDayPhases ();
+			} else {
+				timer = 0; //day over, new day 12am
+				sunRotationZ = 0;
+				moonRotationZ = 0;
+				day++;
+				SaveManager.m_instance.SaveGameDays (day);
+				LoadMapFromSave_PG.m_instance.RepaintMapItems ();
+				print ("new day");
+				sun.transform.rotation = Quaternion.Euler (0, 180, -60);
+				background.transform.position = new Vector3 (0, 0, 0);
+			}
+		}
+	}
+
+	void MoveCloudEveryXTime ()
+	{
+		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+			foreach (GameObject cloud in cloudsPrefab) {								
+				cloud.transform.position = Vector3.MoveTowards (cloud.transform.position, target.position, 5);
+				if (cloud.transform.localPosition.x >= 400) {
+					Destory (cloud);
+				}
+			}
+		}
+	}
+
+	void SpwanNewCloudsEveryXTime ()
+	{
+		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
+			int ranNo = Random.Range (0, cloudsPrefab.Length);
+			if (ranNo != cloudInUse && !cloudsPrefab [ranNo].activeSelf) {
+				cloudsPrefab [ranNo].gameObject.SetActive (true);
+				cloudInUse = ranNo;
+				cloudsPrefab [ranNo].transform.localPosition = new Vector3 (this.transform.localPosition.x, Random.Range (30, -35), 0);
+			}
+		}
+	}
+
 
 	void Destory (GameObject cloud)
 	{

@@ -16,6 +16,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	int mapSize = 0;
 	int[] chunkMapSize;
 	string spriteName = "";
+	int tempPlayerPosX, tempPlayerPosY;
 
 	item[] playerSurroundings = new item[8];
 
@@ -331,13 +332,34 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		}
 	}
 
-	public bool isPlayerWlakable (Vector3 pos)
+	public void PlayerTerrianState (int x, int y)
 	{
-		pos = GetLocalIslandPosition (pos);
-		if (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] > 1) {
-			return true;
+		
+		if (x == tempPlayerPosX && y == tempPlayerPosY) {
+			return;
+		}
+		tempPlayerPosX = x;
+		tempPlayerPosY = y;
+		Vector2 pos = GetLocalIslandPosition (new Vector2 (x, y));
+
+		Rect rect = new Rect (0, 0, 128, 128);
+		if (rect.Contains (pos)) {
+			switch (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]) {
+				case 0:
+					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.water); // Player in water
+					PlayerMovement.m_instance.runSpeedMultiplier = 1;
+					PlayerMovement.m_instance.speedTemp = 1.75f;
+					break;				
+				default:
+					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.land); // Player on Land
+					PlayerMovement.m_instance.runSpeedMultiplier = 1.5f;
+					PlayerMovement.m_instance.speedTemp = 3;
+					break;
+			}
 		} else {
-			return false;
+			GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.deepwater); //Player in deep water
+			PlayerMovement.m_instance.runSpeedMultiplier = 1;
+			PlayerMovement.m_instance.speedTemp = 0.75f;
 		}
 	}
 }

@@ -1,20 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs">
     <Files>
       <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="278" Column="5" />
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="409" Column="2" />
-      <File FileName="Assets\Scripts\HUD\ItemPlacer.cs" Line="88" Column="6" />
-      <File FileName="Assets\Scripts\Menus\MoreInventoryButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\HUD\DayNight\DayNight_GameTime.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\DontGoThroughThings.cs" Line="7" Column="87" />
+      <File FileName="Assets\Scripts\HUD\ItemPlacer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="366" Column="2" />
+      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HUD\DayNight\DayNight_GameTime.cs" Line="123" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" line="217" column="1" />
-      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" line="218" column="1" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\InventorySystem\Scripts\Modules\Serialization\JsonItemsSerializer.cs" line="69" column="1" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\InventorySystem\Scripts\Modules\Serialization\PlayerPrefsCollectionSaverLoader.cs" line="27" column="1" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\InventorySystem\Scripts\Modules\Serialization\PlayerPrefsContainerSaverLoader.cs" line="27" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

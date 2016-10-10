@@ -65,6 +65,21 @@ namespace Devdog.InventorySystem
 		}
 
 		[SerializeField]
+		private int _itemUse = 1;
+
+		/// <summary>
+		/// ItemQuality
+		/// </summary>
+		public int itemUse {
+			get {
+				return _itemUse;
+			}
+			set {
+				_itemUse = value;
+			}
+		}
+
+		[SerializeField]
 		private bool _isPlaceable = false;
 
 		/// <summary>

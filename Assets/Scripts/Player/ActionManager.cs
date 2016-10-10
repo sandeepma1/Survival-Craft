@@ -10,14 +10,15 @@ public class ActionManager : MonoBehaviour
 	public bool isReadyToAttack = false;
 	public GameObject[] inventoryItems;
 	public GameObject consumeButtonInUI;
-
+	//public RuntimeAnimatorController treeAnimator;
+	public RuntimeAnimatorController treeAnimator;
+	public Devdog.InventorySystem.InventoryItemBase currentWeildedItem, tempItem;
+	/*public Devdog.InventorySystem.ItemCollectionBase[] allInventoryItems;*/
 	SpriteRenderer weaponSprite;
 	float baseTime = 0.0f, baseTimeStatic, progressVal = 0;
-	public Devdog.InventorySystem.InventoryItemBase currentWeildedItem, tempItem;
+
 	item currentSelectedItem = new item ();
 	Scene currentScene;
-
-
 
 	void Awake ()
 	{
@@ -47,6 +48,11 @@ public class ActionManager : MonoBehaviour
 			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
 		}
 	}
+
+	/*public void GetAllInventoryItems (Devdog.InventorySystem.ItemCollectionBase[] items)
+	{
+		allInventoryItems = items;
+	}*/
 
 	public void ActionButtonPressed ()
 	{
@@ -88,6 +94,9 @@ public class ActionManager : MonoBehaviour
 				isReadyToAttack = true;
 				PlayerMovement.m_instance.AttackCalculation ();
 				PlayerMovement.m_instance.SetAttackAnimation (true);
+				if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
+					currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().runtimeAnimatorController = treeAnimator;
+				}
 			} else { // if not tool
 				if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {		
 					print ("Using Bare Hands");
@@ -128,43 +137,8 @@ public class ActionManager : MonoBehaviour
 			PlayerPrefs.GetInt ("mapChunkPosition"), sbyte.Parse (itemss [0]), sbyte.Parse (itemss [1]));*/
 	}
 
-
-			
-	/*void OnMouseDown ()
-	{
-		screenPoint = Camera.main.WorldToScreenPoint (itemPlacer.transform.position);
-		offset = itemPlacer.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-		itemPlacer.transform.position = screenPoint;
-	}
-
-	void OnMouseDrag ()
-	{
-		Vector3 cursorPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (cursorPoint) + offset;
-		itemPlacer.transform.position = cursorPosition;
-	
-	}
-
-	GameObject ClickSelect ()
-	{
-		//Converting Mouse Pos to 2D (vector2) World Pos
-		Vector2 rayPos = new Vector2 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
-		RaycastHit2D hit = Physics2D.Raycast (rayPos, Vector2.zero, 0f);
-         
-		if (hit) {
-			Debug.Log (hit.transform.name);
-			return hit.transform.gameObject;
-		} else
-			return null;
-	}*/
-
 	void Update ()
 	{
-
-		/*	if (Input.GetMouseButtonDown (0) && ClickSelect () != null) {
-			print (ClickSelect ().name);
-		}*/
-
 		if (isReadyToAttack) {
 			if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetTrigger ("isTreeCutting");
@@ -221,9 +195,14 @@ public class ActionManager : MonoBehaviour
 		switch (currentSelectedItem.id) {
 			case 14:
 			case 15:
+				print (currentWeildedItem.itemUse + "bef");
+				currentWeildedItem.itemUse = currentWeildedItem.itemUse - 10;
+				print (currentWeildedItem.itemUse + "action");
+
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
 				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);// Fixed issue when stup remains transperent if tree chopped from south facing
 				ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate			
+
 				break;
 			case 16:
 			case 21:
@@ -273,7 +252,7 @@ public class ActionManager : MonoBehaviour
 			Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle;
 			parent.transform.position = new Vector3 (ran.x, ran.y, 0);
 			GameObject drop = GameObject.Instantiate (inventoryItems [id], new Vector3 (ran.x, ran.y, 0), Quaternion.identity) as GameObject;
-			drop.transform.localScale = new Vector3 (0.75f, 0.75f, 0.75f);
+			drop.transform.localScale = new Vector3 (GameEventManager.dropItemSize, GameEventManager.dropItemSize, GameEventManager.dropItemSize);
 			drop.transform.parent = parent.transform;
 			drop.GetComponent<Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
 			drop.GetComponent<Animator> ().Play ("itemDrop");

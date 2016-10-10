@@ -13,17 +13,17 @@ namespace Devdog.InventorySystem
 	public partial class InventoryUIItemWrapper // My new partial class 
 	{
 		public static InventoryUIItemWrapper m_instance = null;
-		public UnityEngine.UI.Image border;
+		public UnityEngine.UI.Image border, itemUseBar;
 	
 		bool isSelected = false;
 
 		void Start ()
 		{
+			
 			m_instance = this;
 			if (!isSelected) {
 				border.gameObject.SetActive (false);
 			}
-//			print (PlayerPrefs.GetInt ("ItemSlotIndex"));
 			if (PlayerPrefs.GetInt ("ItemSlotIndex") == (int)this.index) {				
 				border.gameObject.SetActive (true);
 				ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
@@ -34,17 +34,29 @@ namespace Devdog.InventorySystem
 		IEnumerator SetItem ()
 		{
 			yield return new WaitForSeconds (0.5f);
-			ActionManager.m_AC_instance.GetCurrentWeildedTool (itemCollection [PlayerPrefs.GetInt ("ItemSlotIndex")].item);
+			ActionManager.m_AC_instance.GetCurrentWeildedTool (itemCollection [PlayerPrefs.GetInt ("ItemSlotIndex")].item);	
+			if (item != null) {
+				if (item.itemUse > 1) { // if item have uses
+					itemUseBar.gameObject.SetActive (true);
+					print (item.itemUse);
+				}
+			}
 		}
 
 		public void ItemClicked ()
 		{
 			border.gameObject.SetActive (false);
+			itemUseBar.gameObject.SetActive (false);
 			MoreInventoryButton.m_instance.RemoveBorder ();
 			border.gameObject.SetActive (true);
 			ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
 			PlayerPrefs.SetInt ("ItemSlotIndex", (int)this.index);
-			//print (PlayerPrefs.GetInt ("ItemSlotIndex"));
+			if (item != null) {
+				if (item.itemUse > 1) { // if item have uses
+					itemUseBar.gameObject.SetActive (true);
+					print (item.itemUse);
+				}
+			}
 		}
 	}
 }

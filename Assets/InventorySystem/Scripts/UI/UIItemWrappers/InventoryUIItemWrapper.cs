@@ -120,13 +120,12 @@ namespace Devdog.InventorySystem
 			}
 		}
 
-		public virtual void Update ()
-		{
-			RepaintCooldown ();
-
-			if (isPressingButton && InventoryUIDragUtility.isDraggingItem == false && isLongPress)
-				OnLongTap (new PointerEventData (EventSystem.current), InventoryActionInput.EventType.All); // Long press for mobile
-		}
+		//public virtual void LateUpdate ()
+		//{
+		//RepaintCooldown ();
+		//if (isPressingButton && InventoryUIDragUtility.isDraggingItem == false && isLongPress)
+		//	OnLongTap (new PointerEventData (EventSystem.current), InventoryActionInput.EventType.All); // Long press for mobile
+		//}
 
 		public virtual void OnDisable ()
 		{

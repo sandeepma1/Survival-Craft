@@ -9,7 +9,7 @@ public class MoreInventoryButton : MonoBehaviour
 	public GameObject mainCanvas, inventoryMenu;
 	public GameObject leftStick, rightStick, inventoryTab, craftingTab, settingsTab, infoTab, sortButton, runWalkButton, actionButton;
 	public GameObject craftingMenu;
-	private bool toggleInventory = false, toggleCrafting = false, isInventoryHidden = false;
+	private bool toggleCrafting = false;
 	float heightAdjuster;
 	int tabIndex = 0;
 	public Devdog.InventorySystem.InventoryUIItemWrapper[] items;
@@ -32,8 +32,10 @@ public class MoreInventoryButton : MonoBehaviour
 	public void RemoveBorder ()
 	{
 		for (int i = 0; i < items.Length; i++) {
-			items [i].border.gameObject.SetActive (false);	
+			items [i].border.gameObject.SetActive (false);
+			//items [i].itemUseBar.gameObject.SetActive (false);
 		}
+
 	}
 
 	public void ToggleInventorySize (bool isInventoryDown)

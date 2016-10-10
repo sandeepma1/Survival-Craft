@@ -11,9 +11,9 @@ using Devdog.InventorySystem.UI;
 //{
 public class PlayerMovement : MonoBehaviour
 {
-	public GameObject camp, touchCameraGO;
+	public GameObject touchCameraGO;
 	public Animator anim;
-	public float speed = 1.5f, runSpeedMultiplier = 1.5f;
+	public float speed = 1.5f, speedTemp = 0, runSpeedMultiplier = 1.5f;
 	public static PlayerMovement m_instance = null;
 	public GameObject cursorTile, cursorTile_grid;
 
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 	Vector3 nearestItemPosition = Vector3.zero;
 	bool walkTowards = false;
 	bool actionButtonPressed = false;
-	float speedTemp = 0;
+	//	public float speedTemp = 0;
 	GameObject closestItemGO;
 
 	//	List<Collider2D> cols = new List<Collider2D> ();
@@ -111,9 +111,7 @@ public class PlayerMovement : MonoBehaviour
 
 			if (isLeftStick) {  // Walking					
 				//DisablemultiTouchZoomInPan (false);	
-				/*if (!LoadMapFromSave_PG.m_instance.isPlayerWlakable (transform.position)) {
-					return;
-				}*/	
+				LoadMapFromSave_PG.m_instance.PlayerTerrianState ((int)transform.position.x, (int)transform.position.y);
 				CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), true);
 				WalkingCalculation (input_x, input_y);
 				return;
@@ -203,7 +201,7 @@ public class PlayerMovement : MonoBehaviour
 	public void AutoPickUpCalculation ()
 	{
 		anim.SetBool ("isWalking", true);
-		if (Vector3.Distance (transform.position, nearestItemPosition) <= 1.25f) {   //stop walking towards objects if less than 1 distance					
+		if (Vector3.Distance (transform.position, nearestItemPosition) <= GameEventManager.walkTowardsItemSafeDistance) {   //stop walking towards objects if less than 1 distance					
 			Vector3 dir = (nearestItemPosition - transform.position).normalized;
 			walkTowards = false;
 			SetPickUpAnimation ();
