@@ -250,9 +250,9 @@ public class ActionManager : MonoBehaviour
 		switch (currentSelectedItem.id) {
 			case 14:
 			case 15:
-				print (currentWeildedItem.itemUse + "before");
-				currentWeildedItem.itemUse = currentWeildedItem.itemUse - 10;
-				print (currentWeildedItem.itemUse + "action");
+				print (currentWeildedItem.itemDurability + "before");
+				currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - 10;
+				print (currentWeildedItem.itemDurability + "action");
 
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
 				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);// Fixed issue when stup remains transperent if tree chopped from south facing

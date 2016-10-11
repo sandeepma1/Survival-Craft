@@ -11,7 +11,7 @@ namespace Devdog.InventorySystem.Models
 		/// </summary>
 		public int itemID;
 		public uint amount;
-		public int itemUses;
+		public int itemDurability;
 		public string collection;
 
 		public virtual bool isReference {
@@ -23,16 +23,16 @@ namespace Devdog.InventorySystem.Models
             
 		}
 
-		public InventoryItemSerializationModel (int itemID, uint amount, int uses) : this (itemID, amount, "", uses)
+		public InventoryItemSerializationModel (int itemID, uint amount, int itemDurability) : this (itemID, amount, "", itemDurability)
 		{
 		}
 
-		public InventoryItemSerializationModel (int itemID, uint amount, string collection, int uses)
+		public InventoryItemSerializationModel (int itemID, uint amount, string collection, int itemDurability)
 		{
 			this.itemID = itemID;
 			this.amount = amount;
 			this.collection = collection;
-			this.itemUses = uses;
+			this.itemDurability = itemDurability;
 		}
 	}
 }

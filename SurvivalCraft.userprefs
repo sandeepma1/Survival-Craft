@@ -1,15 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Materials\ShinyDefault.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\InventorySystem\Scripts\Modules\Serialization\Models\ItemContainerSerializationModel.cs">
     <Files>
-      <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="375" Column="5" />
-      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="275" Column="11" />
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="300" Column="18" />
-      <File FileName="Assets\Scripts\HUD\ItemPlacer.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Items\ItemDatabase.cs" Line="50" Column="75" />
-      <File FileName="Assets\Scripts\Items\Item.cs" Line="72" Column="8" />
-      <File FileName="Assets\Materials\ShinyDefault.shader" Line="30" Column="36" />
+      <File FileName="Assets\InventorySystem\Scripts\Modules\Serialization\Models\ItemContainerSerializationModel.cs" Line="91" Column="8" />
+      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="253" Column="31" />
+      <File FileName="Assets\Scripts\InventorySystemMod\InventoryItemBase.cs" Line="134" Column="4" />
+      <File FileName="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs" Line="41" Column="24" />
+      <File FileName="Assets\InventorySystem\Scripts\Modules\Serialization\Models\InventoryItemSerializationModel.cs" Line="35" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -36,9 +36,9 @@ namespace Devdog.InventorySystem
 			yield return new WaitForSeconds (0.5f);
 			ActionManager.m_AC_instance.GetCurrentWeildedTool (itemCollection [PlayerPrefs.GetInt ("ItemSlotIndex")].item);	
 			if (item != null) {
-				if (item.itemUse > 1) { // if item have uses
+				if (item.itemDurability > 1) { // if item have uses
 					itemUseBar.gameObject.SetActive (true);
-					print (item.itemUse);
+					print (item.itemDurability);
 				}
 			}
 		}
@@ -52,9 +52,9 @@ namespace Devdog.InventorySystem
 			ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
 			PlayerPrefs.SetInt ("ItemSlotIndex", (int)this.index);
 			if (item != null) {
-				if (item.itemUse > 1) { // if item have uses
+				if (item.itemDurability > 1) { // if item have uses
 					itemUseBar.gameObject.SetActive (true);
-					print (item.itemUse);
+					print (item.itemDurability);
 				}
 			}
 		}

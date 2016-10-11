@@ -65,17 +65,17 @@ namespace Devdog.InventorySystem
 		}
 
 		[SerializeField]
-		private int _itemUse = 1;
+		private int _itemDurability = 1;
 
 		/// <summary>
 		/// ItemQuality
 		/// </summary>
-		public int itemUse {
+		public int itemDurability {
 			get {
-				return _itemUse;
+				return _itemDurability;
 			}
 			set {
-				_itemUse = value;
+				_itemDurability = value;
 			}
 		}
 

@@ -49,7 +49,8 @@ namespace Devdog.InventorySystem.Models
 			var itemModelsList = new List<InventoryItemSerializationModel> ();
 			foreach (var item in items) {
 				if (item != null) {
-					itemModelsList.Add (new InventoryItemSerializationModel ((int)item.ID, item.currentStackSize, item.itemCollection.collectionName, item.itemUse));
+					Debug.Log (item.itemDurability);
+					itemModelsList.Add (new InventoryItemSerializationModel ((int)item.ID, item.currentStackSize, item.itemCollection.collectionName, item.itemDurability));
 				} else {
 					itemModelsList.Add (new InventoryItemSerializationModel (-1, 0, "", 1));
 				}
@@ -87,6 +88,8 @@ namespace Devdog.InventorySystem.Models
 				} else {
 					var instanceItem = Object.Instantiate<InventoryItemBase> (ItemManager.database.items [item.itemID]);
 					instanceItem.currentStackSize = item.amount;
+					//Debug.Log (item.itemDurability);
+					instanceItem.itemDurability = item.itemDurability;
 
 					if (useReferences) {
 						instanceItem.itemCollection = ItemCollectionBase.FindByName (item.collection);
