@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class ActionManager : MonoBehaviour
 {
 	public static ActionManager m_AC_instance = null;
-	public GameObject weaponGameObject, progressBar, progressBarBG;
+	public SpriteRenderer playerRightHandTool;
+	public Sprite[] weaponsSprite;
+	public GameObject progressBar, progressBarBG;
 	public bool isReadyToAttack = false;
 	public GameObject[] inventoryItems;
 	public GameObject consumeButtonInUI;
@@ -14,7 +16,7 @@ public class ActionManager : MonoBehaviour
 	public RuntimeAnimatorController treeAnimator;
 	public Devdog.InventorySystem.InventoryItemBase currentWeildedItem, tempItem;
 	/*public Devdog.InventorySystem.ItemCollectionBase[] allInventoryItems;*/
-	SpriteRenderer weaponSprite;
+	//SpriteRenderer weaponSprite;
 	float baseTime = 0.0f, baseTimeStatic, progressVal = 0;
 
 	item currentSelectedItem = new item ();
@@ -28,7 +30,7 @@ public class ActionManager : MonoBehaviour
 
 	void Start ()
 	{
-		weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
+		//weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
 		//GetCurrentTile ();
@@ -36,6 +38,7 @@ public class ActionManager : MonoBehaviour
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
+
 		if (i == null) {
 			currentWeildedItem = tempItem;
 		} else {			
@@ -46,6 +49,35 @@ public class ActionManager : MonoBehaviour
 				consumeButtonInUI.SetActive (false);
 			}
 			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
+		}
+
+		switch (currentWeildedItem.rarity.name) {
+			case "Hand":
+				playerRightHandTool.sprite = weaponsSprite [0];
+				break;
+			case "Axe":
+				playerRightHandTool.sprite = weaponsSprite [1];
+				break;
+			case "Pickaxe":
+				playerRightHandTool.sprite = weaponsSprite [2];
+				break;
+			case "Hammer":
+				playerRightHandTool.sprite = weaponsSprite [3];
+				break;
+			case "Hoe":
+				playerRightHandTool.sprite = weaponsSprite [4];
+				break;
+			case "Shovel":
+				playerRightHandTool.sprite = weaponsSprite [5];
+				break;
+			case "FishingRod":
+				playerRightHandTool.sprite = weaponsSprite [6];
+				break;
+			case "Sword":
+				playerRightHandTool.sprite = weaponsSprite [7];
+				break;		
+			default:
+				break;
 		}
 	}
 
@@ -61,8 +93,7 @@ public class ActionManager : MonoBehaviour
 
 	void GetCurrentTile ()
 	{
-		if (currentWeildedItem == null) {
-			print ("once");
+		if (currentWeildedItem == null) {			
 			currentWeildedItem = tempItem;
 			/*currentWeildedItem.ID = 0;
 			currentWeildedItem.isPlaceable = false;
@@ -73,7 +104,6 @@ public class ActionManager : MonoBehaviour
 		if (LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).id > 0) {
 			currentSelectedItem = LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition);
 			CalculateHardness ();
-
 		} else {
 			print ("No items nearby");
 			currentSelectedItem = new item ();
@@ -85,37 +115,62 @@ public class ActionManager : MonoBehaviour
 
 	void CalculateHardness ()
 	{
-		/**/
-		if (currentSelectedItem.id > 0 && !currentWeildedItem.isPlaceable) {				
-			if (currentWeildedItem != null && currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool
-				print ("Using Tools");
+		//print (currentWeildedItem.rarity.name);
+		if (currentSelectedItem.id > 0) {
+			if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {		
+				//print ("Using Bare Hands");
+				PlayerMovement.m_instance.SetPickUpAnimation ();
+				baseTime = 0.35f;
+				baseTimeStatic = baseTime;
+				isReadyToAttack = true;
+				PlayerMovement.m_instance.SetPickUpAnimation ();
+				return;
+			} 
+
+			if (currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool in hand and using tool but not bare hands as above
+				//*********************************Common for all tools********************************************
 				baseTime = (GameEventManager.baseStrengthWithTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness) / currentWeildedItem.itemQuality;
 				baseTimeStatic = baseTime;
 				isReadyToAttack = true;
-				//PlayerMovement.m_instance.AttackCalculation ();
-				//PlayerMovement.m_instance.SetAttackAnimation (true);
-				if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
-					currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().runtimeAnimatorController = treeAnimator;
-				}
-			} else { // if not tool
-				if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {		
-					print ("Using Bare Hands");
-					baseTime = 0.25f;
-					baseTimeStatic = baseTime;
-					isReadyToAttack = true;
-					//PlayerMovement.m_instance.AttackCalculation ();
-					PlayerMovement.m_instance.SetPickUpAnimation ();
-				} else {
-					isReadyToAttack = false;
-					print ("cannot harvest");
-					PlayerMovement.m_instance.AttackCalculation ();
-					PlayerMovement.m_instance.SetAttackAnimation (false);
+				//*************************************************************************************************
+				switch (ItemDatabase.m_instance.items [currentSelectedItem.id].tool) {
+					case Item.ItemTool.Hand:
+						print ("using hands, this will never execute!!");
+						break;
+					case Item.ItemTool.Axe:						
+						PlayerMovement.m_instance.SetSlashingAnimation (true);
+						if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
+							currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().runtimeAnimatorController = treeAnimator;
+						}
+						//print ("using Axe");
+						break;
+					case Item.ItemTool.Pickaxe:
+						PlayerMovement.m_instance.SetSlashingAnimation (true);
+						//print ("using pickaxe");
+						break;
+					case Item.ItemTool.Shovel:
+						PlayerMovement.m_instance.SetDigUpAnimation ();
+						//print ("using shovel");
+						break;
+					case Item.ItemTool.FishingRod:
+						//print ("using FishingRod");
+						break;
+					case Item.ItemTool.Hammer:
+						//print ("using hammer");
+						break;
+					case Item.ItemTool.Hoe:
+						//print ("using hoe");
+						break;
+					case Item.ItemTool.Sword:
+						//print ("using Sword");
+						break;
+					case Item.ItemTool.None:
+						//print ("using none");
+						break;
+					default:
+						break;
 				}
 			}
-		} else {
-			PlayerMovement.m_instance.AttackCalculation ();
-			PlayerMovement.m_instance.SetAttackAnimation (false);
-			print ("No items nearby");
 		}
 	}
 
@@ -195,7 +250,7 @@ public class ActionManager : MonoBehaviour
 		switch (currentSelectedItem.id) {
 			case 14:
 			case 15:
-				print (currentWeildedItem.itemUse + "bef");
+				print (currentWeildedItem.itemUse + "before");
 				currentWeildedItem.itemUse = currentWeildedItem.itemUse - 10;
 				print (currentWeildedItem.itemUse + "action");
 

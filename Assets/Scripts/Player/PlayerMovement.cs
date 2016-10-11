@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	public static PlayerMovement m_instance = null;
 	public GameObject touchCameraGO, characterGO;
-	public SpriteRenderer playerHead, playerBody, playerLimbLeft, playerLimbRight, playerLegLeft, playerLegRigth;
+	public SpriteRenderer playerHead, playerBody, playerLimbLeft, playerLimbRight, playerLegLeft, playerLegRight, playerRightWeapon;
 	public Animator anim;
 	public float speed = 1.5f, speedTemp = 0, runSpeedMultiplier = 1.5f;
 
@@ -112,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 
 			if (isLeftStick) {  // Walking	
+				//SetIdleAnimation (false);
 				LoadMapFromSave_PG.m_instance.PlayerTerrianState ((int)transform.position.x, (int)transform.position.y);
 				CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), true);
 				WalkingCalculation (input_x, input_y);
@@ -119,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 			anim.SetBool ("isWalking", false);
 			anim.SetBool ("isRunning", false);
+			//SetIdleAnimation (true);
 
 			if (walkTowards && actionButtonPressed) {
 				if (nearestItemPosition != Vector3.zero) {
@@ -138,8 +140,10 @@ public class PlayerMovement : MonoBehaviour
 		playerBody.sortingOrder = (int)(transform.position.y * -10);
 		playerLimbLeft.sortingOrder = (int)(transform.position.y * -10) + 2;
 		playerLimbRight.sortingOrder = (int)(transform.position.y * -10) - 2;
+		playerRightWeapon.sortingOrder = (int)(transform.position.y * -10) - 2;
 		playerLegLeft.sortingOrder = (int)(transform.position.y * -10) + 1;
-		playerLegRigth.sortingOrder = (int)(transform.position.y * -10) - 1;
+		playerLegRight.sortingOrder = (int)(transform.position.y * -10) - 1;
+
 
 		if (Input.GetKey (KeyCode.LeftShift) || isRunning) {
 			speed = speedTemp * runSpeedMultiplier;
@@ -193,7 +197,8 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	public void ActionButtonDown ()
-	{		
+	{
+		//SetIdleAnimation (false);
 		actionButtonPressed = true;
 		CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), false);
 
@@ -205,18 +210,19 @@ public class PlayerMovement : MonoBehaviour
 
 	public void ActionButtonUp ()
 	{
+		//SetIdleAnimation (true);
 		actionButtonPressed = false;
 		ActionManager.m_AC_instance.isReadyToAttack = false;
 		SetAttackAnimation (false);
+		SetSlashingAnimation (false);
+		//SetDiggingAnimation (false);
 	}
 
 	public void AutoPickUpCalculation ()
 	{
-		anim.SetBool ("isWalking", true);
 		if (Vector3.Distance (transform.position, nearestItemPosition) <= GameEventManager.walkTowardsItemSafeDistance) {   //stop walking towards objects if less than 1 distance					
 			Vector3 dir = (nearestItemPosition - transform.position).normalized;
 			walkTowards = false;
-			SetPickUpAnimation ();
 			//anim.SetFloat ("PickUpX", Mathf.RoundToInt (dir.x));
 			//anim.SetFloat ("PickUpY", Mathf.RoundToInt (dir.y));
 			ActionManager.m_AC_instance.ActionButtonPressed ();
@@ -226,10 +232,10 @@ public class PlayerMovement : MonoBehaviour
 		}
 		Vector3 playerDir = (nearestItemPosition - transform.position).normalized;
 		WalkingCalculation (playerDir.x, playerDir.y);
-		SetAttackAnimation (false);
+		//SetAttackAnimation (false);
 	}
 
-	public void PickUpCalculation (int a, int b)
+	/*public void PickUpCalculation (int a, int b)
 	{	
 		anim.SetFloat ("AttackingX", a);
 		anim.SetFloat ("AttackingY", b);
@@ -237,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
 		ActionManager.m_AC_instance.isReadyToAttack = false;
 		SetCursorTilePosition (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
 		ActionManager.m_AC_instance.ActionButtonPressed ();
-	}
+	}*/
 
 	public void WalkingCalculation (float x, float y)
 	{
@@ -274,12 +280,39 @@ public class PlayerMovement : MonoBehaviour
 		ActionManager.m_AC_instance.ActionButtonPressed ();
 	}
 
-	public void AttackCalculation ()
+	/*public void AttackCalculation ()
 	{
 		anim.SetTrigger ("Slashing");
-		/*anim.SetFloat ("SlashingX", Mathf.RoundToInt (r_input_a));
-		anim.SetFloat ("SlashingY", Mathf.RoundToInt (r_input_b));*/
+	}*/
+
+	public void SetIdleAnimation (bool flag)
+	{
+		anim.SetBool ("isIdle", flag);
 	}
+
+	public void SetSlashingAnimation (bool flag)
+	{
+		anim.SetBool ("isSlashing", flag);
+	}
+
+	public void SetDigUpAnimation ()
+	{
+		anim.SetTrigger ("DigUp");
+	}
+
+	public void SetAttackAnimation (bool flag)
+	{
+		anim.SetBool ("isAttacking", flag);
+	}
+
+	public void SetPickUpAnimation ()
+	{
+		anim.SetTrigger ("PickingUp");
+	}
+
+
+
+
 
 	public void SetCursorTilePosition (int a, int b)
 	{
@@ -300,16 +333,6 @@ public class PlayerMovement : MonoBehaviour
 	public void ShowGrid ()
 	{
 		cursorTile_grid.transform.position = new Vector3 (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y - animationPivotAdjuster), Mathf.RoundToInt (transform.position.z));
-	}
-
-	public void SetAttackAnimation (bool flag)
-	{
-		anim.SetBool ("isAttacking", flag);
-	}
-
-	public void SetPickUpAnimation ()
-	{
-		anim.SetTrigger ("PickingUp");
 	}
 
 	public void SavePlayerPosition ()
