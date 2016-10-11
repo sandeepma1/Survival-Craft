@@ -65,7 +65,7 @@ public class MapGenerator_PG : MonoBehaviour
 			SaveTextureToFile (TextureGenerator.TextureFromColourMap (mapData.colourMap, mapChunkSize, mapChunkSize));
 			display.DrawTexture (LoadTextureFromFile ((Texture2D)ES2.LoadImage ("EditorTest.png")));
 			if (GenerateTerrian) {
-				GenerateMap (TextureGenerator.TextureFromColourMap (mapData.colourMap, mapChunkSize, mapChunkSize));
+				//GenerateMap (TextureGenerator.TextureFromColourMap (mapData.colourMap, mapChunkSize, mapChunkSize));
 			}
 		}
 	}

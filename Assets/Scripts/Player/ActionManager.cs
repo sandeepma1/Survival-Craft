@@ -92,8 +92,8 @@ public class ActionManager : MonoBehaviour
 				baseTime = (GameEventManager.baseStrengthWithTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness) / currentWeildedItem.itemQuality;
 				baseTimeStatic = baseTime;
 				isReadyToAttack = true;
-				PlayerMovement.m_instance.AttackCalculation ();
-				PlayerMovement.m_instance.SetAttackAnimation (true);
+				//PlayerMovement.m_instance.AttackCalculation ();
+				//PlayerMovement.m_instance.SetAttackAnimation (true);
 				if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
 					currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().runtimeAnimatorController = treeAnimator;
 				}
@@ -103,7 +103,7 @@ public class ActionManager : MonoBehaviour
 					baseTime = 0.25f;
 					baseTimeStatic = baseTime;
 					isReadyToAttack = true;
-					PlayerMovement.m_instance.AttackCalculation ();
+					//PlayerMovement.m_instance.AttackCalculation ();
 					PlayerMovement.m_instance.SetPickUpAnimation ();
 				} else {
 					isReadyToAttack = false;

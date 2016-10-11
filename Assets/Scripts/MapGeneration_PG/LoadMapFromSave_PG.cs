@@ -333,8 +333,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	}
 
 	public void PlayerTerrianState (int x, int y)
-	{
-		
+	{		
 		if (x == tempPlayerPosX && y == tempPlayerPosY) {
 			return;
 		}
@@ -346,20 +345,39 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		if (rect.Contains (pos)) {
 			switch (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]) {
 				case 0:
-					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.water); // Player in water
-					PlayerMovement.m_instance.runSpeedMultiplier = 1;
-					PlayerMovement.m_instance.speedTemp = 1.75f;
-					break;				
-				default:
-					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.land); // Player on Land
-					PlayerMovement.m_instance.runSpeedMultiplier = 1.5f;
-					PlayerMovement.m_instance.speedTemp = 3;
+					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.deepwater); // Player in water
+					SetPlayerSpeed_n_Multiplier (1.25f, 1);
+					break;
+				case 1:
+					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.water); // Player in sand
+					SetPlayerSpeed_n_Multiplier (1.75f, 1);
+					break;		
+				case 2:
+					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.sand); // Player in sand
+					SetPlayerSpeed_n_Multiplier (3, 1.5f);
+					break;		
+				case 3:
+					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.land); // Player in sand
+					SetPlayerSpeed_n_Multiplier (3, 1.5f);
+					break;			
+				case 4:
+					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.stone); // Player in sand
+					SetPlayerSpeed_n_Multiplier (3, 1.5f);
+					break;			
+				default:					
 					break;
 			}
-		} else {
+		}/* else {
 			GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.deepwater); //Player in deep water
 			PlayerMovement.m_instance.runSpeedMultiplier = 1;
 			PlayerMovement.m_instance.speedTemp = 0.75f;
-		}
+		}*/
+		//print (GameEventManager.GetPlayerTerrianSTATES ());
+	}
+
+	void SetPlayerSpeed_n_Multiplier (float speed, float speedMultiplier)
+	{
+		PlayerMovement.m_instance.speedTemp = speed;
+		PlayerMovement.m_instance.runSpeedMultiplier = speedMultiplier;
 	}
 }

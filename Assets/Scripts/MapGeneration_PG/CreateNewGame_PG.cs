@@ -71,9 +71,10 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	}
 
 	void SaveTextFile (Texture2D tex) //SaveTexture
-	{
+	{		
+		ES2.SaveImage (tex, "Map.png");	
 		PopulateGameitems (tex);
-		TileBeautifier ();
+		//TileBeautifier ();
 		SaveAllInFiles ();
 		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();  //Load level afer calculations
 	}
@@ -159,6 +160,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 	public void PopulateGameitems (Texture2D map)
 	{
+		map.filterMode = FilterMode.Point;
 		mapItems = new string[mapChunkSize, mapChunkSize];
 		mapTiles = new sbyte[mapChunkSize, mapChunkSize];
 		for (int x = 0; x < map.height; x++) {
@@ -166,48 +168,18 @@ public partial class CreateNewGame_PG : MonoBehaviour
 				if (map.GetPixel (x, y) == regions [0].colour) {//Deep Water
 					FillTileInfo (0, x, y);
 					FillArrayBlank (x, y);
-				} else if (map.GetPixel (x, y) == regions [1].colour) { //Shallow water
-					FillTileInfo (-1, x, y);
-					Fill2DArray ("23,-1", x, y, 0.01f); //star fish
-
+				} else if (map.GetPixel (x, y) == regions [1].colour) {//Water
+					FillTileInfo (1, x, y);
+					FillArrayBlank (x, y);
 				} else if (map.GetPixel (x, y) == regions [2].colour) { //Sand
-					FillTileInfo (18, x, y);
-					int ran = UnityEngine.Random.Range (0, 8);
-					switch (ran) {
-						case 0:
-							Fill2DArray ("5,-1", x, y, 0.05f); //grass
-							break;
-						case 1:
-							Fill2DArray ("1,-1", x, y, 0.05f); // flint
-							break;
-						case 2:
-							Fill2DArray ("6,-1", x, y, 0.09f); //grass1
-							if (!isPlayerPosSET) {
-								PlayerPrefs.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
-								PlayerPrefs.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
-								isPlayerPosSET = true;
-							}
-							break;
-						case 3:
-							Fill2DArray ("9,-1", x, y, 0.05f); //Stick
-							break;
-						case 4:
-							int ranTree = UnityEngine.Random.Range (0, 4);
-							Fill2DArray (ranTree + 12 + ",1", x, y, 0.11f); //trees
-							break;
-						case 5:
-							Fill2DArray ("17,8", x, y, 0.025f); //berrybush
-							break;
-						case 6:
-							Fill2DArray ("22,5", x, y, 0.025f); //radishPlant
-							break;
-						case 7:
-							Fill2DArray ("2,-1", x, y, 0.05f); //trees
-							break;
-						default:
-							break;
-					}
-
+					FillTileInfo (2, x, y);
+					FillItemInfo ("23,-1", x, y, 0.01f); //star fish
+				} else if (map.GetPixel (x, y) == regions [3].colour) { //Land
+					FillTileInfo (3, x, y);
+					FillLandTilesWithItems (x, y);
+				} else if (map.GetPixel (x, y) == regions [4].colour) { //Stones
+					FillTileInfo (1, x, y);
+					FillArrayBlank (x, y);
 				} else {
 					FillTileInfo (0, x, y);
 					FillArrayBlank (x, y);
@@ -216,7 +188,46 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		}
 	}
 
-	void Fill2DArray (string itemName, int x, int y, float probability)
+	void FillLandTilesWithItems (int x, int y)
+	{
+		int ran = UnityEngine.Random.Range (0, 8);
+		switch (ran) {
+			case 0:
+				FillItemInfo ("5,-1", x, y, 0.05f); //grass
+				break;
+			case 1:
+				FillItemInfo ("1,-1", x, y, 0.05f); // flint
+				break;
+			case 2:
+				FillItemInfo ("6,-1", x, y, 0.09f); //grass1
+				if (!isPlayerPosSET) {
+					PlayerPrefs.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
+					PlayerPrefs.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
+					isPlayerPosSET = true;
+				}
+				break;
+			case 3:
+				FillItemInfo ("9,-1", x, y, 0.05f); //Stick
+				break;
+			case 4:
+				int ranTree = UnityEngine.Random.Range (0, 4);
+				FillItemInfo (ranTree + 12 + ",1", x, y, 0.11f); //trees
+				break;
+			case 5:
+				FillItemInfo ("17,8", x, y, 0.025f); //berrybush
+				break;
+			case 6:
+				FillItemInfo ("22,5", x, y, 0.025f); //radishPlant
+				break;
+			case 7:
+				FillItemInfo ("2,-1", x, y, 0.05f); //trees
+				break;
+			default:
+				break;
+		}
+	}
+
+	void FillItemInfo (string itemName, int x, int y, float probability)
 	{
 		if (UnityEngine.Random.value <= probability) {
 			mapItems [x, y] = itemName;

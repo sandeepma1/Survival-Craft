@@ -69,9 +69,11 @@ public static class GameEventManager
 
 	public enum E_PlayerTerrianSTATES
 	{
-		land,
+		deepwater,
 		water,
-		deepwater}
+		sand,
+		land,
+		stone}
 
 	;
 }
