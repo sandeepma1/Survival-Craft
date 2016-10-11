@@ -35,10 +35,10 @@ public class ItemDatabase : MonoBehaviour
 		items [10] = new Item (10, "Log ", -1, -1, Item.ItemType.RawMaterial, Item.ItemTool.Hand, 1, true, 0, 5, 1, 1);
 		//Trees
 		items [11] = new Item (11, "Stump Tree", 1, -1, Item.ItemType.Tree, Item.ItemTool.Shovel, 1, false, 0, 5, 1, 1);
-		items [12] = new Item (12, "Small Tree", 2, 13, Item.ItemType.Tree, Item.ItemTool.Axe, 1, false, 0, 5, 1, 1);
-		items [13] = new Item (13, "Medium Tree", 2, 14, Item.ItemType.Tree, Item.ItemTool.Axe, 2, false, 0, 5, 1, 2);
-		items [14] = new Item (14, "Large Tree", 2, 15, Item.ItemType.Tree, Item.ItemTool.Axe, 2, false, 0, 5, 2, 3);
-		items [15] = new Item (15, "Mature Tree", 2, -1, Item.ItemType.Tree, Item.ItemTool.Axe, 2, false, 0, 5, 2, 3);
+		items [12] = new Item (12, "Small Tree", 2, 13, Item.ItemType.Tree, Item.ItemTool.Axe, 2, false, 0, 5, 1, 1);
+		items [13] = new Item (13, "Medium Tree", 2, 14, Item.ItemType.Tree, Item.ItemTool.Axe, 5, false, 0, 5, 1, 2);
+		items [14] = new Item (14, "Large Tree", 2, 15, Item.ItemType.Tree, Item.ItemTool.Axe, 10, false, 0, 5, 2, 3);
+		items [15] = new Item (15, "Mature Tree", 2, -1, Item.ItemType.Tree, Item.ItemTool.Axe, 12, false, 0, 5, 2, 3);
 		//Berries
 		items [16] = new Item (16, "Berries", -1, -1, Item.ItemType.Food, Item.ItemTool.Hand, 0.1f, true, 0, 0, 1, 1);
 		//Berry Bushes

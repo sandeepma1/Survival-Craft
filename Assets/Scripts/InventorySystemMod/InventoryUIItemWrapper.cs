@@ -18,8 +18,7 @@ namespace Devdog.InventorySystem
 		bool isSelected = false;
 
 		void Start ()
-		{
-			
+		{			
 			m_instance = this;
 			if (!isSelected) {
 				border.gameObject.SetActive (false);
@@ -38,16 +37,15 @@ namespace Devdog.InventorySystem
 			if (item != null) {
 				if (item.itemDurability > 1) { // if item have uses
 					itemUseBar.gameObject.SetActive (true);
-					print (item.itemDurability);
 				}
 			}
 		}
 
-		public void ItemClicked ()
+		public void InventorySlotClicked ()
 		{
 			border.gameObject.SetActive (false);
 			itemUseBar.gameObject.SetActive (false);
-			MoreInventoryButton.m_instance.RemoveBorder ();
+			ActionManager.m_AC_instance.RemoveBorder ();
 			border.gameObject.SetActive (true);
 			ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
 			PlayerPrefs.SetInt ("ItemSlotIndex", (int)this.index);

@@ -12,12 +12,12 @@ public class MoreInventoryButton : MonoBehaviour
 	private bool toggleCrafting = false;
 	float heightAdjuster;
 	int tabIndex = 0;
-	public Devdog.InventorySystem.InventoryUIItemWrapper[] items;
+
 	// = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
 
 	void Start ()
 	{
-		items = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
+		
 		tabIndex = inventoryMenu.GetComponent <RectTransform> ().GetSiblingIndex ();
 		heightAdjuster = ((mainCanvas.GetComponent <RectTransform> ().rect.height / 2) + 200) * -1;
 		ToggleInventorySize (true);
@@ -29,14 +29,6 @@ public class MoreInventoryButton : MonoBehaviour
 		m_instance = this;
 	}
 
-	public void RemoveBorder ()
-	{
-		for (int i = 0; i < items.Length; i++) {
-			items [i].border.gameObject.SetActive (false);
-			//items [i].itemUseBar.gameObject.SetActive (false);
-		}
-
-	}
 
 	public void ToggleInventorySize (bool isInventoryDown)
 	{		

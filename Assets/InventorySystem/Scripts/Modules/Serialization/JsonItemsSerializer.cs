@@ -46,7 +46,7 @@ namespace Devdog.InventorySystem
 			var arr = new InventoryItemSerializationModel[items.Count];
 			for (int i = 0; i < items.Count; i++) {
 				var item = (JsonObject)items [i];
-				arr [i] = new InventoryItemSerializationModel (int.Parse (item ["itemID"].ToString ()), uint.Parse (item ["amount"].ToString ()), item ["collection"].ToString (), int.Parse (item ["uses"].ToString ()));
+				arr [i] = new InventoryItemSerializationModel (int.Parse (item ["itemID"].ToString ()), uint.Parse (item ["amount"].ToString ()), item ["collection"].ToString (), int.Parse (item ["itemDurability"].ToString ()));
 			}
 
 			return arr;

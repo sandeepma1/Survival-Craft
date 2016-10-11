@@ -741,6 +741,7 @@ namespace Devdog.InventorySystem
 
 			dropLocation = dropObj.transform.position;
 			Destroy (dropObj); // No longer need that...
+			print (dropLocation + " item droppeddd");
 			return dropLocation;
 		}
 

@@ -21,6 +21,7 @@ public class ActionManager : MonoBehaviour
 
 	item currentSelectedItem = new item ();
 	Scene currentScene;
+	public Devdog.InventorySystem.InventoryUIItemWrapper[] itemsInInventory;
 
 	void Awake ()
 	{
@@ -30,18 +31,42 @@ public class ActionManager : MonoBehaviour
 
 	void Start ()
 	{
+		itemsInInventory = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
 		//weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
-		//GetCurrentTile ();
+	}
+
+	public void RemoveBorder ()
+	{
+		for (int i = 0; i < itemsInInventory.Length; i++) {
+			itemsInInventory [i].border.gameObject.SetActive (false);
+		}
+	}
+
+	public void UpdateAllItemsInInventory ()
+	{
+		System.Array.Clear (itemsInInventory, 0, itemsInInventory.Length);
+		itemsInInventory = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
+		foreach (var slot in itemsInInventory) {
+			if (slot.item != null) {
+				slot.itemUseBar.rectTransform.sizeDelta = new Vector2 (slot.item.itemDurability, slot.itemUseBar.rectTransform.rect.height);
+			}
+		}		
+	}
+
+	public void UpdateItemDurabilityBarInInventory ()
+	{
+		
 	}
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
-
+		UpdateAllItemsInInventory ();
+		UpdateItemDurabilityBarInInventory ();
 		if (i == null) {
 			currentWeildedItem = tempItem;
-		} else {			
+		} else {
 			currentWeildedItem = i;
 			if (currentWeildedItem != null && currentWeildedItem.isConsumable) {
 				consumeButtonInUI.SetActive (true);
@@ -50,7 +75,11 @@ public class ActionManager : MonoBehaviour
 			}
 			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
 		}
+		UpdatePlayerWeapon ();
+	}
 
+	public void UpdatePlayerWeapon ()
+	{
 		switch (currentWeildedItem.rarity.name) {
 			case "Hand":
 				playerRightHandTool.sprite = weaponsSprite [0];
@@ -253,7 +282,10 @@ public class ActionManager : MonoBehaviour
 				print (currentWeildedItem.itemDurability + "before");
 				currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - 10;
 				print (currentWeildedItem.itemDurability + "action");
-
+				if (currentWeildedItem.itemDurability < 1) {
+					DestoryInventoryItem ();
+					Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.InventorySlotClicked ();
+				}
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
 				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);// Fixed issue when stup remains transperent if tree chopped from south facing
 				ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate			
@@ -275,6 +307,7 @@ public class ActionManager : MonoBehaviour
 		UpdateItemAndSaveToFile ();  //update Gameobject and save in file
 		currentSelectedItem = new item ();// set current tile position to -1 i.e. invalid
 		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);
+		UpdateAllItemsInInventory ();
 	}
 
 	public void UpdateItemAndSaveToFile ()

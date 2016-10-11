@@ -218,7 +218,7 @@ namespace Devdog.InventorySystem
 
 		public virtual void OnPointerDown (PointerEventData eventData)
 		{
-			ItemClicked ();
+			InventorySlotClicked ();
 			if (itemCollection == null)
 				return;
 
