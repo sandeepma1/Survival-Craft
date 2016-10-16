@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f62e53b1c55d5b04cac36bdca22fa2db
-timeCreated: 1469952879
+timeCreated: 1476643109
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,7 @@ TextureImporter:
     21300014: Menu16_3
     21300016: Menu16_4
     21300018: MenuIcons16_0
+    21300020: MenuIcons16_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,11 +57,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 16
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Menu16_0
+    - serializedVersion: 2
+      name: Menu16_0
       rect:
         serializedVersion: 2
         x: 0
@@ -71,7 +75,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Menu16_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Menu16_1
       rect:
         serializedVersion: 2
         x: 16
@@ -82,7 +88,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Menu16_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Menu16_2
       rect:
         serializedVersion: 2
         x: 32
@@ -93,7 +101,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Menu16_3
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Menu16_3
       rect:
         serializedVersion: 2
         x: 48
@@ -104,7 +114,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Menu16_4
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Menu16_4
       rect:
         serializedVersion: 2
         x: 64
@@ -115,7 +127,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: MenuIcons16_0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MenuIcons16_0
       rect:
         serializedVersion: 2
         x: 80
@@ -126,6 +140,20 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MenuIcons16_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

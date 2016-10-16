@@ -55,7 +55,7 @@ public class ItemPlacer : MonoBehaviour
 		inventoryMenu.SetActive (!flag);
 		MoreInventoryButton.m_instance.ToggleInventorySize (!flag);
 		itemPlacerButtons.SetActive (flag);
-		MoreInventoryButton.m_instance.rightStick.SetActive (!flag);
+		//MoreInventoryButton.m_instance.rightStick.SetActive (!flag);
 		MoreInventoryButton.m_instance.leftStick.SetActive (!flag);
 		CircleCollider2D[] cols = PlayerMovement.m_instance.GetComponents <CircleCollider2D> ();
 		foreach (var item in cols) {

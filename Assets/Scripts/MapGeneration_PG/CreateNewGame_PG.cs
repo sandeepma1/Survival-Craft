@@ -72,12 +72,14 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 	void SaveTextFile (Texture2D tex) //SaveTexture
 	{		
-		ES2.SaveImage (tex, "Map.png");	
+		ES2.SaveImage (tex, "Map.png");
 		PopulateGameitems (tex);
 		//TileBeautifier ();
 		SaveAllInFiles ();
-		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();  //Load level afer calculations
+		//LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();  //Load level afer calculations
+		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration_Portrait (); // Load PG in Portrait
 	}
+
 
 	void TileBeautifier ()
 	{

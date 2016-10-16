@@ -24,6 +24,12 @@ public class LoadMainLevel : MonoBehaviour
 		SceneManager.LoadScene ("Main_PG");
 	}
 
+	public void LoadMainScene_ProceduralGeneration_Portrait ()
+	{
+		loadingScreen.SetActive (true);
+		SceneManager.LoadScene ("Main_PG_Portrait");
+	}
+
 	public void QuitGame ()
 	{
 		Application.Quit ();

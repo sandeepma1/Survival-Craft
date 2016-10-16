@@ -83,7 +83,10 @@ public class PlayerMovement : MonoBehaviour
 	void Update ()
 	{
 		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
-			ShowGrid ();
+			/*if (Input.GetMouseButtonDown (0)) {
+				print (Input.mousePosition);
+			}*/
+			//ShowGrid ();
 			input_x = CnInputManager.GetAxisRaw ("Horizontal");
 			input_y = CnInputManager.GetAxisRaw ("Vertical");
 			r_input_a = CnInputManager.GetAxisRaw ("Horizontal_Right");
@@ -94,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
 			if (isRightStick && isLeftStick) {  // if both Right and Left stick are pressed
 				isLeftStick = false;
-				DisablemultiTouchZoomInPan (true);			
+				//DisablemultiTouchZoomInPan (true);			
 			}
 
 			if (isRightStick) {  //Attacking/working					

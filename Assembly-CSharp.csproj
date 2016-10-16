@@ -512,6 +512,7 @@
      <Compile Include="Assets\Scripts\MessageBus\MessageHandler.cs" />
      <Compile Include="Assets\Scripts\MessageBus\MessageSubscriber.cs" />
      <Compile Include="Assets\Scripts\MessageBus\MessageSubscriberController.cs" />
+     <Compile Include="Assets\Scripts\MiniMap\ShowMiniMap.cs" />
      <Compile Include="Assets\Scripts\Player\ActionManager.cs" />
      <Compile Include="Assets\Scripts\Player\DontGoThroughThings.cs" />
      <Compile Include="Assets\Scripts\Player\DontGoThroughThings_.cs" />

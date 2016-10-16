@@ -53,6 +53,13 @@ public class IGMMenu : MonoBehaviour
 		loadingScreen.SetActive (true);
 		SceneManager.LoadScene ("Menu");
 	}
+
+	public void LoadMenuLevel_Portrait ()
+	{
+		loadingScreen.SetActive (true);
+		SceneManager.LoadScene ("Menu_Portrait");
+	}
+
 	// Pause Menu
 	public void OpenPauseMenu ()
 	{

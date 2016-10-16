@@ -51,7 +51,6 @@ public class ActionManager : MonoBehaviour
 		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
 		foreach (var slot in itemsInInventory) {
 			if (slot.item != null) {
-				print (slot.item.name);
 				slot.itemUseBar.rectTransform.sizeDelta = new Vector2 (slot.item.itemDurability, slot.itemUseBar.rectTransform.rect.height);
 			}
 		}

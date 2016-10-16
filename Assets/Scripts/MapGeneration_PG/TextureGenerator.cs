@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public static class TextureGenerator
 {
@@ -11,7 +12,9 @@ public static class TextureGenerator
 		texture.wrapMode = TextureWrapMode.Clamp;
 		texture.SetPixels (colourMap);
 		//texture.SetPixels32 (colourMap);
-		texture.Apply ();
+		texture.Apply (false);
+		//byte[] bytes = texture.EncodeToPNG ();
+		//File.WriteAllBytes (Application.persistentDataPath + "/SavedScreen.png", bytes);
 		return texture;
 	}
 
