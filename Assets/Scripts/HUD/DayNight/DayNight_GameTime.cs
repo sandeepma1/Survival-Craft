@@ -18,7 +18,7 @@ public class DayNight_GameTime : MonoBehaviour
 	int seconds = 0;
 	int day = 0;
 	float dayTime, nightTime = 0;
-	float sunRotationTotalAngle = 120;
+	float sunRotationTotalAngle = 90;
 	float degreesTickSun = 0, degreesTickMoon = 0;
 	float sunRotationZ = 0, moonRotationZ = 0;
 	private float nextActionTime = 0.0f;
@@ -117,7 +117,7 @@ public class DayNight_GameTime : MonoBehaviour
 				SaveManager.m_instance.SaveGameDays (day);
 				LoadMapFromSave_PG.m_instance.RepaintMapItems ();
 				print ("new day");
-				sun.transform.rotation = Quaternion.Euler (0, 180, -60);
+				sun.transform.rotation = Quaternion.Euler (0, 180, -45);
 				background.transform.position = new Vector3 (0, 0, 0);
 			}
 		}
@@ -158,19 +158,19 @@ public class DayNight_GameTime : MonoBehaviour
 	{
 		if (timer > seasons [0].dayStart * timeMultiplier && timer < seasons [0].nightStart * timeMultiplier) { // day		
 			sunRotationZ += degreesTickSun;
-			sun.transform.rotation = Quaternion.Euler (0, 180, -60 + sunRotationZ);
+			sun.transform.rotation = Quaternion.Euler (0, 180, -45 + sunRotationZ);
 			if (timer > seasons [0].dayStart * timeMultiplier && timer < seasons [0].duskStart * timeMultiplier) {//day
 				currentPhase = DayPhases.Day;			
 				changeColor = true;
 			} else if (timer > seasons [0].duskStart * timeMultiplier && timer < seasons [0].nightStart * timeMultiplier) {//dusk		
 				currentPhase = DayPhases.Dusk;
-				moon.transform.rotation = Quaternion.Euler (0, 180, -60 + moonRotationZ);
+				moon.transform.rotation = Quaternion.Euler (0, 180, -45 + moonRotationZ);
 				changeColor = true;
 				moonRotationZ += degreesTickMoon;
 			}		
 		} else if (timer > seasons [0].nightStart * timeMultiplier && timer < maxTime) {// night
 			moonRotationZ += degreesTickMoon;
-			moon.transform.rotation = Quaternion.Euler (0, 180, -60 + moonRotationZ);
+			moon.transform.rotation = Quaternion.Euler (0, 180, -45 + moonRotationZ);
 			currentPhase = DayPhases.Night;		
 			changeColor = true;
 		}

@@ -2,13 +2,17 @@
  {
      Properties
      {
-         [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
+       // [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
          _Color("Tint", Color) = (1,1,1,1)
          _ShineLocation("ShineLocation", Range(0,1)) = 0
          _ShineWidth("ShineWidth", Range(0,1)) = 0
          [MaterialToggle] PixelSnap("Pixel snap", Float) = 0
+          _MainTex ("Base (RGB)", 2D) = "white" {}
+      _Mask ("Culling Mask", 2D) = "white" {}
+      _Cutoff ("Alpha cutoff", Range (0,1)) = 0.1
      }
- 
+
+   
          SubShader
      {
          Tags
@@ -24,9 +28,12 @@
          Lighting Off
          ZWrite Off
          Blend One OneMinusSrcAlpha
+           AlphaTest GEqual [_Cutoff]
  
          Pass
      {
+    SetTexture [_Mask] {combine texture}
+         SetTexture [_MainTex] {combine texture, previous}
          CGPROGRAM
  #pragma vertex vert
  #pragma fragment frag

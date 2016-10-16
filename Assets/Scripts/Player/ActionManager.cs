@@ -11,7 +11,7 @@ public class ActionManager : MonoBehaviour
 	public GameObject progressBar, progressBarBG;
 	public bool isReadyToAttack = false;
 	public GameObject[] inventoryItems;
-	public GameObject consumeButtonInUI;
+	public GameObject consumeButtonInUI, containerUI;
 	//public RuntimeAnimatorController treeAnimator;
 	public RuntimeAnimatorController treeAnimator;
 	public Devdog.InventorySystem.InventoryItemBase currentWeildedItem, tempItem;
@@ -31,7 +31,8 @@ public class ActionManager : MonoBehaviour
 
 	void Start ()
 	{
-		itemsInInventory = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
+		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
+		//itemsInInventory = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
 		//weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
@@ -47,23 +48,20 @@ public class ActionManager : MonoBehaviour
 	public void UpdateAllItemsInInventory ()
 	{
 		System.Array.Clear (itemsInInventory, 0, itemsInInventory.Length);
-		itemsInInventory = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
+		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
 		foreach (var slot in itemsInInventory) {
 			if (slot.item != null) {
+				print (slot.item.name);
 				slot.itemUseBar.rectTransform.sizeDelta = new Vector2 (slot.item.itemDurability, slot.itemUseBar.rectTransform.rect.height);
 			}
-		}		
+		}
+		UpdatePlayerWeapon ();
 	}
 
-	public void UpdateItemDurabilityBarInInventory ()
-	{
-		
-	}
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
-		UpdateAllItemsInInventory ();
-		UpdateItemDurabilityBarInInventory ();
+		//UpdateAllItemsInInventory ();
 		if (i == null) {
 			currentWeildedItem = tempItem;
 		} else {
@@ -74,8 +72,9 @@ public class ActionManager : MonoBehaviour
 				consumeButtonInUI.SetActive (false);
 			}
 			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
-		}
-		UpdatePlayerWeapon ();
+			UpdateAllItemsInInventory ();
+		}	
+		//
 	}
 
 	public void UpdatePlayerWeapon ()
