@@ -37,7 +37,7 @@ public class DayNight_GameTime : MonoBehaviour
 	public Transform target;
 	//***********************************************************************************
 
-	protected void Start ()
+	void Start ()
 	{		
 		timer = PlayerPrefs.GetInt ("gameTime");
 		day = PlayerPrefs.GetInt ("gameDay");
@@ -45,7 +45,6 @@ public class DayNight_GameTime : MonoBehaviour
 		sunRotationZ = PlayerPrefs.GetFloat ("sunRotationZ");
 		moonRotationZ = PlayerPrefs.GetFloat ("moonRotationZ");
 		background.transform.position = new Vector3 (PlayerPrefs.GetInt ("backgroundPositionX"), 0);
-
 		tempCurrentPhase = currentPhase;
 
 		switch (currentPhase) {					
@@ -78,9 +77,13 @@ public class DayNight_GameTime : MonoBehaviour
 	{
 		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
 			timer += Time.deltaTime;
+
+			if (currentPhase != tempCurrentPhase) {
+				print ("saving phase");
+			}
 			if (changeColor) {
 				colorTransitionTimer -= Time.deltaTime;
-				switch (currentPhase) {					
+				/*switch (currentPhase) {					
 					case DayPhases.Day:
 						spriteLightKitCamera.backgroundColor = Color.Lerp (spriteLightKitCamera.backgroundColor, seasons [0].dayColor, Time.deltaTime / colorTransitionTimer);
 						break;
@@ -92,7 +95,7 @@ public class DayNight_GameTime : MonoBehaviour
 						break;
 					default:
 						break;
-				}
+				}*/
 				if (colorTransitionTimer <= 0) {
 					changeColor = false;
 					colorTransitionTimer = colorTransitionDuration;
@@ -176,6 +179,7 @@ public class DayNight_GameTime : MonoBehaviour
 		}
 
 		if (currentPhase != tempCurrentPhase) { // Avoide saving playerprefs every second
+			StartCoroutine ("ChangeColorOfGame");
 			tempCurrentPhase = currentPhase;
 			SaveManager.m_instance.SaveGameCurrentPhase ((int)currentPhase);
 		}
@@ -184,6 +188,31 @@ public class DayNight_GameTime : MonoBehaviour
 		PlayerPrefs.SetFloat ("moonRotationZ", moonRotationZ);
 
 		PlayerPrefs.SetInt ("backgroundPositionX", (int)background.transform.position.x);	
+	}
+
+	public IEnumerator ChangeColorOfGame ()
+	{
+		Debug.Log ("Starting fading!");
+		float ElapsedTime = 0.0f;
+		float TotalTime = 6.0f;
+		while (ElapsedTime < TotalTime) {
+			ElapsedTime += Time.deltaTime;
+			switch (currentPhase) {					
+				case DayPhases.Day:
+					spriteLightKitCamera.backgroundColor = Color.Lerp (spriteLightKitCamera.backgroundColor, seasons [0].dayColor, Time.deltaTime / colorTransitionTimer);
+					break;
+				case DayPhases.Dusk:
+					spriteLightKitCamera.backgroundColor = Color.Lerp (spriteLightKitCamera.backgroundColor, seasons [0].duskColor, Time.deltaTime / colorTransitionTimer);
+					break;
+				case DayPhases.Night:
+					spriteLightKitCamera.backgroundColor = Color.Lerp (spriteLightKitCamera.backgroundColor, seasons [0].nightColor, Time.deltaTime / colorTransitionTimer);
+					break;
+				default:
+					break;
+			}
+			yield return null;
+		}
+		Debug.Log ("Ending fading!");
 	}
 
 	void FormatDisplayTime ()

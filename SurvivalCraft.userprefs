@@ -1,17 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MiniMap\ShowMiniMap.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HUD\DayNight\DayNight_GameTime.cs">
     <Files>
       <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\InventorySystemMod\InventoryUIItemWrapper.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Menus\MoreInventoryButton.cs" Line="52" Column="36" />
+      <File FileName="Assets\Scripts\Menus\MoreInventoryButton.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Menus\IGMMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MiniMap\ShowMiniMap.cs" Line="25" Column="3" />
+      <File FileName="Assets\Scripts\MiniMap\ShowMiniMap.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="75" Column="34" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\MapDisplay.cs" Line="23" Column="3" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\TextureGenerator.cs" Line="15" Column="25" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\MapDisplay.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\TextureGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HUD\DayNight\DayNight_GameTime.cs" Line="215" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
