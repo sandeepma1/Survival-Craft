@@ -30,6 +30,12 @@ public class LoadMainLevel : MonoBehaviour
 		SceneManager.LoadScene ("Main_PG_Portrait");
 	}
 
+	public void LoadMainScene_SpriteLightDemo ()
+	{
+		loadingScreen.SetActive (true);
+		SceneManager.LoadScene ("SpriteLightKitScene");
+	}
+
 	public void QuitGame ()
 	{
 		Application.Quit ();
