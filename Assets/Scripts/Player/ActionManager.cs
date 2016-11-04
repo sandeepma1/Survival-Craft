@@ -264,9 +264,9 @@ public class ActionManager : MonoBehaviour
 
 	public void DestoryInventoryItem ()
 	{
-		//currentWeildedItem.Use ();		
 		if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
 			Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
+			UpdateAllItemsInInventory ();
 		}
 	}
 
@@ -278,7 +278,7 @@ public class ActionManager : MonoBehaviour
 			case 14:
 			case 15:
 				print (currentWeildedItem.itemDurability + "before");
-				currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - 10;
+				currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - 30;
 				print (currentWeildedItem.itemDurability + "action");
 				if (currentWeildedItem.itemDurability < 1) {
 					DestoryInventoryItem ();

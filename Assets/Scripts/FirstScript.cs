@@ -7,7 +7,7 @@ public class FirstScript : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
 	{		
-		mapReference.SetActive (false);
+		//mapReference.SetActive (false);
 		mainCanvas.SetActive (true);
 		inventoryMenu.SetActive (true); 
 	}

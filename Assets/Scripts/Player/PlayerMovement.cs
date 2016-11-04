@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
 			closestItemGO.transform.GetChild (closestItemGO.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = Color.white;
 			nearestItemPosition = closestItemGO.transform.position;
 			foreach (var cols in sortedColliders) {
-				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = new Color (0.75f, 0.75f, 0.75f, 1);
+				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = new Color (1, 1, 1, 1);
 				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (true);
 			}
 		} else {
@@ -218,6 +218,7 @@ public class PlayerMovement : MonoBehaviour
 		ActionManager.m_AC_instance.isReadyToAttack = false;
 		SetAttackAnimation (false);
 		SetSlashingAnimation (false);
+		ActionManager.m_AC_instance.UpdateAllItemsInInventory ();
 		//SetDiggingAnimation (false);
 	}
 

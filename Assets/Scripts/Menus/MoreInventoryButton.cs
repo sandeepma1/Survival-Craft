@@ -8,7 +8,7 @@ public class MoreInventoryButton : MonoBehaviour
 	public static MoreInventoryButton m_instance = null;
 	public RectTransform mainUIWindow;
 	public GameObject mainCanvas, inventoryMenu;
-	public GameObject leftStick, inventoryTab, craftingTab, settingsTab, infoTab, sortButton, runWalkButton, actionButton, inventoryUpButton, craftingUpButton;
+	public GameObject leftStick, inventoryTab, craftingTab, settingsTab, infoTab, sortButton, runWalkButton, actionButton, inventoryUpButton, craftingUpButton, miniMapButton;
 	//public rightStick;
 	public GameObject craftingMenu;
 	private bool toggleCrafting = false;
@@ -75,6 +75,7 @@ public class MoreInventoryButton : MonoBehaviour
 		actionButton.SetActive (flag);
 		inventoryUpButton.SetActive (flag);
 		craftingUpButton.SetActive (flag);
+		miniMapButton.SetActive (flag);
 	}
 
 	public void ToggleCrafting ()
