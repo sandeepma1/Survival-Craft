@@ -20,7 +20,7 @@ public class IGMMenu : MonoBehaviour
 			print ("escape");
 		}
 		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor) {
-			if (Input.GetKey (KeyCode.Escape) || Input.GetKey ((KeyCode.Space))) {
+			if (Input.GetKey (KeyCode.Escape)) {
 				print ("escape");
 				if (SceneManager.GetActiveScene ().name == "Menu") {
 					Application.Quit ();

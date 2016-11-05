@@ -36,17 +36,24 @@ public class ActionManager : MonoBehaviour
 		//weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
+		//InvokeRepeating ("UpdateAllItemsInInventory", 2, 2);
 	}
 
 	public void RemoveBorder ()
 	{
 		for (int i = 0; i < itemsInInventory.Length; i++) {
-			itemsInInventory [i].border.gameObject.SetActive (false);
+			itemsInInventory [i].border.gameObject.SetActive (false);				
+			if (itemsInInventory [i].item != null) {
+				if (itemsInInventory [i].item.itemDurability > 1) { // if item have uses
+					itemsInInventory [i].itemUseBar.gameObject.SetActive (true);
+				}
+			}	
 		}
 	}
 
 	public void UpdateAllItemsInInventory ()
 	{
+		//Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.InventorySlotClicked ();
 		System.Array.Clear (itemsInInventory, 0, itemsInInventory.Length);
 		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
 		foreach (var slot in itemsInInventory) {
@@ -60,7 +67,7 @@ public class ActionManager : MonoBehaviour
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
-		//UpdateAllItemsInInventory ();
+		UpdateAllItemsInInventory ();
 		if (i == null) {
 			currentWeildedItem = tempItem;
 		} else {

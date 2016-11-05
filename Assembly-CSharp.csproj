@@ -479,6 +479,9 @@
      <Compile Include="Assets\Scripts\HUD\Health\Health.cs" />
      <Compile Include="Assets\Scripts\HUD\Health\TestGUI.cs" />
      <Compile Include="Assets\Scripts\HUD\ItemPlacer.cs" />
+     <Compile Include="Assets\Scripts\HUD\Notification\HelpText.cs" />
+     <Compile Include="Assets\Scripts\HUD\Notification\PlayerLog_Stack.cs" />
+     <Compile Include="Assets\Scripts\HUD\Notification\messageSystem.cs" />
      <Compile Include="Assets\Scripts\HUD\WalkRun.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryCraftingBlueprint.cs" />
      <Compile Include="Assets\Scripts\InventorySystemMod\InventoryCraftingBlueprintUI.cs" />
@@ -507,11 +510,6 @@
      <Compile Include="Assets\Scripts\Menus\MoreInventoryButton.cs" />
      <Compile Include="Assets\Scripts\Menus\SaveGame.cs" />
      <Compile Include="Assets\Scripts\Menus\TabsControl.cs" />
-     <Compile Include="Assets\Scripts\MessageBus\Message.cs" />
-     <Compile Include="Assets\Scripts\MessageBus\MessageBus.cs" />
-     <Compile Include="Assets\Scripts\MessageBus\MessageHandler.cs" />
-     <Compile Include="Assets\Scripts\MessageBus\MessageSubscriber.cs" />
-     <Compile Include="Assets\Scripts\MessageBus\MessageSubscriberController.cs" />
      <Compile Include="Assets\Scripts\MiniMap\ShowMiniMap.cs" />
      <Compile Include="Assets\Scripts\Player\ActionManager.cs" />
      <Compile Include="Assets\Scripts\Player\DontGoThroughThings.cs" />
@@ -521,9 +519,8 @@
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShooting.cs" />
      <Compile Include="Assets\Scripts\Player\TreesDisappear.cs" />
+     <Compile Include="Assets\Scripts\Player\moveOnMouseClick.cs" />
      <Compile Include="Assets\Scripts\Test\ChunkManager.cs" />
-     <Compile Include="Assets\Scripts\Test\MB_Test.cs" />
-     <Compile Include="Assets\Scripts\Test\ScoreTextHandler.cs" />
      <Compile Include="Assets\Scripts\Test\SpriteTest.cs" />
      <Compile Include="Assets\Scripts\Test\Struct2dArray.cs" />
      <Compile Include="Assets\Scripts\Utilities\Camera\CameraFollow.cs" />

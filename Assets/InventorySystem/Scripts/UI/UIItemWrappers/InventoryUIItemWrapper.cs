@@ -250,6 +250,7 @@ namespace Devdog.InventorySystem
 
 		public virtual void OnPointerUp (PointerEventData eventData)
 		{
+			InventorySlotClicked ();
 			// Started on a UI element?
 			if (pointerDownOnUIElement == null)
 				return;

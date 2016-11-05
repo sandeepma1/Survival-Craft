@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool isRightStick, isLeftStick = false;
 	public bool isPlayerNearFire = false;
 
+	private bool ifTouchToMove = true;
 	private Vector3 cursorPosition;
 	private int attackTempA = 0, attackTempB = 0, calculateNearestTempA = 0, calculateNearestTempB = 0;
 	item[] playerSurroundings = new item[8];
@@ -80,8 +81,18 @@ public class PlayerMovement : MonoBehaviour
 		//touchCameraGO.GetComponent <TouchCamera> ().enabled = flag;
 	}
 
+
+
 	void Update ()
 	{
+		if (Input.GetMouseButtonDown (0)) {
+			RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero); 
+			if (hit.collider != null) {
+				Debug.Log (hit.collider.gameObject.name);
+			}
+		}
+
+
 		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
 			/*if (Input.GetMouseButtonDown (0)) {
 				print (Input.mousePosition);
