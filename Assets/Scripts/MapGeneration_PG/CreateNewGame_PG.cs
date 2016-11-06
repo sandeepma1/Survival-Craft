@@ -264,7 +264,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 			PlayerPrefs.SetInt ("gameTime", 0);
 			PlayerPrefs.SetInt ("gameDay", 1);
 			PlayerPrefs.SetInt ("currentPhase", 0);
-
+			PlayerPrefs.SetInt ("TouchControls", 0);
 			PlayerPrefs.SetFloat ("sunRotationZ", 0);
 			PlayerPrefs.SetFloat ("moonRotationZ", 0);
 			PlayerPrefs.SetInt ("backgroundPositionX", 0);	

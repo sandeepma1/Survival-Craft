@@ -129,11 +129,6 @@ public class ActionManager : MonoBehaviour
 	{
 		if (currentWeildedItem == null) {			
 			currentWeildedItem = tempItem;
-			/*currentWeildedItem.ID = 0;
-			currentWeildedItem.isPlaceable = false;
-			currentWeildedItem.rarity.name = "Hand";
-			currentWeildedItem.itemQuality = 1;
-			currentWeildedItem.itemID = "0,-1";*/			
 		} 
 		if (LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).id > 0) {
 			currentSelectedItem = LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition);
@@ -149,7 +144,6 @@ public class ActionManager : MonoBehaviour
 
 	void CalculateHardness ()
 	{
-		//print (currentWeildedItem.rarity.name);
 		if (currentSelectedItem.id > 0) {
 			if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {		
 				//print ("Using Bare Hands");
@@ -159,8 +153,7 @@ public class ActionManager : MonoBehaviour
 				isReadyToAttack = true;
 				PlayerMovement.m_instance.SetPickUpAnimation ();
 				return;
-			} 
-
+			}
 			if (currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool in hand and using tool but not bare hands as above
 				//*********************************Common for all tools********************************************
 				baseTime = (GameEventManager.baseStrengthWithTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness) / currentWeildedItem.itemQuality;
@@ -228,6 +221,7 @@ public class ActionManager : MonoBehaviour
 
 	void Update ()
 	{
+		DebugTextHandler.m_instance.DisplayDebugText (isReadyToAttack.ToString ());
 		if (isReadyToAttack) {
 			if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetTrigger ("isTreeCutting");
@@ -237,7 +231,7 @@ public class ActionManager : MonoBehaviour
 
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
 			progressBarBG.SetActive (true);
-
+			print ("cutting");
 			if (baseTime <= 0) {				
 				DropBreakedItem ();
 				isReadyToAttack = false;
@@ -279,7 +273,7 @@ public class ActionManager : MonoBehaviour
 
 	void DropBreakedItem ()
 	{
-		PlayerMovement.m_instance.SetAttackAnimation (false);
+		
 		int ran = 0;
 		switch (currentSelectedItem.id) {
 			case 14:
@@ -312,6 +306,8 @@ public class ActionManager : MonoBehaviour
 		UpdateItemAndSaveToFile ();  //update Gameobject and save in file
 		currentSelectedItem = new item ();// set current tile position to -1 i.e. invalid
 		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);
+		PlayerMovement.m_instance.SetAttackAnimation (false);
+		PlayerMovement.m_instance.SetSlashingAnimation (false);
 		UpdateAllItemsInInventory ();
 	}
 

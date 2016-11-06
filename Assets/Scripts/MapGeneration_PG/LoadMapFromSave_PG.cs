@@ -276,7 +276,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	public item GetTile (Vector2 pos)
 	{
 		pos = GetLocalIslandPosition (pos);
-		//print (pos);
+		print (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id);
 		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
 			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
 		}

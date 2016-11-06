@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
 	public static SaveManager m_instance = null;
-	public GameObject inventorySave;
+	public GameObject inventorySave, touchToggleControlUI;
 	// Use this for initialization
 
 	void Awake ()
@@ -13,7 +14,10 @@ public class SaveManager : MonoBehaviour
 	}
 
 	void Start ()
-	{
+	{		
+		
+		touchToggleControlUI.GetComponent <Toggle> ().isOn = Bronz.LocalStore.Instance.GetBool ("TouchControls");
+
 		InvokeRepeating ("SaveInventory", 0, 2);
 	}
 
@@ -35,6 +39,11 @@ public class SaveManager : MonoBehaviour
 	public void SaveGameCurrentPhase (int phase)
 	{		
 		PlayerPrefs.SetInt ("currentPhase", phase);
+	}
+
+	public void SaveTouchControlToggleOption (bool flag)
+	{
+		Bronz.LocalStore.Instance.SetBool ("TouchControls", flag);
 	}
 
 }

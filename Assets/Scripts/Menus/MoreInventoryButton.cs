@@ -6,12 +6,15 @@ using System.IO;
 public class MoreInventoryButton : MonoBehaviour
 {
 	public static MoreInventoryButton m_instance = null;
+	public bool useLeftAnalogStick = false;
 	public RectTransform mainUIWindow;
 	public GameObject mainCanvas, inventoryMenu;
 	public GameObject leftStick, inventoryTab, craftingTab, settingsTab, infoTab, sortButton, runWalkButton, actionButton, inventoryUpButton, craftingUpButton, miniMapButton;
 	//public rightStick;
 	public GameObject craftingMenu;
+
 	private bool toggleCrafting = false;
+
 	float heightAdjuster;
 	int tabIndex = 0;
 
@@ -65,7 +68,9 @@ public class MoreInventoryButton : MonoBehaviour
 
 	void ToggleInventory (bool flag)
 	{
-		leftStick.SetActive (flag);
+		if (useLeftAnalogStick) {
+			leftStick.SetActive (flag);
+		}
 		inventoryTab.SetActive (!flag);
 		sortButton.SetActive (!flag);
 		craftingTab.SetActive (!flag);

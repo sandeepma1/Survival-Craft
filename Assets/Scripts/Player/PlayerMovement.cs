@@ -35,11 +35,12 @@ public class PlayerMovement : MonoBehaviour
 	item[] playerSurroundings = new item[8];
 	private float attackTime, attackCounter;
 	Vector3 nearestItemPosition = Vector3.zero;
-	bool walkTowards = false;
+	bool walkTowards = false, startWalking = false;
 	bool actionButtonPressed = false;
 	//	public float speedTemp = 0;
 	GameObject closestItemGO;
-
+	private Vector2 endPoint;
+	int layerMask = 0;
 	//	List<Collider2D> cols = new List<Collider2D> ();
 	//Devdog.InventorySystem.InventoryItemBase currentWeildedItem, currentSelectedTile;
 
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void Start ()
 	{
+		
 		//anim = GetComponent<Animator> ();
 		speedTemp = speed;
 		if (SavePlayerLocation) {
@@ -76,57 +78,45 @@ public class PlayerMovement : MonoBehaviour
 		GameEventManager.SetState (GameEventManager.E_STATES.e_game);
 	}
 
-	void DisablemultiTouchZoomInPan (bool flag)
+	public void MoveTowardsTarget ()
 	{
-		//touchCameraGO.GetComponent <TouchCamera> ().enabled = flag;
+		if (Vector3.Distance (transform.position, nearestItemPosition) <= GameEventManager.walkTowardsItemSafeDistance) {   //stop walking towards objects if less than 1 distance					
+			startWalking = false;
+			GameEventManager.currentSelectedTilePosition = nearestItemPosition;
+			Vector3 dir = (nearestItemPosition - transform.position).normalized;
+			ActionManager.m_AC_instance.ActionButtonPressed ();		
+			return;
+		}
+		Vector3 playerDir = (nearestItemPosition - transform.position).normalized;
+		LoadMapFromSave_PG.m_instance.PlayerTerrianState ((int)transform.position.x, (int)transform.position.y);
+		WalkingCalculation (playerDir.x, playerDir.y);	
 	}
-
-
 
 	void Update ()
 	{
-		if (Input.GetMouseButtonDown (0)) {
-			RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero); 
-			if (hit.collider != null) {
-				Debug.Log (hit.collider.gameObject.name);
+		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {		
+
+			if (PlayerPrefs.GetInt ("TouchControls") > 0) { // if touch controls enabled
+				if ((Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) || (Input.GetMouseButtonDown (0))) {
+					RaycastHit2D hit;
+					layerMask = 1 << 8;
+					#if UNITY_EDITOR
+					hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
+					#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
+				hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.GetTouch(0).position), Vector2.zero);
+					#endif
+					if (hit.collider != null) {
+						Debug.Log (hit.collider.gameObject.name);
+						nearestItemPosition = hit.point;
+						startWalking = true;
+					}
+				}
 			}
-		}
-
-
-		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {
-			/*if (Input.GetMouseButtonDown (0)) {
-				print (Input.mousePosition);
-			}*/
-			//ShowGrid ();
+			//**************************** LEFT ANALOG STICK CONTROL *******************************************	
 			input_x = CnInputManager.GetAxisRaw ("Horizontal");
 			input_y = CnInputManager.GetAxisRaw ("Vertical");
-			r_input_a = CnInputManager.GetAxisRaw ("Horizontal_Right");
-			r_input_b = CnInputManager.GetAxisRaw ("Vertical_Right");
-
 			isLeftStick = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
-			isRightStick = (Mathf.Abs (r_input_a) + Mathf.Abs (r_input_b)) > 0;
-
-			if (isRightStick && isLeftStick) {  // if both Right and Left stick are pressed
-				isLeftStick = false;
-				//DisablemultiTouchZoomInPan (true);			
-			}
-
-			if (isRightStick) {  //Attacking/working					
-				//DisablemultiTouchZoomInPan (false);
-				//AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
-				//IsCursorEnable (true);
-			} else {
-				//AttackCalculation (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
-				//******************************************************************************************************************************************************
-				//uncomment this
-				//ActionManager.m_AC_instance.isReadyToAttack = false;
-				//******************************************************************************************************************************************************
-				//IsCursorEnable (false);
-				//SetAttackAnimation (false);
-			}
-
-			if (isLeftStick) {  // Walking	
-				//SetIdleAnimation (false);
+			if (isLeftStick) {  // Walking					
 				LoadMapFromSave_PG.m_instance.PlayerTerrianState ((int)transform.position.x, (int)transform.position.y);
 				CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), true);
 				WalkingCalculation (input_x, input_y);
@@ -134,22 +124,18 @@ public class PlayerMovement : MonoBehaviour
 			}
 			anim.SetBool ("isWalking", false);
 			anim.SetBool ("isRunning", false);
-			//SetIdleAnimation (true);
+			//**************************************************************************************************
 
-			if (walkTowards && actionButtonPressed) {
-				if (nearestItemPosition != Vector3.zero) {
-					AutoPickUpCalculation ();
+			if (startWalking) {
+				if (nearestItemPosition != Vector3.zero) {					
+					MoveTowardsTarget ();
 				}			
 			}
-		}
-		DisablemultiTouchZoomInPan (true);			
+		}		
 	}
 
 	void LateUpdate () // Set player storing order to front and Player Run toggle
 	{
-		//this.gameObject.GetComponent<SpriteRenderer> ().sortingOrder = (int)(transform.position.y * -10); // can optimized
-		//playerHead, playerBody, playerLimbLeft, playerLimbRight, playerLegLeft, playerLegRigth
-
 		playerHead.sortingOrder = (int)(transform.position.y * -10) + 1;
 		playerBody.sortingOrder = (int)(transform.position.y * -10);
 		playerLimbLeft.sortingOrder = (int)(transform.position.y * -10) + 2;
@@ -157,8 +143,6 @@ public class PlayerMovement : MonoBehaviour
 		playerRightWeapon.sortingOrder = (int)(transform.position.y * -10) - 2;
 		playerLegLeft.sortingOrder = (int)(transform.position.y * -10) + 1;
 		playerLegRight.sortingOrder = (int)(transform.position.y * -10) - 1;
-
-
 		if (Input.GetKey (KeyCode.LeftShift) || isRunning) {
 			speed = speedTemp * runSpeedMultiplier;
 			isPlayerRunning = true;
@@ -212,10 +196,8 @@ public class PlayerMovement : MonoBehaviour
 
 	public void ActionButtonDown ()
 	{
-		//SetIdleAnimation (false);
 		actionButtonPressed = true;
 		CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), false);
-
 		if (nearestItemPosition != Vector3.zero) { //&& cols.Count > 0			
 			walkTowards = true;
 			GameEventManager.currentSelectedTilePosition = nearestItemPosition;
@@ -224,41 +206,21 @@ public class PlayerMovement : MonoBehaviour
 
 	public void ActionButtonUp ()
 	{
-		//SetIdleAnimation (true);
-		actionButtonPressed = false;
-		ActionManager.m_AC_instance.isReadyToAttack = false;
 		SetAttackAnimation (false);
 		SetSlashingAnimation (false);
 		ActionManager.m_AC_instance.UpdateAllItemsInInventory ();
-		//SetDiggingAnimation (false);
 	}
 
 	public void AutoPickUpCalculation ()
 	{
 		if (Vector3.Distance (transform.position, nearestItemPosition) <= GameEventManager.walkTowardsItemSafeDistance) {   //stop walking towards objects if less than 1 distance					
 			Vector3 dir = (nearestItemPosition - transform.position).normalized;
-			walkTowards = false;
-			//anim.SetFloat ("PickUpX", Mathf.RoundToInt (dir.x));
-			//anim.SetFloat ("PickUpY", Mathf.RoundToInt (dir.y));
 			ActionManager.m_AC_instance.ActionButtonPressed ();
-			//AttackCalculation (Mathf.RoundToInt (dir.x), Mathf.RoundToInt (dir.y));
-			//IsCursorEnable (true);
 			return;
 		}
 		Vector3 playerDir = (nearestItemPosition - transform.position).normalized;
 		WalkingCalculation (playerDir.x, playerDir.y);
-		//SetAttackAnimation (false);
 	}
-
-	/*public void PickUpCalculation (int a, int b)
-	{	
-		anim.SetFloat ("AttackingX", a);
-		anim.SetFloat ("AttackingY", b);
-
-		ActionManager.m_AC_instance.isReadyToAttack = false;
-		SetCursorTilePosition (Mathf.RoundToInt (r_input_a), Mathf.RoundToInt (r_input_b));
-		ActionManager.m_AC_instance.ActionButtonPressed ();
-	}*/
 
 	public void WalkingCalculation (float x, float y)
 	{
@@ -295,11 +257,6 @@ public class PlayerMovement : MonoBehaviour
 		ActionManager.m_AC_instance.ActionButtonPressed ();
 	}
 
-	/*public void AttackCalculation ()
-	{
-		anim.SetTrigger ("Slashing");
-	}*/
-
 	public void SetIdleAnimation (bool flag)
 	{
 		anim.SetBool ("isIdle", flag);
@@ -324,10 +281,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		anim.SetTrigger ("PickingUp");
 	}
-
-
-
-
 
 	public void SetCursorTilePosition (int a, int b)
 	{
