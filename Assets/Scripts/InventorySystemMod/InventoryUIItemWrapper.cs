@@ -23,7 +23,7 @@ namespace Devdog.InventorySystem
 			if (!isSelected) {
 				border.gameObject.SetActive (false);
 			}
-			if (PlayerPrefs.GetInt ("ItemSlotIndex") == (int)this.index) {				
+			if (Bronz.LocalStore.Instance.GetInt ("ItemSlotIndex") == (int)this.index) {				
 				border.gameObject.SetActive (true);
 				ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
 			}

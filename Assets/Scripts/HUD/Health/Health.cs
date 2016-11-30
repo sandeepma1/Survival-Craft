@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
 		spacingY = -heartGUI.GetComponent <RectTransform> ().rect.height;
 	
 		AddHearts (startHealth / healthPerHeart);
-		currentHealth = PlayerPrefs.GetFloat ("PlayerHealth");
+		currentHealth = Bronz.LocalStore.Instance.GetFloat ("PlayerHealth");
 		UpdateHearts ();
 	}
 
@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
 		currentHealth += amount;
 		currentHealth = Mathf.Clamp (currentHealth, 0, maxHealth);
 		UpdateHearts ();
-		PlayerPrefs.SetFloat ("PlayerHealth", currentHealth);
+		Bronz.LocalStore.Instance.SetFloat ("PlayerHealth", currentHealth);
 	}
 
 	void UpdateHearts ()

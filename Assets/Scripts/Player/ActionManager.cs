@@ -36,24 +36,17 @@ public class ActionManager : MonoBehaviour
 		//weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
-		//InvokeRepeating ("UpdateAllItemsInInventory", 2, 2);
 	}
 
 	public void RemoveBorder ()
 	{
 		for (int i = 0; i < itemsInInventory.Length; i++) {
-			itemsInInventory [i].border.gameObject.SetActive (false);				
-			if (itemsInInventory [i].item != null) {
-				if (itemsInInventory [i].item.itemDurability > 1) { // if item have uses
-					itemsInInventory [i].itemUseBar.gameObject.SetActive (true);
-				}
-			}	
+			itemsInInventory [i].border.gameObject.SetActive (false);
 		}
 	}
 
 	public void UpdateAllItemsInInventory ()
 	{
-		//Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.InventorySlotClicked ();
 		System.Array.Clear (itemsInInventory, 0, itemsInInventory.Length);
 		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
 		foreach (var slot in itemsInInventory) {
@@ -67,7 +60,7 @@ public class ActionManager : MonoBehaviour
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
-		UpdateAllItemsInInventory ();
+		//UpdateAllItemsInInventory ();
 		if (i == null) {
 			currentWeildedItem = tempItem;
 		} else {
@@ -129,6 +122,11 @@ public class ActionManager : MonoBehaviour
 	{
 		if (currentWeildedItem == null) {			
 			currentWeildedItem = tempItem;
+			/*currentWeildedItem.ID = 0;
+			currentWeildedItem.isPlaceable = false;
+			currentWeildedItem.rarity.name = "Hand";
+			currentWeildedItem.itemQuality = 1;
+			currentWeildedItem.itemID = "0,-1";*/			
 		} 
 		if (LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).id > 0) {
 			currentSelectedItem = LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition);
@@ -144,6 +142,7 @@ public class ActionManager : MonoBehaviour
 
 	void CalculateHardness ()
 	{
+		//print (currentWeildedItem.rarity.name);
 		if (currentSelectedItem.id > 0) {
 			if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {		
 				//print ("Using Bare Hands");
@@ -153,7 +152,8 @@ public class ActionManager : MonoBehaviour
 				isReadyToAttack = true;
 				PlayerMovement.m_instance.SetPickUpAnimation ();
 				return;
-			}
+			} 
+
 			if (currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool in hand and using tool but not bare hands as above
 				//*********************************Common for all tools********************************************
 				baseTime = (GameEventManager.baseStrengthWithTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness) / currentWeildedItem.itemQuality;
@@ -221,7 +221,6 @@ public class ActionManager : MonoBehaviour
 
 	void Update ()
 	{
-		DebugTextHandler.m_instance.DisplayDebugText (isReadyToAttack.ToString ());
 		if (isReadyToAttack) {
 			if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetTrigger ("isTreeCutting");
@@ -231,7 +230,7 @@ public class ActionManager : MonoBehaviour
 
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
 			progressBarBG.SetActive (true);
-			print ("cutting");
+
 			if (baseTime <= 0) {				
 				DropBreakedItem ();
 				isReadyToAttack = false;
@@ -273,7 +272,7 @@ public class ActionManager : MonoBehaviour
 
 	void DropBreakedItem ()
 	{
-		
+		PlayerMovement.m_instance.SetAttackAnimation (false);
 		int ran = 0;
 		switch (currentSelectedItem.id) {
 			case 14:
@@ -306,8 +305,6 @@ public class ActionManager : MonoBehaviour
 		UpdateItemAndSaveToFile ();  //update Gameobject and save in file
 		currentSelectedItem = new item ();// set current tile position to -1 i.e. invalid
 		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);
-		PlayerMovement.m_instance.SetAttackAnimation (false);
-		PlayerMovement.m_instance.SetSlashingAnimation (false);
 		UpdateAllItemsInInventory ();
 	}
 

@@ -32,7 +32,7 @@ public class Food : MonoBehaviour
 		spacingY = -burgerGUI.GetComponent <RectTransform> ().rect.height;
 		AddBurgers ((int)(startHunger / hungerPerBurger));
 
-		currentHunger =	PlayerPrefs.GetFloat ("PlayerHunger");
+		currentHunger =	Bronz.LocalStore.Instance.GetFloat ("PlayerHunger");
 		UpdateBurgers ();
 		InvokeRepeating ("DecreaseHungerPerSecond", 1, 1);
 	}
@@ -41,7 +41,7 @@ public class Food : MonoBehaviour
 	{
 		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {			
 			modifyHunger (-0.1f);
-			PlayerPrefs.SetFloat ("PlayerHunger", currentHunger);
+			Bronz.LocalStore.Instance.SetFloat ("PlayerHunger", currentHunger);
 		}
 	}
 

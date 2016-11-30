@@ -9,6 +9,7 @@ public static class GameEventManager
 	public static int numberOfislands = 0;
 	public static float walkTowardsItemSafeDistance = 0.75f;
 	public static float dropItemSize = 0.75f;
+	public static float playerSpeedInDeepWater = 1.25f, playerSpeedInShallowWater = 1.75f;
 
 	public delegate void GameEvent ();
 

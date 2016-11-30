@@ -36,7 +36,6 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	{		
 		ResetAllValues ();
 		InitializeFirstVariables ();
-
 		CreateRandomGrid ();
 	}
 
@@ -77,7 +76,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		//TileBeautifier ();
 		SaveAllInFiles ();
 		//LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();  //Load level afer calculations
-		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration_Portrait (); // Load PG in Portrait
+		LoadMainLevel.m_instance.LoadMainScene_ProceduralGeneration ();// Load PG in Portrait
 	}
 
 
@@ -203,8 +202,8 @@ public partial class CreateNewGame_PG : MonoBehaviour
 			case 2:
 				FillItemInfo ("6,-1", x, y, 0.09f); //grass1
 				if (!isPlayerPosSET) {
-					PlayerPrefs.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
-					PlayerPrefs.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
+					Bronz.LocalStore.Instance.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
+					Bronz.LocalStore.Instance.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
 					isPlayerPosSET = true;
 				}
 				break;
@@ -250,27 +249,27 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 	void ResetAllValues ()
 	{
-		PlayerPrefs.DeleteAll ();
+		Bronz.LocalStore.Instance.DeleteAll ();
 		ES2.DeleteDefaultFolder ();
 	}
 
 	void InitializeFirstVariables ()
 	{
-		PlayerPrefs.DeleteAll ();
-		if (PlayerPrefs.GetInt ("InitGamePrefs") == 0) {			
-			PlayerPrefs.SetFloat ("PlayerHunger", 100);
-			PlayerPrefs.SetFloat ("PlayerHealth", 100);
-			PlayerPrefs.SetInt ("mapChunkPosition", 0);
-			PlayerPrefs.SetInt ("gameTime", 0);
-			PlayerPrefs.SetInt ("gameDay", 1);
-			PlayerPrefs.SetInt ("currentPhase", 0);
-			PlayerPrefs.SetInt ("TouchControls", 0);
-			PlayerPrefs.SetFloat ("sunRotationZ", 0);
-			PlayerPrefs.SetFloat ("moonRotationZ", 0);
-			PlayerPrefs.SetInt ("backgroundPositionX", 0);	
+		Bronz.LocalStore.Instance.DeleteAll ();
+		if (Bronz.LocalStore.Instance.GetInt ("InitGamePrefs") == 0) {			
+			Bronz.LocalStore.Instance.SetFloat ("PlayerHunger", 100);
+			Bronz.LocalStore.Instance.SetFloat ("PlayerHealth", 100);
+			Bronz.LocalStore.Instance.SetInt ("mapChunkPosition", 0);
+			Bronz.LocalStore.Instance.SetInt ("gameTime", 0);
+			Bronz.LocalStore.Instance.SetInt ("gameDay", 1);
+			Bronz.LocalStore.Instance.SetInt ("currentPhase", 0);
+			Bronz.LocalStore.Instance.SetInt ("TouchControls", 0);
+			Bronz.LocalStore.Instance.SetFloat ("sunRotationZ", 0);
+			Bronz.LocalStore.Instance.SetFloat ("moonRotationZ", 0);
+			Bronz.LocalStore.Instance.SetInt ("backgroundPositionX", 0);	
 
 			ES2.DeleteDefaultFolder ();
-			PlayerPrefs.SetInt ("InitGamePrefs", 1);
+			Bronz.LocalStore.Instance.SetInt ("InitGamePrefs", 1);
 		}
 	}
 

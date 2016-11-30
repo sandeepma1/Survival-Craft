@@ -23,7 +23,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	void Start ()
 	{
-		PlayerPrefs.SetInt ("mapChunkPosition", 0);
+		Bronz.LocalStore.Instance.SetInt ("mapChunkPosition", 0);
 		m_instance = this;
 		SetSortingNamesForItems ();
 		LoadMapChunks ();
@@ -161,7 +161,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				}
 			}
 		}
-		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
+		ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + "i.txt");
 		SpwanObjects ();
 	}
 
@@ -253,14 +253,14 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
 			}
 
-			mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = itemID + "," + itemAge;
-			ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
+			mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = itemID + "," + itemAge;
+			ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + "i.txt");
 		}
 	}
 
 	public void DisableUnusedMapChunks ()
 	{
-		int currentMapChunkPosition = PlayerPrefs.GetInt ("mapChunkPosition");
+		int currentMapChunkPosition = Bronz.LocalStore.Instance.GetInt ("mapChunkPosition");
 		for (int i = 0; i < mapChunks.Length; i++) {
 			mapChunks [i].SetActive (true);
 		}
@@ -276,9 +276,9 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	public item GetTile (Vector2 pos)
 	{
 		pos = GetLocalIslandPosition (pos);
-		print (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id);
-		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
-			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
+		print (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id);
+		if (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
+			return mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
 		}
 		return new item ();
 	}
@@ -288,44 +288,44 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		pos = GetLocalIslandPosition (pos);
 		switch (harvestType) {
 			case onHarvest.Destory:  //Carrots				
-				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO = null;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 0;
-				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
+				Destroy (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO = null;
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 0;
+				mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
 				break;
 			case onHarvest.RegrowToStump:  // Trees				
-				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
-				InstantiateObject (items [11], pos, mapChunks [0].transform, 0, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age);	
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 11;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = 11 + "," + age;
-				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = 11 + "," + age;
+				Destroy (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
+				InstantiateObject (items [11], pos, mapChunks [0].transform, 0, mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id, mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age);	
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 11;
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = 11 + "," + age;
+				mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = 11 + "," + age;
 				break;
 			case onHarvest.Renewable:  //Berries
-				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = id;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
-				string spriteName = mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+				mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = id;
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
+				string spriteName = mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
 				break;
 			default:
 				break;
 		}
-		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
+		ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + "i.txt");
 	}
 
 	public Vector2 GetLocalIslandPosition (Vector2 currentPos)
 	{
-		Vector2 pos = currentPos - new Vector2 (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.y);
+		Vector2 pos = currentPos - new Vector2 (mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform.position.y);
 		return pos;
 	}
 
 	public bool CheckForItemPlacement (Vector3 pos)
 	{
 		pos = GetLocalIslandPosition (pos);
-		if (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] > 1//ugly logic works only if mapTilesFromSave[0] is Water tile
-		    && mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO == null) {			
+		if (mapTilesFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] > 1//ugly logic works only if mapTilesFromSave[0] is Water tile
+		    && mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO == null) {			
 			return true;			
 		} else {
 			return false;
@@ -343,26 +343,26 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 		Rect rect = new Rect (0, 0, 128, 128);
 		if (rect.Contains (pos)) {
-			switch (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]) {
+			switch (mapTilesFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]) {
 				case 0:
 					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.deepwater); // Player in water
-					SetPlayerSpeed_n_Multiplier (1.25f, 1);
+					SetPlayerSpeed_n_Multiplier (PlayerMovement.m_instance.speedTemp / 2, 1);
 					break;
 				case 1:
 					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.water); // Player in sand
-					SetPlayerSpeed_n_Multiplier (1.75f, 1);
+					SetPlayerSpeed_n_Multiplier (PlayerMovement.m_instance.speedTemp / 1.5f, 1);
 					break;		
 				case 2:
 					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.sand); // Player in sand
-					SetPlayerSpeed_n_Multiplier (3, 1.5f);
+					SetPlayerSpeed_n_Multiplier (PlayerMovement.m_instance.speedTemp, 1.5f);
 					break;		
 				case 3:
 					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.land); // Player in sand
-					SetPlayerSpeed_n_Multiplier (3, 1.5f);
+					SetPlayerSpeed_n_Multiplier (PlayerMovement.m_instance.speedTemp, 1.5f);
 					break;			
 				case 4:
 					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.stone); // Player in sand
-					SetPlayerSpeed_n_Multiplier (3, 1.5f);
+					SetPlayerSpeed_n_Multiplier (PlayerMovement.m_instance.speedTemp, 1.5f);
 					break;			
 				default:					
 					break;
@@ -377,7 +377,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	void SetPlayerSpeed_n_Multiplier (float speed, float speedMultiplier)
 	{
-		PlayerMovement.m_instance.speedTemp = speed;
+		PlayerMovement.m_instance.speed = speed;
 		PlayerMovement.m_instance.runSpeedMultiplier = speedMultiplier;
 	}
 }

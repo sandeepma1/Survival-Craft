@@ -39,12 +39,12 @@ public class DayNight_GameTime : MonoBehaviour
 
 	void Start ()
 	{		
-		timer = PlayerPrefs.GetInt ("gameTime");
-		day = PlayerPrefs.GetInt ("gameDay");
-		currentPhase = (DayPhases)PlayerPrefs.GetInt ("currentPhase");
-		sunRotationZ = PlayerPrefs.GetFloat ("sunRotationZ");
-		moonRotationZ = PlayerPrefs.GetFloat ("moonRotationZ");
-		background.transform.position = new Vector3 (PlayerPrefs.GetInt ("backgroundPositionX"), 0);
+		timer = Bronz.LocalStore.Instance.GetInt ("gameTime");
+		day = Bronz.LocalStore.Instance.GetInt ("gameDay");
+		currentPhase = (DayPhases)Bronz.LocalStore.Instance.GetInt ("currentPhase");
+		sunRotationZ = Bronz.LocalStore.Instance.GetFloat ("sunRotationZ");
+		moonRotationZ = Bronz.LocalStore.Instance.GetFloat ("moonRotationZ");
+		background.transform.position = new Vector3 (Bronz.LocalStore.Instance.GetInt ("backgroundPositionX"), 0);
 		tempCurrentPhase = currentPhase;
 
 		switch (currentPhase) {					
@@ -184,10 +184,10 @@ public class DayNight_GameTime : MonoBehaviour
 			SaveManager.m_instance.SaveGameCurrentPhase ((int)currentPhase);
 		}
 
-		PlayerPrefs.SetFloat ("sunRotationZ", sunRotationZ);
-		PlayerPrefs.SetFloat ("moonRotationZ", moonRotationZ);
+		Bronz.LocalStore.Instance.SetFloat ("sunRotationZ", sunRotationZ);
+		Bronz.LocalStore.Instance.SetFloat ("moonRotationZ", moonRotationZ);
 
-		PlayerPrefs.SetInt ("backgroundPositionX", (int)background.transform.position.x);	
+		Bronz.LocalStore.Instance.SetInt ("backgroundPositionX", (int)background.transform.position.x);	
 	}
 
 	public IEnumerator ChangeColorOfGame ()
@@ -219,7 +219,7 @@ public class DayNight_GameTime : MonoBehaviour
 	{
 		minutes = Mathf.FloorToInt (timer / 60F);
 		seconds = Mathf.FloorToInt (timer - minutes * 60);
-		timeText.text = string.Format ("{0:0}:{1:00}", minutes, seconds + " Day:" + day + " " + currentPhase);
+		timeText.text = string.Format ("{0:0}:{1:00}", minutes, seconds + " Day:" + day);// + " " + currentPhase);
 	}
 
 	#region DEBUG_FUNCTIONS
