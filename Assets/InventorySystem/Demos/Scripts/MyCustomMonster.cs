@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Devdog.InventorySystem.Demo
 {
     [RequireComponent(typeof(SelectableObjectInfo))]
-    [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
     [RequireComponent(typeof(ObjectTriggerer))]
     [RequireComponent(typeof(LootableObject))]
     public partial class MyCustomMonster : MonoBehaviour, IObjectTriggerUser
@@ -29,7 +29,7 @@ namespace Devdog.InventorySystem.Demo
         private Vector3 aimPosition;
 
         [NonSerialized]
-        private NavMeshAgent agent;
+        private UnityEngine.AI.NavMeshAgent agent;
 
         public LootableObject lootable { get; protected set; }
 
@@ -45,7 +45,7 @@ namespace Devdog.InventorySystem.Demo
 
         public void Start()
         {
-            agent = GetComponent<NavMeshAgent>();
+            agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
             agent.speed = walkSpeed;
 
             selectableObjectInfo = (ISelectableObjectInfo)GetComponent(typeof(ISelectableObjectInfo));
