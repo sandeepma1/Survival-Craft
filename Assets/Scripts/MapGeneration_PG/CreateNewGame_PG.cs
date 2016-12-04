@@ -194,35 +194,38 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		int ran = UnityEngine.Random.Range (0, 8);
 		switch (ran) {
 			case 0:
-				FillItemInfo ("5,-1", x, y, 0.05f); //grass
+				FillItemInfo ("5,-1", x, y, 0.1f); //grass
 				break;
 			case 1:
-				FillItemInfo ("1,-1", x, y, 0.05f); // flint
+				FillItemInfo ("1,-1", x, y, 0.1f); // flint
 				break;
 			case 2:
-				FillItemInfo ("6,-1", x, y, 0.09f); //grass1
-				if (!isPlayerPosSET) {
+				FillItemInfo ("6,-1", x, y, 0.1f); //grass1
+				if (!isPlayerPosSET) { // Player Spwan Position first time
 					Bronz.LocalStore.Instance.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
 					Bronz.LocalStore.Instance.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
 					isPlayerPosSET = true;
 				}
 				break;
 			case 3:
-				FillItemInfo ("9,-1", x, y, 0.05f); //Stick
+				FillItemInfo ("9,-1", x, y, 0.1f); //Stick
 				break;
 			case 4:
 				int ranTree = UnityEngine.Random.Range (0, 4);
 				FillItemInfo (ranTree + 12 + ",1", x, y, 0.6f); //trees
 				break;
 			case 5:
-				FillItemInfo ("17,8", x, y, 0.025f); //berrybush
+				FillItemInfo ("17,8", x, y, 0.1f); //berrybush
 				break;
 			case 6:
-				FillItemInfo ("22,5", x, y, 0.025f); //radishPlant
+				FillItemInfo ("22,5", x, y, 0.1f); //radishPlant
 				break;
 			case 7:
-				FillItemInfo ("2,-1", x, y, 0.05f); //trees
+				FillItemInfo ("2,-1", x, y, 0.1f); //rocks
 				break;
+		/*case 8:
+				//FillItemInfo ("28,-1", x, y, 2f); //grass
+				break;*/
 			default:
 				break;
 		}

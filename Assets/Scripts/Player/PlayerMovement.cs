@@ -306,14 +306,14 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		/*switch (other.tag) {			
+		switch (other.tag) {			
 			case "Grass":
 				other.GetComponent<Animator> ().enabled = true;
 				other.GetComponent<Animator> ().SetTrigger ("shouldMove");
 				break;
 			default:
 				break;
-		}*/
+		}
 
 		/*if (other.gameObject.transform.childCount > 0) {	
 			print (ItemDatabase.m_instance.items [GetItemID (other.gameObject.name)].tool.ToString () + "==" + ActionManager.m_AC_instance.currentWeildedItem.rarity.name);	

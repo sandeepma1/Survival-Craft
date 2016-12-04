@@ -61,6 +61,8 @@ public class Item
 		RawMaterial,
 		Ore,
 		Mineral,
+		Tool,
+		Weapon,
 		Consumable,
 		Quest,
 		Survival,

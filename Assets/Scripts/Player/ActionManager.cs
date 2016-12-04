@@ -275,17 +275,16 @@ public class ActionManager : MonoBehaviour
 			DestoryInventoryItem ();
 			Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.InventorySlotClicked ();
 		}
+
+		ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate
+		ran2 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop2RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop2RateMax); // calculate random drop rate with min and max drop rate
+		ran3 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop3RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop3RateMax); // calculate random drop rate with min and max drop rate
+
 		switch (currentSelectedItem.id) {
 			case 14:
 			case 15:
-				//currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - 30;
-				/*if (currentWeildedItem.itemDurability < 1) {
-					DestoryInventoryItem ();
-					Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.InventorySlotClicked ();
-				}*/
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
 				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);// Fixed issue when stup remains transperent if tree chopped from south facing
-				//ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate			
 				break;
 			case 16:
 			case 21:
@@ -295,19 +294,17 @@ public class ActionManager : MonoBehaviour
 					ran1 = 0;
 				}
 				break;
-			default:
-				ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate
-				ran2 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop2RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop2RateMax); // calculate random drop rate with min and max drop rate
-				ran3 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop3RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop3RateMax); // calculate random drop rate with min and max drop rate
+			default:				
 				break;
 		}
-		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops1 > 0) {
+
+		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops1 >= 0) {
 			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops1, ran1);// drop item upon break
 		}
-		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops2 > 0) {
+		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops2 >= 0) {
 			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops2, ran2);// drop item upon break
 		}
-		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops3 > 0) {
+		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops3 >= 0) {
 			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops3, ran3);// drop item upon break
 		}
 
@@ -319,20 +316,19 @@ public class ActionManager : MonoBehaviour
 
 	public void InstansiateDropGameObject (int id, int dropValue)
 	{
-		print ("id " + id);
-		if (id > 0) {
-			for (int i = 0; i < dropValue; i++) {
-				GameObject parent = new GameObject ();
-				parent.name = "parent";
-				Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle;
-				parent.transform.position = new Vector3 (ran.x, ran.y, 0);
-				GameObject drop = GameObject.Instantiate (inventoryItems [id], new Vector3 (ran.x, ran.y, 0), Quaternion.identity) as GameObject;
-				drop.transform.localScale = new Vector3 (GameEventManager.dropItemSize, GameEventManager.dropItemSize, GameEventManager.dropItemSize);
-				drop.transform.parent = parent.transform;
-				drop.GetComponent<Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
-				drop.GetComponent<Animator> ().Play ("itemDrop");
-				StartCoroutine (DropItemsLiveAfterSeconds (parent.gameObject));
-			}
+		print ("id " + id + " value " + dropValue);
+		for (int i = 0; i < dropValue; i++) {
+			GameObject parent = new GameObject ();
+			parent.name = "parent";
+			Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle;
+			parent.transform.position = new Vector3 (ran.x, ran.y, 0);
+			GameObject drop = GameObject.Instantiate (inventoryItems [id], new Vector3 (ran.x, ran.y, 0), Quaternion.identity) as GameObject;
+			drop.transform.localScale = new Vector3 (GameEventManager.dropItemSize, GameEventManager.dropItemSize, GameEventManager.dropItemSize);
+			drop.transform.parent = parent.transform;
+			drop.GetComponent<Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
+			drop.GetComponent<Animator> ().Play ("itemDrop");
+			StartCoroutine (DropItemsLiveAfterSeconds (parent.gameObject));
+			
 		}
 	}
 
