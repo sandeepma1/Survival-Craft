@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 63baa73abb21c784eb63132aef12aea5
-timeCreated: 1474310315
+timeCreated: 1480770807
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -36,12 +36,18 @@ TextureImporter:
     21300058: Log1
     21300060: StarFish1
     21300062: StarFish2
-  serializedVersion: 2
+    21300064: GroundTiles16_0
+    21300066: GroundTiles16_1
+    21300068: GroundTiles16_2
+    21300070: GroundTiles16_3
+    21300072: GroundTiles16_4
+    21300074: GroundTiles16_5
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -53,10 +59,8 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 512
@@ -67,9 +71,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -77,12 +79,44 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 16
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Stone1
+    - serializedVersion: 2
+      name: Stone1
       rect:
         serializedVersion: 2
         x: 0
@@ -93,7 +127,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Stone2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Stone2
       rect:
         serializedVersion: 2
         x: 16
@@ -104,7 +140,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Log2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Log2
       rect:
         serializedVersion: 2
         x: 0
@@ -115,7 +153,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Grass1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Grass1
       rect:
         serializedVersion: 2
         x: 0
@@ -126,7 +166,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Grass2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Grass2
       rect:
         serializedVersion: 2
         x: 16
@@ -137,7 +179,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: RandomSeeds
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: RandomSeeds
       rect:
         serializedVersion: 2
         x: 0
@@ -148,7 +192,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: RedBerry
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: RedBerry
       rect:
         serializedVersion: 2
         x: 16
@@ -159,7 +205,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Radish1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Radish1
       rect:
         serializedVersion: 2
         x: 32
@@ -170,7 +218,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Coconut
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Coconut
       rect:
         serializedVersion: 2
         x: 0
@@ -181,7 +231,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_13
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_13
       rect:
         serializedVersion: 2
         x: 0
@@ -192,7 +244,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_14
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_14
       rect:
         serializedVersion: 2
         x: 16
@@ -203,7 +257,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_15
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_15
       rect:
         serializedVersion: 2
         x: 0
@@ -214,7 +270,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_16
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_16
       rect:
         serializedVersion: 2
         x: 16
@@ -225,7 +283,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_17
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_17
       rect:
         serializedVersion: 2
         x: 0
@@ -236,7 +296,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_18
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_18
       rect:
         serializedVersion: 2
         x: 16
@@ -247,7 +309,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_19
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_19
       rect:
         serializedVersion: 2
         x: 32
@@ -258,7 +322,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Grass3
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Grass3
       rect:
         serializedVersion: 2
         x: 32
@@ -269,7 +335,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_20
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_20
       rect:
         serializedVersion: 2
         x: 11
@@ -280,7 +348,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_21
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_21
       rect:
         serializedVersion: 2
         x: 43
@@ -291,7 +361,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_22
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_22
       rect:
         serializedVersion: 2
         x: 75
@@ -302,7 +374,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_23
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_23
       rect:
         serializedVersion: 2
         x: 107
@@ -313,7 +387,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_24
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_24
       rect:
         serializedVersion: 2
         x: 139
@@ -324,7 +400,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_25
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_25
       rect:
         serializedVersion: 2
         x: 171
@@ -335,7 +413,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: GroundTiles16_26
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_26
       rect:
         serializedVersion: 2
         x: 32
@@ -346,7 +426,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Stick1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Stick1
       rect:
         serializedVersion: 2
         x: 16
@@ -357,7 +439,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Flint1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Flint1
       rect:
         serializedVersion: 2
         x: 32
@@ -368,7 +452,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Log1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Log1
       rect:
         serializedVersion: 2
         x: 32
@@ -379,7 +465,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: StarFish1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: StarFish1
       rect:
         serializedVersion: 2
         x: 48
@@ -390,7 +478,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: StarFish2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: StarFish2
       rect:
         serializedVersion: 2
         x: 64
@@ -401,6 +491,85 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GroundTiles16_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 272
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GroundTiles16_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 272
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GroundTiles16_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 272
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GroundTiles16_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 272
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GroundTiles16_4
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 264
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GroundTiles16_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

@@ -12,11 +12,8 @@ public class ActionManager : MonoBehaviour
 	public bool isReadyToAttack = false;
 	public GameObject[] inventoryItems;
 	public GameObject consumeButtonInUI, containerUI;
-	//public RuntimeAnimatorController treeAnimator;
 	public RuntimeAnimatorController treeAnimator;
 	public Devdog.InventorySystem.InventoryItemBase currentWeildedItem, tempItem;
-	/*public Devdog.InventorySystem.ItemCollectionBase[] allInventoryItems;*/
-	//SpriteRenderer weaponSprite;
 	float baseTime = 0.0f, baseTimeStatic, progressVal = 0;
 
 	item currentSelectedItem = new item ();
@@ -32,8 +29,6 @@ public class ActionManager : MonoBehaviour
 	void Start ()
 	{
 		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
-		//itemsInInventory = FindObjectsOfType (typeof(Devdog.InventorySystem.InventoryUIItemWrapper)) as Devdog.InventorySystem.InventoryUIItemWrapper[];
-		//weaponSprite = weaponGameObject.GetComponent<SpriteRenderer> ();
 		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
 	}
@@ -60,7 +55,6 @@ public class ActionManager : MonoBehaviour
 
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
-		//UpdateAllItemsInInventory ();
 		if (i == null) {
 			currentWeildedItem = tempItem;
 		} else {
@@ -73,7 +67,6 @@ public class ActionManager : MonoBehaviour
 			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
 			UpdateAllItemsInInventory ();
 		}	
-		//
 	}
 
 	public void UpdatePlayerWeapon ()
@@ -228,7 +221,7 @@ public class ActionManager : MonoBehaviour
 			baseTime -= Time.deltaTime;
 			progressVal = baseTime / baseTimeStatic;
 
-			progressBar.transform.localScale = new Vector3 (progressVal, 0.1f, 1);
+			progressBar.transform.localScale = new Vector3 (progressVal, 0.3f, 1);
 			progressBarBG.SetActive (true);
 
 			if (baseTime <= 0) {				
@@ -236,6 +229,7 @@ public class ActionManager : MonoBehaviour
 				isReadyToAttack = false;
 				progressBar.transform.localScale = Vector3.zero;
 				progressBarBG.SetActive (false);
+				PlayerMovement.m_instance.ActionCompleted ();
 			}
 		} else {
 			progressBar.transform.localScale = Vector3.zero;
@@ -273,39 +267,73 @@ public class ActionManager : MonoBehaviour
 	void DropBreakedItem ()
 	{
 		PlayerMovement.m_instance.SetAttackAnimation (false);
-		int ran = 0;
+		int ran1 = 0;
+		int ran2 = 0;
+		int ran3 = 0;
+		currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - ItemDatabase.m_instance.items [currentSelectedItem.id].reduceToolDurability;
+		if (currentWeildedItem.itemDurability < 1) {
+			DestoryInventoryItem ();
+			Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.InventorySlotClicked ();
+		}
 		switch (currentSelectedItem.id) {
 			case 14:
 			case 15:
-				print (currentWeildedItem.itemDurability + "before");
-				currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - 30;
-				print (currentWeildedItem.itemDurability + "action");
-				if (currentWeildedItem.itemDurability < 1) {
+				//currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - 30;
+				/*if (currentWeildedItem.itemDurability < 1) {
 					DestoryInventoryItem ();
 					Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.InventorySlotClicked ();
-				}
+				}*/
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
 				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);// Fixed issue when stup remains transperent if tree chopped from south facing
-				ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate			
-
+				//ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate			
 				break;
 			case 16:
 			case 21:
 				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 0
-					ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
+					ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate
 				} else {
-					ran = 0;
+					ran1 = 0;
 				}
 				break;
 			default:
-				ran = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].dropRateMax); // calculate random drop rate with min and max drop rate
+				ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate
+				ran2 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop2RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop2RateMax); // calculate random drop rate with min and max drop rate
+				ran3 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop3RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop3RateMax); // calculate random drop rate with min and max drop rate
 				break;
 		}
-		InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops, ran); // drop item upon break
+		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops1 > 0) {
+			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops1, ran1);// drop item upon break
+		}
+		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops2 > 0) {
+			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops2, ran2);// drop item upon break
+		}
+		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops3 > 0) {
+			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops3, ran3);// drop item upon break
+		}
+
 		UpdateItemAndSaveToFile ();  //update Gameobject and save in file
 		currentSelectedItem = new item ();// set current tile position to -1 i.e. invalid
 		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);
 		UpdateAllItemsInInventory ();
+	}
+
+	public void InstansiateDropGameObject (int id, int dropValue)
+	{
+		print ("id " + id);
+		if (id > 0) {
+			for (int i = 0; i < dropValue; i++) {
+				GameObject parent = new GameObject ();
+				parent.name = "parent";
+				Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle;
+				parent.transform.position = new Vector3 (ran.x, ran.y, 0);
+				GameObject drop = GameObject.Instantiate (inventoryItems [id], new Vector3 (ran.x, ran.y, 0), Quaternion.identity) as GameObject;
+				drop.transform.localScale = new Vector3 (GameEventManager.dropItemSize, GameEventManager.dropItemSize, GameEventManager.dropItemSize);
+				drop.transform.parent = parent.transform;
+				drop.GetComponent<Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
+				drop.GetComponent<Animator> ().Play ("itemDrop");
+				StartCoroutine (DropItemsLiveAfterSeconds (parent.gameObject));
+			}
+		}
 	}
 
 	public void UpdateItemAndSaveToFile ()
@@ -327,22 +355,6 @@ public class ActionManager : MonoBehaviour
 				Destroy (currentSelectedItem.GO);
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
 				break;
-		}
-	}
-
-	public void InstansiateDropGameObject (int id, int dropValue)
-	{		
-		for (int i = 0; i < dropValue; i++) {
-			GameObject parent = new GameObject ();
-			parent.name = "parent";
-			Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle;
-			parent.transform.position = new Vector3 (ran.x, ran.y, 0);
-			GameObject drop = GameObject.Instantiate (inventoryItems [id], new Vector3 (ran.x, ran.y, 0), Quaternion.identity) as GameObject;
-			drop.transform.localScale = new Vector3 (GameEventManager.dropItemSize, GameEventManager.dropItemSize, GameEventManager.dropItemSize);
-			drop.transform.parent = parent.transform;
-			drop.GetComponent<Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
-			drop.GetComponent<Animator> ().Play ("itemDrop");
-			StartCoroutine (DropItemsLiveAfterSeconds (parent.gameObject));
 		}
 	}
 

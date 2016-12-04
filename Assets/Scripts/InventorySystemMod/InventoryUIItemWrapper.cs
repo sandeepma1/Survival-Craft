@@ -43,19 +43,19 @@ namespace Devdog.InventorySystem
 
 		public void InventorySlotClicked ()
 		{
-			print ("itemslotclicked");
-			border.gameObject.SetActive (false);
-			itemUseBar.gameObject.SetActive (false);
-			ActionManager.m_AC_instance.RemoveBorder ();
-			ActionManager.m_AC_instance.UpdateAllItemsInInventory ();
-			border.gameObject.SetActive (true);
-			ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
-			PlayerPrefs.SetInt ("ItemSlotIndex", (int)this.index);
-
+			if (border != null) {
+				border.gameObject.SetActive (false);
+				itemUseBar.gameObject.SetActive (false);
+				ActionManager.m_AC_instance.RemoveBorder ();
+				ActionManager.m_AC_instance.UpdateAllItemsInInventory ();
+				border.gameObject.SetActive (true);
+				ActionManager.m_AC_instance.GetCurrentWeildedTool (item);
+				PlayerPrefs.SetInt ("ItemSlotIndex", (int)this.index);
+			}
 			if (item != null) {
 				if (item.itemDurability > 1) { // if item have uses
 					itemUseBar.gameObject.SetActive (true);
-					print (item.itemDurability);
+					print (item + " Durability " + item.itemDurability);
 				}
 			}	
 

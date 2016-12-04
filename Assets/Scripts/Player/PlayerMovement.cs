@@ -89,11 +89,12 @@ public class PlayerMovement : MonoBehaviour
 
 			isLeftStick = (Mathf.Abs (input_x) + Mathf.Abs (input_y)) > 0;
 
-			if (isRightStick && isLeftStick) {  // if both Right and Left stick are pressed
+			/*if (isRightStick && isLeftStick) {  // if both Right and Left stick are pressed
 				isLeftStick = false;
-			}
+			}*/
 
 			if (isLeftStick) {  // Walking	
+				ActionCompleted ();
 				LoadMapFromSave_PG.m_instance.PlayerTerrianState ((int)transform.position.x, (int)transform.position.y);
 				CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), true);
 				WalkingCalculation (input_x, input_y);
@@ -102,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 			anim.SetBool ("isWalking", false);
 			anim.SetBool ("isRunning", false);
 
-			if (walkTowards && actionButtonPressed) {
+			if (walkTowards) {
 				if (nearestItemPosition != Vector3.zero) {
 					AutoPickUpCalculation ();
 				}			
@@ -177,14 +178,13 @@ public class PlayerMovement : MonoBehaviour
 		//SetIdleAnimation (false);
 		actionButtonPressed = true;
 		CalculateNearestItem (Mathf.RoundToInt (transform.position.x), Mathf.RoundToInt (transform.position.y), false);
-		print (nearestItemPosition);
 		if (nearestItemPosition != Vector3.zero) { //&& cols.Count > 0			
 			walkTowards = true;
 			GameEventManager.currentSelectedTilePosition = nearestItemPosition;
 		}
 	}
 
-	public void ActionButtonUp ()
+	public void ActionCompleted ()
 	{
 		//SetIdleAnimation (true);
 		actionButtonPressed = false;

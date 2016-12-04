@@ -212,7 +212,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 				break;
 			case 4:
 				int ranTree = UnityEngine.Random.Range (0, 4);
-				FillItemInfo (ranTree + 12 + ",1", x, y, 0.11f); //trees
+				FillItemInfo (ranTree + 12 + ",1", x, y, 0.6f); //trees
 				break;
 			case 5:
 				FillItemInfo ("17,8", x, y, 0.025f); //berrybush
