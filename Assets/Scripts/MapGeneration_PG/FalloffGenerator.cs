@@ -4,7 +4,7 @@ using System.Collections;
 public static class FalloffGenerator
 {
 
-	public static float[,] GenerateFalloffMap (int size)
+	public static float[,] GenerateFalloffMap (int size, Vector2 falloff)
 	{
 		float[,] map = new float[size, size];
 		for (int i = 0; i < size; i++) {
@@ -12,19 +12,18 @@ public static class FalloffGenerator
 				float x = i / (float)size * 2 - 1;
 				float y = j / (float)size * 2 - 1;
 				float value = Mathf.Max (Mathf.Abs (x), Mathf.Abs (y));
-				map [i, j] = Evaluate (value);
+				map [i, j] = Evaluate (value, falloff);
 			}
 		}
 		return map;
 	}
 
-	static float Evaluate (float value)
-	{
-		//float a = 3;
-		//float b = 2.2f;
-		float a = 1f;
-		float b = 10f;
+	static float Evaluate (float value, Vector2 falloff)
+	{		
+		/*float a = 2f;
+		float b = 3f;
+		return Mathf.Pow (value, a) / (Mathf.Pow (value, a) + Mathf.Pow (b - b * value, a));*/
 
-		return Mathf.Pow (value, a) / (Mathf.Pow (value, a) + Mathf.Pow (b - b * value, a));
+		return Mathf.Pow (value, falloff.x) / (Mathf.Pow (value, falloff.x) + Mathf.Pow (falloff.y - falloff.y * value, falloff.x));
 	}
 }

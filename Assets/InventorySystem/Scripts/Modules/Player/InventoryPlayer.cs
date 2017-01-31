@@ -97,7 +97,7 @@ namespace Devdog.InventorySystem
 		/// <param name="col"></param>
 		public virtual void OnTriggerEnter (Collider col)
 		{
-			print (col + "Trigger");
+			//print (col + "Trigger");
 			TryPickup (col.gameObject);
 		}
 

@@ -125,7 +125,7 @@ public class ActionManager : MonoBehaviour
 			currentSelectedItem = LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition);
 			CalculateHardness ();
 		} else {
-			print ("No items nearby");
+			//print ("No items nearby");
 			currentSelectedItem = new item ();
 			if (currentWeildedItem.isPlaceable && !PlayerMovement.m_instance.isRightStick && Devdog.InventorySystem.InventoryManager.FindAll (currentWeildedItem.ID, false).Count > 0) {
 				PlaceItem ();
@@ -155,7 +155,7 @@ public class ActionManager : MonoBehaviour
 				//*************************************************************************************************
 				switch (ItemDatabase.m_instance.items [currentSelectedItem.id].tool) {
 					case Item.ItemTool.Hand:
-						print ("using hands, this will never execute!!");
+						//print ("using hands, this will never execute!!");
 						break;
 					case Item.ItemTool.Axe:						
 						PlayerMovement.m_instance.SetSlashingAnimation (true);
@@ -316,7 +316,7 @@ public class ActionManager : MonoBehaviour
 
 	public void InstansiateDropGameObject (int id, int dropValue)
 	{
-		print ("id " + id + " value " + dropValue);
+		//print ("id " + id + " value " + dropValue);
 		for (int i = 0; i < dropValue; i++) {
 			GameObject parent = new GameObject ();
 			parent.name = "parent";
@@ -327,14 +327,15 @@ public class ActionManager : MonoBehaviour
 			drop.transform.parent = parent.transform;
 			drop.GetComponent<Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
 			drop.GetComponent<Animator> ().Play ("itemDrop");
-			StartCoroutine (DropItemsLiveAfterSeconds (parent.gameObject));
-			
+			StartCoroutine (DropItemsLiveAfterSeconds (parent.gameObject));			
 		}
 	}
 
 	public void UpdateItemAndSaveToFile ()
 	{
+		//print (currentSelectedItem.id);
 		switch (currentSelectedItem.id) {
+			
 			case 14: //Replace Tree with stump
 			case 15: //Replace Tree with stump
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToStump);
@@ -348,6 +349,7 @@ public class ActionManager : MonoBehaviour
 				}
 				break;
 			default:
+				//Debug.Log ("destroying");
 				Destroy (currentSelectedItem.GO);
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
 				break;

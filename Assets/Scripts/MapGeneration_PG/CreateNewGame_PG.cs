@@ -15,13 +15,13 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	public float persistance;
 	public float lacunarity;
 	public int seed;
-	public Vector2 offset;
+	public Vector2 offset, falloff;
 	public bool useFalloff;
 	public bool autoUpdate;
 	public TerrainType[] regions;
-	//public GameObject[] tempTiles;
-
-	public Vector2 islandsGridSize = new Vector2 (3, 3);
+	public Vector2 islandsGridSize = new Vector2 (1, 3);
+	public int islandSizeMin = 64;
+	public int islandSizeMax = 128;
 	public int chunkSpacing = 300;
 
 	float[,] falloffMap;
@@ -30,18 +30,22 @@ public partial class CreateNewGame_PG : MonoBehaviour
 	sbyte[,] mapTiles;
 	int countFileName = 0;
 	bool isPlayerPosSET = false;
+
 	List<Vector2> islandsLocations = new List<Vector2> ();
 
 	public void CreateNewSave ()
 	{		
 		ResetAllValues ();
 		InitializeFirstVariables ();
+		//for (int i = 0; i < numberOfIslands.Length; i++) {
+		//int randomIslandSize = UnityEngine.Random.Range (64, 256);
 		CreateRandomGrid ();
+		//}
 	}
 
 	void CreateMaps (int size)
 	{
-		falloffMap = FalloffGenerator.GenerateFalloffMap (size);
+		falloffMap = FalloffGenerator.GenerateFalloffMap (size, falloff);
 		MapData mapData = GenerateMapData (Vector2.zero);
 		MapDisplay display = FindObjectOfType<MapDisplay> ();
 		SaveTextFile (TextureGenerator.TextureFromColourMap (mapData.colourMap, size, size));
@@ -61,12 +65,19 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		for (int i = 0; i < gridRect.Length; i++) {
 			Vector2 temp = gridRect [i] + (UnityEngine.Random.insideUnitCircle * (chunkSpacing / 3));
 			islandsLocations.Add (new Vector2 (Mathf.Round (temp.x), Mathf.Round (temp.y)));
-			mapChunkSize = 128;
-			CreateMaps (128);
+			int randomIslandSize = UnityEngine.Random.Range (islandSizeMin, islandSizeMax);
+			if (i == 0) { // first island is always whats inside this loop
+				mapChunkSize = islandSizeMax;
+				CreateMaps (islandSizeMax);
+			} else {
+				mapChunkSize = randomIslandSize;
+				CreateMaps (randomIslandSize);
+			}
 			countFileName++;
 		}
 
 		ES2.Save (islandsLocations, "islandLocations");
+
 	}
 
 	void SaveTextFile (Texture2D tex) //SaveTexture
@@ -194,13 +205,13 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		int ran = UnityEngine.Random.Range (0, 8);
 		switch (ran) {
 			case 0:
-				FillItemInfo ("5,-1", x, y, 0.1f); //grass
+				FillItemInfo ("5,-1", x, y, 0.7f); //grass
 				break;
 			case 1:
-				FillItemInfo ("1,-1", x, y, 0.1f); // flint
+				FillItemInfo ("1,-1", x, y, 0.09f); // flint
 				break;
 			case 2:
-				FillItemInfo ("6,-1", x, y, 0.1f); //grass1
+				FillItemInfo ("6,-1", x, y, 0.25f); //grass1
 				if (!isPlayerPosSET) { // Player Spwan Position first time
 					Bronz.LocalStore.Instance.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
 					Bronz.LocalStore.Instance.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
@@ -208,11 +219,11 @@ public partial class CreateNewGame_PG : MonoBehaviour
 				}
 				break;
 			case 3:
-				FillItemInfo ("9,-1", x, y, 0.1f); //Stick
+				FillItemInfo ("9,-1", x, y, 0.9f); //Stick
 				break;
 			case 4:
 				int ranTree = UnityEngine.Random.Range (0, 4);
-				FillItemInfo (ranTree + 12 + ",1", x, y, 0.6f); //trees
+				FillItemInfo (ranTree + 12 + ",1", x, y, 3f); //trees
 				break;
 			case 5:
 				FillItemInfo ("17,8", x, y, 0.1f); //berrybush
@@ -221,7 +232,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 				FillItemInfo ("22,5", x, y, 0.1f); //radishPlant
 				break;
 			case 7:
-				FillItemInfo ("2,-1", x, y, 0.1f); //rocks
+				FillItemInfo ("2,-1", x, y, 5f); //rocks
 				break;
 		/*case 8:
 				//FillItemInfo ("28,-1", x, y, 2f); //grass
@@ -284,7 +295,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 		if (octaves < 0) {
 			octaves = 0;
 		}
-		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);
+		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize, falloff);
 	}
 
 	sbyte calculateTileIndex (bool above, bool below, bool left, bool right)

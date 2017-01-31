@@ -55,7 +55,7 @@ namespace Devdog.InventorySystem
 			if (item != null) {
 				if (item.itemDurability > 1) { // if item have uses
 					itemUseBar.gameObject.SetActive (true);
-					print (item + " Durability " + item.itemDurability);
+					//print (item + " Durability " + item.itemDurability);
 				}
 			}	
 

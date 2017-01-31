@@ -86,7 +86,8 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			mapTilesFromSave [i] = ES2.Load2DArray<sbyte> (i + "t.txt");
 			mapChunks [i] = new GameObject (i.ToString ()).gameObject;
 			mapChunks [i].transform.position = islandLocations [i];
-			chunkMapSize [i] = (int)Mathf.Sqrt (mapTilesFromSave [i].Length);
+			chunkMapSize [i] = mapTilesFromSave [i].GetLength (0);
+
 		}
 
 		for (int i = 0; i < mapTilesFromSave.Length; i++) {	 // load map tiles		
@@ -114,9 +115,9 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		for (int i = 0; i < mapChunks.Length; i++) {
 			mapItemsFromSave [i] = ES2.Load2DArray<string> (mapChunks [i].name + "i.txt");
 		}
-		mapSize = (int)Mathf.Sqrt (mapItemsFromSave [0].Length);
 
 		for (int i = 0; i < mapChunks.Length; i++) {
+			mapSize = mapItemsFromSave [i].GetLength (0);
 			mapItemGO [i] = new item[mapSize, mapSize];
 		}
 
@@ -168,6 +169,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	public void SpwanObjects ()
 	{
 		for (int i = 0; i < mapChunks.Length; i++) {
+			mapSize = mapItemsFromSave [i].GetLength (0);
 			for (int x = 0; x < mapSize; x++) {
 				for (int y = 0; y < mapSize; y++) {
 					if (mapItemGO [i] [x, y].id > 0) {
@@ -276,7 +278,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	public item GetTile (Vector2 pos)
 	{
 		pos = GetLocalIslandPosition (pos);
-		print (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id);
+		//print (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id);
 		if (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
 			return mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
 		}
@@ -340,8 +342,9 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		tempPlayerPosX = x;
 		tempPlayerPosY = y;
 		Vector2 pos = GetLocalIslandPosition (new Vector2 (x, y));
-
+//TODO: factor 128, 128
 		Rect rect = new Rect (0, 0, 128, 128);
+
 		if (rect.Contains (pos)) {
 			switch (mapTilesFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]) {
 				case 0:

@@ -7,24 +7,20 @@ public class Health : MonoBehaviour
 	public static Health m_instance = null;
 	public int startHealth;
 	public int healthPerHeart;
-	
-	private int maxHealth;
 	public float currentHealth;
-	
 	public Sprite[] heartImages;
 	public Image heartGUI;
-	
-	private ArrayList hearts = new ArrayList ();
-	
 	// Spacing:
 	public float maxHeartsOnRow;
 	public float spacingX;
 	public float spacingY;
+	public GameObject youDiedMenu;
+	private int maxHealth;
+	private ArrayList hearts = new ArrayList ();
 
 	void Awake ()
 	{
 		m_instance = this;
-
 	}
 
 	void Start ()
@@ -38,8 +34,7 @@ public class Health : MonoBehaviour
 	}
 
 	public void AddHearts (int n)
-	{
-		
+	{		
 		for (int i = 0; i < n; i++) { 
 			//Transform newHeart = ((GameObject)Instantiate (heartGUI.gameObject, this.transform.position, Quaternion.identity)).transform;
 			//GameObject go = ((GameObject)Instantiate (heartGUI.gameObject, heartGUI.GetComponent<RectTransform> ().anchoredPosition3D, Quaternion.identity)); // Creates a new heart
@@ -60,14 +55,18 @@ public class Health : MonoBehaviour
 		UpdateHearts ();
 	}
 
-	
 	public void modifyHealth (int amount)
 	{
 		currentHealth += amount;
 		currentHealth = Mathf.Clamp (currentHealth, 0, maxHealth);
 		UpdateHearts ();
 		Bronz.LocalStore.Instance.SetFloat ("PlayerHealth", currentHealth);
+		if (currentHealth <= 0) {
+			print ("Player Died");
+			youDiedMenu.SetActive (true);
+		}
 	}
+
 
 	void UpdateHearts ()
 	{

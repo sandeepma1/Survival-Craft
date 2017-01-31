@@ -79,7 +79,7 @@ public class DayNight_GameTime : MonoBehaviour
 			timer += Time.deltaTime;
 
 			if (currentPhase != tempCurrentPhase) {
-				print ("saving phase");
+				//print ("saving phase");
 			}
 			if (changeColor) {
 				colorTransitionTimer -= Time.deltaTime;
@@ -119,7 +119,7 @@ public class DayNight_GameTime : MonoBehaviour
 				day++;
 				SaveManager.m_instance.SaveGameDays (day);
 				LoadMapFromSave_PG.m_instance.RepaintMapItems ();
-				print ("new day");
+				//print ("new day");
 				sun.transform.rotation = Quaternion.Euler (0, 180, -45);
 				background.transform.position = new Vector3 (0, 0, 0);
 			}

@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public bool isRunning, isPlayerRunning = false;
 	public bool SavePlayerLocation = true;
-	public float autoPickupItemRadius = 3;
+	public float autoPickupItemRadius = 1f;
 	public bool isRightStick, isLeftStick = false;
 	public bool isPlayerNearFire = false;
 
@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
 			nearestItemPosition = closestItemGO.transform.position;
 			foreach (var cols in sortedColliders) {
 				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = new Color (1, 1, 1, 1);
-				cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (true);
+				//cols.gameObject.transform.GetChild (cols.gameObject.transform.childCount - 1).gameObject.SetActive (true);
 			}
 		} else {
 			nearestItemPosition = Vector3.zero;
@@ -315,12 +315,12 @@ public class PlayerMovement : MonoBehaviour
 				break;
 		}
 
-		/*if (other.gameObject.transform.childCount > 0) {	
-			print (ItemDatabase.m_instance.items [GetItemID (other.gameObject.name)].tool.ToString () + "==" + ActionManager.m_AC_instance.currentWeildedItem.rarity.name);	
+		if (other.gameObject.transform.childCount > 0) {	
+			//print (ItemDatabase.m_instance.items [GetItemID (other.gameObject.name)].tool.ToString () + "==" + ActionManager.m_AC_instance.currentWeildedItem.rarity.name);	
 			if (ItemDatabase.m_instance.items [GetItemID (other.gameObject.name)].tool.ToString () == ActionManager.m_AC_instance.currentWeildedItem.rarity.name) {
-			other.gameObject.transform.GetChild (other.gameObject.transform.childCount - 1).gameObject.SetActive (true);
+				other.gameObject.transform.GetChild (other.gameObject.transform.childCount - 1).gameObject.SetActive (true);
 			}
-		}*/
+		}
 	}
 
 	void OnTriggerExit2D (Collider2D other)
@@ -402,11 +402,12 @@ public class PlayerMovement : MonoBehaviour
 
 	int GetItemID (string s)
 	{
-		//print (s);
 		string[] sArray = s.Split (',');
-
-		return int.Parse (sArray [0]);
+		int a;
+		if (int.TryParse (sArray [0], out a)) {
+			return a;
+		} else {
+			return 0;
+		}
 	}
-
-
 }

@@ -29,7 +29,7 @@ public class MapGenerator_PG : MonoBehaviour
 	public float lacunarity;
 
 	public int seed;
-	public Vector2 offset;
+	public Vector2 offset, falloff;
 
 	public bool useFalloff;
 
@@ -50,7 +50,7 @@ public class MapGenerator_PG : MonoBehaviour
 
 	void Start ()
 	{
-		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);
+		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize, falloff);
 	}
 
 	public void DrawMapInEditor ()
@@ -60,7 +60,7 @@ public class MapGenerator_PG : MonoBehaviour
 		if (drawMode == DrawMode.NoiseMap) {
 			display.DrawTexture (TextureGenerator.TextureFromHeightMap (mapData.heightMap));
 		} else if (drawMode == DrawMode.FalloffMap) {
-			display.DrawTexture (TextureGenerator.TextureFromHeightMap (FalloffGenerator.GenerateFalloffMap (mapChunkSize)));
+			display.DrawTexture (TextureGenerator.TextureFromHeightMap (FalloffGenerator.GenerateFalloffMap (mapChunkSize, falloff)));
 		} else if (drawMode == DrawMode.ColourMap) {
 			SaveTextureToFile (TextureGenerator.TextureFromColourMap (mapData.colourMap, mapChunkSize, mapChunkSize));
 			display.DrawTexture (LoadTextureFromFile ((Texture2D)ES2.LoadImage ("EditorTest.png")));
@@ -173,7 +173,7 @@ public class MapGenerator_PG : MonoBehaviour
 		if (octaves < 0) {
 			octaves = 0;
 		}
-		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize);
+		falloffMap = FalloffGenerator.GenerateFalloffMap (mapChunkSize, falloff);
 	}
 
 	struct MapThreadInfo<T>
