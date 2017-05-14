@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 416a08b9fa551164bb7aef8940e4e1f0
+timeCreated: 1494152958
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mecha
+  fontNames:
+  - Mecha
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 396bdfa426ab31f4284ec13f12421960, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

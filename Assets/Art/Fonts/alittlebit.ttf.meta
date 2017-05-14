@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b8d7addec906195409ebc4285be758fb
+timeCreated: 1494152958
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: alittlebit
+  fontNames:
+  - alittlebit
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

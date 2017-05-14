@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8860fea7dce19674e8eb67a2cb977dea
+timeCreated: 1494152958
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mecha Condensed
+  fontNames:
+  - Mecha Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 40e2c0a6dae6fd048828272742b0f6d9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

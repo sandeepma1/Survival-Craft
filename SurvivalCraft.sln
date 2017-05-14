@@ -1,13 +1,13 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-CSharp-firstpass.csproj", "{0316DB85-39B1-F319-D8A4-4492DA3CB03B}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurvivalCraft", "Assembly-CSharp-firstpass.csproj", "{0316DB85-39B1-F319-D8A4-4492DA3CB03B}"
 EndProject
-Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-CSharp.csproj", "{D49C58CB-21C3-5922-445A-A56A5823300F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurvivalCraft", "Assembly-CSharp.csproj", "{D49C58CB-21C3-5922-445A-A56A5823300F}"
 EndProject
-Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-CSharp-Editor-firstpass.csproj", "{95832EAA-1284-6D2F-98A4-C4778BF59FC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurvivalCraft", "Assembly-CSharp-Editor-firstpass.csproj", "{95832EAA-1284-6D2F-98A4-C4778BF59FC0}"
 EndProject
-Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-CSharp-Editor.csproj", "{DEDCA11F-5F8A-B461-B29D-7F678F47EE13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurvivalCraft", "Assembly-CSharp-Editor.csproj", "{DEDCA11F-5F8A-B461-B29D-7F678F47EE13}"
 EndProject
 Project("{8A573587-9D88-475D-864B-F80C56A77587}") = "SurvivalCraft", "Assembly-UnityScript.unityproj", "{7E2E2688-B73C-15AC-4F07-EB5B15513354}"
 EndProject
