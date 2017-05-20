@@ -1,4 +1,6 @@
-﻿Shader "Custom/WaterGrab" 
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/WaterGrab" 
  {
      Properties 
      {        
@@ -49,7 +51,7 @@
              v2f vert (vin v)
              {
                  v2f o;
-                 o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                 o.vertex = UnityObjectToClipPos(v.vertex);
                  o.color = v.color;
                  o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
  
@@ -63,7 +65,7 @@
                  o.uvgrab.xy = (float2(o.vertex.x, (o.vertex.y)* scale) + o.vertex.w) * 0.5;
                  o.uvgrab.zw = o.vertex.zw;
  
-                 float4 top = mul(UNITY_MATRIX_MVP, float4(0, 0.5, 0, 1));
+                 float4 top = UnityObjectToClipPos(float4(0, 0.5, 0, 1));
                  top.xy /= top.w;
  
                  o.uvgrab.y = 1 - (o.uvgrab.y + top.y);

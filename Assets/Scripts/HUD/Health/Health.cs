@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
 	public float maxHeartsOnRow;
 	public float spacingX;
 	public float spacingY;
-	public GameObject youDiedMenu;
+	public GameObject PlayerDiedMenu;
 	private int maxHealth;
 	private ArrayList hearts = new ArrayList ();
 
@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
 		Bronz.LocalStore.Instance.SetFloat ("PlayerHealth", currentHealth);
 		if (currentHealth <= 0) {
 			print ("Player Died");
-			youDiedMenu.SetActive (true);
+			PlayerDiedMenu.SetActive (true);
 		}
 	}
 

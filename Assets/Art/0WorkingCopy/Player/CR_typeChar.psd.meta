@@ -1,9 +1,13 @@
 fileFormatVersion: 2
-guid: 67fc7a7c8593aca448a58aca45adfea1
-timeCreated: 1494152851
+guid: 2abaa0377048f8e4badfa6edcbed96d8
+timeCreated: 1495262424
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: CR_typeChar_0
+    21300002: CR_typeChar_1
+    21300004: CR_typeChar_2
+    21300006: CR_typeChar_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -27,20 +31,20 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -58,9 +62,77 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CR_typeChar_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 16
+        width: 14
+        height: 16
+      alignment: 9
+      pivot: {x: 0.50318253, y: -0.0040379167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CR_typeChar_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 22
+        width: 5
+        height: 10
+      alignment: 9
+      pivot: {x: 0.48217735, y: 0.99902534}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CR_typeChar_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 5
+        width: 6
+        height: 11
+      alignment: 9
+      pivot: {x: 0.51485157, y: 0.9901142}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CR_typeChar_3
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 7
+        width: 10
+        height: 9
+      alignment: 9
+      pivot: {x: 0.50891113, y: 0.20791203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

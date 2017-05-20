@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 40e2c0a6dae6fd048828272742b0f6d9
-timeCreated: 1494152958
+guid: dfe134fdadcc5cb4babe148d5f297d95
+timeCreated: 1494126640
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -12,7 +12,8 @@ TrueTypeFontImporter:
   fontName: Mecha Condensed
   fontNames:
   - Mecha Condensed
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 68d8a10182ce6f14f9c9ded7c6c69a0b, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

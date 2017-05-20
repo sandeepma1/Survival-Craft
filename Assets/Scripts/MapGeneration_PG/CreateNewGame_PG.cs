@@ -190,7 +190,16 @@ public partial class CreateNewGame_PG : MonoBehaviour
 					FillTileInfo (3, x, y);
 					FillLandTilesWithItems (x, y);
 				} else if (map.GetPixel (x, y) == regions [4].colour) { //Stones
-					FillTileInfo (1, x, y);
+					FillTileInfo (4, x, y);
+					FillArrayBlank (x, y);
+				} else if (map.GetPixel (x, y) == regions [5].colour) { //Stones
+					FillTileInfo (5, x, y);
+					FillArrayBlank (x, y);
+				} else if (map.GetPixel (x, y) == regions [6].colour) { //Stones
+					FillTileInfo (6, x, y);
+					FillArrayBlank (x, y);
+				} else if (map.GetPixel (x, y) == regions [7].colour) { //Stones
+					FillTileInfo (7, x, y);
 					FillArrayBlank (x, y);
 				} else {
 					FillTileInfo (0, x, y);

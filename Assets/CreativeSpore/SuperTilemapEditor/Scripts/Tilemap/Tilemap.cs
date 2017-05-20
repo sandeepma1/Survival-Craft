@@ -731,7 +731,7 @@ namespace CreativeSpore.SuperTilemapEditor
 #endif
             {
                 string chunkName = chunkX + "_" + chunkY;
-                Transform chunkTransform = transform.FindChild(chunkName);
+                Transform chunkTransform = transform.Find(chunkName);
                 tilemapChunk = chunkTransform != null ? chunkTransform.GetComponent<TilemapChunk>() : null;
 
                 if (tilemapChunk == null && createIfDoesntExist)

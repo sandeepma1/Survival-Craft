@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 416a08b9fa551164bb7aef8940e4e1f0
-timeCreated: 1494152958
+guid: fa84be4e2de57b54fb4892b004d318c3
+timeCreated: 1494126640
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -13,7 +13,7 @@ TrueTypeFontImporter:
   fontNames:
   - Mecha
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 396bdfa426ab31f4284ec13f12421960, type: 3}
+  - {fileID: 12800000, guid: c953e376e8b391a4e966df45c286e525, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

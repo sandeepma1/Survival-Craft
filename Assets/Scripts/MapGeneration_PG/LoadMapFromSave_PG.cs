@@ -87,7 +87,6 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			mapChunks [i] = new GameObject (i.ToString ()).gameObject;
 			mapChunks [i].transform.position = islandLocations [i];
 			chunkMapSize [i] = mapTilesFromSave [i].GetLength (0);
-
 		}
 
 		for (int i = 0; i < mapTilesFromSave.Length; i++) {	 // load map tiles		
@@ -96,8 +95,10 @@ public class LoadMapFromSave_PG : MonoBehaviour
 					GameObject go;
 					if (mapTilesFromSave [i] [x, y] == 16) {
 						go = Instantiate (ranTiles [Random.Range (0, ranTiles.Length)]);
+						//print (ranTiles [Random.Range (0, ranTiles.Length)].name);
 					} else {
 						go = Instantiate (tiles [mapTilesFromSave [i] [x, y]]);
+						//print (mapTilesFromSave [i] [x, y]);
 					}				
 					go.transform.SetParent (mapChunks [i].transform);
 					go.name = mapTilesFromSave [i] [x, y].ToString ();
@@ -112,6 +113,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	{
 		mapItemsFromSave = new string[mapChunks.Length][,];
 		mapItemGO = new item[mapChunks.Length][,];
+		print (mapChunks.Length);
 		for (int i = 0; i < mapChunks.Length; i++) {
 			mapItemsFromSave [i] = ES2.Load2DArray<string> (mapChunks [i].name + "i.txt");
 		}
