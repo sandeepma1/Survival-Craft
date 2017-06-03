@@ -26,19 +26,19 @@ public class ItemPlacer : MonoBehaviour
 	{
 		//print (ActionManager.m_AC_instance.currentWeildedItem.itemID);
 		MoreInventoryButton.m_instance.ToggleInventorySize (false);
-		itemPlacer.GetComponent <SpriteRenderer> ().sprite = 
-		LoadMapFromSave_PG.m_instance.items [ActionManager.m_AC_instance.currentWeildedItem.itemID].gameObject.GetComponent <SpriteRenderer> ().sprite;
-		HideAllHUD (true);
-		itemPlacer.transform.position = new Vector3 (PlayerMovement.m_instance.gameObject.transform.position.x, PlayerMovement.m_instance.gameObject.transform.position.y - 1, 0);
-		CheckForItemPlacement ();
+		//itemPlacer.GetComponent <SpriteRenderer> ().sprite = 
+		//LoadMapFromSave_PG.m_instance.items [ActionManager.m_AC_instance.currentWeildedItem.itemID].gameObject.GetComponent <SpriteRenderer> ().sprite;
+		//HideAllHUD (true);
+		//itemPlacer.transform.position = new Vector3 (PlayerMovement.m_instance.gameObject.transform.position.x, PlayerMovement.m_instance.gameObject.transform.position.y - 1, 0);
+		//CheckForItemPlacement ();
 	}
 
 	public void ConfirmPlaceItem ()
 	{
 		if (isItemPlacable) {
-			LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [ActionManager.m_AC_instance.currentWeildedItem.itemID].gameObject,
-				itemPlacer.transform.position, LoadMapFromSave_PG.m_instance.mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform, Bronz.LocalStore.Instance.GetInt ("mapChunkPosition"),
-				ActionManager.m_AC_instance.currentWeildedItem.itemID, -1);
+			//LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [ActionManager.m_AC_instance.currentWeildedItem.itemID].gameObject,
+			//	itemPlacer.transform.position, LoadMapFromSave_PG.m_instance.mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform, Bronz.LocalStore.Instance.GetInt ("mapChunkPosition"),
+			//	ActionManager.m_AC_instance.currentWeildedItem.itemID, -1);
 			HideAllHUD (false);
 		}
 
@@ -65,13 +65,13 @@ public class ItemPlacer : MonoBehaviour
 
 	void CheckForItemPlacement ()
 	{
-		if (LoadMapFromSave_PG.m_instance.CheckForItemPlacement (itemPlacer.transform.position)) {
+		/*if (LoadMapFromSave_PG.m_instance.CheckForItemPlacement (itemPlacer.transform.position)) {
 			itemPlacer.GetComponent <SpriteRenderer> ().color = Color.green;
 			isItemPlacable = true;
 		} else {
 			itemPlacer.GetComponent <SpriteRenderer> ().color = Color.red;
 			isItemPlacable = false;
-		}
+		}*/
 	}
 }
 

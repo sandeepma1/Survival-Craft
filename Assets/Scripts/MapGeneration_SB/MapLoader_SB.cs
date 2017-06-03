@@ -78,7 +78,7 @@ public class MapLoader_SB : MonoBehaviour
 							case 11://trees
 							case 16://berries
 							case 21://berries
-								if (mapItemGO [i] [x, y].age != ItemDatabase.m_instance.items [mapItemGO [i] [x, y].id].maxAge) {
+								if (mapItemGO [i] [x, y].age != ItemDatabase_old.m_instance.items [mapItemGO [i] [x, y].id].maxAge) {
 									mapItemGO [i] [x, y].age = (sbyte)(mapItemGO [i] [x, y].age + 1);
 									mapItemsFromSave [i] [x, y] = mapItemGO [i] [x, y].id + "," + mapItemGO [i] [x, y].age;
 								}
@@ -90,7 +90,7 @@ public class MapLoader_SB : MonoBehaviour
 				}
 			}
 		}
-		ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + ".txt");
+		//ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + ".txt");
 		SpwanObjects ();
 	}
 
@@ -121,11 +121,11 @@ public class MapLoader_SB : MonoBehaviour
 		switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
 			case 11: // Trees
 				spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
-				if (age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+				if (age < ItemDatabase_old.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [age];
 				}
-				if (age == ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+				if (age == ItemDatabase_old.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
 					mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
 				}
@@ -156,11 +156,11 @@ public class MapLoader_SB : MonoBehaviour
 			switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
 				case 11: // Trees
 					spriteName = mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
-					if (age < ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+					if (age < ItemDatabase_old.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
 						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
 						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [age];
 					}
-					if (age == ItemDatabase.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
+					if (age == ItemDatabase_old.m_instance.items [mapItemGO [i] [(int)pos.x, (int)pos.y].id].maxAge) {
 						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
 						mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
 					}
@@ -178,43 +178,43 @@ public class MapLoader_SB : MonoBehaviour
 			}
 
 			//ActionManager.m_AC_instance.currentWeildedItem.ID
-			if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
+			/*if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
 				Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
-			}
+			}*/
 
-			mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
-			ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + ".txt");
+			//mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
+			//ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + ".txt");
 		}
 	}
 
 	public void DisableUnusedMapChunks ()
 	{
-		int currentMapChunkPosition = Bronz.LocalStore.Instance.GetInt ("mapChunkPosition");
+		//int currentMapChunkPosition = Bronz.LocalStore.Instance.GetInt ("mapChunkPosition");
 		for (int i = 0; i < mapChunks.Length; i++) {
 			mapChunks [i].SetActive (true);
 		}
 		for (int i = 0; i < mapChunks.Length; i++) {
-			if (i == currentMapChunkPosition) {
+			/*if (i == currentMapChunkPosition) {
 
 			} else {
 				mapChunks [i].SetActive (false);
-			}
+			}*/
 		}
 	}
 
 	public item GetTile (Vector2 pos)
 	{
 		pos = GetPlayersLocalPosition (pos);
-		if (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
+		/*if (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
 			return mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
-		}
+		}*/
 		return new item ();
 	}
 
 	public void SaveMapItemData (sbyte id, sbyte age, Vector2 pos, onHarvest harvestType)
 	{
 		pos = GetPlayersLocalPosition (pos);
-		switch (harvestType) {
+		/*switch (harvestType) {
 			case onHarvest.Destory:  //Carrots
 				mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
 				Destroy (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
@@ -237,13 +237,14 @@ public class MapLoader_SB : MonoBehaviour
 				break;
 			default:
 				break;
-		}
-		ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + ".txt");
+		}*/
+		//ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + ".txt");
 	}
 
 	public Vector2 GetPlayersLocalPosition (Vector2 curentPos)
 	{
-		Vector2 pos = curentPos - new Vector2 (mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform.position.y);
+		//Vector2 pos = curentPos - new Vector2 (mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform.position.y);
+		Vector2 pos = new Vector2 ();//new
 		return pos;
 	}
 }

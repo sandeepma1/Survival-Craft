@@ -13,12 +13,12 @@ public class ActionManager : MonoBehaviour
 	public GameObject[] inventoryItems;
 	public GameObject consumeButtonInUI, containerUI;
 	public RuntimeAnimatorController treeAnimator;
-	public Devdog.InventorySystem.InventoryItemBase currentWeildedItem, tempItem;
+	//public Devdog.InventorySystem.InventoryItemBase currentWeildedItem, tempItem;
 	float baseTime = 0.0f, baseTimeStatic, progressVal = 0;
 
 	item currentSelectedItem = new item ();
 	Scene currentScene;
-	public Devdog.InventorySystem.InventoryUIItemWrapper[] itemsInInventory;
+	//public Devdog.InventorySystem.InventoryUIItemWrapper[] itemsInInventory;
 
 	void Awake ()
 	{
@@ -28,31 +28,31 @@ public class ActionManager : MonoBehaviour
 
 	void Start ()
 	{
-		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
-		currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
+		//itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
+		//currentWeildedItem = new Devdog.InventorySystem.InventoryItemBase ();	
 		progressBarBG.SetActive (false);
 	}
 
 	public void RemoveBorder ()
 	{
-		for (int i = 0; i < itemsInInventory.Length; i++) {
+		/*for (int i = 0; i < itemsInInventory.Length; i++) {
 			itemsInInventory [i].border.gameObject.SetActive (false);
-		}
+		}*/
 	}
 
 	public void UpdateAllItemsInInventory ()
 	{
-		System.Array.Clear (itemsInInventory, 0, itemsInInventory.Length);
+		/*System.Array.Clear (itemsInInventory, 0, itemsInInventory.Length);
 		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
 		foreach (var slot in itemsInInventory) {
 			if (slot.item != null) {
 				slot.itemUseBar.rectTransform.sizeDelta = new Vector2 (slot.item.itemDurability, slot.itemUseBar.rectTransform.rect.height);
 			}
 		}
-		UpdatePlayerWeapon ();
+		UpdatePlayerWeapon ();*/
 	}
 
-
+	/*
 	public void GetCurrentWeildedTool (Devdog.InventorySystem.InventoryItemBase i)
 	{
 		if (i == null) {
@@ -67,9 +67,9 @@ public class ActionManager : MonoBehaviour
 			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
 			UpdateAllItemsInInventory ();
 		}	
-	}
+	}*/
 
-	public void UpdatePlayerWeapon ()
+	/*public void UpdatePlayerWeapon ()
 	{
 		switch (currentWeildedItem.rarity.name) {
 			case "Hand":
@@ -99,7 +99,7 @@ public class ActionManager : MonoBehaviour
 			default:
 				break;
 		}
-	}
+	}*/
 
 	/*public void GetAllInventoryItems (Devdog.InventorySystem.ItemCollectionBase[] items)
 	{
@@ -113,23 +113,23 @@ public class ActionManager : MonoBehaviour
 
 	void GetCurrentTile ()
 	{
-		if (currentWeildedItem == null) {			
-			currentWeildedItem = tempItem;
-			/*currentWeildedItem.ID = 0;
+		//if (currentWeildedItem == null) {			
+		//currentWeildedItem = tempItem;
+		/*currentWeildedItem.ID = 0;
 			currentWeildedItem.isPlaceable = false;
 			currentWeildedItem.rarity.name = "Hand";
 			currentWeildedItem.itemQuality = 1;
 			currentWeildedItem.itemID = "0,-1";*/			
-		} 
+		//} 
 		if (LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition).id > 0) {
 			currentSelectedItem = LoadMapFromSave_PG.m_instance.GetTile (GameEventManager.currentSelectedTilePosition);
 			CalculateHardness ();
 		} else {
 			//print ("No items nearby");
 			currentSelectedItem = new item ();
-			if (currentWeildedItem.isPlaceable && !PlayerMovement.m_instance.isRightStick && Devdog.InventorySystem.InventoryManager.FindAll (currentWeildedItem.ID, false).Count > 0) {
+			/*if (currentWeildedItem.isPlaceable && !PlayerMovement.m_instance.isRightStick && Devdog.InventorySystem.InventoryManager.FindAll (currentWeildedItem.ID, false).Count > 0) {
 				PlaceItem ();
-			}
+			}*/
 		}		
 	}
 
@@ -137,7 +137,7 @@ public class ActionManager : MonoBehaviour
 	{
 		//print (currentWeildedItem.rarity.name);
 		if (currentSelectedItem.id > 0) {
-			if (ItemDatabase.m_instance.items [currentSelectedItem.id].isHandMined) {		
+			if (ItemDatabase_old.m_instance.items [currentSelectedItem.id].isHandMined) {		
 				//print ("Using Bare Hands");
 				PlayerMovement.m_instance.SetPickUpAnimation ();
 				baseTime = 0.35f;
@@ -147,7 +147,7 @@ public class ActionManager : MonoBehaviour
 				return;
 			} 
 
-			if (currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool in hand and using tool but not bare hands as above
+			/*if (currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool in hand and using tool but not bare hands as above
 				//*********************************Common for all tools********************************************
 				baseTime = (GameEventManager.baseStrengthWithTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness) / currentWeildedItem.itemQuality;
 				baseTimeStatic = baseTime;
@@ -190,7 +190,7 @@ public class ActionManager : MonoBehaviour
 					default:
 						break;
 				}
-			}
+			}*/
 		}
 	}
 
@@ -239,7 +239,7 @@ public class ActionManager : MonoBehaviour
 
 	public void EatConsumableItem ()
 	{
-		if (currentWeildedItem.isConsumable) {
+		/*if (currentWeildedItem.isConsumable) {
 			for (int i = 0; i < currentWeildedItem.properties.Length; i++) {
 				switch (currentWeildedItem.properties [i].property.name) {
 					case "RestoreHealth":
@@ -253,15 +253,15 @@ public class ActionManager : MonoBehaviour
 				}
 			}
 			currentWeildedItem.Use ();
-		}
+		}*/
 	}
 
 	public void DestoryInventoryItem ()
 	{
-		if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
+		/*if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
 			Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
 			UpdateAllItemsInInventory ();
-		}
+		}*/
 	}
 
 	void DropBreakedItem ()
@@ -270,15 +270,15 @@ public class ActionManager : MonoBehaviour
 		int ran1 = 0;
 		int ran2 = 0;
 		int ran3 = 0;
-		currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - ItemDatabase.m_instance.items [currentSelectedItem.id].reduceToolDurability;
+		/*	currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - ItemDatabase.m_instance.items [currentSelectedItem.id].reduceToolDurability;
 		if (currentWeildedItem.itemDurability < 1) {
 			DestoryInventoryItem ();
 			Devdog.InventorySystem.InventoryUIItemWrapper.m_instance.InventorySlotClicked ();
-		}
+		}*/
 
-		ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate
-		ran2 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop2RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop2RateMax); // calculate random drop rate with min and max drop rate
-		ran3 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop3RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop3RateMax); // calculate random drop rate with min and max drop rate
+		ran1 = Random.Range (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase_old.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate
+		ran2 = Random.Range (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drop2RateMin, ItemDatabase_old.m_instance.items [currentSelectedItem.id].drop2RateMax); // calculate random drop rate with min and max drop rate
+		ran3 = Random.Range (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drop3RateMin, ItemDatabase_old.m_instance.items [currentSelectedItem.id].drop3RateMax); // calculate random drop rate with min and max drop rate
 
 		switch (currentSelectedItem.id) {
 			case 14:
@@ -288,8 +288,8 @@ public class ActionManager : MonoBehaviour
 				break;
 			case 16:
 			case 21:
-				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 0
-					ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate
+				if (currentSelectedItem.age == ItemDatabase_old.m_instance.items [currentSelectedItem.id].maxAge) {  // if item age is max then drop max else drop 0
+					ran1 = Random.Range (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drop1RateMin, ItemDatabase_old.m_instance.items [currentSelectedItem.id].drop1RateMax); // calculate random drop rate with min and max drop rate
 				} else {
 					ran1 = 0;
 				}
@@ -298,14 +298,14 @@ public class ActionManager : MonoBehaviour
 				break;
 		}
 
-		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops1 >= 0) {
-			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops1, ran1);// drop item upon break
+		if (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drops1 >= 0) {
+			InstansiateDropGameObject (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drops1, ran1);// drop item upon break
 		}
-		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops2 >= 0) {
-			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops2, ran2);// drop item upon break
+		if (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drops2 >= 0) {
+			InstansiateDropGameObject (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drops2, ran2);// drop item upon break
 		}
-		if (ItemDatabase.m_instance.items [currentSelectedItem.id].drops3 >= 0) {
-			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].drops3, ran3);// drop item upon break
+		if (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drops3 >= 0) {
+			InstansiateDropGameObject (ItemDatabase_old.m_instance.items [currentSelectedItem.id].drops3, ran3);// drop item upon break
 		}
 
 		UpdateItemAndSaveToFile ();  //update Gameobject and save in file
@@ -325,7 +325,7 @@ public class ActionManager : MonoBehaviour
 			GameObject drop = GameObject.Instantiate (inventoryItems [id], new Vector3 (ran.x, ran.y, 0), Quaternion.identity) as GameObject;
 			drop.transform.localScale = new Vector3 (GameEventManager.dropItemSize, GameEventManager.dropItemSize, GameEventManager.dropItemSize);
 			drop.transform.parent = parent.transform;
-			drop.GetComponent<Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
+			//drop.GetComponent<Devdog.InventorySystem.ObjectTriggererItem> ().isPickable = true;
 			drop.GetComponent<Animator> ().Play ("itemDrop");
 			StartCoroutine (DropItemsLiveAfterSeconds (parent.gameObject));			
 		}
@@ -341,7 +341,7 @@ public class ActionManager : MonoBehaviour
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToStump);
 				break;
 			case 16: //Berry Bush
-				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].maxAge) {
+				if (currentSelectedItem.age == ItemDatabase_old.m_instance.items [currentSelectedItem.id].maxAge) {
 					currentSelectedItem.age = 3;
 					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Renewable);
 				} else { //Replace Stump with nothing

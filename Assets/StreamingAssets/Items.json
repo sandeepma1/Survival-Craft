@@ -1,0 +1,100 @@
+[
+	{
+		"id":0,
+		"title": "Apple",
+		"value": 6,
+		"stats":{
+			"power": 10,
+			"defence": 15,
+			"vitality": 20
+		},
+		"description": "Fresh Apple",
+		"stackable": false,
+		"rarity":6,
+		"slug":"apple"
+	},
+	{
+		"id":1,
+		"title": "Jam",
+		"value": 9,
+		"stats":{
+			"power": 20,
+			"defence": 33,
+			"vitality": 40
+		},
+		"description": "Jam made from apple",
+		"stackable": true,
+		"rarity":1,
+		"slug":"jam"
+	},
+	{
+		"id":2,
+		"title": "Cotton",
+		"value": 10,
+		"stats":{
+			"power": 20,
+			"defence": 33,
+			"vitality": 40
+		},
+		"description": "Jam made from apple",
+		"stackable": true,
+		"rarity":1,
+		"slug":"cotton"
+	},
+	{
+		"id":3,
+		"title": "Indigo",
+		"value": 9,
+		"stats":{
+			"power": 20,
+			"defence": 33,
+			"vitality": 40
+		},
+		"description": "Jam made from apple",
+		"stackable": true,
+		"rarity":1,
+		"slug":"Indigo"
+	},
+	{
+		"id":4,
+		"title": "Soybean",
+		"value": 9,
+		"stats":{
+			"power": 20,
+			"defence": 33,
+			"vitality": 40
+		},
+		"description": "Jam made from apple",
+		"stackable": true,
+		"rarity":1,
+		"slug":"Soybean"
+	},
+	{
+		"id":5,
+		"title": "Wheat",
+		"value": 9,
+		"stats":{
+			"power": 20,
+			"defence": 33,
+			"vitality": 40
+		},
+		"description": "Jam made from apple",
+		"stackable": true,
+		"rarity":1,
+		"slug":"Wheat"
+	},
+	{
+		"id":6,
+		"title": "Tomato",
+		"value": 9,
+		"stats":{
+			"power": 20,
+			"defence": 33,
+			"vitality": 40
+		},
+		"description": "Jam made from apple",
+		"stackable": true,
+		"rarity":1,
+		"slug":"Tomato"
+	}
+]

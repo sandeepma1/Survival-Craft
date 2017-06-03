@@ -22,22 +22,22 @@ public class SaveManager : MonoBehaviour
 
 	void SaveInventory ()
 	{
-		inventorySave.GetComponent <Devdog.InventorySystem.CollectionSaverLoaderBase> ().Save ();
+		//inventorySave.GetComponent <Devdog.InventorySystem.CollectionSaverLoaderBase> ().Save ();
 	}
 
 	public void SaveGameTime (int time)
 	{
-		Bronz.LocalStore.Instance.SetInt ("gameTime", time);
+		//Bronz.LocalStore.Instance.SetInt ("gameTime", time);
 	}
 
 	public void SaveGameDays (int day)
 	{		
-		Bronz.LocalStore.Instance.SetInt ("gameDay", day);
+		//	Bronz.LocalStore.Instance.SetInt ("gameDay", day);
 	}
 
 	public void SaveGameCurrentPhase (int phase)
 	{		
-		Bronz.LocalStore.Instance.SetInt ("currentPhase", phase);
+		//Bronz.LocalStore.Instance.SetInt ("currentPhase", phase);
 	}
 
 	/*public void SaveTouchControlToggleOption (bool flag)

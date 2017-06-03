@@ -7,7 +7,7 @@ public static class GameEventManager
 	public const float baseStrengthWithTool = 1f;
 	public static float baseStrengthWithoutTool = 2.5f;
 	public static int numberOfislands = 0;
-	public static float walkTowardsItemSafeDistance = 0.75f;
+	public static float walkTowardsItemSafeDistance = 0.5f;
 	public static float dropItemSize = 0.4f;
 	public static float playerSpeedInDeepWater = 1.25f, playerSpeedInShallowWater = 1.75f;
 

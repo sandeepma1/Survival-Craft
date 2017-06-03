@@ -89,12 +89,3 @@ public class Item
 		Sword
 	}
 }
-
-/*public static GameItemsArray m_instance = null;
-	public ItemProperty[] item;*/
-
-/*void Start ()
-	{
-		m_instance = this;
-		InitializeItems ();
-	}*/

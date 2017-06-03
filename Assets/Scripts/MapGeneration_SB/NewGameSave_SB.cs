@@ -33,18 +33,18 @@ public class NewGameSave_SB : MonoBehaviour
 
 	void ResetAllValues ()
 	{
-		Bronz.LocalStore.Instance.DeleteAll ();
+		//Bronz.LocalStore.Instance.DeleteAll ();
 		ES2.DeleteDefaultFolder ();
 	}
 
 	void InitializeFirstVariables ()
 	{
-		if (Bronz.LocalStore.Instance.GetInt ("IniPlayerPos") == 0) {
+		/*if (Bronz.LocalStore.Instance.GetInt ("IniPlayerPos") == 0) {
 			Bronz.LocalStore.Instance.SetFloat ("PlayerPositionX", 25);
 			Bronz.LocalStore.Instance.SetFloat ("PlayerPositionY", 60);
 			Bronz.LocalStore.Instance.SetInt ("mapChunkPosition", 0);
 			ES2.DeleteDefaultFolder ();
 			Bronz.LocalStore.Instance.SetInt ("IniPlayerPos", 1);
-		}
+		}*/
 	}
 }

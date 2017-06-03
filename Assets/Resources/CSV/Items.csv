@@ -1,0 +1,11 @@
+id,type,name,durability,power,defence,vitality,description,stackable,rarity,slug,isplaceable,itemID1,itemAmount1,itemID2,itemAmount2,itemID3,itemAmount3,itemID4,itemAmount4
+0,item,Grass,-1,0,0,0,Descriptions,true,1,grass,false,-1,-1,-1,-1,-1,-1,-1,-1
+1,item,Flower,-1,0,0,0,Descriptions,true,1,flower,false,-1,-1,-1,-1,-1,-1,-1,-1
+2,item,Wood,-1,0,0,0,Descriptions,true,1,wood,false,-1,-1,-1,-1,-1,-1,-1,-1
+3,item,Stick,-1,0,0,0,Descriptions,true,1,stick,false,-1,-1,-1,-1,-1,-1,-1,-1
+4,consumable,Apple,-1,0,0,0,Descriptions,true,1,apple,false,-1,-1,-1,-1,-1,-1,-1,-1
+5,item,Coal,-1,0,0,0,Descriptions,true,1,coal,false,-1,-1,-1,-1,-1,-1,-1,-1
+6,item,Torch,-1,0,0,0,Descriptions,true,1,torch,true,3,2,5,1,-1,-1,-1,-1
+7,weapon,Wooden Axe,100,10,0,0,Wooden Axe,false,1,woodenaxe,false,3,3,2,2,-1,-1,-1,-1
+8,building,Table,100,10,0,0,Wooden Axe,false,1,table,true,2,5,-1,-1,-1,-1,-1,-1
+9,armor,helmet,100,0,50,0,Some Armor,false,1,helmet,false,2,5,-1,-1,-1,-1,-1,-1

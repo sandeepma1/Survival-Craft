@@ -222,8 +222,8 @@ public partial class CreateNewGame_PG : MonoBehaviour
 			case 2:
 				FillItemInfo ("6,-1", x, y, 0.25f); //grass1
 				if (!isPlayerPosSET) { // Player Spwan Position first time
-					Bronz.LocalStore.Instance.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
-					Bronz.LocalStore.Instance.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
+					PlayerPrefs.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
+					PlayerPrefs.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
 					isPlayerPosSET = true;
 				}
 				break;
@@ -272,14 +272,14 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 	void ResetAllValues ()
 	{
-		Bronz.LocalStore.Instance.DeleteAll ();
+		//Bronz.LocalStore.Instance.DeleteAll ();
 		ES2.DeleteDefaultFolder ();
 	}
 
 	void InitializeFirstVariables ()
 	{
-		Bronz.LocalStore.Instance.DeleteAll ();
-		if (Bronz.LocalStore.Instance.GetInt ("InitGamePrefs") == 0) {			
+		//	Bronz.LocalStore.Instance.DeleteAll ();
+		/*if (Bronz.LocalStore.Instance.GetInt ("InitGamePrefs") == 0) {			
 			Bronz.LocalStore.Instance.SetFloat ("PlayerHunger", 100);
 			Bronz.LocalStore.Instance.SetFloat ("PlayerHealth", 100);
 			Bronz.LocalStore.Instance.SetInt ("mapChunkPosition", 0);
@@ -293,7 +293,7 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 			ES2.DeleteDefaultFolder ();
 			Bronz.LocalStore.Instance.SetInt ("InitGamePrefs", 1);
-		}
+		}*/
 	}
 
 	void OnValidate ()

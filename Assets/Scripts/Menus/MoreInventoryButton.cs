@@ -9,7 +9,7 @@ public class MoreInventoryButton : MonoBehaviour
 	public bool useLeftAnalogStick = false;
 	public RectTransform mainUIWindow;
 	public GameObject mainCanvas, inventoryMenu;
-	public GameObject leftStick, inventoryTab, craftingTab, settingsTab, infoTab, sortButton, runWalkButton, actionButton, inventoryUpButton, craftingUpButton, miniMapButton, closeInventoryButton;
+	public GameObject leftStick, inventoryTab, settingsTab, infoTab, sortButton, runWalkButton, actionButton, inventoryUpButton, craftingUpButton, miniMapButton, closeInventoryButton;
 	//public rightStick;
 	public GameObject craftingMenu;
 
@@ -27,7 +27,7 @@ public class MoreInventoryButton : MonoBehaviour
 	void Start ()
 	{		
 		tabIndex = inventoryMenu.GetComponent <RectTransform> ().GetSiblingIndex ();
-		heightAdjuster = ((mainCanvas.GetComponent <RectTransform> ().rect.height / 2) + 200) * -1;
+		heightAdjuster = ((mainCanvas.GetComponent <RectTransform> ().rect.height / 2) + 150) * -1;
 		//heightAdjuster = (mainUIWindow.GetComponent <RectTransform> ().rect.height + 120);
 		ToggleInventorySize (true);
 	}
@@ -75,7 +75,6 @@ public class MoreInventoryButton : MonoBehaviour
 		closeInventoryButton.SetActive (!flag);
 		inventoryTab.SetActive (!flag);
 		sortButton.SetActive (!flag);
-		craftingTab.SetActive (!flag);
 		settingsTab.SetActive (!flag);
 		infoTab.SetActive (!flag);
 		runWalkButton.SetActive (flag);
@@ -83,6 +82,10 @@ public class MoreInventoryButton : MonoBehaviour
 		inventoryUpButton.SetActive (flag);
 		craftingUpButton.SetActive (flag);
 		miniMapButton.SetActive (flag);
+		// transperent inventory slots
+		inventoryTab.transform.parent.GetComponent <Image> ().enabled = !flag;
+		settingsTab.transform.parent.GetComponent <Image> ().enabled = !flag;
+		infoTab.transform.parent.GetComponent <Image> ().enabled = !flag;
 	}
 
 	public void ToggleCrafting ()

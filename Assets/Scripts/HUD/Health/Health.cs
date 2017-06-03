@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
 		spacingY = -heartGUI.GetComponent <RectTransform> ().rect.height;
 	
 		AddHearts (startHealth / healthPerHeart);
-		currentHealth = Bronz.LocalStore.Instance.GetFloat ("PlayerHealth");
+		//currentHealth = Bronz.LocalStore.Instance.GetFloat ("PlayerHealth");
 		UpdateHearts ();
 	}
 
@@ -60,7 +60,7 @@ public class Health : MonoBehaviour
 		currentHealth += amount;
 		currentHealth = Mathf.Clamp (currentHealth, 0, maxHealth);
 		UpdateHearts ();
-		Bronz.LocalStore.Instance.SetFloat ("PlayerHealth", currentHealth);
+		//Bronz.LocalStore.Instance.SetFloat ("PlayerHealth", currentHealth);
 		if (currentHealth <= 0) {
 			print ("Player Died");
 			PlayerDiedMenu.SetActive (true);
