@@ -272,27 +272,27 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 	void ResetAllValues ()
 	{
-		//Bronz.LocalStore.Instance.DeleteAll ();
+		//PlayerPrefs.DeleteAll ();
 		ES2.DeleteDefaultFolder ();
 	}
 
 	void InitializeFirstVariables ()
 	{
-		//	Bronz.LocalStore.Instance.DeleteAll ();
-		/*if (Bronz.LocalStore.Instance.GetInt ("InitGamePrefs") == 0) {			
-			Bronz.LocalStore.Instance.SetFloat ("PlayerHunger", 100);
-			Bronz.LocalStore.Instance.SetFloat ("PlayerHealth", 100);
-			Bronz.LocalStore.Instance.SetInt ("mapChunkPosition", 0);
-			Bronz.LocalStore.Instance.SetInt ("gameTime", 0);
-			Bronz.LocalStore.Instance.SetInt ("gameDay", 1);
-			Bronz.LocalStore.Instance.SetInt ("currentPhase", 0);
-			Bronz.LocalStore.Instance.SetInt ("TouchControls", 0);
-			Bronz.LocalStore.Instance.SetFloat ("sunRotationZ", 0);
-			Bronz.LocalStore.Instance.SetFloat ("moonRotationZ", 0);
-			Bronz.LocalStore.Instance.SetInt ("backgroundPositionX", 0);	
+		//	PlayerPrefs.DeleteAll ();
+		/*if (PlayerPrefs.GetInt ("InitGamePrefs") == 0) {			
+			PlayerPrefs.SetFloat ("PlayerHunger", 100);
+			PlayerPrefs.SetFloat ("PlayerHealth", 100);
+			PlayerPrefs.SetInt ("mapChunkPosition", 0);
+			PlayerPrefs.SetInt ("gameTime", 0);
+			PlayerPrefs.SetInt ("gameDay", 1);
+			PlayerPrefs.SetInt ("currentPhase", 0);
+			PlayerPrefs.SetInt ("TouchControls", 0);
+			PlayerPrefs.SetFloat ("sunRotationZ", 0);
+			PlayerPrefs.SetFloat ("moonRotationZ", 0);
+			PlayerPrefs.SetInt ("backgroundPositionX", 0);	
 
 			ES2.DeleteDefaultFolder ();
-			Bronz.LocalStore.Instance.SetInt ("InitGamePrefs", 1);
+			PlayerPrefs.SetInt ("InitGamePrefs", 1);
 		}*/
 	}
 

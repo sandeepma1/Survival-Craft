@@ -23,7 +23,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	void Start ()
 	{
-		//Bronz.LocalStore.Instance.SetInt ("mapChunkPosition", 0);
+		PlayerPrefs.SetInt ("mapChunkPosition", 0);
 		m_instance = this;
 		SetSortingNamesForItems ();
 		LoadMapChunks ();
@@ -39,6 +39,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				if (child.tag == "ItemName") {
 					child.GetComponent <MeshRenderer> ().sortingLayerName = "Names";
 					child.GetComponent <TextMesh> ().fontSize = 100;
+					child.GetComponent <TextMesh> ().color = new Color (1, 1, 1, 0);
 				}
 			}
 		}
@@ -150,10 +151,10 @@ public class LoadMapFromSave_PG : MonoBehaviour
 							case 14://trees
 							case 16://berries
 							case 22://carrots
-								if (mapItemGO [i] [x, y].age != ItemDatabase_old.m_instance.items [mapItemGO [i] [x, y].id].maxAge) {
+								if (mapItemGO [i] [x, y].age != ItemDatabase.m_instance.items [mapItemGO [i] [x, y].id].MaxAge) {
 									mapItemGO [i] [x, y].age = (sbyte)(mapItemGO [i] [x, y].age + 1);
 								} else {
-									mapItemGO [i] [x, y].id = (sbyte)ItemDatabase_old.m_instance.items [mapItemGO [i] [x, y].id].nextStage;
+									mapItemGO [i] [x, y].id = (sbyte)ItemDatabase.m_instance.items [mapItemGO [i] [x, y].id].NextStage;
 									mapItemGO [i] [x, y].age = 1;
 								}
 								mapItemsFromSave [i] [x, y] = mapItemGO [i] [x, y].id + "," + mapItemGO [i] [x, y].age;
@@ -165,7 +166,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				}
 			}
 		}
-		//ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + "i.txt");
+		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 		SpwanObjects ();
 	}
 
@@ -191,7 +192,18 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		mapItemGO [i] [(int)pos.x, (int)pos.y].GO = Instantiate (go);
 		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
 		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.parent = parent;
-		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
+
+		// Random position and flip of map items
+		float range = 0f;
+		float randomX = Random.Range (pos.x - range, pos.x + range);
+		float randomY = Random.Range (pos.y - range, pos.y + range);
+		mapItemGO [i] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (randomX, randomY, 0);
+		if (mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> () != null) {
+			int randomFlip = Random.Range (0, 2);
+			if (randomFlip == 1) {
+				mapItemGO [i] [(int)pos.x, (int)pos.y].GO.GetComponent <SpriteRenderer> ().flipX = true;	
+			}
+		}
 
 		switch (mapItemGO [i] [(int)pos.x, (int)pos.y].id) {
 		/*	case 11: // Trees
@@ -232,11 +244,11 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			switch (mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id) {
 				case 11: // Trees
 					spriteName = mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
-					if (itemAge < ItemDatabase_old.m_instance.items [mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id].maxAge) {
+					if (itemAge < ItemDatabase.m_instance.items [mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id].MaxAge) {
 						mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (false);
 						mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [itemAge];
 					}
-					if (itemAge == ItemDatabase_old.m_instance.items [mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id].maxAge) {
+					if (itemAge == ItemDatabase.m_instance.items [mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id].MaxAge) {
 						mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (0).gameObject.SetActive (true);
 						mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Trees/" + spriteName) [0];
 					}
@@ -253,19 +265,19 @@ public class LoadMapFromSave_PG : MonoBehaviour
 					break;
 			}
 
-			//ActionManager.m_AC_instance.currentWeildedItem.ID
+			//ActionManager.m_AC_instance.currentWeildedItem.ID;
 			/*if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
 				Devdog.InventorySystem.InventoryManager.RemoveItem (ActionManager.m_AC_instance.currentWeildedItem.ID, 1, false);
-			}
+			}*/
 
-			mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = itemID + "," + itemAge;
-			ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + "i.txt");*/
+			//mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = itemID + "," + itemAge;
+			//ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 		}
 	}
 
 	public void DisableUnusedMapChunks ()
 	{
-		//	int currentMapChunkPosition = Bronz.LocalStore.Instance.GetInt ("mapChunkPosition");
+		//	int currentMapChunkPosition = PlayerPrefs.GetInt ("mapChunkPosition");
 		for (int i = 0; i < mapChunks.Length; i++) {
 			mapChunks [i].SetActive (true);
 		}
@@ -280,11 +292,11 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public item GetTile (Vector2 pos)
 	{
-		//pos = GetLocalIslandPosition (pos);
-		//print (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id);
-		/*if (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
-			return mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
-		}*/
+		pos = GetLocalIslandPosition (pos);
+		print (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id);
+		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
+			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
+		}
 		return new item ();
 	}
 
@@ -293,44 +305,44 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		//pos = GetLocalIslandPosition (pos);
 		/*switch (harvestType) {
 			case onHarvest.Destory:  //Carrots				
-				Destroy (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO = null;
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 0;
-				mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
+				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO = null;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 0;
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = "";
 				break;
 			case onHarvest.RegrowToStump:  // Trees				
-				Destroy (mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
-				InstantiateObject (items [11], pos, mapChunks [0].transform, 0, mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id, mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age);	
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 11;
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = 11 + "," + age;
-				mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = 11 + "," + age;
+				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
+				InstantiateObject (items [11], pos, mapChunks [0].transform, 0, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age);	
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 11;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = 11 + "," + age;
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = 11 + "," + age;
 				break;
 			case onHarvest.Renewable:  //Berries
-				mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = id;
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
-				string spriteName = mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
-				mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = id;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = id + "," + age;
+				string spriteName = mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite.name;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> ("Textures/Map/Items/Bushes/" + spriteName) [age];
 				break;
 			default:
 				break;
 		}*/
-		//ES2.Save (mapItemsFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")], mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].name + "i.txt");
+		//ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 	}
 
-	/*public Vector2 GetLocalIslandPosition (Vector2 currentPos)
+	public Vector2 GetLocalIslandPosition (Vector2 currentPos)
 	{
-		//Vector2 pos = currentPos - new Vector2 (mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform.position.y);
-		//return pos;
+		Vector2 pos = currentPos - new Vector2 (mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.x, mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform.position.y);
+		return pos;
 	}
-*/
+
 	//public bool CheckForItemPlacement (Vector3 pos)
 	//{
 	//pos = GetLocalIslandPosition (pos);
-	/*if (mapTilesFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] > 1//ugly logic works only if mapTilesFromSave[0] is Water tile
-		    && mapItemGO [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO == null) {			
+	/*if (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] > 1//ugly logic works only if mapTilesFromSave[0] is Water tile
+		    && mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO == null) {			
 			return true;			
 		} else {
 			return false;
@@ -349,7 +361,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 		Rect rect = new Rect (0, 0, 128, 128);
 
 		//if (rect.Contains (pos)) {
-		/*switch (mapTilesFromSave [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]) {
+		/*switch (mapTilesFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y]) {
 				case 0:
 					GameEventManager.SetPlayerTerrianSTATES (GameEventManager.E_PlayerTerrianSTATES.deepwater); // Player in water
 					SetPlayerSpeed_n_Multiplier (PlayerMovement.m_instance.speedTemp / 2, 1);

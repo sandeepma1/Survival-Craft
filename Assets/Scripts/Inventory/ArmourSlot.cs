@@ -12,11 +12,11 @@ public class ArmourSlot : MonoBehaviour,IDropHandler, IPointerClickHandler,IPoin
 	{
 		InventoryItemData droppedItem = eventData.pointerDrag.GetComponent <InventoryItemData> ();
 		print ("amt " + droppedItem.GetComponent <InventoryItemData> ().amount);
-		if (droppedItem.type != ItemType.armor) {
+		if (droppedItem.type != ItemType.Armor) {
 			return;
 		}
 		if (Inventory.m_instance.l_items [id].ID == -1) {
-			Inventory.m_instance.l_items [droppedItem.slotID] = new MyItem ();
+			Inventory.m_instance.l_items [droppedItem.slotID] = new Item ();
 			Inventory.m_instance.l_items [id] = droppedItem.item;
 			droppedItem.slotID = id;
 		} else {

@@ -16,7 +16,7 @@ public class SaveManager : MonoBehaviour
 
 	void Start ()
 	{		
-		//touchToggleControlUI.GetComponent <Toggle> ().isOn = Bronz.LocalStore.Instance.GetBool ("TouchControls");
+		//touchToggleControlUI.GetComponent <Toggle> ().isOn = PlayerPrefs.GetBool ("TouchControls");
 		InvokeRepeating ("SaveInventory", 0, 2);
 	}
 
@@ -27,22 +27,22 @@ public class SaveManager : MonoBehaviour
 
 	public void SaveGameTime (int time)
 	{
-		//Bronz.LocalStore.Instance.SetInt ("gameTime", time);
+		//PlayerPrefs.SetInt ("gameTime", time);
 	}
 
 	public void SaveGameDays (int day)
 	{		
-		//	Bronz.LocalStore.Instance.SetInt ("gameDay", day);
+		//	PlayerPrefs.SetInt ("gameDay", day);
 	}
 
 	public void SaveGameCurrentPhase (int phase)
 	{		
-		//Bronz.LocalStore.Instance.SetInt ("currentPhase", phase);
+		//PlayerPrefs.SetInt ("currentPhase", phase);
 	}
 
 	/*public void SaveTouchControlToggleOption (bool flag)
 	{
-		Bronz.LocalStore.Instance.SetBool ("TouchControls", flag);
+		PlayerPrefs.SetBool ("TouchControls", flag);
 		if (!flag) {
 			MoreInventoryButton.m_instance.leftStick.SetActive (true);
 		}

@@ -26,7 +26,7 @@ public class Crafting : MonoBehaviour
 			craftingSlotsGO [i].GetComponent <CraftingSlot> ().id = i;
 			craftingSlotsGO [i].GetComponent <CraftingSlot> ().itemID = craftingItems [i];
 			craftingSlotsGO [i].GetComponent <RectTransform> ().localScale = Vector3.one;
-			craftingSlotsGO [i].transform.GetChild (0).GetComponent<Image> ().sprite = ItemDatabase.m_instance.database [craftingItems [i]].Sprite;
+			craftingSlotsGO [i].transform.GetChild (0).GetComponent<Image> ().sprite = ItemDatabase.m_instance.items [craftingItems [i]].Sprite;
 		}
 		//CheckHighlight_ALL_CraftableItems ();
 	}
@@ -60,7 +60,7 @@ public class Crafting : MonoBehaviour
 
 	void RemoveItemsToCreateNewItem ()
 	{
-		MyItem itemToCraft = ItemDatabase.m_instance.FetchItemByID (selectedItemID);
+		Item itemToCraft = ItemDatabase.m_instance.FetchItemByID (selectedItemID);
 
 		if (itemToCraft.ItemID1 >= 0) {
 			for (int i = 0; i < itemToCraft.ItemAmount1; i++) {
@@ -88,7 +88,7 @@ public class Crafting : MonoBehaviour
 
 	bool CheckForRequiredItemsInInventory (int id)
 	{
-		MyItem itemToCraft = ItemDatabase.m_instance.FetchItemByID (id);
+		Item itemToCraft = ItemDatabase.m_instance.FetchItemByID (id);
 		bool item1 = false;
 		bool item2 = false;
 		bool item3 = false;

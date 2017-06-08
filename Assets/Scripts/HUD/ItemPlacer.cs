@@ -37,7 +37,7 @@ public class ItemPlacer : MonoBehaviour
 	{
 		if (isItemPlacable) {
 			//LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [ActionManager.m_AC_instance.currentWeildedItem.itemID].gameObject,
-			//	itemPlacer.transform.position, LoadMapFromSave_PG.m_instance.mapChunks [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].transform, Bronz.LocalStore.Instance.GetInt ("mapChunkPosition"),
+			//	itemPlacer.transform.position, LoadMapFromSave_PG.m_instance.mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform, PlayerPrefs.GetInt ("mapChunkPosition"),
 			//	ActionManager.m_AC_instance.currentWeildedItem.itemID, -1);
 			HideAllHUD (false);
 		}

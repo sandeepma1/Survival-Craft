@@ -22,9 +22,9 @@ public class FirstScript : MonoBehaviour
 
 	void SetupCamera ()
 	{
-		/*Camera.main.transform.GetComponent <CameraFollow> ().minX = WarpManager.m_instance.warp [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].camMinX;
-		Camera.main.transform.GetComponent <CameraFollow> ().maxX = WarpManager.m_instance.warp [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].camMaxX;
-		Camera.main.transform.GetComponent <CameraFollow> ().minY = WarpManager.m_instance.warp [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].camMinY;
-		Camera.main.transform.GetComponent <CameraFollow> ().maxY = WarpManager.m_instance.warp [Bronz.LocalStore.Instance.GetInt ("mapChunkPosition")].camMaxY;*/
+		/*Camera.main.transform.GetComponent <CameraFollow> ().minX = WarpManager.m_instance.warp [PlayerPrefs.GetInt ("mapChunkPosition")].camMinX;
+		Camera.main.transform.GetComponent <CameraFollow> ().maxX = WarpManager.m_instance.warp [PlayerPrefs.GetInt ("mapChunkPosition")].camMaxX;
+		Camera.main.transform.GetComponent <CameraFollow> ().minY = WarpManager.m_instance.warp [PlayerPrefs.GetInt ("mapChunkPosition")].camMinY;
+		Camera.main.transform.GetComponent <CameraFollow> ().maxY = WarpManager.m_instance.warp [PlayerPrefs.GetInt ("mapChunkPosition")].camMaxY;*/
 	}
 }

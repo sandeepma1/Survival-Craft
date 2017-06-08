@@ -272,12 +272,12 @@ TextureImporter:
     21300530: farmer_265
     21300532: farmer_266
     21300534: farmer_267
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -289,10 +289,8 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 2048
@@ -303,22 +301,52 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 16
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: farmer_0
+    - serializedVersion: 2
+      name: farmer_0
       rect:
         serializedVersion: 2
         x: 0
@@ -329,7 +357,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_1
       rect:
         serializedVersion: 2
         x: 16
@@ -340,7 +370,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_2
       rect:
         serializedVersion: 2
         x: 32
@@ -351,7 +383,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_3
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_3
       rect:
         serializedVersion: 2
         x: 48
@@ -362,7 +396,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_4
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_4
       rect:
         serializedVersion: 2
         x: 64
@@ -373,7 +409,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_5
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_5
       rect:
         serializedVersion: 2
         x: 80
@@ -384,7 +422,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_6
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_6
       rect:
         serializedVersion: 2
         x: 96
@@ -395,7 +435,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_7
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_7
       rect:
         serializedVersion: 2
         x: 112
@@ -406,7 +448,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_8
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_8
       rect:
         serializedVersion: 2
         x: 0
@@ -417,7 +461,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_9
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_9
       rect:
         serializedVersion: 2
         x: 16
@@ -428,7 +474,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_10
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_10
       rect:
         serializedVersion: 2
         x: 32
@@ -439,7 +487,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_11
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_11
       rect:
         serializedVersion: 2
         x: 48
@@ -450,7 +500,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_12
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_12
       rect:
         serializedVersion: 2
         x: 64
@@ -461,7 +513,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_13
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_13
       rect:
         serializedVersion: 2
         x: 80
@@ -472,7 +526,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_14
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_14
       rect:
         serializedVersion: 2
         x: 96
@@ -483,7 +539,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_15
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_15
       rect:
         serializedVersion: 2
         x: 112
@@ -494,7 +552,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_16
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_16
       rect:
         serializedVersion: 2
         x: 0
@@ -505,7 +565,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_17
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_17
       rect:
         serializedVersion: 2
         x: 16
@@ -516,7 +578,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_18
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_18
       rect:
         serializedVersion: 2
         x: 32
@@ -527,7 +591,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_19
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_19
       rect:
         serializedVersion: 2
         x: 48
@@ -538,7 +604,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_20
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_20
       rect:
         serializedVersion: 2
         x: 64
@@ -549,7 +617,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_21
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_21
       rect:
         serializedVersion: 2
         x: 80
@@ -560,7 +630,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_22
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_22
       rect:
         serializedVersion: 2
         x: 96
@@ -571,7 +643,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_23
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_23
       rect:
         serializedVersion: 2
         x: 112
@@ -582,7 +656,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_24
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_24
       rect:
         serializedVersion: 2
         x: 0
@@ -593,7 +669,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_25
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_25
       rect:
         serializedVersion: 2
         x: 16
@@ -604,7 +682,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_26
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_26
       rect:
         serializedVersion: 2
         x: 32
@@ -615,7 +695,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_27
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_27
       rect:
         serializedVersion: 2
         x: 48
@@ -626,7 +708,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_28
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_28
       rect:
         serializedVersion: 2
         x: 64
@@ -637,7 +721,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_29
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_29
       rect:
         serializedVersion: 2
         x: 80
@@ -648,7 +734,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_30
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_30
       rect:
         serializedVersion: 2
         x: 96
@@ -659,7 +747,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_31
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_31
       rect:
         serializedVersion: 2
         x: 112
@@ -670,7 +760,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_32
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_32
       rect:
         serializedVersion: 2
         x: 0
@@ -681,7 +773,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_33
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_33
       rect:
         serializedVersion: 2
         x: 16
@@ -692,7 +786,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_34
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_34
       rect:
         serializedVersion: 2
         x: 32
@@ -703,7 +799,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_35
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_35
       rect:
         serializedVersion: 2
         x: 48
@@ -714,7 +812,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_36
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_36
       rect:
         serializedVersion: 2
         x: 64
@@ -725,7 +825,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_37
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_37
       rect:
         serializedVersion: 2
         x: 80
@@ -736,7 +838,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_38
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_38
       rect:
         serializedVersion: 2
         x: 96
@@ -747,7 +851,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_39
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_39
       rect:
         serializedVersion: 2
         x: 112
@@ -758,7 +864,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_40
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_40
       rect:
         serializedVersion: 2
         x: 0
@@ -769,7 +877,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_41
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_41
       rect:
         serializedVersion: 2
         x: 16
@@ -780,7 +890,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_42
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_42
       rect:
         serializedVersion: 2
         x: 32
@@ -791,7 +903,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_43
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_43
       rect:
         serializedVersion: 2
         x: 48
@@ -802,7 +916,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_44
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_44
       rect:
         serializedVersion: 2
         x: 64
@@ -813,7 +929,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_45
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_45
       rect:
         serializedVersion: 2
         x: 80
@@ -824,7 +942,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_46
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_46
       rect:
         serializedVersion: 2
         x: 96
@@ -835,7 +955,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_47
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_47
       rect:
         serializedVersion: 2
         x: 112
@@ -846,7 +968,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_48
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_48
       rect:
         serializedVersion: 2
         x: 0
@@ -857,7 +981,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_49
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_49
       rect:
         serializedVersion: 2
         x: 16
@@ -868,7 +994,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_50
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_50
       rect:
         serializedVersion: 2
         x: 32
@@ -879,7 +1007,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_51
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_51
       rect:
         serializedVersion: 2
         x: 48
@@ -890,7 +1020,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_52
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_52
       rect:
         serializedVersion: 2
         x: 64
@@ -901,7 +1033,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_53
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_53
       rect:
         serializedVersion: 2
         x: 80
@@ -912,7 +1046,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_54
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_54
       rect:
         serializedVersion: 2
         x: 96
@@ -923,7 +1059,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_55
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_55
       rect:
         serializedVersion: 2
         x: 112
@@ -934,7 +1072,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_56
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_56
       rect:
         serializedVersion: 2
         x: 0
@@ -945,7 +1085,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_57
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_57
       rect:
         serializedVersion: 2
         x: 16
@@ -956,7 +1098,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_58
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_58
       rect:
         serializedVersion: 2
         x: 32
@@ -967,7 +1111,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_59
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_59
       rect:
         serializedVersion: 2
         x: 48
@@ -978,7 +1124,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_60
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_60
       rect:
         serializedVersion: 2
         x: 64
@@ -989,7 +1137,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_61
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_61
       rect:
         serializedVersion: 2
         x: 80
@@ -1000,7 +1150,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_62
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_62
       rect:
         serializedVersion: 2
         x: 96
@@ -1011,7 +1163,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_63
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_63
       rect:
         serializedVersion: 2
         x: 112
@@ -1022,7 +1176,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_64
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_64
       rect:
         serializedVersion: 2
         x: 0
@@ -1033,7 +1189,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_65
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_65
       rect:
         serializedVersion: 2
         x: 16
@@ -1044,7 +1202,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_66
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_66
       rect:
         serializedVersion: 2
         x: 32
@@ -1055,7 +1215,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_67
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_67
       rect:
         serializedVersion: 2
         x: 48
@@ -1066,7 +1228,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_68
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_68
       rect:
         serializedVersion: 2
         x: 64
@@ -1077,7 +1241,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_69
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_69
       rect:
         serializedVersion: 2
         x: 80
@@ -1088,7 +1254,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_70
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_70
       rect:
         serializedVersion: 2
         x: 96
@@ -1099,7 +1267,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_71
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_71
       rect:
         serializedVersion: 2
         x: 112
@@ -1110,7 +1280,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_72
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_72
       rect:
         serializedVersion: 2
         x: 0
@@ -1121,7 +1293,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_73
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_73
       rect:
         serializedVersion: 2
         x: 16
@@ -1132,7 +1306,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_74
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_74
       rect:
         serializedVersion: 2
         x: 32
@@ -1143,7 +1319,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_75
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_75
       rect:
         serializedVersion: 2
         x: 48
@@ -1154,7 +1332,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_76
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_76
       rect:
         serializedVersion: 2
         x: 64
@@ -1165,7 +1345,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_77
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_77
       rect:
         serializedVersion: 2
         x: 80
@@ -1176,7 +1358,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_78
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_78
       rect:
         serializedVersion: 2
         x: 96
@@ -1187,7 +1371,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_79
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_79
       rect:
         serializedVersion: 2
         x: 112
@@ -1198,7 +1384,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_80
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_80
       rect:
         serializedVersion: 2
         x: 0
@@ -1209,7 +1397,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_81
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_81
       rect:
         serializedVersion: 2
         x: 16
@@ -1220,7 +1410,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_82
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_82
       rect:
         serializedVersion: 2
         x: 32
@@ -1231,7 +1423,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_83
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_83
       rect:
         serializedVersion: 2
         x: 48
@@ -1242,7 +1436,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_84
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_84
       rect:
         serializedVersion: 2
         x: 64
@@ -1253,7 +1449,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_85
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_85
       rect:
         serializedVersion: 2
         x: 80
@@ -1264,7 +1462,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_86
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_86
       rect:
         serializedVersion: 2
         x: 96
@@ -1275,7 +1475,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_87
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_87
       rect:
         serializedVersion: 2
         x: 112
@@ -1286,7 +1488,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_88
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_88
       rect:
         serializedVersion: 2
         x: 0
@@ -1297,7 +1501,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_89
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_89
       rect:
         serializedVersion: 2
         x: 16
@@ -1308,7 +1514,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_90
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_90
       rect:
         serializedVersion: 2
         x: 32
@@ -1319,7 +1527,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_91
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_91
       rect:
         serializedVersion: 2
         x: 48
@@ -1330,7 +1540,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_92
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_92
       rect:
         serializedVersion: 2
         x: 64
@@ -1341,7 +1553,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_93
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_93
       rect:
         serializedVersion: 2
         x: 80
@@ -1352,7 +1566,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_94
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_94
       rect:
         serializedVersion: 2
         x: 96
@@ -1363,7 +1579,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_95
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_95
       rect:
         serializedVersion: 2
         x: 112
@@ -1374,7 +1592,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_96
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_96
       rect:
         serializedVersion: 2
         x: 0
@@ -1385,7 +1605,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_97
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_97
       rect:
         serializedVersion: 2
         x: 16
@@ -1396,7 +1618,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_98
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_98
       rect:
         serializedVersion: 2
         x: 32
@@ -1407,7 +1631,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_99
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_99
       rect:
         serializedVersion: 2
         x: 48
@@ -1418,7 +1644,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_100
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_100
       rect:
         serializedVersion: 2
         x: 64
@@ -1429,7 +1657,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_101
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_101
       rect:
         serializedVersion: 2
         x: 80
@@ -1440,7 +1670,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_102
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_102
       rect:
         serializedVersion: 2
         x: 96
@@ -1451,7 +1683,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_103
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_103
       rect:
         serializedVersion: 2
         x: 112
@@ -1462,7 +1696,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_104
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_104
       rect:
         serializedVersion: 2
         x: 0
@@ -1473,7 +1709,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_105
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_105
       rect:
         serializedVersion: 2
         x: 16
@@ -1484,7 +1722,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_106
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_106
       rect:
         serializedVersion: 2
         x: 32
@@ -1495,7 +1735,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_107
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_107
       rect:
         serializedVersion: 2
         x: 48
@@ -1506,7 +1748,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_108
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_108
       rect:
         serializedVersion: 2
         x: 64
@@ -1517,7 +1761,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_109
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_109
       rect:
         serializedVersion: 2
         x: 80
@@ -1528,7 +1774,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_110
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_110
       rect:
         serializedVersion: 2
         x: 96
@@ -1539,7 +1787,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_111
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_111
       rect:
         serializedVersion: 2
         x: 112
@@ -1550,7 +1800,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_112
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_112
       rect:
         serializedVersion: 2
         x: 0
@@ -1561,7 +1813,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_113
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_113
       rect:
         serializedVersion: 2
         x: 16
@@ -1572,7 +1826,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_114
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_114
       rect:
         serializedVersion: 2
         x: 32
@@ -1583,7 +1839,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_115
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_115
       rect:
         serializedVersion: 2
         x: 48
@@ -1594,7 +1852,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_116
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_116
       rect:
         serializedVersion: 2
         x: 64
@@ -1605,7 +1865,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_117
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_117
       rect:
         serializedVersion: 2
         x: 80
@@ -1616,7 +1878,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_118
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_118
       rect:
         serializedVersion: 2
         x: 96
@@ -1627,7 +1891,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_119
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_119
       rect:
         serializedVersion: 2
         x: 112
@@ -1638,7 +1904,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_120
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_120
       rect:
         serializedVersion: 2
         x: 0
@@ -1649,7 +1917,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_121
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_121
       rect:
         serializedVersion: 2
         x: 16
@@ -1660,7 +1930,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_122
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_122
       rect:
         serializedVersion: 2
         x: 32
@@ -1671,7 +1943,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_123
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_123
       rect:
         serializedVersion: 2
         x: 48
@@ -1682,7 +1956,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_124
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_124
       rect:
         serializedVersion: 2
         x: 64
@@ -1693,7 +1969,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_125
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_125
       rect:
         serializedVersion: 2
         x: 80
@@ -1704,7 +1982,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_126
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_126
       rect:
         serializedVersion: 2
         x: 96
@@ -1715,7 +1995,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_127
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_127
       rect:
         serializedVersion: 2
         x: 112
@@ -1726,7 +2008,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_128
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_128
       rect:
         serializedVersion: 2
         x: 0
@@ -1737,7 +2021,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_129
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_129
       rect:
         serializedVersion: 2
         x: 16
@@ -1748,7 +2034,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_130
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_130
       rect:
         serializedVersion: 2
         x: 32
@@ -1759,7 +2047,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_131
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_131
       rect:
         serializedVersion: 2
         x: 48
@@ -1770,7 +2060,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_132
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_132
       rect:
         serializedVersion: 2
         x: 64
@@ -1781,7 +2073,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_133
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_133
       rect:
         serializedVersion: 2
         x: 80
@@ -1792,7 +2086,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_134
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_134
       rect:
         serializedVersion: 2
         x: 96
@@ -1803,7 +2099,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_135
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_135
       rect:
         serializedVersion: 2
         x: 112
@@ -1814,7 +2112,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_136
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_136
       rect:
         serializedVersion: 2
         x: 0
@@ -1825,7 +2125,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_137
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_137
       rect:
         serializedVersion: 2
         x: 16
@@ -1836,7 +2138,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_138
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_138
       rect:
         serializedVersion: 2
         x: 32
@@ -1847,7 +2151,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_139
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_139
       rect:
         serializedVersion: 2
         x: 48
@@ -1858,7 +2164,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_140
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_140
       rect:
         serializedVersion: 2
         x: 64
@@ -1869,7 +2177,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_141
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_141
       rect:
         serializedVersion: 2
         x: 80
@@ -1880,7 +2190,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_142
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_142
       rect:
         serializedVersion: 2
         x: 96
@@ -1891,7 +2203,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_143
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_143
       rect:
         serializedVersion: 2
         x: 112
@@ -1902,7 +2216,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_144
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_144
       rect:
         serializedVersion: 2
         x: 0
@@ -1913,7 +2229,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_145
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_145
       rect:
         serializedVersion: 2
         x: 16
@@ -1924,7 +2242,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_146
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_146
       rect:
         serializedVersion: 2
         x: 32
@@ -1935,7 +2255,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_147
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_147
       rect:
         serializedVersion: 2
         x: 48
@@ -1946,7 +2268,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_148
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_148
       rect:
         serializedVersion: 2
         x: 64
@@ -1957,7 +2281,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_149
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_149
       rect:
         serializedVersion: 2
         x: 80
@@ -1968,7 +2294,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_150
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_150
       rect:
         serializedVersion: 2
         x: 96
@@ -1979,7 +2307,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_151
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_151
       rect:
         serializedVersion: 2
         x: 112
@@ -1990,7 +2320,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_152
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_152
       rect:
         serializedVersion: 2
         x: 0
@@ -2001,7 +2333,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_153
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_153
       rect:
         serializedVersion: 2
         x: 16
@@ -2012,7 +2346,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_154
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_154
       rect:
         serializedVersion: 2
         x: 32
@@ -2023,7 +2359,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_155
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_155
       rect:
         serializedVersion: 2
         x: 48
@@ -2034,7 +2372,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_156
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_156
       rect:
         serializedVersion: 2
         x: 64
@@ -2045,7 +2385,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_157
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_157
       rect:
         serializedVersion: 2
         x: 80
@@ -2056,7 +2398,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_158
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_158
       rect:
         serializedVersion: 2
         x: 96
@@ -2067,7 +2411,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_159
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_159
       rect:
         serializedVersion: 2
         x: 112
@@ -2078,7 +2424,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_160
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_160
       rect:
         serializedVersion: 2
         x: 0
@@ -2089,7 +2437,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_161
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_161
       rect:
         serializedVersion: 2
         x: 16
@@ -2100,7 +2450,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_162
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_162
       rect:
         serializedVersion: 2
         x: 32
@@ -2111,7 +2463,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_163
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_163
       rect:
         serializedVersion: 2
         x: 48
@@ -2122,7 +2476,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_164
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_164
       rect:
         serializedVersion: 2
         x: 64
@@ -2133,7 +2489,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_165
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_165
       rect:
         serializedVersion: 2
         x: 80
@@ -2144,7 +2502,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_166
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_166
       rect:
         serializedVersion: 2
         x: 96
@@ -2155,7 +2515,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_167
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_167
       rect:
         serializedVersion: 2
         x: 112
@@ -2166,7 +2528,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_168
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_168
       rect:
         serializedVersion: 2
         x: 0
@@ -2177,7 +2541,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_169
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_169
       rect:
         serializedVersion: 2
         x: 16
@@ -2188,7 +2554,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_170
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_170
       rect:
         serializedVersion: 2
         x: 32
@@ -2199,7 +2567,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_171
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_171
       rect:
         serializedVersion: 2
         x: 48
@@ -2210,7 +2580,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_172
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_172
       rect:
         serializedVersion: 2
         x: 64
@@ -2221,7 +2593,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_173
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_173
       rect:
         serializedVersion: 2
         x: 80
@@ -2232,7 +2606,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_174
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_174
       rect:
         serializedVersion: 2
         x: 96
@@ -2243,7 +2619,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_175
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_175
       rect:
         serializedVersion: 2
         x: 112
@@ -2254,7 +2632,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_176
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_176
       rect:
         serializedVersion: 2
         x: 0
@@ -2265,7 +2645,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_177
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_177
       rect:
         serializedVersion: 2
         x: 16
@@ -2276,7 +2658,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_178
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_178
       rect:
         serializedVersion: 2
         x: 32
@@ -2287,7 +2671,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_179
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_179
       rect:
         serializedVersion: 2
         x: 48
@@ -2298,7 +2684,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_180
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_180
       rect:
         serializedVersion: 2
         x: 64
@@ -2309,7 +2697,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_181
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_181
       rect:
         serializedVersion: 2
         x: 80
@@ -2320,7 +2710,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_182
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_182
       rect:
         serializedVersion: 2
         x: 96
@@ -2331,7 +2723,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_183
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_183
       rect:
         serializedVersion: 2
         x: 112
@@ -2342,7 +2736,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_184
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_184
       rect:
         serializedVersion: 2
         x: 0
@@ -2353,7 +2749,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_185
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_185
       rect:
         serializedVersion: 2
         x: 16
@@ -2364,7 +2762,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_186
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_186
       rect:
         serializedVersion: 2
         x: 32
@@ -2375,7 +2775,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_187
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_187
       rect:
         serializedVersion: 2
         x: 48
@@ -2386,7 +2788,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_188
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_188
       rect:
         serializedVersion: 2
         x: 64
@@ -2397,7 +2801,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_189
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_189
       rect:
         serializedVersion: 2
         x: 80
@@ -2408,7 +2814,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_190
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_190
       rect:
         serializedVersion: 2
         x: 96
@@ -2419,7 +2827,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_191
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_191
       rect:
         serializedVersion: 2
         x: 112
@@ -2430,7 +2840,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_192
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_192
       rect:
         serializedVersion: 2
         x: 0
@@ -2441,7 +2853,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_193
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_193
       rect:
         serializedVersion: 2
         x: 16
@@ -2452,7 +2866,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_194
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_194
       rect:
         serializedVersion: 2
         x: 32
@@ -2463,7 +2879,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_195
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_195
       rect:
         serializedVersion: 2
         x: 48
@@ -2474,7 +2892,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_196
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_196
       rect:
         serializedVersion: 2
         x: 64
@@ -2485,7 +2905,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_197
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_197
       rect:
         serializedVersion: 2
         x: 80
@@ -2496,7 +2918,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_198
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_198
       rect:
         serializedVersion: 2
         x: 96
@@ -2507,7 +2931,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_199
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_199
       rect:
         serializedVersion: 2
         x: 112
@@ -2518,7 +2944,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_200
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_200
       rect:
         serializedVersion: 2
         x: 0
@@ -2529,7 +2957,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_201
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_201
       rect:
         serializedVersion: 2
         x: 16
@@ -2540,7 +2970,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_202
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_202
       rect:
         serializedVersion: 2
         x: 32
@@ -2551,7 +2983,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_203
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_203
       rect:
         serializedVersion: 2
         x: 48
@@ -2562,7 +2996,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_204
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_204
       rect:
         serializedVersion: 2
         x: 64
@@ -2573,7 +3009,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_205
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_205
       rect:
         serializedVersion: 2
         x: 80
@@ -2584,7 +3022,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_206
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_206
       rect:
         serializedVersion: 2
         x: 96
@@ -2595,7 +3035,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_207
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_207
       rect:
         serializedVersion: 2
         x: 112
@@ -2606,7 +3048,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_208
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_208
       rect:
         serializedVersion: 2
         x: 0
@@ -2617,7 +3061,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_209
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_209
       rect:
         serializedVersion: 2
         x: 16
@@ -2628,7 +3074,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_210
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_210
       rect:
         serializedVersion: 2
         x: 32
@@ -2639,7 +3087,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_211
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_211
       rect:
         serializedVersion: 2
         x: 48
@@ -2650,7 +3100,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_212
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_212
       rect:
         serializedVersion: 2
         x: 64
@@ -2661,7 +3113,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_213
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_213
       rect:
         serializedVersion: 2
         x: 80
@@ -2672,7 +3126,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_214
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_214
       rect:
         serializedVersion: 2
         x: 96
@@ -2683,7 +3139,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_215
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_215
       rect:
         serializedVersion: 2
         x: 112
@@ -2694,7 +3152,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_216
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_216
       rect:
         serializedVersion: 2
         x: 0
@@ -2705,7 +3165,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_217
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_217
       rect:
         serializedVersion: 2
         x: 16
@@ -2716,7 +3178,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_218
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_218
       rect:
         serializedVersion: 2
         x: 32
@@ -2727,7 +3191,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_219
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_219
       rect:
         serializedVersion: 2
         x: 48
@@ -2738,7 +3204,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_220
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_220
       rect:
         serializedVersion: 2
         x: 64
@@ -2749,7 +3217,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_221
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_221
       rect:
         serializedVersion: 2
         x: 80
@@ -2760,7 +3230,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_222
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_222
       rect:
         serializedVersion: 2
         x: 96
@@ -2771,7 +3243,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_223
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_223
       rect:
         serializedVersion: 2
         x: 112
@@ -2782,7 +3256,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_224
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_224
       rect:
         serializedVersion: 2
         x: 0
@@ -2793,7 +3269,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_225
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_225
       rect:
         serializedVersion: 2
         x: 16
@@ -2804,7 +3282,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_226
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_226
       rect:
         serializedVersion: 2
         x: 32
@@ -2815,7 +3295,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_227
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_227
       rect:
         serializedVersion: 2
         x: 48
@@ -2826,7 +3308,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_228
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_228
       rect:
         serializedVersion: 2
         x: 64
@@ -2837,7 +3321,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_229
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_229
       rect:
         serializedVersion: 2
         x: 80
@@ -2848,7 +3334,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_230
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_230
       rect:
         serializedVersion: 2
         x: 96
@@ -2859,7 +3347,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_231
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_231
       rect:
         serializedVersion: 2
         x: 112
@@ -2870,7 +3360,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_232
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_232
       rect:
         serializedVersion: 2
         x: 0
@@ -2881,7 +3373,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_233
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_233
       rect:
         serializedVersion: 2
         x: 16
@@ -2892,7 +3386,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_234
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_234
       rect:
         serializedVersion: 2
         x: 32
@@ -2903,7 +3399,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_235
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_235
       rect:
         serializedVersion: 2
         x: 48
@@ -2914,7 +3412,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_236
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_236
       rect:
         serializedVersion: 2
         x: 64
@@ -2925,7 +3425,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_237
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_237
       rect:
         serializedVersion: 2
         x: 80
@@ -2936,7 +3438,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_238
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_238
       rect:
         serializedVersion: 2
         x: 96
@@ -2947,7 +3451,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_239
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_239
       rect:
         serializedVersion: 2
         x: 112
@@ -2958,7 +3464,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_240
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_240
       rect:
         serializedVersion: 2
         x: 0
@@ -2969,7 +3477,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_241
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_241
       rect:
         serializedVersion: 2
         x: 16
@@ -2980,7 +3490,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_242
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_242
       rect:
         serializedVersion: 2
         x: 32
@@ -2991,7 +3503,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_243
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_243
       rect:
         serializedVersion: 2
         x: 48
@@ -3002,7 +3516,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_244
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_244
       rect:
         serializedVersion: 2
         x: 64
@@ -3013,7 +3529,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_245
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_245
       rect:
         serializedVersion: 2
         x: 80
@@ -3024,7 +3542,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_246
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_246
       rect:
         serializedVersion: 2
         x: 96
@@ -3035,7 +3555,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_247
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_247
       rect:
         serializedVersion: 2
         x: 112
@@ -3046,7 +3568,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_248
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_248
       rect:
         serializedVersion: 2
         x: 0
@@ -3057,7 +3581,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_249
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_249
       rect:
         serializedVersion: 2
         x: 16
@@ -3068,7 +3594,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_250
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_250
       rect:
         serializedVersion: 2
         x: 32
@@ -3079,7 +3607,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_251
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_251
       rect:
         serializedVersion: 2
         x: 48
@@ -3090,7 +3620,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_252
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_252
       rect:
         serializedVersion: 2
         x: 64
@@ -3101,7 +3633,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_253
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_253
       rect:
         serializedVersion: 2
         x: 80
@@ -3112,7 +3646,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_254
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_254
       rect:
         serializedVersion: 2
         x: 96
@@ -3123,7 +3659,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_255
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_255
       rect:
         serializedVersion: 2
         x: 112
@@ -3134,7 +3672,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_256
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_256
       rect:
         serializedVersion: 2
         x: 0
@@ -3145,7 +3685,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_257
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_257
       rect:
         serializedVersion: 2
         x: 16
@@ -3156,7 +3698,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_258
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_258
       rect:
         serializedVersion: 2
         x: 32
@@ -3167,7 +3711,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_259
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_259
       rect:
         serializedVersion: 2
         x: 48
@@ -3178,7 +3724,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_260
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_260
       rect:
         serializedVersion: 2
         x: 64
@@ -3189,7 +3737,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_261
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_261
       rect:
         serializedVersion: 2
         x: 80
@@ -3200,7 +3750,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_262
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_262
       rect:
         serializedVersion: 2
         x: 96
@@ -3211,7 +3763,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_263
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_263
       rect:
         serializedVersion: 2
         x: 112
@@ -3222,7 +3776,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_264
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_264
       rect:
         serializedVersion: 2
         x: 0
@@ -3233,7 +3789,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_265
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_265
       rect:
         serializedVersion: 2
         x: 16
@@ -3244,7 +3802,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_266
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_266
       rect:
         serializedVersion: 2
         x: 32
@@ -3255,7 +3815,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: farmer_267
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: farmer_267
       rect:
         serializedVersion: 2
         x: 48
@@ -3266,6 +3828,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

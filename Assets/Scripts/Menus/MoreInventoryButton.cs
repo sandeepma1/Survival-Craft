@@ -69,7 +69,7 @@ public class MoreInventoryButton : MonoBehaviour
 
 	void ToggleInventory (bool flag)
 	{
-		//if (Bronz.LocalStore.Instance.GetBool ("TouchControls")) {
+		//if (PlayerPrefs.GetBool ("TouchControls")) {
 		leftStick.SetActive (flag);
 		//}
 		closeInventoryButton.SetActive (!flag);

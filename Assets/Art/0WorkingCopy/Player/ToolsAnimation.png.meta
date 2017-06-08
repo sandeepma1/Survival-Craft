@@ -104,12 +104,12 @@ TextureImporter:
     21300194: ToolsAnimation_97
     21300196: ToolsAnimation_98
     21300198: ToolsAnimation_99
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -121,10 +121,8 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 256
@@ -135,22 +133,52 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 16
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 256
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 256
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: ToolsAnimation_0
+    - serializedVersion: 2
+      name: ToolsAnimation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -161,7 +189,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_1
       rect:
         serializedVersion: 2
         x: 16
@@ -172,7 +202,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_2
       rect:
         serializedVersion: 2
         x: 32
@@ -183,7 +215,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_3
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_3
       rect:
         serializedVersion: 2
         x: 48
@@ -194,7 +228,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_4
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_4
       rect:
         serializedVersion: 2
         x: 64
@@ -205,7 +241,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_5
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_5
       rect:
         serializedVersion: 2
         x: 80
@@ -216,7 +254,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_6
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_6
       rect:
         serializedVersion: 2
         x: 96
@@ -227,7 +267,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_7
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_7
       rect:
         serializedVersion: 2
         x: 112
@@ -238,7 +280,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_8
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_8
       rect:
         serializedVersion: 2
         x: 128
@@ -249,7 +293,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_9
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_9
       rect:
         serializedVersion: 2
         x: 144
@@ -260,7 +306,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_10
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_10
       rect:
         serializedVersion: 2
         x: 160
@@ -271,7 +319,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_11
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_11
       rect:
         serializedVersion: 2
         x: 176
@@ -282,7 +332,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_12
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_12
       rect:
         serializedVersion: 2
         x: 192
@@ -293,7 +345,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_13
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_13
       rect:
         serializedVersion: 2
         x: 208
@@ -304,7 +358,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_14
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_14
       rect:
         serializedVersion: 2
         x: 224
@@ -315,7 +371,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_15
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_15
       rect:
         serializedVersion: 2
         x: 0
@@ -326,7 +384,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_16
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_16
       rect:
         serializedVersion: 2
         x: 16
@@ -337,7 +397,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_17
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_17
       rect:
         serializedVersion: 2
         x: 32
@@ -348,7 +410,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_18
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_18
       rect:
         serializedVersion: 2
         x: 48
@@ -359,7 +423,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_19
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_19
       rect:
         serializedVersion: 2
         x: 64
@@ -370,7 +436,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_20
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_20
       rect:
         serializedVersion: 2
         x: 80
@@ -381,7 +449,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_21
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_21
       rect:
         serializedVersion: 2
         x: 96
@@ -392,7 +462,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_22
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_22
       rect:
         serializedVersion: 2
         x: 112
@@ -403,7 +475,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_23
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_23
       rect:
         serializedVersion: 2
         x: 128
@@ -414,7 +488,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_24
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_24
       rect:
         serializedVersion: 2
         x: 144
@@ -425,7 +501,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_25
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_25
       rect:
         serializedVersion: 2
         x: 0
@@ -436,7 +514,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_26
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_26
       rect:
         serializedVersion: 2
         x: 16
@@ -447,7 +527,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_27
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_27
       rect:
         serializedVersion: 2
         x: 32
@@ -458,7 +540,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_28
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_28
       rect:
         serializedVersion: 2
         x: 48
@@ -469,7 +553,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_29
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_29
       rect:
         serializedVersion: 2
         x: 64
@@ -480,7 +566,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_30
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_30
       rect:
         serializedVersion: 2
         x: 80
@@ -491,7 +579,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_31
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_31
       rect:
         serializedVersion: 2
         x: 96
@@ -502,7 +592,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_32
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_32
       rect:
         serializedVersion: 2
         x: 112
@@ -513,7 +605,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_33
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_33
       rect:
         serializedVersion: 2
         x: 128
@@ -524,7 +618,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_34
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_34
       rect:
         serializedVersion: 2
         x: 144
@@ -535,7 +631,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_35
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_35
       rect:
         serializedVersion: 2
         x: 160
@@ -546,7 +644,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_36
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_36
       rect:
         serializedVersion: 2
         x: 176
@@ -557,7 +657,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_37
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_37
       rect:
         serializedVersion: 2
         x: 192
@@ -568,7 +670,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_38
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_38
       rect:
         serializedVersion: 2
         x: 208
@@ -579,7 +683,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_39
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_39
       rect:
         serializedVersion: 2
         x: 224
@@ -590,7 +696,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_40
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_40
       rect:
         serializedVersion: 2
         x: 0
@@ -601,7 +709,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_41
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_41
       rect:
         serializedVersion: 2
         x: 16
@@ -612,7 +722,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_42
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_42
       rect:
         serializedVersion: 2
         x: 32
@@ -623,7 +735,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_43
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_43
       rect:
         serializedVersion: 2
         x: 48
@@ -634,7 +748,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_44
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_44
       rect:
         serializedVersion: 2
         x: 64
@@ -645,7 +761,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_45
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_45
       rect:
         serializedVersion: 2
         x: 80
@@ -656,7 +774,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_46
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_46
       rect:
         serializedVersion: 2
         x: 96
@@ -667,7 +787,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_47
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_47
       rect:
         serializedVersion: 2
         x: 112
@@ -678,7 +800,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_48
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_48
       rect:
         serializedVersion: 2
         x: 128
@@ -689,7 +813,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_49
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_49
       rect:
         serializedVersion: 2
         x: 144
@@ -700,7 +826,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_50
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_50
       rect:
         serializedVersion: 2
         x: 0
@@ -711,7 +839,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_51
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_51
       rect:
         serializedVersion: 2
         x: 16
@@ -722,7 +852,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_52
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_52
       rect:
         serializedVersion: 2
         x: 32
@@ -733,7 +865,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_53
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_53
       rect:
         serializedVersion: 2
         x: 48
@@ -744,7 +878,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_54
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_54
       rect:
         serializedVersion: 2
         x: 64
@@ -755,7 +891,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_55
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_55
       rect:
         serializedVersion: 2
         x: 80
@@ -766,7 +904,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_56
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_56
       rect:
         serializedVersion: 2
         x: 96
@@ -777,7 +917,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_57
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_57
       rect:
         serializedVersion: 2
         x: 112
@@ -788,7 +930,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_58
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_58
       rect:
         serializedVersion: 2
         x: 128
@@ -799,7 +943,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_59
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_59
       rect:
         serializedVersion: 2
         x: 144
@@ -810,7 +956,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_60
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_60
       rect:
         serializedVersion: 2
         x: 160
@@ -821,7 +969,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_61
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_61
       rect:
         serializedVersion: 2
         x: 176
@@ -832,7 +982,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_62
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_62
       rect:
         serializedVersion: 2
         x: 192
@@ -843,7 +995,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_63
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_63
       rect:
         serializedVersion: 2
         x: 208
@@ -854,7 +1008,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_64
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_64
       rect:
         serializedVersion: 2
         x: 224
@@ -865,7 +1021,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_65
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_65
       rect:
         serializedVersion: 2
         x: 0
@@ -876,7 +1034,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_66
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_66
       rect:
         serializedVersion: 2
         x: 16
@@ -887,7 +1047,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_67
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_67
       rect:
         serializedVersion: 2
         x: 32
@@ -898,7 +1060,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_68
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_68
       rect:
         serializedVersion: 2
         x: 48
@@ -909,7 +1073,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_69
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_69
       rect:
         serializedVersion: 2
         x: 64
@@ -920,7 +1086,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_70
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_70
       rect:
         serializedVersion: 2
         x: 80
@@ -931,7 +1099,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_71
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_71
       rect:
         serializedVersion: 2
         x: 96
@@ -942,7 +1112,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_72
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_72
       rect:
         serializedVersion: 2
         x: 112
@@ -953,7 +1125,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_73
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_73
       rect:
         serializedVersion: 2
         x: 128
@@ -964,7 +1138,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_74
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_74
       rect:
         serializedVersion: 2
         x: 144
@@ -975,7 +1151,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_75
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_75
       rect:
         serializedVersion: 2
         x: 0
@@ -986,7 +1164,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_76
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_76
       rect:
         serializedVersion: 2
         x: 16
@@ -997,7 +1177,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_77
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_77
       rect:
         serializedVersion: 2
         x: 32
@@ -1008,7 +1190,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_78
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_78
       rect:
         serializedVersion: 2
         x: 48
@@ -1019,7 +1203,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_79
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_79
       rect:
         serializedVersion: 2
         x: 64
@@ -1030,7 +1216,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_80
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_80
       rect:
         serializedVersion: 2
         x: 80
@@ -1041,7 +1229,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_81
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_81
       rect:
         serializedVersion: 2
         x: 96
@@ -1052,7 +1242,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_82
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_82
       rect:
         serializedVersion: 2
         x: 112
@@ -1063,7 +1255,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_83
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_83
       rect:
         serializedVersion: 2
         x: 128
@@ -1074,7 +1268,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_84
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_84
       rect:
         serializedVersion: 2
         x: 144
@@ -1085,7 +1281,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_85
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_85
       rect:
         serializedVersion: 2
         x: 160
@@ -1096,7 +1294,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_86
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_86
       rect:
         serializedVersion: 2
         x: 176
@@ -1107,7 +1307,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_87
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_87
       rect:
         serializedVersion: 2
         x: 192
@@ -1118,7 +1320,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_88
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_88
       rect:
         serializedVersion: 2
         x: 208
@@ -1129,7 +1333,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_89
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_89
       rect:
         serializedVersion: 2
         x: 224
@@ -1140,7 +1346,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_90
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_90
       rect:
         serializedVersion: 2
         x: 0
@@ -1151,7 +1359,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_91
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_91
       rect:
         serializedVersion: 2
         x: 16
@@ -1162,7 +1372,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_92
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_92
       rect:
         serializedVersion: 2
         x: 32
@@ -1173,7 +1385,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_93
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_93
       rect:
         serializedVersion: 2
         x: 48
@@ -1184,7 +1398,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_94
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_94
       rect:
         serializedVersion: 2
         x: 64
@@ -1195,7 +1411,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_95
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_95
       rect:
         serializedVersion: 2
         x: 80
@@ -1206,7 +1424,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_96
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_96
       rect:
         serializedVersion: 2
         x: 96
@@ -1217,7 +1437,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_97
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_97
       rect:
         serializedVersion: 2
         x: 112
@@ -1228,7 +1450,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_98
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_98
       rect:
         serializedVersion: 2
         x: 128
@@ -1239,7 +1463,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ToolsAnimation_99
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ToolsAnimation_99
       rect:
         serializedVersion: 2
         x: 144
@@ -1250,6 +1476,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

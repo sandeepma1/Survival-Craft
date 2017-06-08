@@ -51,7 +51,7 @@ public class IGMMenu : MonoBehaviour
 	public void LoadMenuLevelDeleteSaves ()
 	{
 		loadingScreen.SetActive (true);
-		//Bronz.LocalStore.Instance.DeleteAll ();
+		//PlayerPrefs.DeleteAll ();
 		ES2.DeleteDefaultFolder ();
 		SceneManager.LoadScene ("Menu");
 	}

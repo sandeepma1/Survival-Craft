@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-	public MyItem item;
+	public Item item;
 	public int amount = 1;
 	public int durability = 0;
 	public ItemType type;
@@ -53,7 +53,7 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
 	public void SelectedItem ()
 	{
-		//Inventory.m_instance.selectedItem = item;
-		//Inventory.m_instance.PopulateItemInfoBox ();
+		Inventory.m_instance.selectedItem = item;
+		Inventory.m_instance.PopulateItemInfoBox (item.ID);
 	}
 }

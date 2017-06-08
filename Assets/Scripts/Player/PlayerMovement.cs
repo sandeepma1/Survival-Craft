@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 	bool actionButtonPressed = false;
 	//	public float speedTemp = 0;
 	GameObject closestItemGO;
+	public Color visibleColor, nearstColor;
 
 
 	//	List<Collider2D> cols = new List<Collider2D> ();
@@ -307,6 +308,10 @@ public class PlayerMovement : MonoBehaviour
 				other.GetComponent<Animator> ().enabled = true;
 				other.GetComponent<Animator> ().SetTrigger ("shouldMove");
 				break;
+			case "DroppedItem":
+				
+				//Destroy (other.gameObject);
+				break;
 			default:
 				break;
 		}
@@ -336,7 +341,7 @@ public class PlayerMovement : MonoBehaviour
 
 		// Disable item names
 		if (other.gameObject.tag == "Item") {
-			other.gameObject.transform.GetChild (other.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = Color.white;	
+			other.gameObject.transform.GetChild (other.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = visibleColor;	
 			other.gameObject.transform.GetChild (other.gameObject.transform.childCount - 1).gameObject.SetActive (false);
 		}
 	}
@@ -378,10 +383,10 @@ public class PlayerMovement : MonoBehaviour
 					tMin = t.transform;
 					minDist = dist;
 				}
-				t.transform.GetChild (t.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = Color.white;	
+				t.transform.GetChild (t.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = visibleColor;	
 			}
 		}
-		tMin.transform.GetChild (tMin.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = Color.red;
+		tMin.transform.GetChild (tMin.gameObject.transform.childCount - 1).GetComponent <TextMesh> ().color = nearstColor;
 		return tMin;
 	}
 
