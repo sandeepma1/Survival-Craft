@@ -4,8 +4,9 @@ using System.Collections;
 public static class GameEventManager
 {
 	public static Vector2 currentSelectedTilePosition = Vector2.zero;
-	public const float baseStrengthWithTool = 1f;
-	public static float baseStrengthWithoutTool = 2.5f;
+	public const float baseStrengthWithProperTool = 1f;
+	public const float baseStrengthWithAnyTool = 1.75f;
+	public const float baseStrengthWithoutTool = 2.5f;
 	public static int numberOfislands = 0;
 	public static float walkTowardsItemSafeDistance = 0.5f;
 	public static Vector3 dropItemSize = new Vector3 (0.65f, 0.65f, 0.65f);

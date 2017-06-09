@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
 	public Image slotSelectedImage;
 	public List<Item> l_items = new List<Item> ();
 	public List<GameObject> slotsGO = new List<GameObject> ();
-	public Item selectedItem = null;
+	public Item selectedTool = null;
 	public Image selectedItemSprite;
 	public Text selectedItemName, selectedItemDescription;
 	public int selectedSlotID = -1;
@@ -29,6 +29,14 @@ public class Inventory : MonoBehaviour
 	}
 
 	void Start ()
+	{
+		InitializeInventorySlots ();
+		AddFewItems ();
+		SelectFirstSlot ();
+		Crafting.m_instance.CheckHighlight_ALL_CraftableItems ();
+	}
+
+	void InitializeInventorySlots ()
 	{
 		for (int i = 0; i < inventorySlotAmount; i++) {
 			l_items.Add (new Item ());
@@ -48,24 +56,41 @@ public class Inventory : MonoBehaviour
 			slotsGO [i].GetComponent <ChestSlot> ().id = i;
 			slotsGO [i].GetComponent <RectTransform> ().localScale = Vector3.one;
 		}
-
 		myInventory = new InventoryItems[slotsGO.Count];
+	}
 
+	void AddFewItems ()
+	{
 		AddItem (3);
 		AddItem (3);
-		AddItem (3);/*
+		AddItem (3);
 		AddItem (5);
-		AddItem (2);
-		AddItem (2);
-		AddItem (2);
-		AddItem (2);
-		AddItem (2);
-		AddItem (1);
-		AddItem (1);
-		AddItem (1);
-		AddItem (9);
-		AddItem (7);*/
-		Crafting.m_instance.CheckHighlight_ALL_CraftableItems ();
+		AddItem (4);
+		AddItem (5);
+		AddItem (4);
+		AddItem (5);
+		AddItem (4);
+		AddItem (5);
+		AddItem (4);
+		AddItem (5);
+		AddItem (4);
+		AddItem (5);
+		AddItem (4);
+		AddItem (5);
+		AddItem (4);
+		AddItem (17);
+		AddItem (18);
+	}
+
+	void SelectFirstSlot ()
+	{
+		if (slotsGO [0].transform.GetChild (0).CompareTag ("Item")) {
+			selectedTool = slotsGO [0].transform.GetChild (0).GetComponent <InventoryItemData> ().item;
+		} else {
+
+		}
+		InventorySlot firstSlot = slotsGO [0].GetComponent <InventorySlot> ();
+		firstSlot.SelectSlot ();
 	}
 
 	public void AddItem (int id)
@@ -323,18 +348,26 @@ public class Inventory : MonoBehaviour
 		inputFeildAmount = amount;	
 	}
 
-	public void PopulateItemInfoBox (int slotID)
+	public void ItemSelectedInInventory (int slotID)
 	{
 		if (slotsGO [slotID].transform.childCount > 0 && slotsGO [slotID].transform.GetChild (0).CompareTag ("Item")) {
-			selectedItemName.text = slotsGO [slotID].transform.GetChild (0).GetComponent <InventoryItemData> ().item.Name;
-			selectedItemDescription.text = slotsGO [slotID].transform.GetChild (0).GetComponent <InventoryItemData> ().item.Description;
+			selectedTool = slotsGO [slotID].transform.GetChild (0).GetComponent <InventoryItemData> ().item;
+			selectedItemName.text = selectedTool.Name;
+			selectedItemDescription.text = selectedTool.Description;
 			selectedItemSprite.color = new Color (1, 1, 1, 1);
-			selectedItemSprite.sprite = slotsGO [slotID].transform.GetChild (0).GetComponent <InventoryItemData> ().item.Sprite;
+			selectedItemSprite.sprite = selectedTool.Sprite;
+			if (selectedTool.Type == ItemType.Tool || selectedTool.Type == ItemType.Weapon) {
+				PlayerMovement.m_instance.SetPlayerWeaponInHand (selectedTool.Sprite);	
+			} else {
+				PlayerMovement.m_instance.SetPlayerWeaponInHand (new Sprite ());	
+			}
 		} else {
 			selectedItemName.text = "";
 			selectedItemDescription.text = "";
 			selectedItemSprite.color = new Color (0, 0, 0, 0);
+			PlayerMovement.m_instance.SetPlayerWeaponInHand (new Sprite ());	
 		}
+		PlayerMovement.m_instance.ActionCompleted (); // end player's all current action
 	}
 }
 

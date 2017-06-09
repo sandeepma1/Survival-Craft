@@ -53,7 +53,7 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
 	public void SelectedItem ()
 	{
-		Inventory.m_instance.selectedItem = item;
-		Inventory.m_instance.PopulateItemInfoBox (item.ID);
+		Inventory.m_instance.selectedTool = item;
+		Inventory.m_instance.ItemSelectedInInventory (item.ID);
 	}
 }

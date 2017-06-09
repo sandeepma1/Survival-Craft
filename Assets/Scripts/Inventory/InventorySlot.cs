@@ -71,7 +71,7 @@ public class InventorySlot : MonoBehaviour,IDropHandler, IPointerClickHandler,IP
 	{
 		Inventory.m_instance.selectedSlotID = id;
 		if (transform.childCount > 0) {
-			Inventory.m_instance.PopulateItemInfoBox (id);
+			Inventory.m_instance.ItemSelectedInInventory (id);
 		}
 		Inventory.m_instance.slotSelectedImage.transform.parent = this.transform;
 		Inventory.m_instance.slotSelectedImage.GetComponent <RectTransform> ().anchoredPosition = Vector3.zero;

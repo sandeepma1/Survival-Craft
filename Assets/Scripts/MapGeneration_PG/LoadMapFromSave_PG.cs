@@ -176,7 +176,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			mapSize = mapItemsFromSave [i].GetLength (0);
 			for (int x = 0; x < mapSize; x++) {
 				for (int y = 0; y < mapSize; y++) {
-					if (mapItemGO [i] [x, y].id > 0) {
+					if (mapItemGO [i] [x, y].id > 0) {						
 						InstantiateObject (items [mapItemGO [i] [x, y].id], new Vector3 (x, y, 0), mapChunks [i].transform, i, mapItemGO [i] [x, y].id, mapItemGO [i] [x, y].age);	
 					}				
 				}

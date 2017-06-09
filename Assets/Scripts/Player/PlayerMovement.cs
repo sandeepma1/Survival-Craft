@@ -122,6 +122,11 @@ public class PlayerMovement : MonoBehaviour
 		}*/
 	}
 
+	public void SetPlayerWeaponInHand (Sprite sprite)
+	{
+		playerRightWeapon.sprite = sprite;
+	}
+
 	public void CalculateNearestItem (int a, int b, bool isOptimize)
 	{
 		if (isOptimize) {
@@ -174,7 +179,6 @@ public class PlayerMovement : MonoBehaviour
 		ActionManager.m_AC_instance.isReadyToAttack = false;
 		SetAttackAnimation (false);
 		SetSlashingAnimation (false);
-		ActionManager.m_AC_instance.UpdateAllItemsInInventory ();
 		//SetDiggingAnimation (false);
 	}
 

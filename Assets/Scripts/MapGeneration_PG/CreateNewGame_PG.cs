@@ -185,21 +185,12 @@ public partial class CreateNewGame_PG : MonoBehaviour
 					FillArrayBlank (x, y);
 				} else if (map.GetPixel (x, y) == regions [2].colour) { //Sand
 					FillTileInfo (2, x, y);
-					FillItemInfo ("23,-1", x, y, 0.01f); //star fish
+					FillItemInfo ("14,-1", x, y, 0.01f); //star fish
 				} else if (map.GetPixel (x, y) == regions [3].colour) { //Land
 					FillTileInfo (3, x, y);
 					FillLandTilesWithItems (x, y);
 				} else if (map.GetPixel (x, y) == regions [4].colour) { //Stones
 					FillTileInfo (4, x, y);
-					FillArrayBlank (x, y);
-				} else if (map.GetPixel (x, y) == regions [5].colour) { //Stones
-					FillTileInfo (5, x, y);
-					FillArrayBlank (x, y);
-				} else if (map.GetPixel (x, y) == regions [6].colour) { //Stones
-					FillTileInfo (6, x, y);
-					FillArrayBlank (x, y);
-				} else if (map.GetPixel (x, y) == regions [7].colour) { //Stones
-					FillTileInfo (7, x, y);
 					FillArrayBlank (x, y);
 				} else {
 					FillTileInfo (0, x, y);
@@ -211,43 +202,14 @@ public partial class CreateNewGame_PG : MonoBehaviour
 
 	void FillLandTilesWithItems (int x, int y)
 	{
-		int ran = UnityEngine.Random.Range (0, 8);
-		switch (ran) {
-			case 0:
-				FillItemInfo ("5,-1", x, y, 0.7f); //grass
-				break;
-			case 1:
-				FillItemInfo ("1,-1", x, y, 0.09f); // flint
-				break;
-			case 2:
-				FillItemInfo ("6,-1", x, y, 0.25f); //grass1
-				if (!isPlayerPosSET) { // Player Spwan Position first time
-					PlayerPrefs.SetFloat ("PlayerPositionX", x + islandsLocations [0].x);
-					PlayerPrefs.SetFloat ("PlayerPositionY", y + islandsLocations [0].y);
-					isPlayerPosSET = true;
-				}
-				break;
-			case 3:
-				FillItemInfo ("9,-1", x, y, 0.9f); //Stick
-				break;
-			case 4:
-				int ranTree = UnityEngine.Random.Range (0, 4);
-				FillItemInfo (ranTree + 12 + ",1", x, y, 3f); //trees
-				break;
-			case 5:
-				FillItemInfo ("17,8", x, y, 0.1f); //berrybush
-				break;
-			case 6:
-				FillItemInfo ("22,5", x, y, 0.1f); //radishPlant
-				break;
-			case 7:
-				FillItemInfo ("2,-1", x, y, 5f); //rocks
-				break;
-		/*case 8:
-				//FillItemInfo ("28,-1", x, y, 2f); //grass
-				break;*/
-			default:
-				break;
+		int ran = UnityEngine.Random.Range (0, ItemDatabase.m_instance.items.Count);
+		if (ran == 0) {
+			print ("0");
+		}
+		if (ItemDatabase.m_instance.items [ran].SpawnsOnTerrian == 3) {			
+			FillItemInfo (ran + ",-1", x, y, ItemDatabase.m_instance.items [ran].SpawnProbability);
+		} else {
+			FillArrayBlank (x, y);
 		}
 	}
 

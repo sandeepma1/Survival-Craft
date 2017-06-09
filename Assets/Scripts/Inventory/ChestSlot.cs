@@ -72,7 +72,7 @@ public class ChestSlot : MonoBehaviour,IDropHandler, IPointerClickHandler,IPoint
 	{
 		Inventory.m_instance.selectedSlotID = id;
 		if (transform.childCount > 0 && transform.GetChild (0).CompareTag ("Item")) {
-			Inventory.m_instance.PopulateItemInfoBox (id);
+			Inventory.m_instance.ItemSelectedInInventory (id);
 		}
 		Inventory.m_instance.slotSelectedImage.transform.parent = this.transform;
 		Inventory.m_instance.slotSelectedImage.GetComponent <RectTransform> ().anchoredPosition = Vector3.zero;

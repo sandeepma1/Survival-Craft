@@ -67,7 +67,10 @@ public class ItemDatabase : MonoBehaviour
 				IntParse (chars [28]),
 				IntParse (chars [29]),
 				IntParse (chars [30]),
-				IntParse (chars [31])
+				IntParse (chars [31]),
+				IntParse (chars [32]),
+				FloatParse (chars [33]),
+				FloatParse (chars [34]) 
 			));
 		}
 	}
@@ -156,7 +159,15 @@ public class Item
 
 	public int ItemAmount4{ get; set; }
 
+	public int SpawnsOnTerrian{ get; set; }
+
+	public float SpawnProbability{ get; set; }
+
+	public float ToolQuality{ get; set; }
+
 	public Sprite Sprite{ get; set; }
+
+
 
 	//public bool isPlacabel;
 	//public bool flammable;
@@ -170,7 +181,8 @@ public class Item
 	             int itemDrops1, int itemDrop1RateMin, int itemDrop1RateMax, int itemDrops2, int itemDrop2RateMin, 
 	             int itemDrop2RateMax, int itemDrops3, int itemDrop3RateMin, int itemDrop3RateMax, string slug,
 	             string description, int durability, bool isStackable, bool isPlaceable, int itemID1, int itemAmount1, 
-	             int itemID2, int itemAmount2, int itemID3, int itemAmount3, int itemID4, int itemAmount4)
+	             int itemID2, int itemAmount2, int itemID3, int itemAmount3, int itemID4, int itemAmount4,
+	             int spawnsOnTerrian, float spawnProbability, float toolQuality)
 	{
 		ID = itemId;
 		Name = itemName;
@@ -196,14 +208,17 @@ public class Item
 		Durability = durability;
 		IsStackable = isStackable;
 		IsPlaceable = isPlaceable;
-		ItemID1 = ItemID1;
+		ItemID1 = itemID1;
 		ItemAmount1 = itemAmount1;
-		ItemID2 = ItemID2;
+		ItemID2 = itemID2;
 		ItemAmount2 = itemAmount2;
-		ItemID3 = ItemID3;
+		ItemID3 = itemID3;
 		ItemAmount3 = itemAmount3;
-		ItemID4 = ItemID4;
+		ItemID4 = itemID4;
 		ItemAmount4 = itemAmount4;
+		SpawnsOnTerrian = spawnsOnTerrian;
+		SpawnProbability = spawnProbability;
+		ToolQuality = toolQuality;
 		this.Sprite = Resources.Load <Sprite> ("Textures/Inventory/" + slug);
 	}
 

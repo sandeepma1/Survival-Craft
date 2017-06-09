@@ -30,20 +30,8 @@ public class ActionManager : MonoBehaviour
 	void Start ()
 	{
 		//itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
-		currentWeildedItem = new Item ();	
+		//currentWeildedItem = new Item ();	
 		progressBarBG.SetActive (false);
-	}
-
-	public void UpdateAllItemsInInventory ()
-	{
-		/*System.Array.Clear (itemsInInventory, 0, itemsInInventory.Length);
-		itemsInInventory = containerUI.GetComponentsInChildren <Devdog.InventorySystem.InventoryUIItemWrapper> ();
-		foreach (var slot in itemsInInventory) {
-			if (slot.item != null) {
-				slot.itemUseBar.rectTransform.sizeDelta = new Vector2 (slot.item.itemDurability, slot.itemUseBar.rectTransform.rect.height);
-			}
-		}
-		UpdatePlayerWeapon ();*/
 	}
 
 	/*
@@ -107,9 +95,9 @@ public class ActionManager : MonoBehaviour
 
 	void GetCurrentTile ()
 	{
-		if (currentWeildedItem == null) {			
-			currentWeildedItem = tempItem;
-			currentWeildedItem.ID = 0;
+		if (Inventory.m_instance.selectedTool == null) {			
+			Inventory.m_instance.selectedTool = tempItem;
+			Inventory.m_instance.selectedTool.ID = 0;
 			//currentWeildedItem.IsPlaceable = false;
 			//currentWeildedItem.Tool = "Hand";
 			//currentWeildedItem.itemQuality = 1;
@@ -129,10 +117,9 @@ public class ActionManager : MonoBehaviour
 
 	void CalculateHardness ()
 	{
-		print (currentWeildedItem.Name);
 		if (currentSelectedItem.id > 0) {
 			if (ItemDatabase.m_instance.items [currentSelectedItem.id].IsHandMined) {		
-				//print ("Using Bare Hands");
+				print ("Using Bare Hands");
 				PlayerMovement.m_instance.SetPickUpAnimation ();
 				baseTime = 0.35f;
 				baseTimeStatic = baseTime;
@@ -141,50 +128,58 @@ public class ActionManager : MonoBehaviour
 				return;
 			} 
 
-			/*if (currentWeildedItem.rarity.name == ItemDatabase.m_instance.items [currentSelectedItem.id].tool.ToString ()) { // if tool in hand and using tool but not bare hands as above
-				//*********************************Common for all tools********************************************
-				baseTime = (GameEventManager.baseStrengthWithTool * ItemDatabase.m_instance.items [currentSelectedItem.id].hardness) / currentWeildedItem.itemQuality;
-				baseTimeStatic = baseTime;
-				isReadyToAttack = true;
-				//*************************************************************************************************
-				switch (ItemDatabase.m_instance.items [currentSelectedItem.id].tool) {
-					case Item.ItemTool.Hand:
-						//print ("using hands, this will never execute!!");
-						break;
-					case Item.ItemTool.Axe:						
-						PlayerMovement.m_instance.SetSlashingAnimation (true);
-						if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
-							currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().runtimeAnimatorController = treeAnimator;
-						}
-						//print ("using Axe");
-						break;
-					case Item.ItemTool.Pickaxe:
-						PlayerMovement.m_instance.SetSlashingAnimation (true);
-						//print ("using pickaxe");
-						break;
-					case Item.ItemTool.Shovel:
-						PlayerMovement.m_instance.SetDigUpAnimation ();
-						//print ("using shovel");
-						break;
-					case Item.ItemTool.FishingRod:
-						//print ("using FishingRod");
-						break;
-					case Item.ItemTool.Hammer:
-						//print ("using hammer");
-						break;
-					case Item.ItemTool.Hoe:
-						//print ("using hoe");
-						break;
-					case Item.ItemTool.Sword:
-						//print ("using Sword");
-						break;
-					case Item.ItemTool.None:
-						//print ("using none");
-						break;
-					default:
-						break;
+			//*********************************Common for all tools********************************************	
+			if (Inventory.m_instance.selectedTool.Tool == ItemTool.Hand) {
+				baseTime = (GameEventManager.baseStrengthWithoutTool * ItemDatabase.m_instance.items [currentSelectedItem.id].Hardness);
+			} else {
+				if (Inventory.m_instance.selectedTool.Type == ItemType.Tool && Inventory.m_instance.selectedTool.Tool == ItemDatabase.m_instance.items [currentSelectedItem.id].Tool) {
+					baseTime = (GameEventManager.baseStrengthWithProperTool * (ItemDatabase.m_instance.items [currentSelectedItem.id].Hardness) / Inventory.m_instance.selectedTool.ToolQuality);
+				} else if (Inventory.m_instance.selectedTool.Type == ItemType.Tool) {					
+					baseTime = (GameEventManager.baseStrengthWithAnyTool * (ItemDatabase.m_instance.items [currentSelectedItem.id].Hardness) / Inventory.m_instance.selectedTool.ToolQuality);
 				}
-			}*/
+			} 
+			print ("basetime " + baseTime);
+			baseTimeStatic = baseTime;
+			isReadyToAttack = true;
+			//*************************************************************************************************
+			switch (ItemDatabase.m_instance.items [currentSelectedItem.id].Tool) {
+				case ItemTool.Hand:
+						//print ("using hands, this will never execute!!");
+					break;
+				case ItemTool.Axe:						
+					PlayerMovement.m_instance.SetSlashingAnimation (true);
+			/*if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
+						currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().runtimeAnimatorController = treeAnimator;
+					}*/
+						//print ("using Axe");
+					break;
+				case ItemTool.Pickaxe:
+					PlayerMovement.m_instance.SetSlashingAnimation (true);
+						//print ("using pickaxe");
+					break;
+				case ItemTool.Shovel:
+					PlayerMovement.m_instance.SetDigUpAnimation ();
+						//print ("using shovel");
+					break;
+				case ItemTool.FishingRod:
+						//print ("using FishingRod");
+					break;
+				case ItemTool.Hammer:
+						//print ("using hammer");
+					break;
+				case ItemTool.Hoe:
+						//print ("using hoe");
+					break;
+				case ItemTool.Sword:
+						//print ("using Sword");
+					break;
+				case ItemTool.None:
+						//print ("using none");
+					break;
+				default:
+					break;
+			}
+			//}
 		}
 	}
 
@@ -209,12 +204,11 @@ public class ActionManager : MonoBehaviour
 	void Update ()
 	{
 		if (isReadyToAttack) {
-			if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
+			/*if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetTrigger ("isTreeCutting");
-			}
+			}*/
 			baseTime -= Time.deltaTime;
 			progressVal = baseTime / baseTimeStatic;
-
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.3f, 1);
 			progressBarBG.SetActive (true);
 
@@ -264,6 +258,8 @@ public class ActionManager : MonoBehaviour
 		int ran1 = 0;
 		int ran2 = 0;
 		int ran3 = 0;
+		
+		Inventory.m_instance.DecreseWeaponDurability (ItemDatabase.m_instance.items [currentSelectedItem.id].ReduceToolDurability);
 		/*	currentWeildedItem.itemDurability = currentWeildedItem.itemDurability - ItemDatabase.m_instance.items [currentSelectedItem.id].reduceToolDurability;
 		if (currentWeildedItem.itemDurability < 1) {
 			DestoryInventoryItem ();
@@ -274,7 +270,7 @@ public class ActionManager : MonoBehaviour
 		ran2 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].Drop2RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].Drop2RateMax); // calculate random drop rate with min and max drop rate
 		ran3 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].Drop3RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].Drop3RateMax); // calculate random drop rate with min and max drop rate
 
-		switch (currentSelectedItem.id) {
+		/*switch (currentSelectedItem.id) {
 			case 14:
 			case 15:
 				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
@@ -290,7 +286,7 @@ public class ActionManager : MonoBehaviour
 				break;
 			default:				
 				break;
-		}
+		}*/
 
 		if (ItemDatabase.m_instance.items [currentSelectedItem.id].Drops1 >= 0) {
 			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].Drops1, ran1);// drop item upon break
@@ -304,8 +300,7 @@ public class ActionManager : MonoBehaviour
 
 		UpdateItemAndSaveToFile ();  //update Gameobject and save in file
 		currentSelectedItem = new item ();// set current tile position to -1 i.e. invalid
-		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);
-		UpdateAllItemsInInventory ();
+		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);	
 	}
 
 	public void InstansiateDropGameObject (int id, int dropValue)
@@ -314,7 +309,7 @@ public class ActionManager : MonoBehaviour
 		for (int i = 0; i < dropValue; i++) {
 			//GameObject parent = new GameObject ();
 			//parent.name = "parent";
-			Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle;
+			Vector2 ran = GameEventManager.currentSelectedTilePosition + Random.insideUnitCircle / 2;
 			//parent.transform.position = new Vector3 (ran.x, ran.y, 0);
 			GameObject drop = GameObject.Instantiate (droppedItem, new Vector3 (ran.x, ran.y, 0), Quaternion.identity) as GameObject;
 			drop.transform.localScale = GameEventManager.dropItemSize;
@@ -332,11 +327,11 @@ public class ActionManager : MonoBehaviour
 		//print (currentSelectedItem.id);
 		switch (currentSelectedItem.id) {
 			
-			case 14: //Replace Tree with stump
-			case 15: //Replace Tree with stump
+			case 8: //Replace Tree with stump
+			case 9: //Replace Tree with stump
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToStump);
 				break;
-			case 16: //Berry Bush
+			case 99: //Berry Bush implement later
 				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].MaxAge) {
 					currentSelectedItem.age = 3;
 					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Renewable);
