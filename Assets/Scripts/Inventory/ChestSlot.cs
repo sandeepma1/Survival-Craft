@@ -59,7 +59,8 @@ public class ChestSlot : MonoBehaviour,IDropHandler, IPointerClickHandler,IPoint
 	}
 
 	public void OnPointerClick (PointerEventData eventData)
-	{		
+	{
+		
 		SelectSlot ();
 	}
 

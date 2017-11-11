@@ -73,7 +73,8 @@ public class Health : MonoBehaviour
 		bool restAreEmpty = false;
 		int i = 0;
 		
-		foreach (Transform heart in hearts) {			
+		foreach (Transform heart in hearts) {		
+			heart.GetComponent <Image> ().color = new Color (1, 1, 1, 1);	
 			if (restAreEmpty) {
 				heart.GetComponent<Image> ().overrideSprite = heartImages [0]; // heart is empty
 			} else {

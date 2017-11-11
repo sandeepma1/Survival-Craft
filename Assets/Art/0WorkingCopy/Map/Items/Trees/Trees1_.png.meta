@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6902f3ec73bd8f442b3de6579773455c
-timeCreated: 1496502218
+timeCreated: 1497363333
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,7 @@ TextureImporter:
     21300008: Trees1__4
     21300010: Trees1__5
     21300012: Trees1__6
+    21300014: Trees1__7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -172,6 +173,19 @@ TextureImporter:
         height: 48
       alignment: 9
       pivot: {x: 0.5077487, y: 0.09528446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Trees1__7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

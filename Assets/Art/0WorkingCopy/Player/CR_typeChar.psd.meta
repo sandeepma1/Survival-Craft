@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2abaa0377048f8e4badfa6edcbed96d8
-timeCreated: 1495262424
+timeCreated: 1497697230
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: CR_typeChar_1
     21300004: CR_typeChar_2
     21300006: CR_typeChar_3
+    21300008: CR_typeChar_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -130,6 +131,19 @@ TextureImporter:
         height: 9
       alignment: 9
       pivot: {x: 0.50891113, y: 0.20791203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CR_typeChar_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 2
+        width: 4
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

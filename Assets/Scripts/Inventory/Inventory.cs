@@ -13,9 +13,10 @@ public class Inventory : MonoBehaviour
 	public Image slotSelectedImage;
 	public List<Item> l_items = new List<Item> ();
 	public List<GameObject> slotsGO = new List<GameObject> ();
-	public Item selectedTool = null;
-	public Image selectedItemSprite;
-	public Text selectedItemName, selectedItemDescription;
+	public Item playerSelectedTool = null;
+	//public Image selectedItemSprite;
+	public Text selectedItemName;
+	//, selectedItemDescription;
 	public int selectedSlotID = -1;
 	public int maxStackAmount = 10;
 	public Text debug;
@@ -77,7 +78,7 @@ public class Inventory : MonoBehaviour
 		AddItem (5);
 		AddItem (4);
 		AddItem (5);
-		AddItem (4);
+		AddItem (16);
 		AddItem (17);
 		AddItem (18);
 	}
@@ -85,7 +86,7 @@ public class Inventory : MonoBehaviour
 	void SelectFirstSlot ()
 	{
 		if (slotsGO [0].transform.GetChild (0).CompareTag ("Item")) {
-			selectedTool = slotsGO [0].transform.GetChild (0).GetComponent <InventoryItemData> ().item;
+			playerSelectedTool = slotsGO [0].transform.GetChild (0).GetComponent <InventoryItemData> ().item;
 		} else {
 
 		}
@@ -132,6 +133,7 @@ public class Inventory : MonoBehaviour
 		}
 		SaveInventoryItems ();
 		Crafting.m_instance.CheckHighlight_ALL_CraftableItems ();
+
 	}
 
 	void AddNewItemInUI (Item itemsToAdd)
@@ -189,6 +191,7 @@ public class Inventory : MonoBehaviour
 		}
 		//SaveInventoryItems ();
 		Crafting.m_instance.CheckHighlight_ALL_CraftableItems ();
+		ItemSelectedInInventory (selectedSlotID);
 	}
 
 	public void DeleteSelectedItem ()
@@ -199,6 +202,7 @@ public class Inventory : MonoBehaviour
 		}*/
 		DestroyItem (selectedSlotID);
 		Crafting.m_instance.CheckHighlight_ALL_CraftableItems ();
+		ItemSelectedInInventory (selectedSlotID);
 	}
 
 	public void DestroyItem (int id)
@@ -318,8 +322,10 @@ public class Inventory : MonoBehaviour
 	public void DecreseWeaponDurability (int amount)
 	{
 		if (selectedSlotID >= 0 && slotsGO [selectedSlotID].transform.childCount > 0 &&
+		    slotsGO [selectedSlotID].transform.GetChild (0).transform != null &
 		    slotsGO [selectedSlotID].transform.GetChild (0).CompareTag ("Item") &&
 		    slotsGO [selectedSlotID].transform.GetChild (0).GetComponent <InventoryItemData> ().durability >= 0) {
+
 			slotsGO [selectedSlotID].transform.GetChild (0).GetComponent <InventoryItemData> ().DecreaseItemDurability (amount);
 		}
 	}
@@ -350,27 +356,28 @@ public class Inventory : MonoBehaviour
 
 	public void ItemSelectedInInventory (int slotID)
 	{
-		if (slotsGO [slotID].transform.childCount > 0 && slotsGO [slotID].transform.GetChild (0).CompareTag ("Item")) {
-			selectedTool = slotsGO [slotID].transform.GetChild (0).GetComponent <InventoryItemData> ().item;
-			selectedItemName.text = selectedTool.Name;
-			selectedItemDescription.text = selectedTool.Description;
-			selectedItemSprite.color = new Color (1, 1, 1, 1);
-			selectedItemSprite.sprite = selectedTool.Sprite;
-			if (selectedTool.Type == ItemType.Tool || selectedTool.Type == ItemType.Weapon) {
-				PlayerMovement.m_instance.SetPlayerWeaponInHand (selectedTool.Sprite);	
+		if (slotsGO [slotID].transform.childCount > 0 && slotsGO [slotID].transform.GetChild (0).CompareTag ("Item")) { // if some item selected
+			playerSelectedTool = slotsGO [slotID].transform.GetChild (0).GetComponent <InventoryItemData> ().item;
+			selectedItemName.text = playerSelectedTool.Name;
+			//selectedItemDescription.text = playerSelectedTool.Description;
+			//selectedItemSprite.color = new Color (1, 1, 1, 1);
+			//selectedItemSprite.sprite = playerSelectedTool.Sprite;
+			if (playerSelectedTool.Type == ItemType.Tool || playerSelectedTool.Type == ItemType.Weapon) {
+				PlayerMovement.m_instance.SetPlayerWeaponInHand (playerSelectedTool.Sprite);	
 			} else {
 				PlayerMovement.m_instance.SetPlayerWeaponInHand (new Sprite ());	
 			}
-		} else {
+		} else { // if selected slot has nothing
+			playerSelectedTool = new Item ();
 			selectedItemName.text = "";
-			selectedItemDescription.text = "";
-			selectedItemSprite.color = new Color (0, 0, 0, 0);
-			PlayerMovement.m_instance.SetPlayerWeaponInHand (new Sprite ());	
+			//selectedItemDescription.text = "";
+			//selectedItemSprite.color = new Color (0, 0, 0, 0);
+			PlayerMovement.m_instance.SetPlayerWeaponInHand (new Sprite ());
 		}
 		PlayerMovement.m_instance.ActionCompleted (); // end player's all current action
+		PlayerMovement.m_instance.ToggleItemSelectorORItemPlacer (); // Toggle either ItemSelector OR ItemPlacer
 	}
 }
-
 
 [System.Serializable]
 public class InventoryItems

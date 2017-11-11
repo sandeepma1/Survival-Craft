@@ -70,7 +70,7 @@ public class InventorySlot : MonoBehaviour,IDropHandler, IPointerClickHandler,IP
 	public void SelectSlot ()
 	{
 		Inventory.m_instance.selectedSlotID = id;
-		if (transform.childCount > 0) {
+		if (transform.childCount > 0 && transform.GetChild (0).CompareTag ("Item")) {
 			Inventory.m_instance.ItemSelectedInInventory (id);
 		}
 		Inventory.m_instance.slotSelectedImage.transform.parent = this.transform;

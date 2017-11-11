@@ -18,10 +18,10 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
 	{
 		durability -= damage;
 		durabilityPercentage = (durability * 1.0f / item.Durability * 1.0f) * 100;
+		transform.GetChild (1).GetComponent <RectTransform> ().sizeDelta = new Vector2 (durabilityPercentage * 0.9f, 10);
 		if (durability <= 0) {
 			Inventory.m_instance.DeleteSelectedItem ();
-		}
-		transform.GetChild (1).GetComponent <RectTransform> ().sizeDelta = new Vector2 (durabilityPercentage * 0.9f, 10);
+		}				
 	}
 
 	public void OnBeginDrag (PointerEventData eventData)
@@ -51,9 +51,9 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
 		Crafting.m_instance.CheckHighlight_ALL_CraftableItems ();
 	}
 
-	public void SelectedItem ()
+	/*public void SelectedItem ()
 	{
-		Inventory.m_instance.selectedTool = item;
+		Inventory.m_instance.playerSelectedTool = item;
 		Inventory.m_instance.ItemSelectedInInventory (item.ID);
-	}
+	}*/
 }

@@ -25,7 +25,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	{
 		PlayerPrefs.SetInt ("mapChunkPosition", 0);
 		m_instance = this;
-		SetSortingNamesForItems ();
+		//SetSortingNamesForItems ();
 		LoadMapChunks ();
 		LoadMapData ();
 		SpwanObjects ();
@@ -240,7 +240,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.localPosition = new Vector3 (pos.x, pos.y, 0);
 			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id = (sbyte)itemID;
 			mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].age = (sbyte)itemAge;
-
+/*
 			switch (mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].id) {
 				case 11: // Trees
 					spriteName = mapItemGO [islandIndex] [(int)pos.x, (int)pos.y].GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().sprite.name;
@@ -263,7 +263,7 @@ public class LoadMapFromSave_PG : MonoBehaviour
 					break;
 				default:
 					break;
-			}
+			}*/
 
 			//ActionManager.m_AC_instance.currentWeildedItem.ID;
 			/*if (Devdog.InventorySystem.InventoryManager.FindAll (ActionManager.m_AC_instance.currentWeildedItem.ID, false).Count > 0) {
@@ -293,7 +293,6 @@ public class LoadMapFromSave_PG : MonoBehaviour
 	public item GetTile (Vector2 pos)
 	{
 		pos = GetLocalIslandPosition (pos);
-		print (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id);
 		if (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id >= 0) {
 			return mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y];
 		}
@@ -302,8 +301,8 @@ public class LoadMapFromSave_PG : MonoBehaviour
 
 	public void SaveMapItemData (sbyte id, sbyte age, Vector2 pos, onHarvest harvestType)
 	{
-		//pos = GetLocalIslandPosition (pos);
-		/*switch (harvestType) {
+		pos = GetLocalIslandPosition (pos);
+		switch (harvestType) {
 			case onHarvest.Destory:  //Carrots				
 				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
 				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO = null;
@@ -312,11 +311,13 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				break;
 			case onHarvest.RegrowToStump:  // Trees				
 				Destroy (mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO);
-				InstantiateObject (items [11], pos, mapChunks [0].transform, 0, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age);	
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 11;
+				InstantiateObject (items [6], pos, mapChunks [0].transform, 0, 
+					mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x,
+						(int)pos.y].id, mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age);	
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].id = 6;
 				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].age = age;
-				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = 11 + "," + age;
-				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = 11 + "," + age;
+				mapItemGO [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y].GO.name = 6 + "," + age;
+				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = 6 + "," + age;
 				break;
 			case onHarvest.Renewable:  //Berries
 				mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")] [(int)pos.x, (int)pos.y] = id + "," + age;
@@ -328,8 +329,8 @@ public class LoadMapFromSave_PG : MonoBehaviour
 				break;
 			default:
 				break;
-		}*/
-		//ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
+		}
+		ES2.Save (mapItemsFromSave [PlayerPrefs.GetInt ("mapChunkPosition")], mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].name + "i.txt");
 	}
 
 	public Vector2 GetLocalIslandPosition (Vector2 currentPos)
