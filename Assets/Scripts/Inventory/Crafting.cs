@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class Crafting : MonoBehaviour
 {
 	public static Crafting m_instance = null;
-	public GameObject craftPanel;
 	public GameObject craftSlot;
 	public Image slotSelectedImage;
+	public GameObject miniCraftPanel, mainCraftPanel;
+	public int miniCraftAmount, mainCraftAmount;
 	public int[] craftingItems;
 	public List<GameObject> craftingSlotsGO = new List<GameObject> ();
 
@@ -21,19 +22,24 @@ public class Crafting : MonoBehaviour
 
 	void Start ()
 	{		
-		for (int i = 0; i < craftingItems.Length; i++) {		
-			craftingSlotsGO.Add (Instantiate (craftSlot, craftPanel.transform));
+		for (int i = 0; i < miniCraftAmount; i++) {		
+			craftingSlotsGO.Add (Instantiate (craftSlot, miniCraftPanel.transform));
 			craftingSlotsGO [i].GetComponent <CraftingSlot> ().id = i;
 			craftingSlotsGO [i].GetComponent <CraftingSlot> ().itemID = craftingItems [i];
 			craftingSlotsGO [i].GetComponent <RectTransform> ().localScale = Vector3.one;
 			craftingSlotsGO [i].transform.GetChild (0).GetComponent<Image> ().sprite = ItemDatabase.m_instance.items [craftingItems [i]].Sprite;
 		}
-		//CheckHighlight_ALL_CraftableItems ();
+		for (int i = miniCraftAmount; i < miniCraftAmount + mainCraftAmount; i++) {		
+			craftingSlotsGO.Add (Instantiate (craftSlot, mainCraftPanel.transform));
+			craftingSlotsGO [i].GetComponent <CraftingSlot> ().id = i;
+			craftingSlotsGO [i].GetComponent <CraftingSlot> ().itemID = craftingItems [i];
+			craftingSlotsGO [i].GetComponent <RectTransform> ().localScale = Vector3.one;
+			craftingSlotsGO [i].transform.GetChild (0).GetComponent<Image> ().sprite = ItemDatabase.m_instance.items [craftingItems [i]].Sprite;
+		}
 	}
 
 	public void CheckHighlight_ALL_CraftableItems ()
 	{
-		//	print ("checking");
 		for (int i = 0; i < craftingItems.Length; i++) {		
 			if (craftingSlotsGO [i].transform.childCount > 0) {		
 				if (CheckForRequiredItemsInInventory (craftingItems [i])) {

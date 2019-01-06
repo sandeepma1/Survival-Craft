@@ -2,16 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\ActionManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Database\ItemDatabase.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="175" Column="14" />
-      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="145" Column="28" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\CreateNewGame_PG.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="179" Column="40" />
-      <File FileName="Assets\Scripts\Inventory\InventoryItemData.cs" Line="17" Column="24" />
-      <File FileName="Assets\Scripts\Inventory\ArmourSlot.cs" Line="57" Column="26" />
-      <File FileName="Assets\Scripts\Inventory\ChestSlot.cs" Line="75" Column="48" />
-      <File FileName="Assets\Scripts\Inventory\InventorySlot.cs" Line="74" Column="48" />
-      <File FileName="Assets\Scripts\Inventory\Inventory.cs" Line="350" Column="83" />
+      <File FileName="Assets\Scripts\Player\ActionManager.cs" Line="154" Column="16" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="261" Column="5" />
+      <File FileName="Assets\Scripts\MapGeneration_PG\LoadMapFromSave_PG.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HUD\Food\Food.cs" Line="98" Column="66" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -19,11 +13,16 @@
       <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\InventorySystem\Scripts\Modules\Serialization\PlayerPrefsContainerSaverLoader.cs" line="27" column="1" />
       <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\InventorySystem\Scripts\Modules\Serialization\PlayerPrefsCollectionSaverLoader.cs" line="22" column="1" />
       <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\InventorySystem\Scripts\Modules\Serialization\SaverLoaderBase.cs" line="88" column="13" />
-      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\Database\ItemDatabase.cs" line="74" column="1" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\Inventory\Inventory.cs" line="205" column="44" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\Player\ActionManager.cs" line="359" column="35" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\Player\PlayerMovement.cs" line="259" column="3" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\Player\PlayerMovement.cs" line="258" column="1" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\Player\PlayerMovement.cs" line="257" column="1" />
+      <Breakpoint file="C:\GitRepo\SurvivalCraft\Assets\Scripts\Player\PlayerMovement.cs" line="261" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="Assets\Scripts\Inventory\Crafting.cs" line="91" offsetX="716" offsetY="1800" expression="ItemDatabase" liveUpdate="False" />
-    <Watch file="Assets\Scripts\Database\ItemDatabase.cs" line="38" offsetX="383" offsetY="740" expression="items._items[2].ItemID1" liveUpdate="False" />
+    <Watch file="Assets\Scripts\Database\ItemDatabase.cs" line="38" offsetX="1104" offsetY="839" expression="items._items[2].ItemID1" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

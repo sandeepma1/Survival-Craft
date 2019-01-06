@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ActionManager : MonoBehaviour
 {
-	public static ActionManager m_AC_instance = null;
+	public static ActionManager m_instance = null;
 	public SpriteRenderer playerRightHandTool;
 	public Sprite[] weaponsSprite;
 	public GameObject progressBar, progressBarBG;
@@ -13,17 +13,16 @@ public class ActionManager : MonoBehaviour
 	public GameObject[] inventoryItems;
 	public GameObject consumeButtonInUI, containerUI;
 	public RuntimeAnimatorController treeAnimator;
-	public Item currentWeildedItem, tempItem;
 	public GameObject droppedItem;
 	float baseTime = 0.0f, baseTimeStatic, progressVal = 0;
 
-	item currentSelectedItem = new item ();
+	public item currentSelectedItem = new item ();
 	Scene currentScene;
 	//public Devdog.InventorySystem.InventoryUIItemWrapper[] itemsInInventory;
 
 	void Awake ()
 	{
-		m_AC_instance = this;
+		m_instance = this;
 		currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene ();
 	}
 
@@ -90,14 +89,27 @@ public class ActionManager : MonoBehaviour
 
 	public void ActionButtonPressed ()
 	{
-		GetCurrentTile ();
+		if (PlayerMovement.m_instance.IsPlayerBuildingSelected ()) { // if player is building something
+			if (PlayerMovement.m_instance.isBuildingPlacable) {
+				LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (
+					LoadMapFromSave_PG.m_instance.items [Inventory.m_instance.playerSelectedTool.ID].gameObject,
+					PlayerMovement.m_instance.itemPlacer.transform.position, 
+					LoadMapFromSave_PG.m_instance.mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform, PlayerPrefs.GetInt ("mapChunkPosition"),
+					Inventory.m_instance.playerSelectedTool.ID, -1);
+				Inventory.m_instance.RemoveItem (Inventory.m_instance.playerSelectedTool.ID);
+				print ("placed");
+			}
+			return;
+		} else {
+			GetCurrentTile ();
+		}
 	}
 
 	void GetCurrentTile ()
 	{
-		if (Inventory.m_instance.selectedTool == null) {			
-			Inventory.m_instance.selectedTool = tempItem;
-			Inventory.m_instance.selectedTool.ID = 0;
+		if (Inventory.m_instance.playerSelectedTool == null) {			
+			//Inventory.m_instance.playerSelectedTool = tempItem;
+			Inventory.m_instance.playerSelectedTool.ID = 0;
 			//currentWeildedItem.IsPlaceable = false;
 			//currentWeildedItem.Tool = "Hand";
 			//currentWeildedItem.itemQuality = 1;
@@ -129,16 +141,16 @@ public class ActionManager : MonoBehaviour
 			} 
 
 			//*********************************Common for all tools********************************************	
-			if (Inventory.m_instance.selectedTool.Tool == ItemTool.Hand) {
+
+			if (Inventory.m_instance.playerSelectedTool.ID == -1 || Inventory.m_instance.playerSelectedTool.Tool == ItemTool.Hand) {
 				baseTime = (GameEventManager.baseStrengthWithoutTool * ItemDatabase.m_instance.items [currentSelectedItem.id].Hardness);
 			} else {
-				if (Inventory.m_instance.selectedTool.Type == ItemType.Tool && Inventory.m_instance.selectedTool.Tool == ItemDatabase.m_instance.items [currentSelectedItem.id].Tool) {
-					baseTime = (GameEventManager.baseStrengthWithProperTool * (ItemDatabase.m_instance.items [currentSelectedItem.id].Hardness) / Inventory.m_instance.selectedTool.ToolQuality);
-				} else if (Inventory.m_instance.selectedTool.Type == ItemType.Tool) {					
-					baseTime = (GameEventManager.baseStrengthWithAnyTool * (ItemDatabase.m_instance.items [currentSelectedItem.id].Hardness) / Inventory.m_instance.selectedTool.ToolQuality);
+				if (Inventory.m_instance.playerSelectedTool.Type == ItemType.Tool && Inventory.m_instance.playerSelectedTool.Tool == ItemDatabase.m_instance.items [currentSelectedItem.id].Tool) {
+					baseTime = (GameEventManager.baseStrengthWithProperTool * (ItemDatabase.m_instance.items [currentSelectedItem.id].Hardness) / Inventory.m_instance.playerSelectedTool.ToolQuality);
+				} else if (Inventory.m_instance.playerSelectedTool.Type == ItemType.Tool) {					
+					baseTime = (GameEventManager.baseStrengthWithAnyTool * (ItemDatabase.m_instance.items [currentSelectedItem.id].Hardness) / Inventory.m_instance.playerSelectedTool.ToolQuality);
 				}
 			} 
-			print ("basetime " + baseTime);
 			baseTimeStatic = baseTime;
 			isReadyToAttack = true;
 			//*************************************************************************************************
@@ -147,11 +159,7 @@ public class ActionManager : MonoBehaviour
 						//print ("using hands, this will never execute!!");
 					break;
 				case ItemTool.Axe:						
-					PlayerMovement.m_instance.SetSlashingAnimation (true);
-			/*if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
-						currentSelectedItem.GO.transform.GetChild (0).GetComponent <Animator> ().runtimeAnimatorController = treeAnimator;
-					}*/
-						//print ("using Axe");
+					PlayerMovement.m_instance.SetSlashingAnimation (true);			
 					break;
 				case ItemTool.Pickaxe:
 					PlayerMovement.m_instance.SetSlashingAnimation (true);
@@ -201,27 +209,45 @@ public class ActionManager : MonoBehaviour
 			PlayerPrefs.GetInt ("mapChunkPosition"), sbyte.Parse (itemss [0]), sbyte.Parse (itemss [1]));*/
 	}
 
-	void Update ()
-	{
+	void UpdateEverySecond ()
+	{     
 		if (isReadyToAttack) {
-			/*if (currentSelectedItem.id == 14 || currentSelectedItem.id == 15) {
-				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetTrigger ("isTreeCutting");
-			}*/
-			baseTime -= Time.deltaTime;
+			//baseTime -= Time.deltaTime;
+			baseTime--;
+			print (baseTime);
+			if (currentSelectedItem.id == 8 || currentSelectedItem.id == 9) {				
+				currentSelectedItem.GO.GetComponent<Animator> ().SetTrigger ("isTreeCutting");
+			}
 			progressVal = baseTime / baseTimeStatic;
 			progressBar.transform.localScale = new Vector3 (progressVal, 0.3f, 1);
 			progressBarBG.SetActive (true);
-
-			if (baseTime <= 0) {				
+			if (baseTime < 0) {							
 				DropBreakedItem ();
 				isReadyToAttack = false;
 				progressBar.transform.localScale = Vector3.zero;
 				progressBarBG.SetActive (false);
 				PlayerMovement.m_instance.ActionCompleted ();
+				if (currentSelectedItem.id == 8 || currentSelectedItem.id == 9) {
+					print ("TreeFalling");
+					currentSelectedItem.GO.GetComponent<Animator> ().SetTrigger ("TreeFalling");
+				}
 			}
 		} else {
 			progressBar.transform.localScale = Vector3.zero;
 			progressBarBG.SetActive (false);
+		}		
+	}
+
+	private float nextUpdate = 0f;
+
+	void Update ()
+	{
+		if (isReadyToAttack) {
+			if (Time.time >= nextUpdate) {
+				// Call your fonction
+				UpdateEverySecond ();
+				nextUpdate = Time.time + 0.5f;
+			}
 		}
 	}
 
@@ -270,14 +296,14 @@ public class ActionManager : MonoBehaviour
 		ran2 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].Drop2RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].Drop2RateMax); // calculate random drop rate with min and max drop rate
 		ran3 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].Drop3RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].Drop3RateMax); // calculate random drop rate with min and max drop rate
 
-		/*switch (currentSelectedItem.id) {
-			case 14:
-			case 15:
-				currentSelectedItem.GO.transform.GetChild (0).GetComponent<Animator> ().SetBool ("TreeChopped", true); //tree falling animation
-				currentSelectedItem.GO.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);// Fixed issue when stup remains transperent if tree chopped from south facing
+		switch (currentSelectedItem.id) {
+			case 8:
+			case 9:
+				currentSelectedItem.GO.GetComponent<Animator> ().SetTrigger ("TreeFalling"); //tree falling animation
+				//currentSelectedItem.GO.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);// Fixed issue when stup remains transperent if tree chopped from south facing
 				break;
-			case 16:
-			case 21:
+			case 99:
+			case 100:
 				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].MaxAge) {  // if item age is max then drop max else drop 0
 					ran1 = Random.Range (ItemDatabase.m_instance.items [currentSelectedItem.id].Drop1RateMin, ItemDatabase.m_instance.items [currentSelectedItem.id].Drop1RateMax); // calculate random drop rate with min and max drop rate
 				} else {
@@ -286,7 +312,7 @@ public class ActionManager : MonoBehaviour
 				break;
 			default:				
 				break;
-		}*/
+		}
 
 		if (ItemDatabase.m_instance.items [currentSelectedItem.id].Drops1 >= 0) {
 			InstansiateDropGameObject (ItemDatabase.m_instance.items [currentSelectedItem.id].Drops1, ran1);// drop item upon break
@@ -325,13 +351,14 @@ public class ActionManager : MonoBehaviour
 	public void UpdateItemAndSaveToFile ()
 	{
 		//print (currentSelectedItem.id);
-		switch (currentSelectedItem.id) {
-			
+		switch (currentSelectedItem.id) {			
 			case 8: //Replace Tree with stump
 			case 9: //Replace Tree with stump
+				PlayerMovement.m_instance.itemSelector.transform.parent = this.transform;			
+				PlayerMovement.m_instance.DisableItemSelector ();
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToStump);
 				break;
-			case 99: //Berry Bush implement later
+			case 120: //Berry Bush implement later
 				if (currentSelectedItem.age == ItemDatabase.m_instance.items [currentSelectedItem.id].MaxAge) {
 					currentSelectedItem.age = 3;
 					LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Renewable);
@@ -340,11 +367,17 @@ public class ActionManager : MonoBehaviour
 				}
 				break;
 			default:
-				//Debug.Log ("destroying");
+				PlayerMovement.m_instance.itemSelector.transform.parent = this.transform;			
+				PlayerMovement.m_instance.DisableItemSelector ();
 				Destroy (currentSelectedItem.GO);
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
 				break;
 		}
+	}
+
+	IEnumerator LateDestroyItems ()
+	{
+		yield return new WaitForSeconds (0.75f);
 	}
 
 	IEnumerator DropItemsLiveAfterSeconds (GameObject go)

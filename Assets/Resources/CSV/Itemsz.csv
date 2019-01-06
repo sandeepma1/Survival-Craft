@@ -5,13 +5,13 @@ id ,name ,maxAge ,nextStage ,type ,tool ,reduceToolDurability ,hardness ,isHandM
 3,Grass,-1,-1,RawMaterial,Hand,0,0.2,true,0,3,1,1,-1,0,0,-1,0,0,grass,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,1.2,1
 4,Stick,-1,-1,RawMaterial,Hand,0,0.2,true,0,4,1,1,-1,0,0,-1,0,0,stick,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,1,1
 5,Log,-1,-1,RawMaterial,Hand,0,1,true,0,5,1,1,-1,0,0,-1,0,0,log,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,0,0,1
-6,Small Tree,-1,-1,Tree,Axe,4,2,false,0,5,1,3,-1,0,0,-1,0,0,smalltree,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,2,1
-7,Medium Tree,-1,-1,Tree,Axe,6,5,false,0,5,1,3,-1,0,0,-1,0,0,mediumtree,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,2,1
-8,Large Tree,-1,-1,Tree,Axe,8,10,false,0,5,2,4,-1,0,0,-1,0,0,largetree,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,2,1
-9,Mature Tree,-1,-1,Tree,Axe,8,12,false,0,5,2,4,-1,0,0,-1,0,0,maturetree,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,2,1
+6,Stump Tree,-1,-1,Tree,Axe,6,2,false,0,5,1,1,-1,0,0,-1,0,0,stumptree,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,0,0,1
+7,Medium Tree,-1,-1,Tree,Axe,6,5,false,0,5,1,2,-1,0,0,-1,0,0,mediumtree,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,2,1
+8,Large Tree,-1,-1,Tree,Axe,8,10,false,0,5,2,4,4,1,2,-1,0,0,largetree,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,2,1
+9,Mature Tree,-1,-1,Tree,Axe,8,12,false,0,5,2,4,4,1,2,-1,0,0,maturetree,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,2,1
 10,Berries,-1,-1,Food,Hand,0,0.1,true,0,10,1,1,-1,0,0,-1,0,0,berries,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,0,0,1
 11,Berry Bush Small,-1,-1,Plant,Axe,0,0.2,true,0,4,1,1,-1,0,0,-1,0,0,berrybushsmall,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,0.5,1
-12,Berry Bush Mature,-1,-1,Plant,Axe,0,0.2,true,0,10,1,2,-1,0,0,-1,0,0,berrybushmature,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,0.5,1
+12,Berry Bush Mature,-1,-1,Plant,Hand,0,0.2,true,0,10,1,2,-1,0,0,-1,0,0,berrybushmature,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,0.5,1
 13,Radish,-1,-1,Food,Hand,0,0.1,true,0,13,1,1,-1,0,0,-1,0,0,radish,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,3,0.5,1
 14,Star fish,-1,-1,Food,Hand,0,0.5,true,0,14,1,1,-1,0,0,-1,0,0,starfish,Some description,-1,true,false,-1,-1,-1,-1,-1,-1,-1,-1,2,0.5,1
 15,Torch,-1,-1,Build,Hand,1,2,true,0,15,1,1,-1,0,0,-1,0,0,torch,Some description,-1,true,true,-1,-1,-1,-1,-1,-1,-1,-1,0,0,1

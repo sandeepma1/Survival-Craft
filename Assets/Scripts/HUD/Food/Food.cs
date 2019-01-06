@@ -40,7 +40,7 @@ public class Food : MonoBehaviour
 	void DecreaseHungerPerSecond ()
 	{
 		if (GameEventManager.GetState () == GameEventManager.E_STATES.e_game) {			
-			modifyHunger (-0.1f);
+			modifyHunger (-0.5f);
 			//PlayerPrefs.SetFloat ("PlayerHunger", currentHunger);
 		}
 	}
@@ -57,6 +57,7 @@ public class Food : MonoBehaviour
 			newBurger.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (x * spacingX, y * spacingY);
 			newBurger.GetComponent<RectTransform> ().localScale = Vector3.one; //TODO: (QuickFix)converting to vector.one; newHeart is scaling to 1.5,1.5,1
 			newBurger.GetComponent<Image> ().overrideSprite = burgerImages [0];
+
 			burgers.Add (newBurger);
 		}
 		maxHunger += n * hungerPerBurger;
@@ -80,6 +81,7 @@ public class Food : MonoBehaviour
 		int i = 0;
 		
 		foreach (Transform burger in burgers) {			
+			burger.GetComponent <Image> ().color = new Color (1, 1, 1, 1);
 			if (restAreEmpty) {
 				burger.GetComponent<Image> ().overrideSprite = burgerImages [0]; // heart is empty
 			} else {
@@ -93,7 +95,10 @@ public class Food : MonoBehaviour
 					if (imageIndex == 0 && currentBurgerHunger > 0) {
 						imageIndex = 1;
 					}
-//					burger.GetComponent<Image> ().overrideSprite = burgerImages [imageIndex];
+					if (imageIndex >= 0 && imageIndex <= burgerImages.Length - 1) {
+						burger.GetComponent<Image> ().overrideSprite = burgerImages [imageIndex];
+					}
+
 					restAreEmpty = true;
 				}
 			}			

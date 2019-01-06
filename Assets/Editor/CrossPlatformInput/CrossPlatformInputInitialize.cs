@@ -33,7 +33,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                 case BuildTarget.Android:
                 case BuildTarget.iOS:
                 case BuildTarget.WP8Player:
-                case BuildTarget.PSM: 
+                case BuildTarget.PSM:
                 case BuildTarget.WSAPlayer:
                     EditorUtility.DisplayDialog("Mobile Input",
                                                 "You have enabled Mobile Input. You'll need to use the Unity Remote app on a connected device to control your game in the Editor.",
@@ -85,7 +85,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
         private static BuildTargetGroup[] buildTargetGroups = new BuildTargetGroup[]
             {
                 BuildTargetGroup.Standalone,
-                BuildTargetGroup.WebPlayer,
+                BuildTargetGroup.WebGL,
                 BuildTargetGroup.Android,
                 BuildTargetGroup.iOS,
                 BuildTargetGroup.WP8
@@ -96,10 +96,10 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                 BuildTargetGroup.Android,
                 BuildTargetGroup.iOS,
                 BuildTargetGroup.WP8,
-                BuildTargetGroup.PSM, 
+                BuildTargetGroup.PSM,
                 BuildTargetGroup.SamsungTV,
                 BuildTargetGroup.Tizen,
-                BuildTargetGroup.WSA 
+                BuildTargetGroup.WSA
             };
 
 
@@ -116,8 +116,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                         return;
                     }
                     defines.Add(defineName);
-                }
-                else
+                } else
                 {
                     if (!defines.Contains(defineName))
                     {
