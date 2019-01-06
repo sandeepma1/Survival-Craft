@@ -116,8 +116,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                         return;
                     }
                     defines.Add(defineName);
-                }
-                else
+                } else
                 {
                     if (!defines.Contains(defineName))
                     {
