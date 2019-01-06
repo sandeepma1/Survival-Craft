@@ -437,11 +437,11 @@ public class Inventory : MonoBehaviour
             //selectedItemSprite.sprite = playerSelectedTool.Sprite;
             if (playerSelectedTool.Type == ItemType.Tool || playerSelectedTool.Type == ItemType.Weapon)
             {
-                PlayerMovement.m_instance.SetPlayerWeaponInHand(playerSelectedTool.Sprite);
+                PlayerMovement.Instance.SetPlayerWeaponInHand(playerSelectedTool.Sprite);
             }
             else
             {
-                //PlayerMovement.m_instance.SetPlayerWeaponInHand(new Sprite());
+                //PlayerMovement.Instance.SetPlayerWeaponInHand(new Sprite());
             }
         }
         else
@@ -450,10 +450,10 @@ public class Inventory : MonoBehaviour
             selectedItemName.text = "";
             //selectedItemDescription.text = "";
             //selectedItemSprite.color = new Color (0, 0, 0, 0);
-            //PlayerMovement.m_instance.SetPlayerWeaponInHand(new Sprite());
+            //PlayerMovement.Instance.SetPlayerWeaponInHand(new Sprite());
         }
-        PlayerMovement.m_instance.ActionCompleted(); // end player's all current action
-        PlayerMovement.m_instance.ToggleItemSelectorORItemPlacer(); // Toggle either ItemSelector OR ItemPlacer
+        PlayerMovement.Instance.ActionCompleted(); // end player's all current action
+        PlayerMovement.Instance.ToggleItemSelectorORItemPlacer(); // Toggle either ItemSelector OR ItemPlacer
     }
 }
 

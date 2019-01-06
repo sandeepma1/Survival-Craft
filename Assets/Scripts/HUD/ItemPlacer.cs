@@ -29,7 +29,7 @@ public class ItemPlacer : MonoBehaviour
 		//itemPlacer.GetComponent <SpriteRenderer> ().sprite = 
 		//LoadMapFromSave_PG.m_instance.items [ActionManager.m_AC_instance.currentWeildedItem.itemID].gameObject.GetComponent <SpriteRenderer> ().sprite;
 		//HideAllHUD (true);
-		//itemPlacer.transform.position = new Vector3 (PlayerMovement.m_instance.gameObject.transform.position.x, PlayerMovement.m_instance.gameObject.transform.position.y - 1, 0);
+		//itemPlacer.transform.position = new Vector3 (PlayerMovement.Instance.gameObject.transform.position.x, PlayerMovement.Instance.gameObject.transform.position.y - 1, 0);
 		//CheckForItemPlacement ();
 	}
 
@@ -57,7 +57,7 @@ public class ItemPlacer : MonoBehaviour
 		itemPlacerButtons.SetActive (flag);
 		//MoreInventoryButton.m_instance.rightStick.SetActive (!flag);
 		//MoreInventoryButton.m_instance.leftStick.SetActive (!flag);
-		CircleCollider2D[] cols = PlayerMovement.m_instance.GetComponents <CircleCollider2D> ();
+		CircleCollider2D[] cols = PlayerMovement.Instance.GetComponents <CircleCollider2D> ();
 		foreach (var item in cols) {
 			item.enabled = !flag;
 		}

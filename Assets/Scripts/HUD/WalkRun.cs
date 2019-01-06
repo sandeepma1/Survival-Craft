@@ -23,11 +23,11 @@ public class WalkRun : MonoBehaviour
 		if (isRunning) {
 			run.enabled = true;
 			walk.enabled = false;
-			PlayerMovement.m_instance.isRunning = true;
+			PlayerMovement.Instance.isRunning = true;
 		} else {
 			run.enabled = false;
 			walk.enabled = true;
-			PlayerMovement.m_instance.isRunning = false;
+			PlayerMovement.Instance.isRunning = false;
 		}
 	}
 }

@@ -45,7 +45,7 @@ public class ActionManager : MonoBehaviour
 			} else {
 				consumeButtonInUI.SetActive (false);
 			}
-			PlayerMovement.m_instance.CalculateNearestItem (0, 1, false);
+			PlayerMovement.Instance.CalculateNearestItem (0, 1, false);
 			UpdateAllItemsInInventory ();
 		}	
 	}*/
@@ -89,11 +89,11 @@ public class ActionManager : MonoBehaviour
 
 	public void ActionButtonPressed ()
 	{
-		if (PlayerMovement.m_instance.IsPlayerBuildingSelected ()) { // if player is building something
-			if (PlayerMovement.m_instance.isBuildingPlacable) {
+		if (PlayerMovement.Instance.IsPlayerBuildingSelected ()) { // if player is building something
+			if (PlayerMovement.Instance.isBuildingPlacable) {
 				LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (
 					LoadMapFromSave_PG.m_instance.items [Inventory.m_instance.playerSelectedTool.ID].gameObject,
-					PlayerMovement.m_instance.itemPlacer.transform.position, 
+					PlayerMovement.Instance.itemPlacer.transform.position, 
 					LoadMapFromSave_PG.m_instance.mapChunks [PlayerPrefs.GetInt ("mapChunkPosition")].transform, PlayerPrefs.GetInt ("mapChunkPosition"),
 					Inventory.m_instance.playerSelectedTool.ID, -1);
 				Inventory.m_instance.RemoveItem (Inventory.m_instance.playerSelectedTool.ID);
@@ -121,7 +121,7 @@ public class ActionManager : MonoBehaviour
 		} else {
 			print ("No items nearby");
 			currentSelectedItem = new item ();
-			/*if (currentWeildedItem.isPlaceable && !PlayerMovement.m_instance.isRightStick && Devdog.InventorySystem.InventoryManager.FindAll (currentWeildedItem.ID, false).Count > 0) {
+			/*if (currentWeildedItem.isPlaceable && !PlayerMovement.Instance.isRightStick && Devdog.InventorySystem.InventoryManager.FindAll (currentWeildedItem.ID, false).Count > 0) {
 				PlaceItem ();
 			}*/
 		}		
@@ -132,11 +132,11 @@ public class ActionManager : MonoBehaviour
 		if (currentSelectedItem.id > 0) {
 			if (ItemDatabase.m_instance.items [currentSelectedItem.id].IsHandMined) {		
 				print ("Using Bare Hands");
-				PlayerMovement.m_instance.SetPickUpAnimation ();
+				PlayerMovement.Instance.SetPickUpAnimation ();
 				baseTime = 0.35f;
 				baseTimeStatic = baseTime;
 				isReadyToAttack = true;
-				PlayerMovement.m_instance.SetPickUpAnimation ();
+				PlayerMovement.Instance.SetPickUpAnimation ();
 				return;
 			} 
 
@@ -159,14 +159,14 @@ public class ActionManager : MonoBehaviour
 						//print ("using hands, this will never execute!!");
 					break;
 				case ItemTool.Axe:						
-					PlayerMovement.m_instance.SetSlashingAnimation (true);			
+					PlayerMovement.Instance.SetSlashingAnimation (true);			
 					break;
 				case ItemTool.Pickaxe:
-					PlayerMovement.m_instance.SetSlashingAnimation (true);
+					PlayerMovement.Instance.SetSlashingAnimation (true);
 						//print ("using pickaxe");
 					break;
 				case ItemTool.Shovel:
-					PlayerMovement.m_instance.SetDigUpAnimation ();
+					PlayerMovement.Instance.SetDigUpAnimation ();
 						//print ("using shovel");
 					break;
 				case ItemTool.FishingRod:
@@ -201,7 +201,7 @@ public class ActionManager : MonoBehaviour
 	public void PlaceItemByButton ()
 	{
 		/*string[] itemss = currentWeildedItem.itemID.Split (',');
-		ItemPlacer.m_instance.itemPlacer.transform.position = new Vector3 (PlayerMovement.m_instance.gameObject.transform.position.x, PlayerMovement.m_instance.gameObject.transform.position.y - 1, 0);
+		ItemPlacer.m_instance.itemPlacer.transform.position = new Vector3 (PlayerMovement.Instance.gameObject.transform.position.x, PlayerMovement.Instance.gameObject.transform.position.y - 1, 0);
 		MoreInventoryButton.m_instance.ToggleInventorySize ();
 */
 		/*LoadMapFromSave_PG.m_instance.InstantiatePlacedObject (LoadMapFromSave_PG.m_instance.items [sbyte.Parse (itemss [0])], 
@@ -226,7 +226,7 @@ public class ActionManager : MonoBehaviour
 				isReadyToAttack = false;
 				progressBar.transform.localScale = Vector3.zero;
 				progressBarBG.SetActive (false);
-				PlayerMovement.m_instance.ActionCompleted ();
+				PlayerMovement.Instance.ActionCompleted ();
 				if (currentSelectedItem.id == 8 || currentSelectedItem.id == 9) {
 					print ("TreeFalling");
 					currentSelectedItem.GO.GetComponent<Animator> ().SetTrigger ("TreeFalling");
@@ -280,7 +280,7 @@ public class ActionManager : MonoBehaviour
 
 	void DropBreakedItem ()
 	{
-		PlayerMovement.m_instance.SetAttackAnimation (false);
+		PlayerMovement.Instance.SetAttackAnimation (false);
 		int ran1 = 0;
 		int ran2 = 0;
 		int ran3 = 0;
@@ -326,7 +326,7 @@ public class ActionManager : MonoBehaviour
 
 		UpdateItemAndSaveToFile ();  //update Gameobject and save in file
 		currentSelectedItem = new item ();// set current tile position to -1 i.e. invalid
-		PlayerMovement.m_instance.CalculateNearestItem (0, 0, false);	
+		PlayerMovement.Instance.CalculateNearestItem (0, 0, false);	
 	}
 
 	public void InstansiateDropGameObject (int id, int dropValue)
@@ -354,8 +354,8 @@ public class ActionManager : MonoBehaviour
 		switch (currentSelectedItem.id) {			
 			case 8: //Replace Tree with stump
 			case 9: //Replace Tree with stump
-				PlayerMovement.m_instance.itemSelector.transform.parent = this.transform;			
-				PlayerMovement.m_instance.DisableItemSelector ();
+				PlayerMovement.Instance.itemSelector.transform.parent = this.transform;			
+				PlayerMovement.Instance.DisableItemSelector ();
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.RegrowToStump);
 				break;
 			case 120: //Berry Bush implement later
@@ -367,8 +367,8 @@ public class ActionManager : MonoBehaviour
 				}
 				break;
 			default:
-				PlayerMovement.m_instance.itemSelector.transform.parent = this.transform;			
-				PlayerMovement.m_instance.DisableItemSelector ();
+				PlayerMovement.Instance.itemSelector.transform.parent = this.transform;			
+				PlayerMovement.Instance.DisableItemSelector ();
 				Destroy (currentSelectedItem.GO);
 				LoadMapFromSave_PG.m_instance.SaveMapItemData (currentSelectedItem.id, currentSelectedItem.age, GameEventManager.currentSelectedTilePosition, onHarvest.Destory);
 				break;

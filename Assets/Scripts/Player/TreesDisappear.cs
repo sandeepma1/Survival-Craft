@@ -11,7 +11,7 @@ public class TreesDisappear : MonoBehaviour
 				other.transform.parent.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.45f);
 				break;
 			case "Fire":
-				PlayerMovement.m_instance.isPlayerNearFire = true;
+				PlayerMovement.Instance.isPlayerNearFire = true;
 				break;		
 			default:
 				break;
@@ -26,7 +26,7 @@ public class TreesDisappear : MonoBehaviour
 				other.transform.parent.transform.GetChild (1).GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
 				break;		
 			case "Fire":
-				PlayerMovement.m_instance.isPlayerNearFire = false;
+				PlayerMovement.Instance.isPlayerNearFire = false;
 				break;			
 			default:
 				break;
