@@ -1,26 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class FPSDisplay : MonoBehaviour
 {
-	public bool enableFPS = true;
-	public Text fpsText;
-	float deltaTime = 0.0f;
-	float msec;
-	float fps;
-	string text;
+    [SerializeField] private bool enableFPS = true;
+    [SerializeField] private Text fpsText;
+    private float deltaTime = 0.0f;
+    private float msec;
+    private float fps;
+    private string text;
 
- 
-	void LateUpdate ()
-	{
-		if (enableFPS) {
-			deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-			//msec = deltaTime * 1000.0f;
-			fps = 1.0f / deltaTime;
-			//text = string.Format ("{0:0.0} ms ({1:0.} fps)", msec, fps);
-			//fpsText.text = text;
-			fpsText.text = fps.ToString ("F0");
-		}
-	}
+    private void LateUpdate()
+    {
+        if (enableFPS)
+        {
+            deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+            fps = 1.0f / deltaTime;
+            fpsText.text = fps.ToString("F0");
+        }
+    }
 }

@@ -1,16 +1,14 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using System;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 public class ItemDatabase : MonoBehaviour
 {
     public static ItemDatabase m_instance = null;
     public List<Item> items = new List<Item>();
-    string fileName = "Items1";
+    private string fileName = "Items1";
 
-    void Awake()
+    private void Awake()
     {
         m_instance = this;
         ConstructItemDatabase();
@@ -28,7 +26,7 @@ public class ItemDatabase : MonoBehaviour
         return null;
     }
 
-    void ConstructItemDatabase()
+    private void ConstructItemDatabase()
     {
         string[] lines = new string[100];
         string[] chars = new string[100];
@@ -80,7 +78,7 @@ public class ItemDatabase : MonoBehaviour
         print(a);
     }
 
-    int IntParse(string text)
+    private int IntParse(string text)
     {
         int num;
         if (int.TryParse(text, out num))
@@ -88,10 +86,12 @@ public class ItemDatabase : MonoBehaviour
             return num;
         }
         else
+        {
             return 0;
+        }
     }
 
-    float FloatParse(string text)
+    private float FloatParse(string text)
     {
         float result = 0.01f;
         float.TryParse(text, out result);
@@ -103,86 +103,42 @@ public class ItemDatabase : MonoBehaviour
 public class Item
 {
     public int ID { get; set; }
-
     public string Name { get; set; }
-
     public int MaxAge { get; set; }
-
     public int NextStage { get; set; }
-
     public ItemType Type { get; set; }
-
     public ItemTool Tool { get; set; }
-
     public int ReduceToolDurability { get; set; }
-
     public float Hardness { get; set; }
-
     public bool IsHandMined { get; set; }
-
     public float Experience { get; set; }
-
     public int Drops1 { get; set; }
-
     public int Drop1RateMin { get; set; }
-
     public int Drop1RateMax { get; set; }
-
     public int Drops2 { get; set; }
-
     public int Drop2RateMin { get; set; }
-
     public int Drop2RateMax { get; set; }
-
     public int Drops3 { get; set; }
-
     public int Drop3RateMin { get; set; }
-
     public int Drop3RateMax { get; set; }
-
     public string Slug { get; set; }
-
     public string Description { get; set; }
-
     public int Durability { get; set; }
-
     public bool IsStackable { get; set; }
-
     public bool IsPlaceable { get; set; }
-
     public int ItemID1 { get; set; }
-
     public int ItemAmount1 { get; set; }
-
     public int ItemID2 { get; set; }
-
     public int ItemAmount2 { get; set; }
-
     public int ItemID3 { get; set; }
-
     public int ItemAmount3 { get; set; }
-
     public int ItemID4 { get; set; }
-
     public int ItemAmount4 { get; set; }
-
     public int SpawnsOnTerrian { get; set; }
-
     public float SpawnProbability { get; set; }
-
     public float ToolQuality { get; set; }
-
     public Sprite Sprite { get; set; }
 
-
-
-    //public bool isPlacabel;
-    //public bool flammable;
-    //public int blastResistance
-    //public float itemDegrade;
-    //public bool isDegradeable;
-    //public bool isCurrentlyDropped;
-    //public int itemQuality;
     public Item(int itemId, string itemName, int itemMaxAge, int itemNextStage, ItemType itemType, ItemTool itemTool,
                  int itemReduceToolDurability, float itemHardness, bool isItemHandMined, float itemExperience,
                  int itemDrops1, int itemDrop1RateMin, int itemDrop1RateMax, int itemDrops2, int itemDrop2RateMin,

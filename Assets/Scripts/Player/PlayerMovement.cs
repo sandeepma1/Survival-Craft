@@ -1,35 +1,25 @@
-﻿using UnityEngine;
+﻿using Bronz.Ui;
 using CnControls;
+using System;
 using System.Collections;
-using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : Singleton<PlayerMovement>
 {
-    [SerializeField]
-    private GameObject characterGO;
-    [SerializeField]
-    private SpriteRenderer playerHead;
-    [SerializeField]
-    private SpriteRenderer playerEyes;
-    [SerializeField]
-    private SpriteRenderer playerBody;
-    [SerializeField]
-    private SpriteRenderer playerLimbLeft;
-    [SerializeField]
-    private SpriteRenderer playerLimbRight;
-    [SerializeField]
-    private SpriteRenderer playerLegLeft;
-    [SerializeField]
-    private SpriteRenderer playerLegRight;
-    [SerializeField]
-    private SpriteRenderer playerRightWeapon;
-    [SerializeField]
-    private Animator anim;
-    [SerializeField]
-    private GameObject moreButton;
-    [SerializeField]
-    private GameObject actionButtonImage;
+    [SerializeField] private GameObject characterGO;
+    [SerializeField] private SpriteRenderer playerHead;
+    [SerializeField] private SpriteRenderer playerEyes;
+    [SerializeField] private SpriteRenderer playerBody;
+    [SerializeField] private SpriteRenderer playerLimbLeft;
+    [SerializeField] private SpriteRenderer playerLimbRight;
+    [SerializeField] private SpriteRenderer playerLegLeft;
+    [SerializeField] private SpriteRenderer playerLegRight;
+    [SerializeField] private SpriteRenderer playerRightWeapon;
+    [SerializeField] private Animator anim;
+    [SerializeField] private GameObject moreButton;
+    [SerializeField] private GameObject actionButtonImage;
 
     private float speedTemp = 0;
     private float runSpeedMultiplierTemp = 0;
@@ -50,12 +40,9 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     private Vector3 cursorPosition;
     private int attackTempA = 0, attackTempB = 0, calculateNearestTempA = 0, calculateNearestTempB = 0;
-    private item[] playerSurroundings = new item[8];
-    private float attackTime, attackCounter;
     private Vector3 nearestItemPosition = Vector3.zero;
     private bool walkTowards = false;
     private GameObject closestItemGO;
-
 
     private void Awake()
     {
@@ -77,21 +64,11 @@ public class PlayerMovement : Singleton<PlayerMovement>
         //IsCursorEnable (false);
         CircleCollider2D[] cols = GetComponents<CircleCollider2D>();
         CalculateNearestItem(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), false);
+        UiPlayerControlCanvas.OnActionButtonPointerDown += ActionButtonDown;
+        UiPlayerControlCanvas.OnActionButtonPointerUp += ActionButtonUp;
     }
 
-    public void StopPlayer()
-    {
-        anim.SetBool("isWalking", false);
-        GameEventManager.SetState(GameEventManager.E_STATES.e_pause);
-    }
-
-    public void StartPlayer()
-    {
-        anim.SetBool("isWalking", true);
-        GameEventManager.SetState(GameEventManager.E_STATES.e_game);
-    }
-
-    void Update()
+    private void Update()
     {
         if (GameEventManager.GetState() == GameEventManager.E_STATES.e_game)
         {
@@ -120,6 +97,29 @@ public class PlayerMovement : Singleton<PlayerMovement>
                 }
             }
         }
+    }
+
+    private void LateUpdate() // Set player storing order to front and Player Run toggle
+    {
+        playerHead.sortingOrder = (int)(transform.position.y * -10) + 1;
+        playerBody.sortingOrder = (int)(transform.position.y * -10);
+        playerLimbLeft.sortingOrder = (int)(transform.position.y * -10) + 2;
+        playerLimbRight.sortingOrder = (int)(transform.position.y * -10) - 2;
+        playerRightWeapon.sortingOrder = (int)(transform.position.y * -10) - 2;
+        playerLegLeft.sortingOrder = (int)(transform.position.y * -10) + 1;
+        playerLegRight.sortingOrder = (int)(transform.position.y * -10) - 1;
+    }
+
+    public void StopPlayer()
+    {
+        anim.SetBool("isWalking", false);
+        GameEventManager.SetState(GameEventManager.E_STATES.e_pause);
+    }
+
+    public void StartPlayer()
+    {
+        anim.SetBool("isWalking", true);
+        GameEventManager.SetState(GameEventManager.E_STATES.e_game);
     }
 
     public void ToggleItemSelectorORItemPlacer()
@@ -153,17 +153,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
             return true;
         }
         return false;
-    }
-
-    private void LateUpdate() // Set player storing order to front and Player Run toggle
-    {
-        playerHead.sortingOrder = (int)(transform.position.y * -10) + 1;
-        playerBody.sortingOrder = (int)(transform.position.y * -10);
-        playerLimbLeft.sortingOrder = (int)(transform.position.y * -10) + 2;
-        playerLimbRight.sortingOrder = (int)(transform.position.y * -10) - 2;
-        playerRightWeapon.sortingOrder = (int)(transform.position.y * -10) - 2;
-        playerLegLeft.sortingOrder = (int)(transform.position.y * -10) + 1;
-        playerLegRight.sortingOrder = (int)(transform.position.y * -10) - 1;
     }
 
     public void SetPlayerWeaponInHand(Sprite sprite)
@@ -382,16 +371,16 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     public void SavePlayerPosition()
     {
-        PlayerPrefs.SetFloat("PlayerPositionX", transform.position.x);
-        PlayerPrefs.SetFloat("PlayerPositionY", transform.position.y);
+        PlayerPrefs.SetFloat("PlayerPositionX_", transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPositionY_", transform.position.y);
     }
 
     public void GetPlayerPosition()
     {
-        transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPositionX"), PlayerPrefs.GetFloat("PlayerPositionY"), 0);
+        transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPositionX_"), PlayerPrefs.GetFloat("PlayerPositionY_"), 0);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.tag)
         {
@@ -420,7 +409,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         switch (other.tag)
         {
@@ -438,13 +427,13 @@ public class PlayerMovement : Singleton<PlayerMovement>
 		}*/
     }
 
-    IEnumerator DisableItemsAfterTime(Collider2D other)
+    private IEnumerator DisableItemsAfterTime(Collider2D other)
     {
         yield return new WaitForSeconds(1);
         other.GetComponent<Animator>().enabled = false;
     }
 
-    Transform GetClosestItem_Cols(Collider2D[] colliders)
+    private Transform GetClosestItem_Cols(Collider2D[] colliders)
     {
         Transform tMin = null;
         float minDist = Mathf.Infinity;
@@ -464,7 +453,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
         return tMin;
     }
 
-    Transform GetClosestItem_List(List<Collider2D> colliders)
+    private Transform GetClosestItem_List(List<Collider2D> colliders)
     {
         Transform tMin = null;
         float minDist = Mathf.Infinity;
@@ -492,7 +481,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
         return tMin;
     }
 
-    Transform GetClosestItem_Go(GameObject[] gos)
+    private Transform GetClosestItem_Go(GameObject[] gos)
     {
         Transform tMin = null;
         float minDist = Mathf.Infinity;
@@ -515,7 +504,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
         return tMin;
     }
 
-    int GetItemID(string s)
+    private int GetItemID(string s)
     {
         string[] sArray = s.Split(',');
         int a;
