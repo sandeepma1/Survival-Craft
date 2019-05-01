@@ -275,7 +275,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     public void WalkingCalculation(float x, float y)
     {
-        print(ActionManager.m_instance.currentSelectedItem.id);
         actionButtonImage.GetComponent<Image>().sprite =
             ItemDatabase.m_instance.FetchItemByID(LoadMapFromSave_PG.m_instance.GetTile(nearestItemPosition).id).Sprite;
         //ItemDatabase.m_instance.items [ActionManager.m_instance.currentSelectedItem.id].Sprite;	

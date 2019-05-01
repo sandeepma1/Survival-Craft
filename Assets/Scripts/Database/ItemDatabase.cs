@@ -74,8 +74,6 @@ public class ItemDatabase : MonoBehaviour
                 FloatParse(chars[34])
             ));
         }
-        int a = 0;
-        print(a);
     }
 
     private int IntParse(string text)

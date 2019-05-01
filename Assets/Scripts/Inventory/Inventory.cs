@@ -20,16 +20,15 @@ public class Inventory : MonoBehaviour
     public int selectedSlotID = -1;
     public int maxStackAmount = 10;
     public Text debug;
+    private int inputFeildID = -1, inputFeildAmount = -1;
+    private InventoryItems[] myInventory;
 
-    int inputFeildID = -1, inputFeildAmount = -1;
-    InventoryItems[] myInventory;
-
-    void Awake()
+    private void Awake()
     {
         m_instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         InitializeInventorySlots();
         AddFewItems();
@@ -37,7 +36,7 @@ public class Inventory : MonoBehaviour
         Crafting.m_instance.CheckHighlight_ALL_CraftableItems();
     }
 
-    void InitializeInventorySlots()
+    private void InitializeInventorySlots()
     {
         for (int i = 0; i < inventorySlotAmount; i++)
         {
@@ -63,7 +62,7 @@ public class Inventory : MonoBehaviour
         myInventory = new InventoryItems[slotsGO.Count];
     }
 
-    void AddFewItems()
+    private void AddFewItems()
     {
         AddItem(3);
         AddItem(3);
@@ -86,7 +85,7 @@ public class Inventory : MonoBehaviour
         AddItem(18);
     }
 
-    void SelectFirstSlot()
+    private void SelectFirstSlot()
     {
         if (slotsGO[0].transform.GetChild(0).CompareTag("Item"))
         {
@@ -158,7 +157,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-    void AddNewItemInUI(Item itemsToAdd)
+    private void AddNewItemInUI(Item itemsToAdd)
     {
         if (CheckInventoryHasAtleastOneSpace())
         {
@@ -256,7 +255,7 @@ public class Inventory : MonoBehaviour
         l_items[id] = new Item();
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -302,7 +301,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    bool CheckItemInInventory(Item item)
+    private bool CheckItemInInventory(Item item)
     {
         for (int i = 0; i < inventorySlotAmount; i++)
         {
@@ -314,7 +313,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    bool CheckIfSlotHasItem(int slotID)
+    private bool CheckIfSlotHasItem(int slotID)
     {
         if (slotsGO[slotID].transform.childCount > 0 && slotsGO[slotID].transform.GetChild(0).CompareTag("Item"))
         {
@@ -353,7 +352,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    void SaveInventoryItems()
+    private void SaveInventoryItems()
     {
         for (int i = 0; i < slotsGO.Count; i++)
         {
@@ -371,7 +370,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void LoadInventoryItems()
+    private void LoadInventoryItems()
     {
         InventoryItems[] myInventory = new InventoryItems[slotsGO.Count];// = new InventoryItems ();
         for (int i = 0; i < slotsGO.Count; i++)
@@ -461,13 +460,9 @@ public class Inventory : MonoBehaviour
 public class InventoryItems
 {
     public int ID { get; set; }
-
     public int Amount { get; set; }
-
     public int SlotID { get; set; }
-
     public int Health { get; set; }
-
     public InventoryItems(int id, int amount, int slotID, int health)
     {
         this.ID = id;
@@ -475,7 +470,6 @@ public class InventoryItems
         this.SlotID = slotID;
         this.Health = health;
     }
-
     public InventoryItems()
     {
         this.ID = -1;

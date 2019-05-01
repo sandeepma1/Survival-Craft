@@ -123,7 +123,6 @@ public class LoadMapFromSave_PG : MonoBehaviour
     {
         mapItemsFromSave = new string[mapChunks.Length][,];
         mapItemGO = new item[mapChunks.Length][,];
-        print(mapChunks.Length);
         for (int i = 0; i < mapChunks.Length; i++)
         {
             mapItemsFromSave[i] = ES2.Load2DArray<string>(mapChunks[i].name + "i.txt");

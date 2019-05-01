@@ -1,37 +1,31 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.IO;
+using UnityEngine;
 
 public class MapDisplay : MonoBehaviour
 {
-	public Renderer textureRender;
+    [SerializeField] private Renderer textureRender;
 
-	public void DrawTexture (Texture2D texture)
-	{
-		textureRender.sharedMaterial.mainTexture = texture;
-		textureRender.transform.localScale = new Vector3 (texture.width, texture.height, texture.height);
-		//SaveTextureToPNG (texture);
-		//SaveTextureToFile (texture);
-	}
+    public void DrawTexture(Texture2D texture)
+    {
+        textureRender = GetComponent<Renderer>();
+        textureRender.material.mainTexture = texture;
+        textureRender.transform.localScale = new Vector3(texture.width, texture.height, 1);
+    }
 
-	void SaveTextureToPNG (Texture2D tex)
-	{		
-		Texture2D MyTex;
-		MyTex = new Texture2D (tex.width, tex.height);
-		MyTex.SetPixels32 (tex.GetPixels32 ());
-		MyTex.Apply ();
-		byte[] bytes = MyTex.EncodeToPNG ();
-		File.WriteAllBytes (Application.dataPath + ("/aa.png"), bytes);
-		UnityEngine.Object.DestroyImmediate (MyTex);
-	}
+    private void SaveTextureToPNG(Texture2D tex)
+    {
+        Texture2D MyTex;
+        MyTex = new Texture2D(tex.width, tex.height);
+        MyTex.SetPixels32(tex.GetPixels32());
+        MyTex.Apply();
+        byte[] bytes = MyTex.EncodeToPNG();
+        File.WriteAllBytes(Application.dataPath + ("/aa.png"), bytes);
+        DestroyImmediate(MyTex);
+    }
 
-	void SaveTextureToFile (Texture2D tex)
-	{
-		/*for (int i = 0; i < tex.width; i++) {
-			for (int j = 0; j < tex.height; j++) {
-				print (tex.GetPixel (i, j));
-			}
-		}*/
-		ES2.SaveImage (tex, "mytex.png");
-	}
+    private void SaveTextureToFile(Texture2D tex)
+    {
+        ES2.SaveImage(tex, "mytex.png");
+    }
 }
